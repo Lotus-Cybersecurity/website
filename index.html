@@ -1,52 +1,408 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lotus Cybersecurity | Cybersecurity for Small Business</title>
+  <meta name="description" content="Lotus Cybersecurity provides security monitoring, risk management, compliance support, and security assessments for small businesses." />
+  <link rel="icon" type="image/png" sizes="32x32" href="lotus_32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="lotus_16.png" />
+  <link rel="apple-touch-icon" sizes="128x128" href="lotus_128.png" />
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg2: #0f172a;
+      --card: rgba(15, 23, 42, 0.72);
+      --line: rgba(148, 163, 184, 0.18);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #22d3ee;
+      --glow: rgba(56, 189, 248, 0.3);
+    }
 
-<title>Lotus Cybersecurity</title>
+    * { box-sizing: border-box; }
 
-<link rel="icon" type="image/png" sizes="32x32" href="lotus_32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="lotus_16.png">
-<link rel="apple-touch-icon" sizes="128x128" href="lotus_128.png">
+    html { scroll-behavior: smooth; }
 
-<style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(34, 211, 238, 0.12), transparent 28%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      color: var(--text);
+    }
 
-body{
-background-color:#0f172a;
-color:white;
-font-family:Arial;
-text-align:center;
-padding-top:120px;
-}
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-h1{
-font-size:50px;
-}
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 17, 31, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
 
-p{
-font-size:22px;
-color:#cbd5e1;
-}
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
 
-.logo{
-width:200px;
-margin-bottom:30px;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
 
-</style>
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      box-shadow: 0 0 24px var(--glow);
+    }
 
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a,
+    .brand,
+    .button,
+    .ghost-button {
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 88px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.08);
+      color: #bae6fd;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.03;
+      letter-spacing: -1.6px;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .button,
+    .ghost-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .button {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #001018;
+      box-shadow: 0 12px 26px rgba(34, 211, 238, 0.22);
+    }
+
+    .button:hover,
+    .ghost-button:hover { transform: translateY(-1px); }
+
+    .ghost-button {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.75));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 24px 50px rgba(2, 8, 23, 0.4);
+    }
+
+    .hero-card img {
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto 24px;
+      filter: drop-shadow(0 0 22px rgba(56, 189, 248, 0.28));
+    }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .stat strong { color: var(--text); }
+
+    .section {
+      padding: 26px 0 72px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      margin: 0 0 12px;
+      letter-spacing: -0.8px;
+    }
+
+    .section-sub {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 760px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(2, 8, 23, 0.22);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    ul.clean {
+      padding-left: 18px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .cta {
+      padding: 0 0 84px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), rgba(56, 189, 248, 0.05));
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      border-radius: 28px;
+      padding: 34px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 12px;
+      font-size: 34px;
+      letter-spacing: -1px;
+    }
+
+    .cta-box p {
+      margin: 0 auto 22px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--soft);
+      padding: 26px 0 42px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .grid-3,
+      .trust {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <img src="logo.png" alt="Lotus Cybersecurity logo" />
+        <span>Lotus Cybersecurity</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#trust">Why Lotus</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<img src="logo.png" class="logo">
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Cybersecurity for small business</div>
+          <h1>Protect your business without building an in-house security team.</h1>
+          <p>
+            Lotus Cybersecurity helps small businesses strengthen their security posture with risk-focused guidance, practical protection, and a clear path forward.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="mailto:info@lotuscyber.io?subject=Free%20Security%20Assessment">Request a Free Security Assessment</a>
+            <a class="ghost-button" href="#services">View Services</a>
+          </div>
+        </div>
 
-<h1>Lotus Cybersecurity</h1>
+        <div class="hero-card">
+          <img src="logo.png" alt="Lotus Cybersecurity logo" />
+          <div class="stat"><span>Free initial assessment</span><strong>Available</strong></div>
+          <div class="stat"><span>Focus</span><strong>Monitoring • Risk • Compliance</strong></div>
+          <div class="stat"><span>Service area</span><strong>Main Line & Greater Philadelphia</strong></div>
+        </div>
+      </div>
+    </section>
 
-<p>Enterprise-grade cybersecurity for small businesses.</p>
+    <section class="section" id="services">
+      <div class="container">
+        <h2 class="section-title">What Lotus helps with</h2>
+        <p class="section-sub">Built for organizations that need real security support without enterprise-level complexity or overhead.</p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Security Assessments</h3>
+            <p>Baseline reviews of business systems, devices, network exposure, and operational security gaps to help you understand where risk exists right now.</p>
+          </div>
+          <div class="card">
+            <h3>Risk Management</h3>
+            <p>Practical guidance to reduce risk, prioritize improvements, and make smart security decisions that fit your business and budget.</p>
+          </div>
+          <div class="card">
+            <h3>Compliance Support</h3>
+            <p>Help translating security expectations into real action for businesses that need stronger documentation, controls, and accountability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>Website launching soon.</p>
+    <section class="section" id="trust">
+      <div class="container">
+        <h2 class="section-title">Why Lotus</h2>
+        <p class="section-sub">Lotus Cybersecurity is built around trust, discipline, and clear communication. The goal is simple: give local businesses stronger protection and a more confident security posture.</p>
+        <div class="trust">
+          <div class="card">
+            <h3>What clients can expect</h3>
+            <ul class="clean">
+              <li>Clear findings without jargon overload</li>
+              <li>Practical recommendations that match your environment</li>
+              <li>A security-first mindset grounded in accountability</li>
+              <li>Professional communication and documented follow-through</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Current focus</h3>
+            <ul class="clean">
+              <li>Small business security readiness</li>
+              <li>Risk reduction and operational hardening</li>
+              <li>Future monitoring and automation services</li>
+              <li>Long-term development of the Blossom platform</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>Contact: info@lotuscyber.io</p>
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Start with a free security assessment.</h2>
+          <p>Get an initial conversation about your environment, your current risks, and the next steps that would make the biggest difference.</p>
+          <div class="hero-actions" style="justify-content:center; margin-top:0;">
+            <a class="button" href="mailto:info@lotuscyber.io?subject=Free%20Security%20Assessment">Email Lotus Cybersecurity</a>
+            <a class="ghost-button" href="https://github.com/Lotus-Cybersecurity/website" target="_blank" rel="noreferrer">View Website Repo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <div class="container">© 2026 Lotus Cybersecurity LLC • Main Line, Pennsylvania</div>
+  </footer>
 </body>
 </html>
