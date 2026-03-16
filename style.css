@@ -1,9 +1,11 @@
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, Helvetica, sans-serif;
 background:#020a17;
 color:white;
 }
+
+/* animated background canvas */
 
 canvas{
 position:fixed;
@@ -11,6 +13,8 @@ top:0;
 left:0;
 z-index:-1;
 }
+
+/* NAV */
 
 nav{
 background:#05142a;
@@ -30,6 +34,7 @@ margin:auto;
 display:flex;
 align-items:center;
 gap:10px;
+font-weight:bold;
 }
 
 .logo img{
@@ -40,26 +45,55 @@ width:40px;
 margin-left:20px;
 color:#9fdcff;
 text-decoration:none;
+font-size:15px;
 }
+
+.nav-links a:hover{
+color:white;
+}
+
+/* HERO */
 
 .hero{
 padding:120px 20px;
-text-align:center;
+}
+
+.hero-content{
+display:flex;
+align-items:center;
+justify-content:center;
+max-width:1200px;
+margin:auto;
+gap:60px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:550px;
 }
 
 .hero h1{
 font-size:50px;
 margin-bottom:20px;
+line-height:1.1;
 }
 
 .hero p{
 font-size:20px;
 color:#bcdcff;
+line-height:1.6;
 }
 
 .hero-buttons{
 margin-top:30px;
 }
+
+.hero-image img{
+width:380px;
+filter:drop-shadow(0 0 30px rgba(59,228,255,0.35));
+}
+
+/* BUTTONS */
 
 .btn{
 background:#3be4ff;
@@ -68,6 +102,12 @@ color:black;
 text-decoration:none;
 border-radius:5px;
 margin:5px;
+font-weight:bold;
+display:inline-block;
+}
+
+.btn:hover{
+background:#6ef0ff;
 }
 
 .btn-outline{
@@ -76,12 +116,27 @@ padding:12px 25px;
 color:#3be4ff;
 text-decoration:none;
 border-radius:5px;
+display:inline-block;
 }
+
+.btn-outline:hover{
+background:#3be4ff;
+color:black;
+}
+
+/* SECTIONS */
 
 section{
 padding:80px 20px;
 text-align:center;
 }
+
+section h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+/* CARDS */
 
 .cards{
 display:flex;
@@ -93,38 +148,86 @@ margin-top:40px;
 
 .card{
 background:#081b33;
-padding:25px;
-border-radius:8px;
+padding:30px;
+border-radius:10px;
 width:280px;
+transition:0.2s;
+border:1px solid rgba(100,200,255,0.05);
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:#3be4ff;
 }
 
 .price{
 font-size:28px;
 color:#3be4ff;
+margin:10px 0;
 }
 
 .card ul{
 list-style:none;
 padding:0;
+margin-top:15px;
 }
 
 .card li{
 margin:10px 0;
+color:#bcdcff;
 }
+
+/* BLOSSOM */
 
 .blossom-text{
 max-width:700px;
 margin:auto;
 color:#a9cfff;
+line-height:1.6;
 }
 
 .blossom-img img{
-width:300px;
-margin-top:30px;
+width:340px;
+margin-top:40px;
+filter:drop-shadow(0 0 30px rgba(255,150,255,0.35));
 }
+
+/* CONTACT */
+
+#contact p{
+color:#bcdcff;
+}
+
+/* FOOTER */
 
 footer{
 padding:40px;
 text-align:center;
 color:#89a;
+font-size:14px;
+border-top:1px solid #123;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+
+.hero-content{
+flex-direction:column;
+text-align:center;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+.hero-image img{
+width:280px;
+}
+
+.cards{
+flex-direction:column;
+align-items:center;
+}
+
 }
