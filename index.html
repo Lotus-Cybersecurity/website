@@ -1,204 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Lotus Cybersecurity</title>
-
-<meta name="description" content="Lotus Cybersecurity helps small businesses strengthen their security through assessments, system hardening, and monitoring.">
-
-<link rel="icon" type="image/png" sizes="16x16" href="lotus_16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="lotus_32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="lotus_64.png">
-<link rel="icon" type="image/png" sizes="128x128" href="lotus_128.png">
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lotus Cybersecurity | Home</title>
+  <meta name="description" content="Enterprise-grade cybersecurity for real businesses. Free security assessments, system hardening, compliance, and managed security monitoring." />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <div class="grid-bg"></div>
 
-<canvas id="network"></canvas>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="Lotus Cybersecurity logo" class="brand-logo" />
+        <span>LOTUS CYBERSECURITY</span>
+      </a>
 
-<nav>
+      <nav class="site-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="future-tech.html">Future Tech</a>
+        <a href="threat-center.html">Threat Center</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Free Assessment</a>
+      </nav>
 
-<div class="nav-container">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
 
-<div class="logo">
-<img src="logo.png" alt="Lotus Cybersecurity Logo">
-<span>Lotus Cybersecurity</span>
-</div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="future-tech.html">Future Tech</a>
+      <a href="threat-center.html">Threat Center</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Free Assessment</a>
+    </div>
+  </header>
 
-<div class="nav-links">
-<a href="#services">Services</a>
-<a href="#pricing">Pricing</a>
-<a href="#blossom">Blossom AI</a>
-<a href="#contact">Contact</a>
-</div>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">ENTERPRISE-GRADE SECURITY FOR REAL BUSINESSES</p>
+          <h1>Cybersecurity for the Businesses That Keep the World Running</h1>
+          <p class="hero-copy">
+            Lotus helps offices, retail locations, medical and professional practices, and growing teams
+            reduce risk through security assessments, system hardening, compliance support, and managed protection.
+          </p>
 
-</div>
+          <div class="hero-actions">
+            <a href="contact.html" class="btn btn-primary">Get Free Security Assessment</a>
+            <a href="future-tech.html" class="btn btn-secondary">Explore Future Tech</a>
+          </div>
 
-</nav>
+          <div class="hero-stats">
+            <div class="glass stat-card">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Security Focus</span>
+            </div>
+            <div class="glass stat-card">
+              <span class="stat-number">SMB</span>
+              <span class="stat-label">Business Protection</span>
+            </div>
+            <div class="glass stat-card">
+              <span class="stat-number">Free</span>
+              <span class="stat-label">Initial Assessment</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="hero-visual">
+          <div class="hero-image-shell glass glow-border">
+            <img src="blossom-hero.png" alt="Futuristic Lotus cyber assistant Blossom" class="hero-image" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="hero">
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">WHY LOTUS</p>
+          <h2>Built for organizations that need real protection, not empty buzzwords</h2>
+          <p>
+            Many businesses operate without the protection that larger enterprises take for granted.
+            Weak credentials, outdated devices, flat networks, and poor visibility leave small organizations exposed.
+            Lotus closes that gap with practical, high-impact security services.
+          </p>
+        </div>
 
-<div class="hero-content">
+        <div class="card-grid three">
+          <div class="glass info-card">
+            <h3>Practical Security</h3>
+            <p>We focus on real-world risk reduction: systems, identities, devices, networks, and operational security.</p>
+          </div>
+          <div class="glass info-card">
+            <h3>Clear Guidance</h3>
+            <p>No vague reports. No fluff. Clients get straightforward findings, recommendations, and next steps.</p>
+          </div>
+          <div class="glass info-card">
+            <h3>Future-Focused</h3>
+            <p>Lotus pairs human judgment with modern tools, intelligent workflows, and a long-term AI vision through Blossom.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="hero-text">
+    <section class="section alt-section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">CORE SERVICES</p>
+          <h2>Security services designed for real businesses</h2>
+        </div>
 
-<h1>Cybersecurity Built for Small Business</h1>
+        <div class="card-grid two">
+          <div class="glass service-card">
+            <h3>Free Security Assessment</h3>
+            <p>Initial review of your environment to identify visible weaknesses, outdated systems, risky settings, and obvious attack paths.</p>
+          </div>
+          <div class="glass service-card">
+            <h3>System Hardening</h3>
+            <p>Secure configuration of endpoints, routers, Microsoft 365, remote access, and business-critical systems.</p>
+          </div>
+          <div class="glass service-card">
+            <h3>Compliance Support</h3>
+            <p>Help aligning with common security expectations, documentation needs, and baseline control requirements.</p>
+          </div>
+          <div class="glass service-card">
+            <h3>Managed Security Monitoring</h3>
+            <p>Ongoing visibility, patch oversight, vulnerability checks, endpoint coverage, and threat-focused operational support.</p>
+          </div>
+        </div>
 
-<p>
-Lotus Cybersecurity helps small businesses and growing teams understand their risks,
-strengthen their systems, and stay protected as they grow.
-We focus on practical protection, clear visibility, and real-world improvements.
-</p>
+        <div class="center-wrap">
+          <a href="services.html" class="btn btn-secondary">View All Services</a>
+        </div>
+      </div>
+    </section>
 
-<div class="hero-buttons">
-<a href="#contact" class="btn">Free Security Assessment</a>
-<a href="#services" class="btn-outline">Explore Services</a>
-</div>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">WHO WE SERVE</p>
+          <h2>Security for the organizations people rely on every day</h2>
+        </div>
 
-</div>
+        <div class="pill-grid">
+          <div class="glass pill">Offices</div>
+          <div class="glass pill">Retail Businesses</div>
+          <div class="glass pill">Medical & Professional Practices</div>
+          <div class="glass pill">Community Organizations</div>
+          <div class="glass pill">Multi-Location Businesses</div>
+          <div class="glass pill">Service Companies</div>
+        </div>
+      </div>
+    </section>
 
-<div class="hero-image">
-<img src="blossom-hero.png" alt="Blossom AI Guide">
-</div>
+    <section class="section alt-section">
+      <div class="container preview-grid">
+        <div class="glass preview-card">
+          <p class="eyebrow">FUTURE TECH</p>
+          <h2>Blossom: Intelligent Security Assistance</h2>
+          <p>
+            Blossom represents Lotus’ long-term vision for AI-assisted threat visibility, alert prioritization,
+            and client-facing security intelligence.
+          </p>
+          <a href="future-tech.html" class="btn btn-primary">See Future Tech</a>
+        </div>
 
-</div>
+        <div class="glass preview-card">
+          <p class="eyebrow">THREAT CENTER</p>
+          <h2>Global cyber activity, visualized</h2>
+          <p>
+            Show clients the scale of the modern threat landscape with a live cyber threat map experience
+            inspired by enterprise command centers.
+          </p>
+          <a href="threat-center.html" class="btn btn-primary">Open Threat Center</a>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <section class="section cta-section">
+      <div class="container">
+        <div class="glass cta-box">
+          <p class="eyebrow">START HERE</p>
+          <h2>Start with a free security assessment</h2>
+          <p>Understand your risks before attackers do.</p>
+          <a href="contact.html" class="btn btn-primary">Request Assessment</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>LOTUS CYBERSECURITY</h3>
+        <p>Modern cybersecurity for offices, retail, professional practices, and growing teams.</p>
+      </div>
 
-<section id="services">
+      <div>
+        <h4>Navigation</h4>
+        <a href="services.html">Services</a>
+        <a href="future-tech.html">Future Tech</a>
+        <a href="threat-center.html">Threat Center</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
 
-<h2>How Lotus Works</h2>
+      <div>
+        <h4>Action</h4>
+        <a href="contact.html">Request Free Assessment</a>
+      </div>
+    </div>
+  </footer>
 
-<div class="cards">
-
-<div class="card">
-<h3>Security Assessment</h3>
-<p>
-We evaluate your systems, devices, and network environment
-to identify potential security risks and weaknesses.
-</p>
-</div>
-
-<div class="card">
-<h3>System Hardening</h3>
-<p>
-Once risks are identified, we improve configurations,
-tighten security controls, and strengthen your environment.
-</p>
-</div>
-
-<div class="card">
-<h3>Monitoring & Support</h3>
-<p>
-Ongoing visibility and monitoring help your business stay protected
-as technology and threats evolve.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section id="pricing">
-
-<h2>Simple Pricing</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Starter Assessment</h3>
-<p class="price">$199</p>
-<ul>
-<li>Basic environment review</li>
-<li>Device inventory</li>
-<li>Security summary</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Small Business Review</h3>
-<p class="price">$399</p>
-<ul>
-<li>Up to 5 business devices</li>
-<li>Network review</li>
-<li>Risk report</li>
-</ul>
-</div>
-
-<div class="card">
-<h3>Business Security Review</h3>
-<p class="price">$899</p>
-<ul>
-<li>Full environment analysis</li>
-<li>Remediation roadmap</li>
-<li>Security posture report</li>
-</ul>
-</div>
-
-</div>
-
-</section>
-
-
-<section id="blossom">
-
-<h2>Meet Blossom</h2>
-
-<p class="blossom-text">
-Blossom represents the intelligence behind Lotus Cybersecurity.
-She reflects our belief that advanced security should feel approachable
-and understandable for the people running real businesses.
-</p>
-
-<p class="blossom-text">
-Cybersecurity often feels overly technical and disconnected.
-Lotus was created to change that by focusing on clarity,
-practical protection, and human-centered security.
-</p>
-
-<div class="blossom-img">
-<img src="blossom-hero.png" alt="Blossom AI">
-</div>
-
-</section>
-
-
-<section id="contact">
-
-<h2>Start Your Security Assessment</h2>
-
-<p>
-If you're unsure how secure your systems are,
-Lotus Cybersecurity can help you understand your risks
-and take practical steps toward stronger protection.
-</p>
-
-<p>Email: info@lotuscyber.io</p>
-
-<a class="btn" href="mailto:info@lotuscyber.io">
-Request Assessment
-</a>
-
-</section>
-
-
-<footer>
-
-<p>© 2026 Lotus Cybersecurity</p>
-
-</footer>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
