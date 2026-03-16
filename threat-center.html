@@ -1,138 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lotus Cybersecurity | Threat Center</title>
-  <meta name="description" content="Lotus Threat Center with command-center styling and direct access to Radware's live global threat map." />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lotus Cybersecurity | Threat Center</title>
+
+<meta name="description" content="Lotus Cybersecurity Threat Center with live global attack visibility and threat intelligence context." />
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.threat-hero{
+padding:110px 0 70px;
+position:relative;
+overflow:hidden;
+}
+
+.threat-hero::before{
+content:"";
+position:absolute;
+inset:-10%;
+background:
+radial-gradient(circle at 15% 25%, rgba(122,215,255,0.18), transparent 20%),
+radial-gradient(circle at 80% 20%, rgba(111,90,255,0.12), transparent 20%),
+radial-gradient(circle at 55% 78%, rgba(122,215,255,0.08), transparent 18%);
+pointer-events:none;
+}
+
+.threat-hero h1{
+margin:0 0 18px;
+font-size:clamp(2.8rem, 5vw, 4.6rem);
+letter-spacing:-0.04em;
+line-height:1.02;
+}
+
+.threat-copy{
+color:var(--muted);
+font-size:1.08rem;
+max-width:760px;
+}
+
+.map-launch{
+margin-top:40px;
+padding:32px;
+text-align:center;
+}
+
+.map-launch h3{
+margin-top:0;
+margin-bottom:10px;
+}
+
+.map-launch p{
+color:var(--muted);
+max-width:620px;
+margin:auto;
+margin-bottom:20px;
+}
+
+.attack-preview{
+margin-top:30px;
+height:280px;
+border-radius:18px;
+position:relative;
+overflow:hidden;
+background:#07111f;
+border:1px solid rgba(122,215,255,0.14);
+}
+
+.attack-preview::before{
+content:"";
+position:absolute;
+inset:0;
+background-image:
+radial-gradient(rgba(122,215,255,0.5) 1px, transparent 1px);
+background-size:24px 24px;
+opacity:0.12;
+}
+
+.scanline{
+position:absolute;
+top:-20%;
+left:0;
+width:100%;
+height:100px;
+background:linear-gradient(
+180deg,
+rgba(122,215,255,0),
+rgba(122,215,255,0.18),
+rgba(122,215,255,0)
+);
+animation:scan 5s linear infinite;
+}
+
+.attack-node{
+position:absolute;
+width:10px;
+height:10px;
+border-radius:50%;
+background:#ff3b3b;
+box-shadow:0 0 10px red;
+}
+
+.node1{top:40px;left:120px;}
+.node2{top:120px;left:400px;}
+.node3{top:200px;left:250px;}
+.node4{top:90px;right:200px;}
+.node5{bottom:60px;right:100px;}
+
+@keyframes scan{
+0%{top:-20%;}
+100%{top:120%;}
+}
+
+.threat-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+margin-top:50px;
+}
+
+.threat-card{
+padding:28px;
+}
+
+.threat-card h3{
+margin-top:0;
+margin-bottom:10px;
+}
+
+.threat-card p{
+color:var(--muted);
+margin-bottom:0;
+}
+
+.real-world{
+margin-top:50px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:22px;
+}
+
+.real-card{
+padding:30px;
+}
+
+.real-card h3{
+margin-top:0;
+margin-bottom:12px;
+}
+
+.real-card p,
+.real-card li{
+color:var(--muted);
+}
+
+.real-card ul{
+padding-left:18px;
+margin:0;
+}
+
+@media(max-width:900px){
+
+.threat-grid,
+.real-world{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
 </head>
+
 <body>
-  <div class="grid-bg"></div>
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand">
-        <img src="logo.png" alt="Lotus Cybersecurity logo" class="brand-logo" />
-        <span>LOTUS CYBERSECURITY</span>
-      </a>
+<div class="grid-bg"></div>
 
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="future-tech.html">Future Tech</a>
-        <a href="threat-center.html" class="active">Threat Center</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="nav-cta">Free Assessment</a>
-      </nav>
+<header class="site-header">
+<div class="container nav-wrap">
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-    </div>
+<a href="index.html" class="brand">
+<img src="logo.png" class="brand-logo">
+<span>LOTUS CYBERSECURITY</span>
+</a>
 
-    <div class="mobile-nav" id="mobileNav">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="future-tech.html">Future Tech</a>
-      <a href="threat-center.html">Threat Center</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Free Assessment</a>
-    </div>
-  </header>
+<nav class="site-nav">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="future-tech.html">Future Tech</a>
+<a href="threat-center.html" class="active">Threat Center</a>
+<a href="about.html">About</a>
+<a href="contact.html" class="nav-cta">Book Assessment</a>
+</nav>
 
-  <main class="page-main">
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">THREAT CENTER</p>
-        <h1>Global cyber threat visibility</h1>
-        <p class="page-copy">
-          The Threat Center is designed to give visitors a command-center experience while connecting them to real-world
-          attack activity through Radware’s live global threat map.
-        </p>
-      </div>
-    </section>
+</div>
+</header>
 
-    <section class="section">
-      <div class="container">
-        <div class="glass map-card">
-          <div class="map-header">
-            <div>
-              <h2>Live Global Threat Map</h2>
-              <p>Direct access to Radware’s real-time cyber threat visualization.</p>
-            </div>
-            <a href="https://livethreatmap.radware.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-              Open Radware Threat Map
-            </a>
-          </div>
+<main>
 
-          <div class="map-placeholder">
-            <div class="scanner-line"></div>
-            <div class="map-dots"></div>
-            <div class="map-center-content">
-              <h3>Launch Live Attack Activity</h3>
-              <p>
-                Due to Radware’s security restrictions, the map opens directly in a new tab rather than embedding inside this page.
-                That ensures visitors see the real live map instead of a broken frame.
-              </p>
-              <a href="https://livethreatmap.radware.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                Launch Live Map
-              </a>
-            </div>
-            <div class="map-overlay-text">GLOBAL THREAT VISIBILITY</div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="threat-hero">
+<div class="container">
 
-    <section class="section alt-section">
-      <div class="container card-grid three">
-        <div class="glass info-card">
-          <h3>Phishing</h3>
-          <p>Email-based attacks remain one of the most common ways threat actors gain initial access to organizations of every size.</p>
-        </div>
-        <div class="glass info-card">
-          <h3>Unpatched Systems</h3>
-          <p>Outdated devices, software, and internet-facing services continue to create simple openings for compromise.</p>
-        </div>
-        <div class="glass info-card">
-          <h3>Weak Credentials</h3>
-          <p>Stolen passwords, poor account hygiene, and weak identity protections remain some of the fastest paths to breach.</p>
-        </div>
-      </div>
-    </section>
+<p class="eyebrow">THREAT CENTER</p>
 
-    <section class="section">
-      <div class="container">
-        <div class="glass cta-box">
-          <h2>What this means for real businesses</h2>
-          <p>
-            Most successful attacks do not begin with movie-level hacking. They begin with simple weaknesses:
-            reused passwords, exposed services, unmanaged devices, outdated software, and limited visibility.
-            Lotus helps businesses reduce those openings before they become incidents.
-          </p>
-          <a href="contact.html" class="btn btn-primary">Reduce Your Exposure</a>
-        </div>
-      </div>
-    </section>
-  </main>
+<h1>Global Cyber Activity Never Stops</h1>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>LOTUS CYBERSECURITY</h3>
-        <p>Turning global threat awareness into practical business protection.</p>
-      </div>
-      <div>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="future-tech.html">Future Tech</a>
-        <a href="about.html">About</a>
-      </div>
-      <div>
-        <a href="contact.html">Free Assessment</a>
-      </div>
-    </div>
-  </footer>
+<p class="threat-copy">
+Cyber attacks are happening constantly across the world.  
+The Lotus Threat Center helps visualize that activity and explain what it means for real businesses operating today.
+</p>
 
-  <script src="script.js"></script>
+<div class="glass map-launch">
+
+<h3>Live Global Threat Map</h3>
+
+<p>
+Explore live cyber attack activity through Radware's global threat intelligence visualization.
+</p>
+
+<a href="https://livethreatmap.radware.com/" target="_blank" class="btn btn-primary">
+Launch Live Threat Map
+</a>
+
+<div class="attack-preview">
+
+<div class="scanline"></div>
+
+<div class="attack-node node1"></div>
+<div class="attack-node node2"></div>
+<div class="attack-node node3"></div>
+<div class="attack-node node4"></div>
+<div class="attack-node node5"></div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="section alt-section">
+
+<div class="container">
+
+<div class="section-head">
+<p class="eyebrow">COMMON ATTACK TYPES</p>
+<h2>What attackers are targeting right now</h2>
+</div>
+
+<div class="threat-grid">
+
+<div class="glass threat-card">
+<h3>Phishing</h3>
+<p>
+Email-based attacks that trick users into revealing passwords or running malicious links.
+</p>
+</div>
+
+<div class="glass threat-card">
+<h3>Credential Theft</h3>
+<p>
+Stolen passwords remain one of the most common ways attackers enter business systems.
+</p>
+</div>
+
+<div class="glass threat-card">
+<h3>Unpatched Systems</h3>
+<p>
+Outdated software and operating systems provide easy entry points.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-head">
+<p class="eyebrow">WHAT THIS MEANS</p>
+<h2>Most attacks succeed because of simple weaknesses</h2>
+</div>
+
+<div class="real-world">
+
+<div class="glass real-card">
+
+<h3>Common exposure points</h3>
+
+<ul>
+<li>weak passwords</li>
+<li>missing multi-factor authentication</li>
+<li>unpatched computers</li>
+<li>exposed remote access</li>
+<li>poor account controls</li>
+</ul>
+
+</div>
+
+<div class="glass real-card">
+
+<h3>How Lotus helps</h3>
+
+<ul>
+<li>environment assessments</li>
+<li>system hardening</li>
+<li>identity protection</li>
+<li>patch oversight</li>
+<li>ongoing security guidance</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+
+<div class="container footer-grid">
+
+<div>
+<h3>LOTUS CYBERSECURITY</h3>
+<p>Visibility into threats. Practical protection for real businesses.</p>
+</div>
+
+<div>
+<h4>Navigation</h4>
+<a href="services.html">Services</a>
+<a href="future-tech.html">Future Tech</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+
+<div>
+<h4>Start Here</h4>
+<a href="contact.html">Book Assessment</a>
+</div>
+
+</div>
+
+</footer>
+
 </body>
 </html>
