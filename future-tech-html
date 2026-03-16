@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lotus Cybersecurity | Future Tech</title>
+  <meta name="description" content="Blossom is Lotus Cybersecurity's future-facing vision for intelligent security assistance, threat visibility, and client reporting." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -45,13 +46,13 @@
           <p class="eyebrow">FUTURE TECH</p>
           <h1>Blossom: intelligent security assistance in development</h1>
           <p class="page-copy">
-            Blossom represents Lotus’ vision for AI-assisted security operations built around real business needs:
-            better visibility, smarter prioritization, and cleaner decision support.
+            Blossom represents Lotus’ long-term vision for security operations supported by better visibility,
+            better prioritization, better client communication, and smarter defensive workflows.
           </p>
         </div>
 
         <div class="glass future-image-wrap glow-border">
-          <img src="blossom-future.png" alt="Blossom futuristic graphic" class="future-image" />
+          <img src="blossom-hero.png" alt="Blossom futuristic graphic" class="future-image" />
         </div>
       </div>
     </section>
@@ -60,15 +61,15 @@
       <div class="container card-grid three">
         <div class="glass info-card">
           <h3>Threat Visibility</h3>
-          <p>Surface meaningful activity faster and reduce blind spots across business environments.</p>
+          <p>Surface what matters faster and reduce blind spots across business environments that often lack internal security depth.</p>
         </div>
         <div class="glass info-card">
           <h3>Alert Prioritization</h3>
-          <p>Focus attention on what matters most instead of drowning in noise, repetition, and low-value alerts.</p>
+          <p>Help focus attention on meaningful threats instead of wasting time on noise, repetition, and low-value distractions.</p>
         </div>
         <div class="glass info-card">
           <h3>Client Intelligence</h3>
-          <p>Translate security data into useful, understandable insights that support action and trust.</p>
+          <p>Translate technical data into clear, understandable security insight clients can actually use to make decisions.</p>
         </div>
       </div>
     </section>
@@ -76,11 +77,11 @@
     <section class="section alt-section">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">LONG-TERM VISION</p>
+          <p class="eyebrow">VISION</p>
           <h2>Human-led security, enhanced by intelligent systems</h2>
           <p>
-            Blossom is not meant to replace security professionals. It is designed to support them.
-            The goal is faster awareness, better triage, clearer reporting, and more scalable defensive operations.
+            Blossom is not meant to replace human judgment. It is meant to strengthen it. The goal is a future where Lotus can provide
+            faster awareness, cleaner triage, stronger reporting, and better client visibility without losing the human perspective that real security requires.
           </p>
         </div>
       </div>
@@ -89,7 +90,7 @@
     <section class="section cta-section">
       <div class="container">
         <div class="glass cta-box">
-          <h2>Security is evolving. Lotus is building for what comes next.</h2>
+          <h2>The future of Lotus is built around stronger visibility and smarter defense</h2>
           <a href="contact.html" class="btn btn-primary">Work With Lotus</a>
         </div>
       </div>
@@ -100,7 +101,7 @@
     <div class="container footer-grid">
       <div>
         <h3>LOTUS CYBERSECURITY</h3>
-        <p>Modern defense with a future-facing vision.</p>
+        <p>Security built for today, with a roadmap for what comes next.</p>
       </div>
       <div>
         <a href="index.html">Home</a>
