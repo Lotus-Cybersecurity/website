@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lotus Cybersecurity | Future Tech</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="Lotus Cybersecurity logo" class="brand-logo" />
+        <span>LOTUS CYBERSECURITY</span>
+      </a>
+
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="future-tech.html" class="active">Future Tech</a>
+        <a href="threat-center.html">Threat Center</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Free Assessment</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="future-tech.html">Future Tech</a>
+      <a href="threat-center.html">Threat Center</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Free Assessment</a>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero page-hero-split">
+      <div class="container split-grid">
+        <div>
+          <p class="eyebrow">FUTURE TECH</p>
+          <h1>Blossom: intelligent security assistance in development</h1>
+          <p class="page-copy">
+            Blossom represents Lotus’ vision for AI-assisted security operations built around real business needs:
+            better visibility, smarter prioritization, and cleaner decision support.
+          </p>
+        </div>
+
+        <div class="glass future-image-wrap glow-border">
+          <img src="blossom-future.png" alt="Blossom futuristic graphic" class="future-image" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card-grid three">
+        <div class="glass info-card">
+          <h3>Threat Visibility</h3>
+          <p>Surface meaningful activity faster and reduce blind spots across business environments.</p>
+        </div>
+        <div class="glass info-card">
+          <h3>Alert Prioritization</h3>
+          <p>Focus attention on what matters most instead of drowning in noise, repetition, and low-value alerts.</p>
+        </div>
+        <div class="glass info-card">
+          <h3>Client Intelligence</h3>
+          <p>Translate security data into useful, understandable insights that support action and trust.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">LONG-TERM VISION</p>
+          <h2>Human-led security, enhanced by intelligent systems</h2>
+          <p>
+            Blossom is not meant to replace security professionals. It is designed to support them.
+            The goal is faster awareness, better triage, clearer reporting, and more scalable defensive operations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container">
+        <div class="glass cta-box">
+          <h2>Security is evolving. Lotus is building for what comes next.</h2>
+          <a href="contact.html" class="btn btn-primary">Work With Lotus</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>LOTUS CYBERSECURITY</h3>
+        <p>Modern defense with a future-facing vision.</p>
+      </div>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="threat-center.html">Threat Center</a>
+        <a href="about.html">About</a>
+      </div>
+      <div>
+        <a href="contact.html">Free Assessment</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
