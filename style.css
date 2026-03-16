@@ -5,8 +5,6 @@ background:#020a17;
 color:white;
 }
 
-/* animated background canvas */
-
 canvas{
 position:fixed;
 top:0;
@@ -14,11 +12,9 @@ left:0;
 z-index:-1;
 }
 
-/* NAV */
-
 nav{
 background:#05142a;
-padding:15px;
+padding:15px 20px;
 border-bottom:1px solid #123;
 }
 
@@ -51,8 +47,6 @@ font-size:15px;
 .nav-links a:hover{
 color:white;
 }
-
-/* HERO */
 
 .hero{
 padding:120px 20px;
@@ -93,8 +87,6 @@ width:380px;
 filter:drop-shadow(0 0 30px rgba(59,228,255,0.35));
 }
 
-/* BUTTONS */
-
 .btn{
 background:#3be4ff;
 padding:12px 25px;
@@ -124,8 +116,6 @@ background:#3be4ff;
 color:black;
 }
 
-/* SECTIONS */
-
 section{
 padding:80px 20px;
 text-align:center;
@@ -135,8 +125,6 @@ section h2{
 font-size:32px;
 margin-bottom:10px;
 }
-
-/* CARDS */
 
 .cards{
 display:flex;
@@ -151,13 +139,12 @@ background:#081b33;
 padding:30px;
 border-radius:10px;
 width:280px;
-transition:0.2s;
 border:1px solid rgba(100,200,255,0.05);
 }
 
 .card:hover{
-transform:translateY(-5px);
 border-color:#3be4ff;
+transform:translateY(-5px);
 }
 
 .price{
@@ -177,8 +164,6 @@ margin:10px 0;
 color:#bcdcff;
 }
 
-/* BLOSSOM */
-
 .blossom-text{
 max-width:700px;
 margin:auto;
@@ -192,14 +177,6 @@ margin-top:40px;
 filter:drop-shadow(0 0 30px rgba(255,150,255,0.35));
 }
 
-/* CONTACT */
-
-#contact p{
-color:#bcdcff;
-}
-
-/* FOOTER */
-
 footer{
 padding:40px;
 text-align:center;
@@ -207,8 +184,6 @@ color:#89a;
 font-size:14px;
 border-top:1px solid #123;
 }
-
-/* MOBILE */
 
 @media (max-width:900px){
 
