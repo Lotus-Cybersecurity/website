@@ -1,113 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lotus Cybersecurity | Contact</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lotus Cybersecurity | Contact</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.contact-hero{
+padding:110px 0 60px;
+text-align:center;
+}
+
+.contact-copy{
+max-width:720px;
+margin:auto;
+color:#a7b2c7;
+}
+
+.contact-grid{
+margin-top:50px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.contact-card{
+padding:32px;
+}
+
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select{
+width:100%;
+padding:14px;
+border-radius:8px;
+border:1px solid rgba(255,255,255,0.08);
+background:#07111f;
+color:white;
+font-size:14px;
+}
+
+.contact-form textarea{
+min-height:120px;
+resize:vertical;
+}
+
+.contact-form button{
+margin-top:10px;
+padding:14px;
+background:#7ad7ff;
+border:none;
+border-radius:8px;
+color:#020a17;
+font-weight:bold;
+cursor:pointer;
+}
+
+.contact-form button:hover{
+opacity:.9;
+}
+
+.contact-note{
+margin-top:14px;
+font-size:14px;
+color:#a7b2c7;
+}
+
+.process-list{
+margin-top:20px;
+color:#a7b2c7;
+}
+
+.process-list li{
+margin-bottom:10px;
+}
+
+@media(max-width:900px){
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
-  <div class="grid-bg"></div>
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.html" class="brand">
-        <img src="logo.png" alt="Lotus Cybersecurity logo" class="brand-logo" />
-        <span>LOTUS CYBERSECURITY</span>
-      </a>
+<div class="grid-bg"></div>
 
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="future-tech.html">Future Tech</a>
-        <a href="threat-center.html">Threat Center</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="nav-cta active">Free Assessment</a>
-      </nav>
+<header class="site-header">
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-    </div>
+<div class="container nav-wrap">
 
-    <div class="mobile-nav" id="mobileNav">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="future-tech.html">Future Tech</a>
-      <a href="threat-center.html">Threat Center</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Free Assessment</a>
-    </div>
-  </header>
+<a href="index.html" class="brand">
+<img src="logo.png" class="brand-logo">
+<span>LOTUS CYBERSECURITY</span>
+</a>
 
-  <main class="page-main">
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">FREE ASSESSMENT</p>
-        <h1>Request a security assessment</h1>
-        <p class="page-copy">
-          Tell us a little about your environment and we will follow up with next steps.
-        </p>
-      </div>
-    </section>
+<nav class="site-nav">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="future-tech.html">Future Tech</a>
+<a href="threat-center.html">Threat Center</a>
+<a href="about.html">About</a>
+<a href="contact.html" class="active nav-cta">Book Assessment</a>
+</nav>
 
-    <section class="section">
-      <div class="container form-wrap">
-        <form class="glass contact-form">
-          <div class="form-grid">
-            <div>
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" />
-            </div>
+</div>
 
-            <div>
-              <label for="company">Company</label>
-              <input type="text" id="company" name="company" placeholder="Company name" />
-            </div>
+</header>
 
-            <div>
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@company.com" />
-            </div>
+<main>
 
-            <div>
-              <label for="phone">Phone</label>
-              <input type="text" id="phone" name="phone" placeholder="Phone number" />
-            </div>
+<section class="contact-hero">
 
-            <div class="full-width">
-              <label for="devices">Approximate Number of Devices</label>
-              <input type="text" id="devices" name="devices" placeholder="Example: 10 laptops, 2 printers, 1 firewall" />
-            </div>
+<div class="container">
 
-            <div class="full-width">
-              <label for="notes">Notes</label>
-              <textarea id="notes" name="notes" rows="6" placeholder="Tell us about your office, business, concerns, or current setup"></textarea>
-            </div>
-          </div>
+<p class="eyebrow">CONTACT</p>
 
-          <button type="submit" class="btn btn-primary">Request Assessment</button>
-        </form>
-      </div>
-    </section>
-  </main>
+<h1>Request a Security Assessment</h1>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>LOTUS CYBERSECURITY</h3>
-        <p>Start with visibility. Build from there.</p>
-      </div>
-      <div>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="future-tech.html">Future Tech</a>
-        <a href="threat-center.html">Threat Center</a>
-      </div>
-      <div>
-        <a href="about.html">About</a>
-      </div>
-    </div>
-  </footer>
+<p class="contact-copy">
+Lotus Cybersecurity works with businesses to identify risks, strengthen systems, and improve security visibility.
+If you’re interested in an assessment or security consultation, submit the form below and we will reach out.
+</p>
 
-  <script src="script.js"></script>
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="contact-grid">
+
+<div class="glass contact-card">
+
+<h3>Assessment Request</h3>
+
+<form class="contact-form">
+
+<input type="text" placeholder="Name" required>
+
+<input type="text" placeholder="Company Name">
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="text" placeholder="Phone Number">
+
+<input type="text" placeholder="Approximate Number of Devices or Employees">
+
+<select>
+<option value="">How did you hear about Lotus?</option>
+<option value="business-card">Lotus Business Card</option>
+<option value="referral">Referral</option>
+<option value="website">Website</option>
+<option value="other">Other</option>
+</select>
+
+<textarea placeholder="Tell us about your environment, security concerns, or any systems you would like reviewed"></textarea>
+
+<button type="submit">Submit Request</button>
+
+</form>
+
+<p class="contact-note">
+<strong>Lotus business card holders may qualify for a complimentary initial security scan.</strong>
+If you received a Lotus card, please select “Lotus Business Card” above.
+</p>
+
+</div>
+
+<div class="glass contact-card">
+
+<h3>What Happens Next</h3>
+
+<p>
+Once your request is received, Lotus will review your information and schedule a short conversation to understand your environment and determine the best next step.
+</p>
+
+<p>
+Most engagements follow the Lotus three-step security model:
+</p>
+
+<ul class="process-list">
+
+<li><strong>Assess</strong> — evaluate systems, devices, and security posture</li>
+
+<li><strong>Harden</strong> — correct weaknesses and improve system configuration</li>
+
+<li><strong>Protect</strong> — establish stronger ongoing security practices</li>
+
+</ul>
+
+<p>
+The goal is practical protection that improves real business environments without unnecessary complexity.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+
+<div class="container footer-grid">
+
+<div>
+<h3>LOTUS CYBERSECURITY</h3>
+<p>Practical cybersecurity for real businesses.</p>
+</div>
+
+<div>
+<h4>Navigation</h4>
+<a href="services.html">Services</a>
+<a href="future-tech.html">Future Tech</a>
+<a href="threat-center.html">Threat Center</a>
+</div>
+
+<div>
+<h4>Start Here</h4>
+<a href="contact.html">Book Assessment</a>
+</div>
+
+</div>
+
+</footer>
+
 </body>
 </html>
