@@ -1,210 +1,162 @@
-/* ===============================
-   GLOBAL STYLES
-================================ */
+/* --------------------------
+GLOBAL
+-------------------------- */
 
-:root {
-  --bg-dark: #020a17;
-  --bg-card: #0b1a33;
-  --accent: #00ffd5;
-  --accent2: #5ab0ff;
-  --text-main: #ffffff;
-  --text-muted: #a8b5d0;
-  --border: rgba(255,255,255,0.08);
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(180deg,#020617,#031633);
+color:white;
 }
 
-* {
-  box-sizing: border-box;
+/* --------------------------
+HEADER
+-------------------------- */
+
+header{
+display:flex;
+flex-direction:column;
+align-items:center;
+padding-top:30px;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: radial-gradient(circle at top, #06172f, #020a17);
-  color: var(--text-main);
+/* logo */
+
+.logo{
+max-width:420px;
+width:80%;
+margin-bottom:10px;
 }
 
-/* ===============================
-   NAVBAR
-================================ */
+/* tagline */
 
-header {
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(10px);
-  background: rgba(2,10,23,0.85);
-  border-bottom: 1px solid var(--border);
-  z-index: 1000;
+.tagline{
+color:#9ca3af;
+font-size:14px;
+margin-bottom:25px;
 }
 
-.nav-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 18px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* --------------------------
+NAVBAR
+-------------------------- */
+
+nav{
+display:flex;
+gap:30px;
+margin-bottom:40px;
 }
 
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 1px;
+nav a{
+text-decoration:none;
+color:white;
+font-weight:500;
+font-size:15px;
+opacity:.8;
 }
 
-nav a {
-  margin-left: 24px;
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 14px;
+nav a:hover{
+opacity:1;
+color:#4fd1ff;
 }
 
-nav a:hover {
-  color: var(--accent);
+/* --------------------------
+SECTIONS
+-------------------------- */
+
+section{
+max-width:1000px;
+margin:auto;
+padding:60px 20px;
 }
 
-/* ===============================
-   HERO
-================================ */
-
-.hero {
-  padding: 120px 24px 100px;
-  text-align: center;
+h1{
+font-size:40px;
+margin-bottom:10px;
 }
 
-.hero h1 {
-  font-size: 56px;
-  margin-bottom: 20px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  color: transparent;
+h2{
+font-size:30px;
+margin-bottom:10px;
 }
 
-.hero p {
-  max-width: 700px;
-  margin: auto;
-  font-size: 18px;
-  color: var(--text-muted);
+p{
+color:#cbd5e1;
+line-height:1.6;
 }
 
-/* ===============================
-   BUTTONS
-================================ */
+/* --------------------------
+PRICING CARDS
+-------------------------- */
 
-.btn {
-  display: inline-block;
-  padding: 14px 28px;
-  margin-top: 30px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:40px;
 }
 
-.btn-primary {
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  color: #000;
+.price-card{
+background:#0f172a;
+padding:35px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.08);
+text-align:center;
+transition:all .25s ease;
 }
 
-.btn-secondary {
-  border: 1px solid var(--border);
-  color: white;
-  margin-left: 12px;
+.price-card:hover{
+transform:translateY(-6px);
+border-color:#38bdf8;
 }
 
-/* ===============================
-   SECTION
-================================ */
-
-.section {
-  padding: 90px 24px;
+.price-title{
+font-size:22px;
+margin-bottom:10px;
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
+.price{
+font-size:32px;
+color:#38bdf8;
+margin:15px 0;
 }
 
-.section h2 {
-  font-size: 36px;
-  margin-bottom: 12px;
+.price-card ul{
+list-style:none;
+padding:0;
+margin:0;
 }
 
-.section p {
-  color: var(--text-muted);
-  margin-bottom: 40px;
+.price-card li{
+padding:6px 0;
+color:#94a3b8;
 }
 
-/* ===============================
-   CARD GRID
-================================ */
+/* --------------------------
+BUTTONS
+-------------------------- */
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 28px;
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 24px;
+border-radius:8px;
+text-decoration:none;
+background:#38bdf8;
+color:black;
+font-weight:600;
 }
 
-.card {
-  background: var(--bg-card);
-  padding: 28px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
+.btn:hover{
+background:#0ea5e9;
 }
 
-.card h3 {
-  margin-top: 0;
-}
+/* --------------------------
+FOOTER
+-------------------------- */
 
-/* ===============================
-   PRICING
-================================ */
-
-.price-card {
-  background: var(--bg-card);
-  padding: 40px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  text-align: center;
-}
-
-.price {
-  font-size: 40px;
-  margin: 20px 0;
-  color: var(--accent);
-}
-
-.price-card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.price-card li {
-  margin: 8px 0;
-  color: var(--text-muted);
-}
-
-/* ===============================
-   FOOTER
-================================ */
-
-footer {
-  border-top: 1px solid var(--border);
-  padding: 40px 24px;
-  text-align: center;
-  color: var(--text-muted);
-}
-
-/* ===============================
-   RESPONSIVE
-================================ */
-
-@media (max-width: 768px) {
-
-  .hero h1 {
-    font-size: 40px;
-  }
-
-  nav {
-    display: none;
-  }
-
+footer{
+text-align:center;
+padding:40px 20px;
+color:#94a3b8;
+font-size:14px;
 }
