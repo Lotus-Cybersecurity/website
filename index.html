@@ -1,90 +1,1822 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Lotus Cybersecurity</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lotus Cybersecurity | Simple Security for Local Business</title>
+  <meta
+    name="description"
+    content="Lotus Cybersecurity helps local businesses assess risk, secure systems, and stay protected with clear reporting, practical setup, and ongoing monitoring."
+  />
 
-<style>
+  <style>
+    :root {
+      --bg: #020617;
+      --bg2: #07111f;
+      --panel: rgba(15, 23, 42, 0.78);
+      --panel2: rgba(15, 23, 42, 0.55);
+      --line: rgba(148, 163, 184, 0.15);
+      --text: #e8f1ff;
+      --muted: #9fb0c7;
+      --soft: #6c7c94;
+      --cyan: #22d3ee;
+      --cyan2: #38bdf8;
+      --violet: #a78bfa;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --red: #f87171;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      --radius: 28px;
+      --radius-sm: 20px;
+      --container: 1180px;
+    }
 
-body{
-background:#020617;
-color:white;
-font-family:Arial;
-margin:0;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-header{
-padding:20px;
-background:#020617;
-border-bottom:1px solid #1e293b;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:20px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(34, 211, 238, 0.11), transparent 24%),
+        radial-gradient(circle at 85% 8%, rgba(56, 189, 248, 0.09), transparent 16%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      overflow-x: hidden;
+    }
 
-h1{
-font-size:48px;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-button{
-background:#22d3ee;
-border:none;
-padding:14px 24px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-}
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-.card{
-background:#0f172a;
-padding:20px;
-border-radius:12px;
-margin-top:20px;
-border:1px solid #1e293b;
-}
+    .section {
+      padding: 96px 0;
+      position: relative;
+    }
 
-</style>
+    .section-soft {
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.10);
+      border: 1px solid rgba(34, 211, 238, 0.18);
+      color: #bff7ff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 16px 0 14px;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.04;
+      letter-spacing: -1.6px;
+    }
+
+    .section-text {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(34, 211, 238, 0.08);
+      background: rgba(2, 6, 23, 0.78);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      border: 1px solid rgba(34, 211, 238, 0.28);
+      background: rgba(34, 211, 238, 0.11);
+      box-shadow: 0 0 28px rgba(34, 211, 238, 0.13);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      color: #a5f3fc;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: #d0dae9;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #bff7ff;
+    }
+
+    .button,
+    .button-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 16px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover,
+    .button-outline:hover {
+      transform: translateY(-1px);
+    }
+
+    .button {
+      background: linear-gradient(135deg, var(--cyan2), var(--cyan));
+      color: #021018;
+      border: none;
+      box-shadow: 0 14px 36px rgba(34, 211, 238, 0.20);
+    }
+
+    .button-outline {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 86px 0 108px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 44px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      margin: 18px 0 18px;
+      font-size: clamp(44px, 6vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -2px;
+      max-width: 780px;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 650px;
+      color: #d1ddee;
+      font-size: 19px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .mini-steps {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 520px;
+    }
+
+    .mini-step,
+    .card,
+    .price-card,
+    .quote-card,
+    .industry-card,
+    .hardware-card,
+    .process-card,
+    .contact-card,
+    .blossom-panel,
+    .first-responder-card {
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .mini-step {
+      padding: 16px;
+    }
+
+    .mini-step .num {
+      color: #67e8f9;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .mini-step .label {
+      color: #deebff;
+      font-size: 14px;
+    }
+
+    .network-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .node {
+      position: absolute;
+      border-radius: 999px;
+      box-shadow: 0 0 24px currentColor;
+      animation: float 10s ease-in-out infinite;
+    }
+
+    .node.one {
+      left: 8%;
+      top: 22%;
+      width: 12px;
+      height: 12px;
+      color: rgba(34, 211, 238, 0.85);
+      background: currentColor;
+    }
+
+    .node.two {
+      right: 14%;
+      top: 18%;
+      width: 12px;
+      height: 12px;
+      color: rgba(125, 211, 252, 0.85);
+      background: currentColor;
+      animation-duration: 12s;
+    }
+
+    .node.three {
+      left: 20%;
+      bottom: 20%;
+      width: 10px;
+      height: 10px;
+      color: rgba(196, 181, 253, 0.85);
+      background: currentColor;
+      animation-duration: 9s;
+    }
+
+    .line {
+      position: absolute;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.35), transparent);
+      transform-origin: left center;
+      animation: pulse 4.5s ease-in-out infinite;
+    }
+
+    .line.one {
+      left: 9%;
+      top: 23%;
+      width: 180px;
+      transform: rotate(12deg);
+    }
+
+    .line.two {
+      right: 15%;
+      top: 19%;
+      width: 200px;
+      transform: rotate(-12deg);
+    }
+
+    .line.three {
+      left: 21%;
+      bottom: 21%;
+      width: 220px;
+      transform: rotate(6deg);
+      background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.35), transparent);
+    }
+
+    .hero-panel-wrap {
+      position: relative;
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: 40px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.12);
+      filter: blur(84px);
+      z-index: 0;
+    }
+
+    .hero-panel {
+      position: relative;
+      z-index: 2;
+      padding: 22px;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 34px 80px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(16px);
+    }
+
+    .snapshot {
+      padding: 26px;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.86);
+      border: 1px solid rgba(34, 211, 238, 0.18);
+    }
+
+    .snapshot-head,
+    .report-head,
+    .price-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .small-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .snap-title,
+    .report-title {
+      margin-top: 4px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      background: rgba(52, 211, 153, 0.10);
+      color: #bbf7d0;
+      white-space: nowrap;
+    }
+
+    .metric {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(30, 41, 59, 0.70);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 14px;
+    }
+
+    .metric-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .metric strong {
+      color: #e2e8f0;
+    }
+
+    .state-cyan { color: #67e8f9; }
+    .state-amber { color: #fde68a; }
+    .state-violet { color: #c4b5fd; }
+
+    .bar {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: #334155;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+    }
+
+    .bar-cyan span { width: 80%; background: var(--cyan); }
+    .bar-amber span { width: 42%; background: var(--amber); }
+    .bar-violet span { width: 60%; background: var(--violet); }
+    .bar-red span { width: 33%; background: var(--red); }
+
+    .hero-stats {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat-box {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(30, 41, 59, 0.70);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-box .k {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .stat-box .v {
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .grid-3,
+    .grid-4,
+    .grid-price,
+    .grid-quote,
+    .grid-industries,
+    .grid-hardware {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-price { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-quote { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-industries { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-hardware { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card,
+    .price-card,
+    .quote-card,
+    .industry-card,
+    .hardware-card,
+    .process-card,
+    .contact-card,
+    .blossom-panel,
+    .first-responder-card {
+      padding: 28px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .card:hover,
+    .price-card:hover,
+    .quote-card:hover,
+    .industry-card:hover,
+    .hardware-card:hover,
+    .process-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 211, 238, 0.28);
+    }
+
+    .card-top,
+    .hardware-top,
+    .process-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .step-number {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      color: #67e8f9;
+    }
+
+    .icon-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(34, 211, 238, 0.10);
+      color: #67e8f9;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .card h3,
+    .price-card h3,
+    .quote-card h3,
+    .industry-card h3,
+    .hardware-card h3,
+    .process-card h3,
+    .blossom-panel h3,
+    .first-responder-card h3,
+    .contact-card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .card p,
+    .price-card p,
+    .quote-card p,
+    .industry-card p,
+    .hardware-card p,
+    .process-card p,
+    .blossom-panel p,
+    .first-responder-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .feature-line {
+      width: 68px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--cyan);
+      margin-top: 18px;
+      transition: width 0.25s ease;
+    }
+
+    .card:hover .feature-line {
+      width: 100px;
+    }
+
+    .price-card.featured {
+      background: rgba(34, 211, 238, 0.08);
+      border-color: rgba(34, 211, 238, 0.32);
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.06), var(--shadow);
+    }
+
+    .most-popular {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #cffafe;
+      background: rgba(34, 211, 238, 0.10);
+      border: 1px solid rgba(34, 211, 238, 0.26);
+    }
+
+    .device-count {
+      margin-top: 14px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .price-stack {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .price-item {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(2, 6, 23, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .price-item .k {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .price-item .v {
+      font-size: 22px;
+      font-weight: 800;
+      color: #67e8f9;
+    }
+
+    .price-item .sub {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--soft);
+      line-height: 1.6;
+    }
+
+    .promo-box,
+    .callout,
+    .fr-callout {
+      margin-top: 28px;
+      padding: 22px;
+      border-radius: var(--radius);
+      line-height: 1.8;
+      font-size: 15px;
+      border: 1px solid rgba(251, 191, 36, 0.18);
+      background: rgba(251, 191, 36, 0.06);
+      color: #f8fafc;
+    }
+
+    .promo-box strong,
+    .callout strong,
+    .fr-callout strong {
+      color: #fde68a;
+    }
+
+    .report-grid,
+    .contact-grid,
+    .fr-grid,
+    .blossom-grid {
+      display: grid;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .report-grid { grid-template-columns: 0.95fr 1.05fr; }
+    .contact-grid { grid-template-columns: 1fr 0.95fr; }
+    .fr-grid { grid-template-columns: 1.05fr 0.95fr; }
+    .blossom-grid { grid-template-columns: 1fr 1fr; }
+
+    .check-list {
+      margin-top: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .check-item,
+    .blossom-item,
+    .fr-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .check-mark,
+    .spark {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      margin-top: 2px;
+      background: rgba(34, 211, 238, 0.12);
+      color: #67e8f9;
+    }
+
+    .arrow {
+      margin-left: auto;
+      color: #67e8f9;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .report-frame {
+      position: relative;
+    }
+
+    .report-glow {
+      position: absolute;
+      inset: -24px;
+      border-radius: 40px;
+      background: rgba(34, 211, 238, 0.10);
+      filter: blur(50px);
+    }
+
+    .report-card {
+      position: relative;
+      padding: 22px;
+      background: rgba(15, 23, 42, 0.90);
+      border-radius: 32px;
+    }
+
+    .report-inner {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .report-head {
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .report-badges {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .badge-box {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(2, 6, 23, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .badge-box .k {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .badge-box .v {
+      margin-top: 8px;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .warn-amber { color: #fde68a; }
+    .warn-cyan { color: #67e8f9; }
+
+    .metric-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .report-note {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.8;
+      color: #cffafe;
+      background: rgba(34, 211, 238, 0.10);
+      border: 1px solid rgba(34, 211, 238, 0.18);
+    }
+
+    .blossom-wrap {
+      background: rgba(34, 211, 238, 0.04);
+      border-top: 1px solid rgba(34, 211, 238, 0.08);
+      border-bottom: 1px solid rgba(34, 211, 238, 0.08);
+    }
+
+    .blossom-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .status-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #67e8f9;
+    }
+
+    .status-value {
+      margin-top: 10px;
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .status-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(167, 139, 250, 0.10);
+      color: #c4b5fd;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .quote-card .quote-mark {
+      color: #67e8f9;
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .quote-card p {
+      min-height: 158px;
+      color: #e2e8f0;
+      font-size: 18px;
+    }
+
+    .quote-meta {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .quote-name {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .quote-role {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .fr-points {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .fr-box {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(2, 6, 23, 0.40);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      line-height: 1.7;
+    }
+
+    .contact-copy .contact-info {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .info-box {
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .info-box .k {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .info-box .v {
+      margin-top: 8px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .contact-card {
+      padding: 30px;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 20px;
+      font-size: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 16px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(2, 6, 23, 0.60);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #64748b;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(34, 211, 238, 0.34);
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.08);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(2, 6, 23, 0.70);
+      padding: 28px 0 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: #67e8f9;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(18px, -14px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.8; }
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .report-grid,
+      .contact-grid,
+      .fr-grid,
+      .blossom-grid,
+      .grid-price,
+      .grid-quote,
+      .grid-industries,
+      .grid-hardware,
+      .grid-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid,
+      .report-grid,
+      .contact-grid,
+      .fr-grid,
+      .blossom-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 56px 0 84px;
+      }
+
+      .mini-steps,
+      .hero-stats,
+      .report-badges,
+      .contact-copy .contact-info,
+      .fr-points,
+      .grid-price,
+      .grid-quote,
+      .grid-industries,
+      .grid-hardware,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 74px 0;
+      }
+
+      .card,
+      .price-card,
+      .quote-card,
+      .industry-card,
+      .hardware-card,
+      .process-card,
+      .contact-card,
+      .blossom-panel,
+      .first-responder-card {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <div class="brand-mark">L</div>
+        <div>
+          <div class="brand-title">Lotus Cybersecurity</div>
+          <div class="brand-sub">Friendly security for local business</div>
+        </div>
+      </a>
 
-<header>
-<div class="container">
-<h2>Lotus Cybersecurity</h2>
-</div>
-</header>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#scan-process">Scan Process</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#first-responders">First Responders</a>
+        <a href="#contact" class="button-outline">Book Assessment</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="container">
+  <main>
+    <section class="hero" id="home">
+      <div class="network-bg">
+        <div class="node one"></div>
+        <div class="node two"></div>
+        <div class="node three"></div>
+        <div class="line one"></div>
+        <div class="line two"></div>
+        <div class="line three"></div>
+      </div>
 
-<h1>Simple cybersecurity for small businesses</h1>
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Cybersecurity for local business owners</div>
+          <h1>Simple security for small and local businesses.</h1>
+          <p>
+            Lotus Cybersecurity helps local businesses understand risk, secure their systems,
+            and stay protected without the jargon. Easy process. Professional results.
+          </p>
 
-<p>
-Lotus Cybersecurity helps local businesses assess risk, secure their systems,
-and stay protected without corporate complexity.
-</p>
+          <div class="hero-actions">
+            <a href="#contact" class="button">Request an Assessment</a>
+            <a href="#services" class="button-outline">Explore Services</a>
+          </div>
 
-<button>Request Assessment</button>
+          <div class="mini-steps">
+            <div class="mini-step">
+              <div class="num">1</div>
+              <div class="label">Assess</div>
+            </div>
+            <div class="mini-step">
+              <div class="num">2</div>
+              <div class="label">Secure</div>
+            </div>
+            <div class="mini-step">
+              <div class="num">3</div>
+              <div class="label">Protect</div>
+            </div>
+          </div>
+        </div>
 
-<div class="card">
-<h3>Assess</h3>
-<p>We review your network and systems to identify risks.</p>
-</div>
+        <div class="hero-panel-wrap reveal">
+          <div class="hero-glow"></div>
+          <div class="hero-panel">
+            <div class="snapshot">
+              <div class="snapshot-head">
+                <div>
+                  <div class="small-label">Security Snapshot</div>
+                  <div class="snap-title">Local Business Overview</div>
+                </div>
+                <div class="pill">Assessment Ready</div>
+              </div>
 
-<div class="card">
-<h3>Secure</h3>
-<p>We implement security protections and hardening.</p>
-</div>
+              <div class="metric">
+                <div class="metric-row">
+                  <strong>Network Review</strong>
+                  <span class="state-cyan">Active</span>
+                </div>
+                <div class="bar bar-cyan"><span></span></div>
+              </div>
 
-<div class="card">
-<h3>Protect</h3>
-<p>We monitor your environment to keep it protected.</p>
-</div>
+              <div class="metric">
+                <div class="metric-row">
+                  <strong>Account Security</strong>
+                  <span class="state-amber">Needs Review</span>
+                </div>
+                <div class="bar bar-amber"><span></span></div>
+              </div>
 
-</div>
+              <div class="metric">
+                <div class="metric-row">
+                  <strong>Monitoring Plan</strong>
+                  <span class="state-violet">Available</span>
+                </div>
+                <div class="bar bar-violet"><span></span></div>
+              </div>
 
+              <div class="hero-stats">
+                <div class="stat-box">
+                  <div class="k">Service Area</div>
+                  <div class="v">Main Line & Greater Philadelphia</div>
+                </div>
+                <div class="stat-box">
+                  <div class="k">Turnaround</div>
+                  <div class="v">48-Hour Report</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Services</div>
+          <h2 class="section-title">A simple 3-step process</h2>
+          <p class="section-text">
+            We keep the process easy for business owners. We handle the technical work behind the scenes.
+          </p>
+        </div>
+
+        <div class="grid-3" style="margin-top:32px;">
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="step-number">01</div>
+              <div class="icon-circle">⌕</div>
+            </div>
+            <h3>Assess</h3>
+            <p>We review your computers, accounts, and network so you can clearly see what risks exist right now.</p>
+            <div class="feature-line"></div>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="step-number">02</div>
+              <div class="icon-circle">🛠</div>
+            </div>
+            <h3>Secure</h3>
+            <p>We close the gaps, improve protection, and strengthen your business with the right security tools and setup.</p>
+            <div class="feature-line"></div>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-top">
+              <div class="step-number">03</div>
+              <div class="icon-circle">🛡</div>
+            </div>
+            <h3>Protect</h3>
+            <p>We continue monitoring and maintaining your environment so your business stays protected over time.</p>
+            <div class="feature-line"></div>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top:72px;">
+          <div class="eyebrow">Pricing Structure</div>
+          <h2 class="section-title">Simple pricing by business size</h2>
+          <p class="section-text">
+            Service pricing is broken into four simple parts so business owners know exactly what they are paying for.
+          </p>
+        </div>
+
+        <div class="grid-price" style="margin-top:32px;">
+          <div class="price-card reveal">
+            <h3>Personal</h3>
+            <p>Home offices and freelancers</p>
+            <div class="device-count">1–3 devices</div>
+
+            <div class="price-stack">
+              <div class="price-item">
+                <div class="k">Network Scan</div>
+                <div class="v">$99</div>
+              </div>
+              <div class="price-item">
+                <div class="k">Security Setup</div>
+                <div class="v">$300–$700 + hardware</div>
+                <div class="sub">Firewall • VPN • Endpoint Protection • RMM</div>
+              </div>
+              <div class="price-item">
+                <div class="k">Monitoring Program</div>
+                <div class="v">$29 / device / month</div>
+              </div>
+              <div class="price-item">
+                <div class="k">Automation Layer</div>
+                <div class="v" style="font-size:18px;color:#c4b5fd;">Coming Soon</div>
+                <div class="sub">Blossom automated security platform (in development)</div>
+              </div>
+            </div>
+
+            <div class="sub" style="margin-top:18px;color:var(--soft);">
+              Hardware such as firewall routers and network equipment are billed at cost depending on the environment.
+            </div>
+          </div>
+
+          <div class="price-card featured reveal">
+            <div class="most-popular">Most Popular</div>
+            <h3 style="margin-top:14px;">Small Business</h3>
+            <p>Vape shops, nonprofits, small offices</p>
+            <div class="device-count">Up to 5 devices</div>
+
+            <div class="price-stack">
+              <div class="price-item">
+                <div class="k">Network Scan</div>
+                <div class="v">$299</div>
+              </div>
+              <div class="price-item">
+                <div class="k">Security Setup</div>
+                <div class="v">$900–$2,500 + hardware</div>
+                <div class="sub">Firewall • VPN • Endpoint Protection • RMM</div>
+              </div>
+              <div class="price-item">
+                <div class="k">Monitoring Program</div>
+                <div class="v">$49 / device / month</div>
+              </div>
+              <div class="price-item">
+                <div class="k">Automation Layer</div>
+                <div class="v" style="font-size:18px;color:#c4b5fd;">Future Blossom Layer</div>
+                <div class="sub">Blossom automated security platform (in development)</div>
+              </div>
+            </div>
+
+            <div class="sub" style="margin-top:18px;color:var(--soft);">
+              Hardware such as firewall routers and network equipment are billed at cost depending on the environment.
+            </div>
+          </div>
+
+          <div class="price-card reveal">
+            <h3>Medium Business</h3>
+            <p>Law firms, real estate offices, dentists</p>
+            <div class="device-count">6–20 devices</div>
+
+            <div class="price-stack">
+              <div class="price-item">
+                <div class="k">Network Scan</div>
+                <div class="v">$799</div>
+              </div>
+              <div class="price-item">
+                <div class="k">Security Setup</div>
+                <div class="v">$2,500–$6,000 + hardware</div>
+                <div class="sub">Firewall • VPN • Endpoint Protection • RMM</div>
+              </div>
+              <div class="price-item">
+                <div class="k">Monitoring Program</div>
+                <div class="v">$59 / device / month</div>
+              </div>
+              <div class="price-item">
+                <div class="k">Automation Layer</div>
+                <div class="v" style="font-size:18px;color:#c4b5fd;">Future Blossom Layer</div>
+                <div class="sub">Blossom automated security platform (in development)</div>
+              </div>
+            </div>
+
+            <div class="sub" style="margin-top:18px;color:var(--soft);">
+              Hardware such as firewall routers and network equipment are billed at cost depending on the environment.
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-box reveal">
+          <strong>Business card promo:</strong> free network scan offers can be honored separately for referral cards and door-to-door outreach.
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="scan-process">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">What Happens During Your Scan</div>
+          <h2 class="section-title">A professional assessment from start to finish</h2>
+          <p class="section-text">
+            We keep the process simple for you while we handle the technical review behind the scenes.
+          </p>
+        </div>
+
+        <div class="grid-4" style="margin-top:32px;">
+          <div class="process-card reveal">
+            <div class="process-top">
+              <div class="step-number">01</div>
+              <div class="icon-circle">📶</div>
+            </div>
+            <h3>On-Site Review</h3>
+            <p>We arrive on-site, connect securely, and review your business network and connected systems.</p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="process-top">
+              <div class="step-number">02</div>
+              <div class="icon-circle">📡</div>
+            </div>
+            <h3>Risk Discovery</h3>
+            <p>We identify devices, exposure points, and potential security weaknesses across your environment.</p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="process-top">
+              <div class="step-number">03</div>
+              <div class="icon-circle">🧠</div>
+            </div>
+            <h3>Threat Snapshot</h3>
+            <p>We organize the findings into a practical picture of your current threat landscape and security posture.</p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="process-top">
+              <div class="step-number">04</div>
+              <div class="icon-circle">📄</div>
+            </div>
+            <h3>48-Hour Report</h3>
+            <p>You receive a clean report with findings, priorities, and next-step recommendations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="report-preview">
+      <div class="container report-grid">
+        <div class="reveal">
+          <div class="eyebrow">Security Report Preview</div>
+          <h2 class="section-title">A clean report your business can actually understand</h2>
+          <p class="section-text">
+            Every assessment is followed by a professional report designed to help business owners see where they stand and what should happen next.
+          </p>
+
+          <div class="check-list">
+            <div class="check-item">
+              <div class="check-mark">✓</div>
+              <div>Executive summary and overall security snapshot</div>
+            </div>
+            <div class="check-item">
+              <div class="check-mark">✓</div>
+              <div>Device and environment overview</div>
+            </div>
+            <div class="check-item">
+              <div class="check-mark">✓</div>
+              <div>Findings ranked by priority</div>
+            </div>
+            <div class="check-item">
+              <div class="check-mark">✓</div>
+              <div>Recommended next steps for setup and protection</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="report-frame reveal">
+          <div class="report-glow"></div>
+          <div class="report-card">
+            <div class="report-inner">
+              <div class="report-head">
+                <div>
+                  <div class="small-label" style="text-transform:uppercase;letter-spacing:0.18em;">Lotus Cybersecurity</div>
+                  <div class="report-title">Security Assessment Report</div>
+                </div>
+                <div class="pill" style="border-color:rgba(34,211,238,0.24);background:rgba(34,211,238,0.10);color:#cffafe;">Preview</div>
+              </div>
+
+              <div class="report-badges">
+                <div class="badge-box">
+                  <div class="k">Overall Risk</div>
+                  <div class="v warn-amber">Moderate</div>
+                </div>
+                <div class="badge-box">
+                  <div class="k">Devices Identified</div>
+                  <div class="v warn-cyan">12</div>
+                </div>
+              </div>
+
+              <div class="metric-stack">
+                <div class="metric">
+                  <div class="metric-row">
+                    <strong>Network Exposure</strong>
+                    <span class="state-amber">Needs Review</span>
+                  </div>
+                  <div class="bar bar-amber"><span></span></div>
+                </div>
+
+                <div class="metric">
+                  <div class="metric-row">
+                    <strong>Account Protection</strong>
+                    <span style="color:#fca5a5;">Weak</span>
+                  </div>
+                  <div class="bar bar-red"><span></span></div>
+                </div>
+
+                <div class="metric">
+                  <div class="metric-row">
+                    <strong>Monitoring Readiness</strong>
+                    <span class="state-cyan">Available</span>
+                  </div>
+                  <div class="bar bar-cyan"><span></span></div>
+                </div>
+              </div>
+
+              <div class="report-note">
+                Recommended next move: Begin security setup to improve network protection, secure accounts, and prepare for ongoing monitoring.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="hardware">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Hardware & Protection</div>
+          <h2 class="section-title">The tools behind the setup</h2>
+          <p class="section-text">
+            We choose and install the right protection for your environment, then build the setup around your business needs.
+          </p>
+        </div>
+
+        <div class="grid-hardware" style="margin-top:32px;">
+          <div class="hardware-card reveal">
+            <div class="hardware-top">
+              <div class="icon-circle">🛜</div>
+            </div>
+            <h3>Firewall Router</h3>
+            <p>Business-grade network protection and traffic control for your office.</p>
+          </div>
+
+          <div class="hardware-card reveal">
+            <div class="hardware-top">
+              <div class="icon-circle">🔒</div>
+            </div>
+            <h3>Secure VPN Access</h3>
+            <p>Safe remote access for owners and employees who need to connect from outside the office.</p>
+          </div>
+
+          <div class="hardware-card reveal">
+            <div class="hardware-top">
+              <div class="icon-circle">🛡</div>
+            </div>
+            <h3>Endpoint Protection</h3>
+            <p>Device protection for workstations, laptops, and critical business systems.</p>
+          </div>
+
+          <div class="hardware-card reveal">
+            <div class="hardware-top">
+              <div class="icon-circle">💻</div>
+            </div>
+            <h3>RMM Monitoring</h3>
+            <p>Remote monitoring and maintenance to help keep systems updated and protected.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="industries">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Industries</div>
+          <h2 class="section-title">Built for local organizations</h2>
+          <p class="section-text">
+            Lotus is designed for real-world small and medium business environments, especially teams that need security help without corporate complexity.
+          </p>
+        </div>
+
+        <div class="grid-industries" style="margin-top:32px;">
+          <div class="industry-card reveal">
+            <div class="icon-circle" style="margin-bottom:14px;">🏪</div>
+            <h3>Vape Shops</h3>
+            <p>Straightforward protection, clean reporting, and practical security support for day-to-day operations.</p>
+          </div>
+
+          <div class="industry-card reveal">
+            <div class="icon-circle" style="margin-bottom:14px;">🤝</div>
+            <h3>Food Banks & Nonprofits</h3>
+            <p>Straightforward protection, clean reporting, and practical security support for day-to-day operations.</p>
+          </div>
+
+          <div class="industry-card reveal">
+            <div class="icon-circle" style="margin-bottom:14px;">🦷</div>
+            <h3>Dental Offices</h3>
+            <p>Straightforward protection, clean reporting, and practical security support for day-to-day operations.</p>
+          </div>
+
+          <div class="industry-card reveal">
+            <div class="icon-circle" style="margin-bottom:14px;">⚖️</div>
+            <h3>Law Firms</h3>
+            <p>Straightforward protection, clean reporting, and practical security support for day-to-day operations.</p>
+          </div>
+
+          <div class="industry-card reveal">
+            <div class="icon-circle" style="margin-bottom:14px;">🏢</div>
+            <h3>Real Estate Offices</h3>
+            <p>Straightforward protection, clean reporting, and practical security support for day-to-day operations.</p>
+          </div>
+
+          <div class="industry-card reveal">
+            <div class="icon-circle" style="margin-bottom:14px;">🏬</div>
+            <h3>Retail & Small Offices</h3>
+            <p>Straightforward protection, clean reporting, and practical security support for day-to-day operations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blossom-wrap" id="blossom">
+      <div class="container blossom-grid">
+        <div class="reveal">
+          <div class="eyebrow">Blossom AI Preview</div>
+          <h2 class="section-title">A future automation layer for Lotus clients</h2>
+          <p class="section-text" style="color:#d0dceb;">
+            Blossom is our developing automation layer designed to support security visibility,
+            reporting, and smarter long-term protection for business clients.
+          </p>
+
+          <div class="check-list">
+            <div class="blossom-item">
+              <div class="spark">✦</div>
+              <div>Automated security visibility</div>
+            </div>
+            <div class="blossom-item">
+              <div class="spark">✦</div>
+              <div>Smarter alerts and reporting</div>
+            </div>
+            <div class="blossom-item">
+              <div class="spark">✦</div>
+              <div>Support for long-term client environments</div>
+            </div>
+            <div class="blossom-item">
+              <div class="spark">✦</div>
+              <div>Built to strengthen the Lotus monitoring experience</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="blossom-panel reveal">
+          <div class="blossom-status">
+            <div>
+              <div class="status-title">Platform Status</div>
+              <div class="status-value">In Development</div>
+            </div>
+            <div class="status-icon">🤖</div>
+          </div>
+
+          <div class="check-list">
+            <div class="blossom-item">
+              <div>Client-friendly dashboard concepts</div>
+              <div class="arrow">›</div>
+            </div>
+            <div class="blossom-item">
+              <div>Future monitoring automation</div>
+              <div class="arrow">›</div>
+            </div>
+            <div class="blossom-item">
+              <div>Security posture tracking</div>
+              <div class="arrow">›</div>
+            </div>
+            <div class="blossom-item">
+              <div>Expansion path for Lotus services</div>
+              <div class="arrow">›</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Testimonials</div>
+          <h2 class="section-title">What clients say</h2>
+          <p class="section-text">
+            A real business website needs social proof. This section is ready for your first live client quotes.
+          </p>
+        </div>
+
+        <div class="grid-quote" style="margin-top:32px;">
+          <div class="quote-card reveal">
+            <div class="quote-mark">“</div>
+            <p>Lotus made cybersecurity make sense. We finally understood what needed attention and what could wait.</p>
+            <div class="quote-meta">
+              <div class="quote-name">Local Business Owner</div>
+              <div class="quote-role">Small Business Client</div>
+            </div>
+          </div>
+
+          <div class="quote-card reveal">
+            <div class="quote-mark">“</div>
+            <p>The report was clean, easy to follow, and way more professional than we expected from a first assessment.</p>
+            <div class="quote-meta">
+              <div class="quote-name">Office Manager</div>
+              <div class="quote-role">Professional Services Firm</div>
+            </div>
+          </div>
+
+          <div class="quote-card reveal">
+            <div class="quote-mark">“</div>
+            <p>They explained things in plain English and gave us a clear path from review to protection.</p>
+            <div class="quote-meta">
+              <div class="quote-name">Practice Administrator</div>
+              <div class="quote-role">Dental Office</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="first-responders">
+      <div class="container fr-grid">
+        <div class="reveal">
+          <div class="eyebrow">First Responders</div>
+          <h2 class="section-title">Security support for those who serve others</h2>
+          <p class="section-text" style="color:#d0dceb;">
+            Lotus offers a dedicated page and program for first responders, public safety professionals,
+            and related local organizations that need trustworthy security help with a direct, no-nonsense approach.
+          </p>
+
+          <div class="fr-points">
+            <div class="fr-box">Simple onboarding</div>
+            <div class="fr-box">Local and relationship-driven</div>
+            <div class="fr-box">Clear recommendations</div>
+            <div class="fr-box">Respect for mission-critical work</div>
+          </div>
+        </div>
+
+        <div class="first-responder-card reveal">
+          <h3>Dedicated Program Preview</h3>
+          <div class="check-list">
+            <div class="fr-item">
+              <div class="spark">✦</div>
+              <div>Assessment discounts for qualifying organizations</div>
+            </div>
+            <div class="fr-item">
+              <div class="spark">✦</div>
+              <div>Priority scheduling for first responder referrals</div>
+            </div>
+            <div class="fr-item">
+              <div class="spark">✦</div>
+              <div>Personalized security guidance for work and home setups</div>
+            </div>
+            <div class="fr-item">
+              <div class="spark">✦</div>
+              <div>Professional reporting with clear next steps</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <div class="eyebrow">Contact</div>
+          <h2 class="section-title">Ready to get started?</h2>
+          <p class="section-text">
+            Start with a security assessment and get a clear picture of where your business stands.
+            From there, we can help you secure what matters most.
+          </p>
+
+          <div class="contact-info">
+            <div class="info-box">
+              <div class="k">Email</div>
+              <div class="v">info@lotuscyber.io</div>
+            </div>
+            <div class="info-box">
+              <div class="k">Service Area</div>
+              <div class="v">Main Line & Greater Philadelphia</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card reveal">
+          <h3>Request an Assessment</h3>
+
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="text" id="business" placeholder="Business Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder="Email Address" required />
+            </div>
+            <div class="form-group">
+              <textarea id="message" placeholder="Tell us about your business and what you need" required></textarea>
+            </div>
+            <button type="submit" class="button" style="width:100%;">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 Lotus Cybersecurity LLC</div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#scan-process">Scan Process</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#blossom">Blossom</a>
+        <a href="#first-responders">First Responders</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach((el) => revealObserver.observe(el));
+
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const business = document.getElementById('business').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = encodeURIComponent('Lotus Cybersecurity Assessment Request');
+      const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Business: ' + business + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message
+      );
+
+      window.location.href = 'mailto:info@lotuscyber.io?subject=' + subject + '&body=' + body;
+    });
+  </script>
 </body>
 </html>
