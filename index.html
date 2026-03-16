@@ -1,180 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Lotus Cybersecurity</title>
-
-<link rel="stylesheet" href="style.css">
-
-<style>
-
-/* INTERACTIVE NETWORK GRAPHIC */
-
-.network-demo{
-margin-top:80px;
-text-align:center;
-}
-
-.network-container{
-position:relative;
-margin:auto;
-width:900px;
-height:420px;
-}
-
-.node{
-position:absolute;
-width:120px;
-height:120px;
-border-radius:14px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:14px;
-font-weight:600;
-text-align:center;
-padding:10px;
-transition:all .35s ease;
-cursor:pointer;
-}
-
-.vulnerable{
-background:#2a0f13;
-border:2px solid #ff3b3b;
-color:#ff6a6a;
-box-shadow:0 0 15px rgba(255,0,0,.3);
-}
-
-.secure{
-background:#071b27;
-border:2px solid #00e1ff;
-color:#8ff5ff;
-box-shadow:0 0 15px rgba(0,225,255,.35);
-}
-
-.connection{
-position:absolute;
-height:2px;
-background:#ff3b3b;
-transition:.35s;
-}
-
-.secure-line{
-background:#00e1ff;
-box-shadow:0 0 8px #00e1ff;
-}
-
-/* Node placement */
-
-.router{top:160px;left:390px;}
-.workstation{top:30px;left:120px;}
-.email{top:30px;right:120px;}
-.cloud{bottom:30px;left:120px;}
-.camera{bottom:30px;right:120px;}
-
-.connection1{top:115px;left:240px;width:180px;transform:rotate(20deg);}
-.connection2{top:115px;right:240px;width:180px;transform:rotate(-20deg);}
-.connection3{bottom:115px;left:240px;width:180px;transform:rotate(-20deg);}
-.connection4{bottom:115px;right:240px;width:180px;transform:rotate(20deg);}
-
-.network-title{
-font-size:36px;
-margin-bottom:10px;
-}
-
-.network-sub{
-color:#aaa;
-margin-bottom:40px;
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lotus Cybersecurity</title>
+  <meta
+    name="description"
+    content="Enterprise-grade cybersecurity, monitoring, compliance, and risk management for small and mid-sized businesses."
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <img src="logo.png" alt="Lotus Cybersecurity logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-name">Lotus Cybersecurity</span>
+          <span class="brand-sub">Monitoring • Compliance • Risk Management</span>
+        </div>
+      </a>
 
-<header>
-<nav class="nav">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="future-tech.html">Future Tech</a>
-<a href="threat-center.html">Threat Center</a>
-<a href="about.html">About</a>
-<a href="contact.html">Book Assessment</a>
-</nav>
-</header>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#assessment">Free Assessment</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="network-demo">
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Former law enforcement background • Business-first protection</p>
+          <h1>Cybersecurity that feels modern, personal, and built for real businesses.</h1>
+          <p class="hero-text">
+            Lotus Cybersecurity helps local businesses strengthen systems, reduce risk,
+            improve visibility, and prepare for modern threats without the confusion,
+            fluff, or enterprise-level complexity.
+          </p>
 
-<h2 class="network-title">From Vulnerable to Protected</h2>
+          <div class="hero-buttons">
+            <a href="#assessment" class="btn btn-primary">Book Free Assessment</a>
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
+          </div>
 
-<p class="network-sub">
-Hover over the environment to see how Lotus transforms exposed systems into a secured network.
-</p>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Monitoring Mindset</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">SMB</span>
+              <span class="stat-label">Built for Small Business</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">Risk</span>
+              <span class="stat-label">Visibility & Hardening</span>
+            </div>
+          </div>
+        </div>
 
-<div class="network-container" id="network">
+        <div class="hero-visual">
+          <div class="hero-image-frame">
+            <img src="blossom-hero.png" alt="Lotus virtual assistant Blossom" class="hero-image" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="node router vulnerable">Router<br>Weak Firewall</div>
-<div class="node workstation vulnerable">Workstation<br>Unpatched</div>
-<div class="node email vulnerable">Email<br>No MFA</div>
-<div class="node cloud vulnerable">Cloud Apps<br>Exposed</div>
-<div class="node camera vulnerable">IoT Devices<br>Unmanaged</div>
+    <section class="trust-bar">
+      <div class="container trust-grid">
+        <div class="trust-item">Security Monitoring</div>
+        <div class="trust-item">System Hardening</div>
+        <div class="trust-item">Compliance Support</div>
+        <div class="trust-item">Risk Management</div>
+      </div>
+    </section>
 
-<div class="connection connection1"></div>
-<div class="connection connection2"></div>
-<div class="connection connection3"></div>
-<div class="connection connection4"></div>
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-tag">Core Services</p>
+          <h2>Simple services that make businesses safer fast</h2>
+          <p>
+            We focus on practical improvements that reduce exposure, improve resilience,
+            and give owners confidence in the systems they rely on every day.
+          </p>
+        </div>
 
-</div>
+        <div class="card-grid">
+          <article class="info-card">
+            <h3>Free Security Assessment</h3>
+            <p>
+              Initial review of devices, network visibility, security gaps, user risk,
+              and overall environment health to identify where protection should start.
+            </p>
+          </article>
 
-</section>
+          <article class="info-card">
+            <h3>System Hardening</h3>
+            <p>
+              One-time cleanup and security improvement work including device lockdown,
+              patching, account review, baseline protections, and configuration fixes.
+            </p>
+          </article>
 
-<script>
+          <article class="info-card">
+            <h3>Monitoring & Maintenance</h3>
+            <p>
+              Ongoing monthly support with system oversight, patch management, alerting,
+              endpoint protection coordination, and routine health checks.
+            </p>
+          </article>
 
-const network = document.getElementById("network")
-const nodes = document.querySelectorAll(".node")
-const lines = document.querySelectorAll(".connection")
+          <article class="info-card">
+            <h3>Compliance Support</h3>
+            <p>
+              Help businesses prepare for security expectations, policy maturity,
+              documentation needs, and industry-driven security requirements.
+            </p>
+          </article>
 
-network.addEventListener("mouseenter", () => {
+          <article class="info-card">
+            <h3>Risk Management</h3>
+            <p>
+              Prioritized recommendations that focus on the threats most likely to impact
+              operations, reputation, downtime, and business continuity.
+            </p>
+          </article>
 
-nodes.forEach(n=>{
-n.classList.remove("vulnerable")
-n.classList.add("secure")
-})
+          <article class="info-card">
+            <h3>Trusted Guidance</h3>
+            <p>
+              We translate technical problems into plain language so owners know what is
+              wrong, what matters most, and what to fix first.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-lines.forEach(l=>{
-l.classList.add("secure-line")
-})
+    <section id="assessment" class="section section-dark">
+      <div class="container two-column">
+        <div>
+          <p class="section-tag">Free First Step</p>
+          <h2>What happens during the free assessment?</h2>
+          <p>
+            We start with a practical review of your environment so you can understand
+            your current exposure before committing to anything.
+          </p>
+        </div>
 
-nodes[0].innerHTML="Router<br>Hardened Firewall"
-nodes[1].innerHTML="Workstation<br>Endpoint Protected"
-nodes[2].innerHTML="Email<br>MFA Enabled"
-nodes[3].innerHTML="Cloud Apps<br>Access Secured"
-nodes[4].innerHTML="IoT Devices<br>Segmented Network"
+        <div class="checklist-card">
+          <ul>
+            <li>Basic network and device visibility review</li>
+            <li>Office technology and hardware inventory</li>
+            <li>High-level security weakness identification</li>
+            <li>Password, update, and user-access concerns</li>
+            <li>Immediate recommendations and next-step options</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-})
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-tag">Pricing Structure</p>
+          <h2>Flexible paths for businesses at different stages</h2>
+          <p>
+            Start with a free assessment, move into one-time hardening, then grow into
+            monthly protection as your business needs mature.
+          </p>
+        </div>
 
-network.addEventListener("mouseleave", () => {
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>Free Assessment</h3>
+            <p class="price">$0</p>
+            <p>Introductory security review for small businesses that want a starting point.</p>
+          </div>
 
-nodes.forEach(n=>{
-n.classList.remove("secure")
-n.classList.add("vulnerable")
-})
+          <div class="price-card featured">
+            <h3>Hardening & Cleanup</h3>
+            <p class="price">Custom</p>
+            <p>One-time remediation, cleanup, device hardening, and security improvement work.</p>
+          </div>
 
-lines.forEach(l=>{
-l.classList.remove("secure-line")
-})
+          <div class="price-card">
+            <h3>Monthly Protection</h3>
+            <p class="price">Recurring</p>
+            <p>Ongoing monitoring, patch oversight, maintenance, support, and security visibility.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-nodes[0].innerHTML="Router<br>Weak Firewall"
-nodes[1].innerHTML="Workstation<br>Unpatched"
-nodes[2].innerHTML="Email<br>No MFA"
-nodes[3].innerHTML="Cloud Apps<br>Exposed"
-nodes[4].innerHTML="IoT Devices<br>Unmanaged"
+    <section id="contact" class="section contact-section">
+      <div class="container contact-box">
+        <div>
+          <p class="section-tag">Let’s Talk</p>
+          <h2>Ready to protect your business?</h2>
+          <p>
+            Whether you need a free assessment, one-time hardening, or long-term
+            security support, Lotus Cybersecurity is ready to help.
+          </p>
+        </div>
 
-})
+        <div class="contact-actions">
+          <a href="mailto:info@lotuscybersecurity.com" class="btn btn-primary">Email Us</a>
+          <a href="#" class="btn btn-secondary">Schedule Consultation</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-</script>
-
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© 2026 Lotus Cybersecurity. All rights reserved.</p>
+      <p>Main Line, Pennsylvania</p>
+    </div>
+  </footer>
 </body>
 </html>
