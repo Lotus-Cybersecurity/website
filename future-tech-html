@@ -4,8 +4,305 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lotus Cybersecurity | Future Tech</title>
-  <meta name="description" content="Blossom is Lotus Cybersecurity's future-facing vision for intelligent security assistance, threat visibility, and client reporting." />
+  <meta
+    name="description"
+    content="Blossom is Lotus Cybersecurity's future-facing vision for intelligent security assistance, client visibility, and smarter defensive operations."
+  />
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .future-hero{
+      position:relative;
+      overflow:hidden;
+      padding:110px 0 80px;
+    }
+
+    .future-hero::before{
+      content:"";
+      position:absolute;
+      inset:-10%;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(122,215,255,0.18), transparent 18%),
+        radial-gradient(circle at 82% 18%, rgba(111,90,255,0.15), transparent 18%),
+        radial-gradient(circle at 74% 74%, rgba(122,215,255,0.10), transparent 18%);
+      pointer-events:none;
+    }
+
+    .future-particles{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      opacity:0.12;
+      background-image:radial-gradient(rgba(122,215,255,0.65) 1.2px, transparent 1.2px);
+      background-size:64px 64px;
+      animation: futureFloat 30s linear infinite;
+    }
+
+    .future-hero .container{
+      position:relative;
+      z-index:1;
+    }
+
+    .future-hero-grid{
+      display:grid;
+      grid-template-columns:1.02fr 0.98fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .future-hero h1{
+      margin:0 0 18px;
+      font-size:clamp(2.8rem, 5.3vw, 4.8rem);
+      line-height:1.02;
+      letter-spacing:-0.04em;
+      max-width:820px;
+    }
+
+    .future-copy{
+      color:var(--muted);
+      font-size:1.08rem;
+      max-width:760px;
+    }
+
+    .future-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      margin-top:20px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(122,215,255,0.16);
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .future-pill strong{
+      color:var(--text);
+    }
+
+    .future-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .future-visual{
+      position:relative;
+    }
+
+    .future-image-shell{
+      padding:14px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .future-image-shell::before{
+      content:"";
+      position:absolute;
+      inset:-20%;
+      background:
+        conic-gradient(
+          from 0deg,
+          rgba(122,215,255,0.18),
+          rgba(255,255,255,0.02),
+          rgba(111,90,255,0.15),
+          rgba(122,215,255,0.18)
+        );
+      filter:blur(30px);
+      opacity:0.65;
+      animation: slowSpin 18s linear infinite;
+      pointer-events:none;
+    }
+
+    .future-image{
+      width:100%;
+      border-radius:18px;
+      object-fit:cover;
+      position:relative;
+      z-index:1;
+    }
+
+    .future-overlay-top,
+    .future-overlay-bottom{
+      position:absolute;
+      z-index:2;
+      backdrop-filter:blur(10px);
+      background:rgba(3,8,19,0.78);
+      border:1px solid rgba(122,215,255,0.16);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .future-overlay-top{
+      top:22px;
+      left:22px;
+      padding:14px 16px;
+      min-width:190px;
+    }
+
+    .future-overlay-bottom{
+      right:22px;
+      bottom:22px;
+      padding:16px 18px;
+      min-width:220px;
+    }
+
+    .future-overlay-top strong,
+    .future-overlay-bottom strong{
+      display:block;
+      margin-bottom:5px;
+      font-size:1rem;
+    }
+
+    .future-overlay-top span,
+    .future-overlay-bottom span{
+      display:block;
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    .future-section-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .future-card{
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .future-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(122,215,255,0.04), rgba(255,255,255,0.01));
+      pointer-events:none;
+    }
+
+    .future-card > *{
+      position:relative;
+      z-index:1;
+    }
+
+    .future-card h3{
+      margin-top:0;
+      margin-bottom:10px;
+    }
+
+    .future-card p{
+      color:var(--muted);
+      margin-bottom:0;
+    }
+
+    .future-roadmap{
+      display:grid;
+      grid-template-columns:1.02fr 0.98fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .roadmap-story,
+    .roadmap-points{
+      padding:30px;
+    }
+
+    .roadmap-story h2,
+    .roadmap-points h2{
+      margin-top:0;
+      margin-bottom:12px;
+    }
+
+    .roadmap-story p,
+    .roadmap-points p,
+    .roadmap-points li{
+      color:var(--muted);
+    }
+
+    .roadmap-points ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .future-comparison{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:22px;
+    }
+
+    .compare-box{
+      padding:28px;
+    }
+
+    .compare-box h3{
+      margin-top:0;
+      margin-bottom:10px;
+    }
+
+    .compare-box p,
+    .compare-box li{
+      color:var(--muted);
+    }
+
+    .compare-box ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    .future-cta{
+      padding:34px;
+      text-align:center;
+    }
+
+    .future-cta p{
+      max-width:760px;
+      margin:0 auto 22px;
+      color:var(--muted);
+    }
+
+    @keyframes futureFloat{
+      0%{ transform:translate3d(0,0,0); }
+      100%{ transform:translate3d(-50px,-35px,0); }
+    }
+
+    @keyframes slowSpin{
+      from{ transform:rotate(0deg); }
+      to{ transform:rotate(360deg); }
+    }
+
+    @media (max-width: 980px){
+      .future-hero-grid,
+      .future-section-grid,
+      .future-roadmap,
+      .future-comparison{
+        grid-template-columns:1fr;
+      }
+
+      .future-hero{
+        padding-top:90px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .future-hero h1{
+        font-size:clamp(2.4rem, 11vw, 3.5rem);
+      }
+
+      .future-actions{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .future-overlay-top,
+      .future-overlay-bottom{
+        position:static;
+        margin-top:14px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="grid-bg"></div>
@@ -23,7 +320,7 @@
         <a href="future-tech.html" class="active">Future Tech</a>
         <a href="threat-center.html">Threat Center</a>
         <a href="about.html">About</a>
-        <a href="contact.html" class="nav-cta">Free Assessment</a>
+        <a href="contact.html" class="nav-cta">Book Assessment</a>
       </nav>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
@@ -35,41 +332,51 @@
       <a href="future-tech.html">Future Tech</a>
       <a href="threat-center.html">Threat Center</a>
       <a href="about.html">About</a>
-      <a href="contact.html">Free Assessment</a>
+      <a href="contact.html">Book Assessment</a>
     </div>
   </header>
 
-  <main class="page-main">
-    <section class="page-hero page-hero-split">
-      <div class="container split-grid">
-        <div>
-          <p class="eyebrow">FUTURE TECH</p>
-          <h1>Blossom: intelligent security assistance in development</h1>
-          <p class="page-copy">
-            Blossom represents Lotus’ long-term vision for security operations supported by better visibility,
-            better prioritization, better client communication, and smarter defensive workflows.
-          </p>
-        </div>
+  <main>
+    <section class="future-hero">
+      <div class="future-particles"></div>
 
-        <div class="glass future-image-wrap glow-border">
-          <img src="blossom-hero.png" alt="Blossom futuristic graphic" class="future-image" />
-        </div>
-      </div>
-    </section>
+      <div class="container">
+        <div class="future-hero-grid">
+          <div>
+            <p class="eyebrow">FUTURE TECH</p>
+            <h1>Blossom is the long-term vision behind smarter Lotus security operations</h1>
+            <p class="future-copy">
+              Blossom represents the future-facing side of Lotus: better visibility, better prioritization,
+              cleaner client reporting, and more intelligent support for defensive operations without losing
+              human judgment, context, or accountability.
+            </p>
 
-    <section class="section">
-      <div class="container card-grid three">
-        <div class="glass info-card">
-          <h3>Threat Visibility</h3>
-          <p>Surface what matters faster and reduce blind spots across business environments that often lack internal security depth.</p>
-        </div>
-        <div class="glass info-card">
-          <h3>Alert Prioritization</h3>
-          <p>Help focus attention on meaningful threats instead of wasting time on noise, repetition, and low-value distractions.</p>
-        </div>
-        <div class="glass info-card">
-          <h3>Client Intelligence</h3>
-          <p>Translate technical data into clear, understandable security insight clients can actually use to make decisions.</p>
+            <div class="future-pill">
+              <span>Status:</span>
+              <strong>Vision in Development</strong>
+            </div>
+
+            <div class="future-actions">
+              <a href="contact.html" class="btn btn-primary">Work With Lotus</a>
+              <a href="threat-center.html" class="btn btn-secondary">View Threat Center</a>
+            </div>
+          </div>
+
+          <div class="future-visual">
+            <div class="glass glow-border future-image-shell">
+              <div class="future-overlay-top">
+                <strong>Blossom</strong>
+                <span>AI-assisted security vision</span>
+              </div>
+
+              <img src="blossom-hero.png" alt="Blossom futuristic graphic" class="future-image" />
+
+              <div class="future-overlay-bottom">
+                <strong>Purpose</strong>
+                <span>Support visibility, triage, reporting, and smarter defensive workflows</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -77,21 +384,120 @@
     <section class="section alt-section">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">VISION</p>
-          <h2>Human-led security, enhanced by intelligent systems</h2>
+          <p class="eyebrow">WHAT BLOSSOM STANDS FOR</p>
+          <h2>Not a gimmick. Not a chatbot with a pretty face. A future operating layer.</h2>
           <p>
-            Blossom is not meant to replace human judgment. It is meant to strengthen it. The goal is a future where Lotus can provide
-            faster awareness, cleaner triage, stronger reporting, and better client visibility without losing the human perspective that real security requires.
+            Blossom is meant to represent a more intelligent layer around Lotus services: something that helps sort signal from noise,
+            improve client understanding, and make security operations feel cleaner, faster, and more usable.
           </p>
+        </div>
+
+        <div class="future-section-grid">
+          <div class="glass future-card">
+            <h3>Threat Visibility</h3>
+            <p>
+              Surface the activity that actually matters and reduce blind spots across business environments that usually lack dedicated security teams.
+            </p>
+          </div>
+
+          <div class="glass future-card">
+            <h3>Alert Prioritization</h3>
+            <p>
+              Help direct attention toward the events, weaknesses, and changes that deserve action instead of drowning in background noise.
+            </p>
+          </div>
+
+          <div class="glass future-card">
+            <h3>Client Intelligence</h3>
+            <p>
+              Turn technical security data into cleaner, easier-to-understand reporting that helps clients see what Lotus is protecting and why it matters.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section cta-section">
+    <section class="section">
       <div class="container">
-        <div class="glass cta-box">
-          <h2>The future of Lotus is built around stronger visibility and smarter defense</h2>
-          <a href="contact.html" class="btn btn-primary">Work With Lotus</a>
+        <div class="future-roadmap">
+          <div class="glass roadmap-story">
+            <p class="eyebrow">ROADMAP</p>
+            <h2>Blossom fits into the future of Lotus, not outside of it</h2>
+            <p>
+              Lotus is being built as a real-world security company first. That means assessments, hardening, client guidance,
+              recurring protection, and disciplined service structure come before flashy promises. Blossom sits on top of that
+              foundation as the future-facing layer that can make the whole system smarter.
+            </p>
+            <p>
+              The long-term idea is not to replace people. It is to give Lotus and its clients better visibility into risk,
+              faster awareness around what changed, and a cleaner way to understand where security effort is going.
+            </p>
+          </div>
+
+          <div class="glass roadmap-points">
+            <p class="eyebrow">POTENTIAL CAPABILITIES</p>
+            <h2>What that future could look like</h2>
+            <ul>
+              <li>Client-facing visibility into environment status and security posture</li>
+              <li>Smarter prioritization of findings and recurring risks</li>
+              <li>Cleaner reporting that shows what changed over time</li>
+              <li>Better translation of technical issues into business meaning</li>
+              <li>AI-assisted workflows that support, not replace, human security judgment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">THE RIGHT FRAME</p>
+          <h2>How Lotus sees AI in security</h2>
+          <p>
+            The point is not to pretend AI solves cybersecurity by itself. The point is to use intelligent systems where they help,
+            keep humans where they are needed, and avoid building trust on hype.
+          </p>
+        </div>
+
+        <div class="future-comparison">
+          <div class="glass compare-box">
+            <h3>What Blossom is not</h3>
+            <ul>
+              <li>A replacement for real security work</li>
+              <li>A fake promise of fully automated defense</li>
+              <li>A gimmick meant to distract from service quality</li>
+              <li>A vague marketing mascot with no purpose</li>
+            </ul>
+          </div>
+
+          <div class="glass compare-box">
+            <h3>What Blossom is meant to become</h3>
+            <ul>
+              <li>A future-facing support layer around Lotus operations</li>
+              <li>A cleaner way to communicate risk and protection to clients</li>
+              <li>A tool for better triage, visibility, and prioritization</li>
+              <li>A premium expression of where Lotus is headed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="glass future-cta">
+          <p class="eyebrow">LOOKING AHEAD</p>
+          <h2>Lotus is built for real protection now and smarter operations later</h2>
+          <p>
+            Blossom represents the future side of that mission: intelligent support, better visibility, stronger communication,
+            and a cleaner security experience layered on top of real-world service.
+          </p>
+
+          <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-primary">Talk to Lotus</a>
+            <a href="about.html" class="btn btn-secondary">Why Lotus Exists</a>
+          </div>
         </div>
       </div>
     </section>
@@ -101,16 +507,20 @@
     <div class="container footer-grid">
       <div>
         <h3>LOTUS CYBERSECURITY</h3>
-        <p>Security built for today, with a roadmap for what comes next.</p>
+        <p>Security built for today, with a roadmap for smarter operations tomorrow.</p>
       </div>
+
       <div>
+        <h4>Navigation</h4>
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="threat-center.html">Threat Center</a>
         <a href="about.html">About</a>
       </div>
+
       <div>
-        <a href="contact.html">Free Assessment</a>
+        <h4>Start Here</h4>
+        <a href="contact.html">Book Assessment</a>
       </div>
     </div>
   </footer>
