@@ -2,194 +2,378 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Lotus Cybersecurity</title>
-<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+
+<style>
+body{
+font-family: 'Inter', sans-serif;
+background:#020617;
+color:white;
+}
+
+#particles-js{
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+}
+</style>
+
 </head>
+
 
 <body>
 
-<header>
 
-<img src="logo.png" class="logo">
+<div id="particles-js"></div>
 
-<div class="tagline">
-Cybersecurity Monitoring • Compliance • Risk Management
+
+<header class="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center">
+
+<div class="flex items-center gap-4">
+
+<img src="logo.png" class="w-12">
+
+<h1 class="text-xl font-semibold">
+Lotus Cybersecurity
+</h1>
+
 </div>
 
-<nav>
-<a href="#services">Services</a>
-<a href="#assessment">Assessment</a>
-<a href="#pricing">Pricing</a>
-<a href="#contact">Contact</a>
+
+<nav class="space-x-6 text-gray-300">
+
+<a href="#services" class="hover:text-cyan-400">Services</a>
+
+<a href="#process" class="hover:text-cyan-400">Assessment</a>
+
+<a href="#pricing" class="hover:text-cyan-400">Pricing</a>
+
+<a href="#contact" class="hover:text-cyan-400">Contact</a>
+
 </nav>
 
 </header>
 
 
-<section id="services">
 
-<h1>Cybersecurity for Real Businesses</h1>
+<section class="max-w-6xl mx-auto px-6 py-24 text-center">
 
-<p>
-Lotus Cybersecurity provides practical protection for individuals, small businesses,
-and growing organizations. Our services focus on identifying vulnerabilities,
-hardening systems, and monitoring networks for suspicious activity.
+<img src="logo.png" class="mx-auto w-32 mb-6">
+
+<h2 class="text-4xl font-bold mb-6">
+Cybersecurity Monitoring • Compliance • Risk Management
+</h2>
+
+<p class="text-gray-400 max-w-2xl mx-auto mb-10">
+Lotus Cybersecurity protects businesses through security assessments,
+system hardening, and network monitoring designed to detect threats early
+and reduce cyber risk.
 </p>
 
-<div class="pricing-grid">
+<a href="#contact" class="bg-cyan-500 px-6 py-3 rounded-lg font-semibold hover:bg-cyan-400">
+Book Security Assessment
+</a>
 
-<div class="price-card">
-<div class="price-title">Security Assessment</div>
-<p>
-We examine your network, devices, and configuration to identify risks attackers could exploit.
+</section>
+
+
+
+<section id="services" class="max-w-6xl mx-auto px-6 py-20">
+
+<h2 class="text-3xl font-bold text-center mb-14">
+Security Services
+</h2>
+
+<div class="grid md:grid-cols-3 gap-10">
+
+
+<div data-aos="fade-up" class="bg-slate-900 p-8 rounded-xl border border-slate-800">
+
+<i class="fa-solid fa-shield-halved text-cyan-400 text-2xl mb-4"></i>
+
+<h3 class="text-xl font-semibold mb-3">
+Security Assessment
+</h3>
+
+<p class="text-gray-400">
+Identify vulnerabilities across your network, systems, and devices
+before attackers find them.
 </p>
+
 </div>
 
-<div class="price-card">
-<div class="price-title">System Hardening</div>
-<p>
-Routers, computers, and cloud systems are secured using industry best practices.
+
+
+<div data-aos="fade-up" class="bg-slate-900 p-8 rounded-xl border border-slate-800">
+
+<i class="fa-solid fa-lock text-cyan-400 text-2xl mb-4"></i>
+
+<h3 class="text-xl font-semibold mb-3">
+System Hardening
+</h3>
+
+<p class="text-gray-400">
+Routers, workstations, firewalls, and cloud systems are secured
+using modern security practices.
 </p>
+
 </div>
 
-<div class="price-card">
-<div class="price-title">Monitoring</div>
-<p>
-Continuous monitoring helps detect suspicious activity before it becomes a breach.
+
+
+<div data-aos="fade-up" class="bg-slate-900 p-8 rounded-xl border border-slate-800">
+
+<i class="fa-solid fa-chart-line text-cyan-400 text-2xl mb-4"></i>
+
+<h3 class="text-xl font-semibold mb-3">
+Security Monitoring
+</h3>
+
+<p class="text-gray-400">
+Continuous monitoring detects suspicious activity
+before problems escalate into breaches.
 </p>
+
 </div>
+
 
 </div>
 
 </section>
 
 
-<section id="assessment">
 
-<h2>How A Security Assessment Works</h2>
+<section id="process" class="max-w-6xl mx-auto px-6 py-20">
 
-<div class="pricing-grid">
+<h2 class="text-3xl font-bold text-center mb-14">
+How A Security Assessment Works
+</h2>
 
-<div class="price-card">
-<div class="price-title">1. Network Discovery</div>
-<p>
-Identify routers, switches, computers, cameras, POS systems, and wireless devices.
+<div class="grid md:grid-cols-4 gap-8">
+
+
+<div data-aos="fade-up" class="bg-slate-900 p-6 rounded-xl">
+
+<h3 class="font-semibold mb-2">Network Discovery</h3>
+
+<p class="text-gray-400 text-sm">
+Identify devices including routers, switches,
+POS systems, and cameras.
 </p>
+
 </div>
 
-<div class="price-card">
-<div class="price-title">2. Vulnerability Scan</div>
-<p>
-Detect outdated software, missing patches, and misconfigurations.
+
+<div data-aos="fade-up" class="bg-slate-900 p-6 rounded-xl">
+
+<h3 class="font-semibold mb-2">Vulnerability Scan</h3>
+
+<p class="text-gray-400 text-sm">
+Detect outdated software, missing patches,
+and exposed services.
 </p>
+
 </div>
 
-<div class="price-card">
-<div class="price-title">3. Security Review</div>
-<p>
-Analyze firewall rules, device access, and system protections.
+
+<div data-aos="fade-up" class="bg-slate-900 p-6 rounded-xl">
+
+<h3 class="font-semibold mb-2">Security Review</h3>
+
+<p class="text-gray-400 text-sm">
+Analyze firewall rules, access permissions,
+and remote exposure.
 </p>
+
 </div>
 
-<div class="price-card">
-<div class="price-title">4. Remediation Plan</div>
-<p>
-Receive a prioritized roadmap explaining what improvements reduce risk the most.
+
+<div data-aos="fade-up" class="bg-slate-900 p-6 rounded-xl">
+
+<h3 class="font-semibold mb-2">Remediation Plan</h3>
+
+<p class="text-gray-400 text-sm">
+Receive a prioritized roadmap to reduce
+security risks.
 </p>
+
 </div>
+
 
 </div>
 
 </section>
 
 
-<section id="pricing">
 
-<h2>Simple Transparent Pricing</h2>
+<section id="pricing" class="max-w-6xl mx-auto px-6 py-20">
 
-<p>
-Clear pricing, real services, and a straightforward path from assessment to monitoring.
-</p>
+<h2 class="text-3xl font-bold text-center mb-14">
+Transparent Pricing
+</h2>
 
-<div class="pricing-grid">
+<div class="grid md:grid-cols-3 gap-10">
 
-<div class="price-card">
 
-<div class="price-title">Personal Monitoring</div>
+<div class="bg-slate-900 p-8 rounded-xl border border-slate-800 text-center">
 
-<div class="price">$39 / month</div>
+<h3 class="text-xl font-semibold mb-4">
+Personal Monitoring
+</h3>
 
-<ul>
+<div class="text-3xl text-cyan-400 mb-6">
+$39 / month
+</div>
+
+<ul class="text-gray-400 space-y-2 text-sm">
+
 <li>Home network monitoring</li>
 <li>Threat alerts</li>
-<li>Quarterly security check</li>
-<li>Blossom AI features coming soon</li>
+<li>Quarterly security review</li>
+<li>Blossom AI coming soon</li>
+
 </ul>
 
 </div>
 
 
-<div class="price-card">
 
-<div class="price-title">Small Business Monitoring</div>
+<div class="bg-slate-900 p-8 rounded-xl border border-cyan-500 text-center">
 
-<div class="price">$149 / month</div>
+<h3 class="text-xl font-semibold mb-4">
+Small Business Monitoring
+</h3>
 
-<ul>
+<div class="text-3xl text-cyan-400 mb-6">
+$149 / month
+</div>
+
+<ul class="text-gray-400 space-y-2 text-sm">
+
 <li>Network monitoring</li>
-<li>Threat detection alerts</li>
+<li>Threat alerts</li>
 <li>Patch oversight</li>
 <li>Monthly security review</li>
-<li>Blossom AI monitoring coming soon</li>
+<li>Blossom AI monitoring</li>
+
 </ul>
 
 </div>
 
 
-<div class="price-card">
 
-<div class="price-title">Medium Business Monitoring</div>
+<div class="bg-slate-900 p-8 rounded-xl border border-slate-800 text-center">
 
-<div class="price">$399 / month</div>
+<h3 class="text-xl font-semibold mb-4">
+Medium Business Monitoring
+</h3>
 
-<ul>
-<li>Expanded network monitoring</li>
+<div class="text-3xl text-cyan-400 mb-6">
+$399 / month
+</div>
+
+<ul class="text-gray-400 space-y-2 text-sm">
+
+<li>Expanded monitoring</li>
 <li>Threat detection</li>
 <li>Security reporting</li>
-<li>System oversight</li>
-<li>Compliance assistance</li>
+<li>Compliance support</li>
+
 </ul>
 
 </div>
 
+
 </div>
 
 </section>
 
 
-<section id="contact">
 
-<h2>Schedule A Security Assessment</h2>
+<section id="contact" class="max-w-4xl mx-auto px-6 py-20 text-center">
 
-<p>
-If you're concerned about cyber threats, Lotus Cybersecurity can review your systems
-and provide a clear plan to improve security.
+<h2 class="text-3xl font-bold mb-6">
+Schedule A Security Assessment
+</h2>
+
+<p class="text-gray-400 mb-10">
+Concerned about cyber threats? Lotus Cybersecurity can review your
+systems and provide a clear plan to strengthen your security posture.
 </p>
 
-<a class="btn">Book Assessment</a>
+<a class="bg-cyan-500 px-8 py-4 rounded-lg font-semibold hover:bg-cyan-400">
+Contact Lotus Cybersecurity
+</a>
 
 </section>
 
 
-<footer>
 
-<p>
+<footer class="text-center text-gray-500 py-10">
+
 © 2026 Lotus Cybersecurity
-</p>
 
 </footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<script>
+
+particlesJS("particles-js", {
+
+particles:{
+
+number:{value:80},
+
+color:{value:"#22d3ee"},
+
+shape:{type:"circle"},
+
+opacity:{value:0.4},
+
+size:{value:3},
+
+line_linked:{
+enable:true,
+distance:150,
+color:"#22d3ee",
+opacity:0.2,
+width:1
+},
+
+move:{enable:true,speed:1}
+
+}
+
+});
+
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+AOS.init();
+</script>
+
 
 </body>
 </html>
