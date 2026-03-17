@@ -3,416 +3,379 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lotus Cybersecurity LLC — Enterprise-Grade Protection</title>
-  <meta name="description" content="Lotus Cybersecurity brings Fortune 500-level cybersecurity to small and mid-size businesses in Main Line, Pennsylvania and beyond." />
+  <title>Lotus Cybersecurity LLC</title>
+  <meta
+    name="description"
+    content="Enterprise-grade cybersecurity for local businesses. Assessments, system hardening, compliance, monitoring, and the future of AI-powered defense with Blossom."
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- NAVIGATION -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="nav-logo">
-        <img src="logo.png" alt="Lotus Cybersecurity Logo" class="logo-img" />
-        <span class="logo-text">LOTUS <span class="logo-accent">CYBERSECURITY</span></span>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#home" class="brand">
+        <img src="logo.png" alt="Lotus Cybersecurity logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-name">Lotus Cybersecurity</span>
+          <span class="brand-subtitle">LLC</span>
+        </div>
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#blossom" class="nav-link">Blossom AI</a></li>
-        <li><a href="#pricing" class="nav-link">Pricing</a></li>
-        <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-grid-overlay"></div>
-    <div class="hero-particles" id="heroParticles"></div>
-    <div class="hero-container">
-      <div class="hero-content fade-in-up">
-        <div class="hero-badge">
-          <span class="badge-dot"></span>
-          <span>AI-Powered Defense • Active Protection</span>
-        </div>
-        <h1 class="hero-title">
-          Enterprise-Grade<br />
-          <span class="title-accent">Cybersecurity</span><br />
-          for Local Business
-        </h1>
-        <p class="hero-subtitle">
-          We bring Fortune 500 level cybersecurity to small and mid-size organizations — the same systems used by global enterprises, built for your business.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">
-            <span class="btn-glow"></span>
-            Free Security Assessment
-          </a>
-          <a href="#services" class="btn btn-secondary">
-            View Services
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-num">24/7</span>
-            <span class="stat-label">Monitoring</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num">100%</span>
-            <span class="stat-label">Uptime SLA</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num">&lt;15min</span>
-            <span class="stat-label">Response Time</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-visual fade-in-right">
-        <div class="hero-image-wrapper">
-          <div class="image-ring ring-1"></div>
-          <div class="image-ring ring-2"></div>
-          <div class="image-ring ring-3"></div>
-          <img src="blossom-hero.png" alt="Blossom — AI Security Guardian" class="hero-img" />
-          <div class="image-scan-line"></div>
-        </div>
-        <div class="hero-float-card card-1">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span>Threat Neutralized</span>
-        </div>
-        <div class="hero-float-card card-2">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>All Systems Secure</span>
-        </div>
-      </div>
+      <nav class="site-nav" id="siteNav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#blossom">Blossom AI</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <div class="hero-scroll-indicator">
-      <span>Scroll to explore</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
+  </header>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="section-container">
-      <div class="section-header fade-in-up">
-        <span class="section-tag">Our Services</span>
-        <h2 class="section-title">Defense Built for <span class="title-accent">Your Business</span></h2>
-        <p class="section-subtitle">Three core pillars of protection — from initial assessment to continuous monitoring, we cover the full security lifecycle.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card fade-in-up" data-delay="0">
-          <div class="card-icon-wrapper">
-            <svg class="card-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-            </svg>
-          </div>
-          <div class="card-number">01</div>
-          <h3 class="card-title">Security Assessment</h3>
-          <p class="card-desc">A full security review of your business network including devices, users, firewall configuration, and vulnerabilities — delivered as a clear action plan.</p>
-          <ul class="card-includes">
-            <li><span class="check-icon">◈</span> Network scan</li>
-            <li><span class="check-icon">◈</span> Device inventory</li>
-            <li><span class="check-icon">◈</span> Security gaps report</li>
-          </ul>
-          <a href="#pricing" class="card-cta">Get Assessment <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="service-card service-card--featured fade-in-up" data-delay="150">
-          <div class="card-featured-label">Most Popular</div>
-          <div class="card-icon-wrapper">
-            <svg class="card-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-            </svg>
-          </div>
-          <div class="card-number">02</div>
-          <h3 class="card-title">System Hardening</h3>
-          <p class="card-desc">We secure and configure your systems using enterprise cybersecurity standards — the same frameworks deployed by Fortune 500 companies.</p>
-          <ul class="card-includes">
-            <li><span class="check-icon">◈</span> Firewall configuration</li>
-            <li><span class="check-icon">◈</span> Endpoint protection</li>
-            <li><span class="check-icon">◈</span> Secure network architecture</li>
-            <li><span class="check-icon">◈</span> Account security policies</li>
-          </ul>
-          <a href="#pricing" class="card-cta">Harden My Systems <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="service-card fade-in-up" data-delay="300">
-          <div class="card-icon-wrapper">
-            <svg class="card-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16"/><path d="M16 6v16"/>
-            </svg>
-          </div>
-          <div class="card-number">03</div>
-          <h3 class="card-title">Managed Security Monitoring</h3>
-          <p class="card-desc">Continuous monitoring and protection of your systems. We watch so you don't have to — with real-time threat alerts and automated response.</p>
-          <ul class="card-includes">
-            <li><span class="check-icon">◈</span> RMM monitoring</li>
-            <li><span class="check-icon">◈</span> Patch management</li>
-            <li><span class="check-icon">◈</span> Threat alerts</li>
-            <li><span class="check-icon">◈</span> Security updates</li>
-          </ul>
-          <a href="#pricing" class="card-cta">Start Monitoring <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Enterprise-grade protection for real-world business operations</p>
+          <h1>Enterprise-Grade Cybersecurity for Local Businesses</h1>
+          <p class="hero-text">
+            Lotus Cybersecurity helps small and mid-size organizations strengthen their
+            systems, reduce risk, improve compliance posture, and build a smarter defense
+            strategy from day one.
+          </p>
 
-  <!-- BLOSSOM AI -->
-  <section class="blossom" id="blossom">
-    <div class="blossom-bg-glow"></div>
-    <div class="section-container blossom-container">
-      <div class="blossom-visual fade-in-left">
-        <div class="blossom-image-wrapper">
-          <div class="blossom-ring b-ring-1"></div>
-          <div class="blossom-ring b-ring-2"></div>
-          <div class="blossom-hexgrid"></div>
-          <img src="blossom-hero.png" alt="Blossom AI Guardian" class="blossom-img" />
-          <div class="blossom-scan"></div>
-        </div>
-        <div class="blossom-data-stream">
-          <div class="data-line" data-text="SCANNING NETWORK TOPOLOGY..."></div>
-          <div class="data-line" data-text="ANALYZING THREAT VECTORS..."></div>
-          <div class="data-line" data-text="UPDATING DEFENSE MATRIX..."></div>
-          <div class="data-line" data-text="ALL SYSTEMS NOMINAL..."></div>
-        </div>
-      </div>
-      <div class="blossom-content fade-in-right">
-        <span class="section-tag">Blossom AI</span>
-        <h2 class="section-title">Meet <span class="title-accent">Blossom</span></h2>
-        <p class="blossom-lead">Blossom is the future of Lotus Cybersecurity.</p>
-        <p class="blossom-desc">An AI-powered security intelligence system designed to monitor networks, detect threats, and guide security decisions in real time. Blossom represents the next generation of cyber defense for small and medium businesses.</p>
-        <div class="blossom-features">
-          <div class="blossom-feature">
-            <div class="feature-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </div>
-            <div>
-              <h4>Real-Time Threat Detection</h4>
-              <p>Continuous behavioral analysis across your entire network surface.</p>
-            </div>
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary">View Services</a>
+            <a href="#contact" class="btn btn-secondary">Get Started</a>
           </div>
-          <div class="blossom-feature">
-            <div class="feature-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <div>
-              <h4>Predictive Intelligence</h4>
-              <p>Machine learning models trained on billions of threat signals.</p>
-            </div>
-          </div>
-          <div class="blossom-feature">
-            <div class="feature-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div>
-              <h4>Autonomous Response</h4>
-              <p>Automated isolation and neutralization of active threats — no human delay.</p>
-            </div>
-          </div>
-        </div>
-        <div class="blossom-cta">
-          <a href="#contact" class="btn btn-primary">Get Early Access</a>
-          <span class="blossom-coming">Coming Q2 2025</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- PRICING -->
-  <section class="pricing" id="pricing">
-    <div class="section-container">
-      <div class="section-header fade-in-up">
-        <span class="section-tag">Pricing</span>
-        <h2 class="section-title">Transparent, <span class="title-accent">Simple Pricing</span></h2>
-        <p class="section-subtitle">No hidden fees. No enterprise contracts. Enterprise-grade protection at a price that makes sense for your business.</p>
-      </div>
-      <div class="pricing-grid">
-        <div class="pricing-card fade-in-up" data-delay="0">
-          <div class="pricing-tier">Free Assessment</div>
-          <div class="pricing-price">
-            <span class="price-currency">$</span>
-            <span class="price-num">0</span>
-          </div>
-          <p class="pricing-tagline">See your risk before you commit.</p>
-          <ul class="pricing-features">
-            <li><span class="pf-check">✓</span> Network scan</li>
-            <li><span class="pf-check">✓</span> Device inventory</li>
-            <li><span class="pf-check">✓</span> Security report</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline pricing-btn">Schedule Assessment</a>
-        </div>
-        <div class="pricing-card pricing-card--featured fade-in-up" data-delay="150">
-          <div class="pricing-badge">Best Value</div>
-          <div class="pricing-tier">System Hardening</div>
-          <div class="pricing-price">
-            <span class="price-from">Starting at</span>
-            <span class="price-currency">$</span>
-            <span class="price-num">1,200</span>
-          </div>
-          <p class="pricing-tagline">One-time investment. Lifetime protection foundation.</p>
-          <ul class="pricing-features">
-            <li><span class="pf-check">✓</span> Firewall configuration</li>
-            <li><span class="pf-check">✓</span> Endpoint protection</li>
-            <li><span class="pf-check">✓</span> Security policy setup</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary pricing-btn">Secure My Business</a>
-        </div>
-        <div class="pricing-card fade-in-up" data-delay="300">
-          <div class="pricing-tier">Managed Security</div>
-          <div class="pricing-price">
-            <span class="price-currency">$</span>
-            <span class="price-num">99</span>
-            <span class="price-period">/device/mo</span>
-          </div>
-          <p class="pricing-tagline">Round-the-clock protection that never sleeps.</p>
-          <ul class="pricing-features">
-            <li><span class="pf-check">✓</span> 24/7 monitoring</li>
-            <li><span class="pf-check">✓</span> Patch management</li>
-            <li><span class="pf-check">✓</span> Threat alerts</li>
-            <li><span class="pf-check">✓</span> System updates</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline pricing-btn">Start Monitoring</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUST BAND -->
-  <section class="trust-band fade-in-up">
-    <div class="section-container">
-      <div class="trust-items">
-        <div class="trust-item">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span>NIST Framework Aligned</span>
-        </div>
-        <div class="trust-sep">◆</div>
-        <div class="trust-item">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <span>SOC 2 Practices</span>
-        </div>
-        <div class="trust-sep">◆</div>
-        <div class="trust-item">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>24/7 Threat Response</span>
-        </div>
-        <div class="trust-sep">◆</div>
-        <div class="trust-item">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <span>Pennsylvania Local Experts</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="section-container contact-container">
-      <div class="contact-info fade-in-left">
-        <span class="section-tag">Contact</span>
-        <h2 class="section-title">Start Your <span class="title-accent">Free Assessment</span></h2>
-        <p class="contact-desc">Ready to know where your business stands? Schedule a no-obligation security assessment. We'll identify your vulnerabilities and give you a clear roadmap.</p>
-        <div class="contact-details">
-          <div class="contact-detail">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Main Line, Pennsylvania</span>
-          </div>
-          <div class="contact-detail">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>Available for a free consultation</span>
-          </div>
-          <div class="contact-detail">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span>contact@lotuscybersecurity.com</span>
-          </div>
-        </div>
-      </div>
-      <div class="contact-form-wrapper fade-in-right">
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Core service lanes</span>
             </div>
-            <div class="form-group">
-              <label for="business">Business Name</label>
-              <input type="text" id="business" name="business" placeholder="Acme Corp" required />
+            <div class="stat-card">
+              <span class="stat-number">5</span>
+              <span class="stat-label">Revenue streams</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">1</span>
+              <span class="stat-label">Future AI platform</span>
             </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="jane@acmecorp.com" required />
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-shell">
+            <img src="blossom-hero.png" alt="Blossom AI guardian concept art" class="hero-image" />
           </div>
-          <div class="form-group">
-            <label for="message">How can we help?</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us about your business and any security concerns you have..." required></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-bar">
+      <div class="container trust-items">
+        <span>Assessments</span>
+        <span>System Hardening</span>
+        <span>Compliance Readiness</span>
+        <span>Managed Monitoring</span>
+        <span>Blossom AI Vision</span>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Services</p>
+          <h2>Built for businesses that need real security, not fluff</h2>
+          <p>
+            Our service model is designed to create a clean path from initial assessment
+            to long-term protection. Clients can start small, fix weaknesses, align with
+            compliance expectations, and grow into ongoing managed support.
+          </p>
+        </div>
+
+        <div class="card-grid services-grid">
+          <article class="info-card">
+            <div class="card-icon">01</div>
+            <h3>Security Assessments</h3>
+            <p>
+              A structured cybersecurity review of your environment to identify risks,
+              weak configurations, exposed devices, and opportunities for immediate improvement.
+            </p>
+            <ul>
+              <li>Network vulnerability scanning</li>
+              <li>Device and asset inventory</li>
+              <li>Firewall and configuration review</li>
+              <li>Risk findings report</li>
+              <li>Assessment tiers for personal, small business, and enterprise</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <div class="card-icon">02</div>
+            <h3>Fortification &amp; System Hardening</h3>
+            <p>
+              We lock systems down using practical, enterprise-inspired standards that improve
+              resilience and reduce exposure across endpoints, networks, user accounts, and core systems.
+            </p>
+            <ul>
+              <li>Firewall setup and tuning</li>
+              <li>Endpoint protection deployment</li>
+              <li>Identity and access control improvements</li>
+              <li>Network segmentation guidance</li>
+              <li>Security baseline implementation</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <div class="card-icon">03</div>
+            <h3>Compliance &amp; Security Standards</h3>
+            <p>
+              We help organizations move toward a cleaner, more defensible security posture with
+              policies, documentation, and risk planning that support operational maturity.
+            </p>
+            <ul>
+              <li>HIPAA-aligned security guidance</li>
+              <li>Security policy creation</li>
+              <li>Risk documentation support</li>
+              <li>Incident response planning</li>
+              <li>Security program recommendations</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <div class="card-icon">04</div>
+            <h3>Managed Security Monitoring</h3>
+            <p>
+              Ongoing security support for clients who want continued oversight, system health,
+              patching, visibility, and practical operational defense after hardening is complete.
+            </p>
+            <ul>
+              <li>System monitoring</li>
+              <li>Patch management</li>
+              <li>Threat alerting</li>
+              <li>Security updates</li>
+              <li>RMM-based oversight</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blossom" id="blossom">
+      <div class="container blossom-grid">
+        <div class="blossom-visual">
+          <div class="blossom-image-shell">
+            <img src="blossom-hero.png" alt="Blossom AI platform concept" class="blossom-image" />
           </div>
-          <button type="submit" class="btn btn-primary form-submit">
-            <span class="btn-glow"></span>
-            Request Security Consultation
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-          <div class="form-success" id="formSuccess">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Message received. We'll be in touch within one business day.</span>
+        </div>
+
+        <div class="blossom-copy">
+          <p class="eyebrow">Blossom AI</p>
+          <h2>Meet Blossom</h2>
+          <p>
+            Blossom is the future intelligence platform behind Lotus Cybersecurity.
+            It represents our long-term vision for a more guided, responsive, and accessible
+            cybersecurity experience for smaller organizations.
+          </p>
+          <p>
+            Blossom is designed to help analyze environments, identify emerging issues,
+            support security decision-making, and bring AI-assisted awareness to businesses
+            that normally do not have access to enterprise-grade security insight.
+          </p>
+          <p>
+            Today, Lotus delivers hands-on services. Tomorrow, Blossom helps scale that
+            protection into a smarter and more adaptive security platform.
+          </p>
+
+          <div class="blossom-panel">
+            <div class="mini-chip">Threat Visibility</div>
+            <div class="mini-chip">Guided Defense</div>
+            <div class="mini-chip">AI-Assisted Insight</div>
+            <div class="mini-chip">Small Business Ready</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Pricing</p>
+          <h2>Flexible service tiers with room to grow</h2>
+          <p>
+            Clients can enter at the assessment level, move into hardening and compliance,
+            and scale into ongoing monitoring. The structure is designed to feel approachable
+            while still reflecting serious professional security work.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card featured-soft">
+            <span class="price-tag">Assessment</span>
+            <h3>Personal System Assessment</h3>
+            <p class="price">$299</p>
+            <ul>
+              <li>Single-user or home-office review</li>
+              <li>Basic vulnerability scan</li>
+              <li>Device inventory</li>
+              <li>Security findings summary</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-full">Request Consultation</a>
+          </article>
+
+          <article class="price-card featured">
+            <span class="price-tag">Assessment</span>
+            <h3>Small Business Network Assessment</h3>
+            <p class="price">$799</p>
+            <ul>
+              <li>Small office network review</li>
+              <li>Vulnerability scanning</li>
+              <li>Asset and system inventory</li>
+              <li>Risk report with priorities</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-full">Request Consultation</a>
+          </article>
+
+          <article class="price-card featured-soft">
+            <span class="price-tag">Assessment</span>
+            <h3>Enterprise Security Assessment</h3>
+            <p class="price">$2,500+</p>
+            <ul>
+              <li>Broader environment review</li>
+              <li>Multi-system risk identification</li>
+              <li>Infrastructure findings</li>
+              <li>Executive-ready recommendations</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-full">Request Consultation</a>
+          </article>
+
+          <article class="price-card">
+            <span class="price-tag">Implementation</span>
+            <h3>Fortification &amp; System Hardening</h3>
+            <p class="price">Starting at $1,200</p>
+            <ul>
+              <li>Firewall and endpoint improvements</li>
+              <li>Secure configuration changes</li>
+              <li>Account and access control tuning</li>
+              <li>Protection baseline deployment</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary btn-full">Request Consultation</a>
+          </article>
+
+          <article class="price-card">
+            <span class="price-tag">Governance</span>
+            <h3>Compliance &amp; Security Planning</h3>
+            <p class="price">Starting at $900</p>
+            <ul>
+              <li>Security documentation support</li>
+              <li>Policy and standards guidance</li>
+              <li>Risk review assistance</li>
+              <li>Readiness planning</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary btn-full">Request Consultation</a>
+          </article>
+
+          <article class="price-card">
+            <span class="price-tag">Managed Service</span>
+            <h3>Managed Security Monitoring</h3>
+            <p class="price">$99 / device / month</p>
+            <ul>
+              <li>Ongoing monitoring</li>
+              <li>Patch management</li>
+              <li>Threat notifications</li>
+              <li>Security upkeep</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary btn-full">Request Consultation</a>
+          </article>
+
+          <article class="price-card blossom-card">
+            <span class="price-tag">Platform Vision</span>
+            <h3>Blossom AI</h3>
+            <p class="price">Coming Soon</p>
+            <ul>
+              <li>AI-guided security insight</li>
+              <li>Threat analysis support</li>
+              <li>Business-friendly security intelligence</li>
+              <li>Future Lotus platform evolution</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary btn-full">Join the Waitlist</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact</p>
+          <h2>Start the conversation</h2>
+          <p>
+            Whether you need an assessment, system hardening, compliance planning, or ongoing
+            monitoring, Lotus Cybersecurity is built to help local organizations take meaningful
+            steps toward stronger digital defense.
+          </p>
+
+          <div class="contact-details">
+            <div class="detail-card">
+              <h3>Location</h3>
+              <p>Main Line, Pennsylvania</p>
+            </div>
+            <div class="detail-card">
+              <h3>Focus</h3>
+              <p>Local businesses, growing teams, and future-ready security operations</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+
+          <label for="business">Business Name</label>
+          <input type="text" id="business" name="business" placeholder="Your business name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Tell us about your environment, goals, or current security concerns"
+            required
+          ></textarea>
+
+          <button type="submit" class="btn btn-primary btn-full">Request Consultation</button>
+          <p class="form-message" id="formMessage"></p>
         </form>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-glow"></div>
-    <div class="section-container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="#home" class="nav-logo footer-logo">
-            <img src="logo.png" alt="Lotus Cybersecurity Logo" class="logo-img" />
-            <span class="logo-text">LOTUS <span class="logo-accent">CYBERSECURITY</span></span>
-          </a>
-          <p class="footer-tagline">Enterprise-grade cybersecurity for every business, everywhere.</p>
-          <p class="footer-location">📍 Main Line, Pennsylvania</p>
-        </div>
-        <div class="footer-links-grid">
-          <div class="footer-col">
-            <h4>Services</h4>
-            <ul>
-              <li><a href="#services">Security Assessment</a></li>
-              <li><a href="#services">System Hardening</a></li>
-              <li><a href="#services">Managed Monitoring</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#blossom">Blossom AI</a></li>
-              <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Legal</h4>
-            <ul>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>
+        <p class="footer-brand">Lotus Cybersecurity LLC</p>
+        <p class="footer-copy">Main Line, Pennsylvania</p>
       </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2025 Lotus Cybersecurity LLC. All rights reserved.</p>
-        <div class="footer-legal-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
-        </div>
+
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
       </div>
     </div>
   </footer>
