@@ -331,9 +331,10 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
 #heroCanvas{pointer-events:none;z-index:1;}
 
 /* Logo badge - black circle, looks clean on dark bg */
-.hero-logo-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:160px;height:160px;}
-.logo-badge-inner{width:160px;height:160px;border-radius:50%;background:#000;border:2px solid rgba(34,211,238,0.5);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(34,211,238,0.25),inset 0 0 20px rgba(0,0,0,0.8);position:relative;overflow:hidden;}
-.badge-logo-img{width:130px;height:130px;object-fit:contain;display:block;}
+.hero-logo-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:168px;height:168px;}
+.logo-badge-inner{width:168px;height:168px;border-radius:22px;background:#000;border:1.5px solid rgba(34,211,238,0.45);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(34,211,238,0.2),0 0 80px rgba(34,211,238,0.08),inset 0 0 24px rgba(0,0,0,0.9);position:relative;overflow:hidden;}
+.logo-badge-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(34,211,238,0.06) 0%,transparent 70%);pointer-events:none;}
+.badge-logo-img{width:138px;height:138px;object-fit:contain;display:block;position:relative;z-index:1;}
 .logo-badge-rings{position:absolute;inset:-20px;pointer-events:none;}
 .lbr{position:absolute;border-radius:50%;border:0.5px solid;top:50%;left:50%;transform:translate(-50%,-50%);}
 .lbr1{width:200px;height:200px;border-color:rgba(34,211,238,0.25);animation:spin 20s linear infinite;}
@@ -942,17 +943,17 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
 <section id="threatmap" class="sec-div-red" style="background:var(--surface);padding:80px 48px;">
   <div class="tmap-inner z1">
     <div class="tmap-header reveal">
-      <div class="section-label">Live protection</div>
-      <h2 class="section-title">Lotus <span>Threat Map</span></h2>
-      <p class="section-sub">Watch Lotus actively monitoring and blocking threats across protected systems in real time.</p>
+      <div class="section-label">The Lotus dashboard</div>
+      <h2 class="section-title">Your security <span>at a glance</span></h2>
+      <p class="section-sub">Every Lotus client gets access to a personalised security dashboard — a customisable view of your network status, recent alerts, and protection activity. Here&rsquo;s a preview of what it looks like.</p>
     </div>
     <div class="tmap-canvas-wrap reveal">
       <div class="tmap-topbar">
-        <div class="tmap-title-bar"><div class="badge-dot"></div>Live monitoring &mdash; Lotus protected systems</div>
+        <div class="tmap-title-bar"><div class="badge-dot"></div>Dashboard preview &mdash; your personalised view</div>
         <div class="tmap-stats-bar">
           <div class="tmap-stat"><strong id="blockedCount">0</strong>&nbsp;blocked today</div>
           <div class="tmap-stat"><strong id="systemCount">0</strong>&nbsp;systems online</div>
-          <div class="tmap-stat" style="color:#40dc90;"><strong>ACTIVE</strong></div>
+          <div class="tmap-stat" style="color:#40dc90;"><strong>DEMO</strong></div>
         </div>
       </div>
       <canvas id="threatCanvas"></canvas>
@@ -965,6 +966,10 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
       </div>
     </div>
     <div class="tmap-feed reveal" id="threatFeed"></div>
+    <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:20px;line-height:1.65;">
+      Dashboard is customisable per client. Metrics and layout reflect your specific network environment.
+      <span style="color:rgba(34,211,238,0.5);"> &mdash; The visualisation above is a live demo of the interface.</span>
+    </p>
   </div>
 </section>
 
@@ -1144,7 +1149,7 @@ function runBlossomDemo(){
   <div class="pricing-grid">
     <div class="price-card reveal"><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6" r="4" stroke="#22d3ee" stroke-width="1.1"/><path d="M2 18c0-3.5 3.5-6 8-6s8 2.5 8 6" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Personal</div><div class="price-tagline">Home network protection</div><div class="price-amount">$39</div><div class="price-period">per month</div><ul class="price-features"><li>Home network monitoring</li><li>Real-time threat alerts</li><li>Quarterly security review</li><li>Email support</li><li class="blossom-li">Blossom AI (coming soon)</li></ul><a class="price-cta" href="#contact">Get started</a></div>
     <div class="price-card featured reveal"><div class="price-badge">Most popular</div><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="7" width="16" height="11" rx="2" stroke="#22d3ee" stroke-width="1.1"/><path d="M6 7V5a4 4 0 018 0v2" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Small Business</div><div class="price-tagline">Up to 25 endpoints</div><div class="price-amount">$149</div><div class="price-period">per month</div><ul class="price-features"><li>Network monitoring</li><li>Real-time threat alerts</li><li>Patch oversight</li><li>Monthly security review</li><li>Priority support</li><li class="blossom-li">Blossom AI (coming soon)</li></ul><a class="price-cta solid" href="#contact">Get started</a></div>
-    <div class="price-card reveal"><div class="price-icon pi-purple"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L19 6.5v6C19 17 15 19.5 10 20 5 19.5 1 17 1 12.5v-6L10 2z" stroke="#b06eff" stroke-width="1.1"/></svg></div><div class="price-name">Medium Business</div><div class="price-tagline">Up to 100 endpoints</div><div class="price-amount purple">$399</div><div class="price-period">per month</div><ul class="price-features"><li>Expanded monitoring</li><li>Advanced threat detection</li><li>Security reporting</li><li>Compliance assistance</li><li>Dedicated account manager</li><li class="blossom-li">Blossom AI (coming soon)</li></ul><a class="price-cta" href="#contact">Get started</a></div>
+    <div class="price-card reveal"><div class="price-icon pi-purple"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L19 6.5v6C19 17 15 19.5 10 20 5 19.5 1 17 1 12.5v-6L10 2z" stroke="#b06eff" stroke-width="1.1"/></svg></div><div class="price-name">Medium Business</div><div class="price-tagline">Up to 100 endpoints</div><div class="price-amount purple">$399</div><div class="price-period">per month</div><ul class="price-features"><li>Expanded monitoring</li><li>Advanced threat detection</li><li>Security reporting</li><li>Compliance assistance</li><li>Direct access to Timothy</li><li class="blossom-li">Blossom AI (coming soon)</li></ul><a class="price-cta" href="#contact">Get started</a></div>
     <div class="price-card reveal"><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3" stroke="#22d3ee" stroke-width="1.1"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Assessment</div><div class="price-tagline">One-time engagement</div><div class="price-amount">$495<span style="font-size:17px;">+</span></div><div class="price-period">one-time</div><ul class="price-features"><li>Full network discovery</li><li>Device inventory</li><li>Vulnerability scan</li><li>Written security report</li><li>Remediation roadmap</li></ul><a class="price-cta" href="#contact">Book now</a></div>
     <div class="price-card reveal"><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="14" rx="2" stroke="#22d3ee" stroke-width="1.1"/><path d="M2 8h16M6 12h3M12 12h2" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Hardening</div><div class="price-tagline">One-time engagement</div><div class="price-amount">$1,500<span style="font-size:17px;">+</span></div><div class="price-period">one-time</div><ul class="price-features"><li>Firewall configuration</li><li>Patch updates applied</li><li>Access control review</li><li>Endpoint security setup</li><li>Documentation provided</li></ul><a class="price-cta" href="#contact">Book now</a></div>
     <div class="price-card reveal" style="border-color:rgba(176,110,255,0.25);background:rgba(176,110,255,0.03);"><div class="price-icon pi-purple"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L18 6v5c0 5-4 8-8 9-4-1-8-4-8-9V6L10 2z" stroke="#b06eff" stroke-width="1.1"/><path d="M7 10l2 2 4-4" stroke="#b06eff" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name" style="color:var(--purple);">Enterprise</div><div class="price-tagline">Custom solution</div><div class="price-amount purple">Custom</div><div class="price-period">tailored pricing</div><ul class="price-features"><li>Unlimited endpoints</li><li>24/7 dedicated monitoring</li><li>Full compliance suite</li><li>On-site support available</li><li>Priority response SLA</li><li class="blossom-li">Blossom AI full access</li></ul><a class="price-cta" style="border-color:rgba(176,110,255,0.4);color:var(--purple);" href="#contact">Talk to us</a></div>
@@ -1223,18 +1228,153 @@ function runBlossomDemo(){
   <p class="reveal" style="text-align:center;font-size:12px;color:var(--muted);margin-top:32px;max-width:600px;margin-left:auto;margin-right:auto;">Lotus provides assessment, recommendations, and guidance. For complex remediation, Timothy partners with vetted technical specialists and co-ordinates on your behalf.</p>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="sec-div-cyan">
-  <div class="test-header reveal"><div class="section-label">What clients say</div><h2 class="section-title">Trusted across the <span>Main Line</span></h2><p class="section-sub">From restaurants to medical practices &mdash; businesses across Pennsylvania trust Lotus.</p></div>
-  <div class="test-grid">
-    <div class="test-card reveal"><div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="test-quote">"Lotus found three major vulnerabilities we had no idea about. Their report was clear, actionable, and they fixed everything within days. We sleep better now."</p><div class="test-author"><div class="test-av" style="background:rgba(34,211,238,0.15);color:var(--cyan);">MR</div><div><div class="test-name">Michael R.</div><div class="test-role">Owner, Main Line Restaurant Group</div></div></div></div>
-    <div class="test-card reveal"><div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="test-quote">"As a medical practice, HIPAA compliance was keeping me up at night. Lotus did a full assessment, hardened our systems, and now handles monitoring. Worth every penny."</p><div class="test-author"><div class="test-av" style="background:rgba(176,110,255,0.15);color:var(--purple);">DK</div><div><div class="test-name">Dr. Dana K.</div><div class="test-role">Medical Practice, Wayne PA</div></div></div></div>
-    <div class="test-card reveal"><div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="test-quote">"We had a ransomware scare and called Lotus in a panic. They contained it in hours, recovered our data, and built us a proper security plan. I wouldn&rsquo;t trust anyone else."</p><div class="test-author"><div class="test-av" style="background:rgba(255,144,200,0.15);color:var(--pink);">SL</div><div><div class="test-name">Sarah L.</div><div class="test-role">Director, Bryn Mawr Consulting</div></div></div></div>
-    <div class="test-card reveal"><div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="test-quote">"The monthly monitoring is brilliant. Clear reports, instant alerts, and I always know where our security stands. The Blossom AI preview looks incredible too."</p><div class="test-author"><div class="test-av" style="background:rgba(34,211,238,0.15);color:var(--cyan);">JP</div><div><div class="test-name">James P.</div><div class="test-role">IT Manager, Paoli Tech Solutions</div></div></div></div>
-    <div class="test-card reveal"><div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="test-quote">"As a retired officer myself, I trusted Tim immediately. He found gaps in our office network, fixed them fast, and explained everything in plain English. No jargon."</p><div class="test-author"><div class="test-av" style="background:rgba(255,170,50,0.15);color:#ffaa30;">RB</div><div><div class="test-name">Ret. Officer R.B.</div><div class="test-role">Business Owner, Radnor PA</div></div></div></div>
-    <div class="test-card reveal"><div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="test-quote">"Our cyber insurance premium dropped after the Lotus assessment &mdash; we could show underwriters exactly what controls we had. Smart, measurable approach."</p><div class="test-author"><div class="test-av" style="background:rgba(176,110,255,0.15);color:var(--purple);">TC</div><div><div class="test-name">Tom C.</div><div class="test-role">CFO, Villanova Financial Group</div></div></div></div>
+<!-- REVIEWS -->
+<section id="reviews" style="background:var(--surface);padding:100px 48px;overflow:hidden;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:52px;">
+      <div class="section-label">Client reviews</div>
+      <h2 class="section-title">Every review <span>means the world</span></h2>
+      <p class="section-sub" style="max-width:560px;margin:0 auto;">Lotus is new. Honest reviews from real clients help other Main Line businesses find the protection they deserve. If Timothy has helped you in any way — we would genuinely love to hear about it.</p>
+    </div>
+
+    <!-- Review cards grid - empty state + submitted reviews -->
+    <div id="reviewGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:52px;">
+      <!-- Empty state -->
+      <div id="reviewEmpty" style="grid-column:1/-1;text-align:center;padding:64px 24px;">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(34,211,238,0.08);border:0.5px solid rgba(34,211,238,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:26px;">&#x2756;</div>
+        <div style="font-family:var(--font-display);font-size:17px;color:#fff;margin-bottom:10px;">No reviews yet — be the first</div>
+        <p style="font-size:13px;color:var(--muted);max-width:400px;margin:0 auto 20px;line-height:1.75;">Timothy reads every single one. Your words help build trust in the community and motivate him to keep going.</p>
+        <a href="#review-form" style="font-size:12px;color:var(--cyan);text-decoration:none;font-weight:700;">Leave a review below &darr;</a>
+      </div>
+    </div>
+
+    <!-- Leave a review -->
+    <div id="review-form" class="reveal" style="background:rgba(8,19,42,0.85);border:0.5px solid rgba(34,211,238,0.18);border-radius:22px;padding:42px 38px;max-width:700px;margin:0 auto;">
+      <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:22px;">
+        <div style="width:44px;height:44px;border-radius:12px;background:rgba(34,211,238,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">&#x2756;</div>
+        <div>
+          <div style="font-family:var(--font-display);font-size:17px;color:#fff;margin-bottom:4px;">Share your experience</div>
+          <p style="font-size:12px;color:var(--muted);line-height:1.65;">Took 30 seconds with Timothy on the phone? Had a full assessment? Either way — we appreciate every word. Thank you for taking the time.</p>
+        </div>
+      </div>
+
+      <div id="rv-success" style="display:none;padding:13px 16px;background:rgba(34,211,238,0.07);border:0.5px solid rgba(34,211,238,0.3);border-radius:11px;margin-bottom:18px;font-size:12px;color:var(--cyan);line-height:1.65;">
+        &#x2756; Thank you so much — your review means everything to us. It's been saved and will appear on the page.
+      </div>
+
+      <div class="cf-grid" style="margin-bottom:13px;">
+        <div class="cf-field"><label class="cf-label">Your name</label><input class="cf-input" id="rv-name" type="text" placeholder="Jane Smith"/></div>
+        <div class="cf-field"><label class="cf-label">Business or role <span style="color:var(--muted);font-weight:400;">(optional)</span></label><input class="cf-input" id="rv-role" type="text" placeholder="Owner, Acme LLC"/></div>
+      </div>
+
+      <div class="cf-field" style="margin-bottom:13px;">
+        <label class="cf-label">Your rating</label>
+        <div style="display:flex;gap:7px;margin-top:7px;align-items:center;">
+          <span class="rv-star" data-v="1" onclick="setRating(1)">&#9733;</span>
+          <span class="rv-star" data-v="2" onclick="setRating(2)">&#9733;</span>
+          <span class="rv-star" data-v="3" onclick="setRating(3)">&#9733;</span>
+          <span class="rv-star" data-v="4" onclick="setRating(4)">&#9733;</span>
+          <span class="rv-star" data-v="5" onclick="setRating(5)">&#9733;</span>
+          <span id="rv-star-label" style="font-size:11px;color:var(--muted);margin-left:8px;"></span>
+        </div>
+        <input type="hidden" id="rv-rating" value="0"/>
+      </div>
+
+      <div class="cf-field" style="margin-bottom:18px;">
+        <label class="cf-label">Your review</label>
+        <textarea class="cf-textarea" id="rv-text" placeholder="Tell us about your experience with Lotus. Anything &mdash; big or small. It genuinely helps." style="min-height:95px;"></textarea>
+      </div>
+
+      <button class="cf-submit" type="button" onclick="submitReview()" style="max-width:210px;">Submit review &#x2756;</button>
+    </div>
   </div>
 </section>
+
+<style>
+.rv-star{font-size:26px;cursor:pointer;color:rgba(255,200,50,0.2);transition:color 0.12s,transform 0.1s;display:inline-block;}
+.rv-star:hover{transform:scale(1.15);}
+.rv-star.lit{color:rgba(255,200,50,0.9);}
+.review-card{background:rgba(255,255,255,0.025);border:0.5px solid var(--border);border-radius:18px;padding:26px 22px;display:flex;flex-direction:column;animation:rvFade 0.35s ease;transition:border-color 0.25s,transform 0.25s;}
+.review-card:hover{border-color:rgba(34,211,238,0.22);transform:translateY(-2px);}
+@keyframes rvFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+</style>
+
+<script>
+(function(){
+  var _rating = 0;
+  var starLabels = ['','Poor','Fair','Good','Great','Excellent'];
+
+  window.setRating = function(n){
+    _rating = n;
+    document.getElementById('rv-rating').value = n;
+    document.querySelectorAll('.rv-star').forEach(function(s){
+      var v = parseInt(s.getAttribute('data-v'));
+      s.classList.toggle('lit', v <= n);
+    });
+    var lbl = document.getElementById('rv-star-label');
+    if(lbl) lbl.textContent = starLabels[n] || '';
+  };
+
+  function loadReviews(){
+    try{ return JSON.parse(localStorage.getItem('lotus_reviews')||'[]'); }catch(e){return [];}
+  }
+  function saveReviews(arr){
+    try{ localStorage.setItem('lotus_reviews', JSON.stringify(arr)); }catch(e){}
+  }
+  function renderReviews(){
+    var reviews = loadReviews();
+    var grid = document.getElementById('reviewGrid');
+    var empty = document.getElementById('reviewEmpty');
+    if(!grid) return;
+    grid.querySelectorAll('.review-card').forEach(function(el){el.remove();});
+    if(reviews.length === 0){ if(empty) empty.style.display = 'block'; return; }
+    if(empty) empty.style.display = 'none';
+    var cols = ['rgba(34,211,238,0.12)','rgba(176,110,255,0.12)','rgba(255,144,200,0.12)','rgba(255,170,50,0.12)'];
+    var tcs  = ['var(--cyan)','var(--purple)','var(--pink)','#ffaa30'];
+    reviews.forEach(function(r){
+      var stars = '';
+      for(var i=1;i<=5;i++){
+        stars += '<span style="color:'+(i<=r.rating?'rgba(255,200,50,0.9)':'rgba(255,200,50,0.18)')+'">&#9733;</span>';
+      }
+      var initials = (r.name||'?').split(' ').map(function(w){return (w[0]||'').toUpperCase();}).join('').slice(0,2);
+      var ci = Math.abs((r.name.charCodeAt(0)||0)) % 4;
+      var card = document.createElement('div');
+      card.className = 'review-card';
+      card.innerHTML =
+        '<div style="display:flex;gap:2px;margin-bottom:12px;font-size:15px;">'+stars+'</div>'
+        +'<p style="font-size:13px;line-height:1.8;color:rgba(200,220,255,0.82);font-style:italic;flex:1;margin-bottom:16px;">“'+r.text+'”</p>'
+        +'<div style="display:flex;align-items:center;gap:10px;border-top:0.5px solid var(--border);padding-top:13px;">'
+        +'<div style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:12px;font-weight:600;flex-shrink:0;background:'+cols[ci]+';color:'+tcs[ci]+';">'+initials+'</div>'
+        +'<div><div style="font-size:12px;font-weight:700;color:#fff;">'+r.name+'</div>'
+        +'<div style="font-size:10px;color:var(--muted);">'+(r.role||'Lotus client')+(r.date?' &middot; '+r.date:'')+'</div></div>'
+        +'</div>';
+      grid.appendChild(card);
+    });
+  }
+
+  window.submitReview = function(){
+    var name   = document.getElementById('rv-name').value.trim();
+    var role   = document.getElementById('rv-role').value.trim();
+    var rating = parseInt(document.getElementById('rv-rating').value)||0;
+    var text   = document.getElementById('rv-text').value.trim();
+    if(!name || !text){ alert('Please add your name and a review.'); return; }
+    if(rating < 1){ alert('Please select a star rating.'); return; }
+    var reviews = loadReviews();
+    reviews.unshift({ name:name, role:role, rating:rating, text:text,
+      date: new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'}) });
+    saveReviews(reviews);
+    renderReviews();
+    var ok = document.getElementById('rv-success');
+    if(ok){ ok.style.display='block'; setTimeout(function(){ok.style.display='none';},7000); }
+    document.getElementById('rv-name').value  = '';
+    document.getElementById('rv-role').value  = '';
+    document.getElementById('rv-text').value  = '';
+    window.setRating(0);
+  };
+
+  document.addEventListener('DOMContentLoaded', renderReviews);
+})();
+</script>
 
 <!-- CONTACT -->
 <section id="contact" class="sec-div-pink">
@@ -1288,135 +1428,146 @@ function runBlossomDemo(){
 </section>
 
 <!-- FOOTER -->
-<!-- ━━ SUPPORT / PARTNER ━━ -->
-<section id="support" style="background:var(--bg);padding:100px 48px;overflow:hidden;">
+<!-- ━━ SUPPORT THE VISION ━━ -->
+<section id="support" style="background:var(--bg);padding:110px 48px;overflow:hidden;">
   <div style="max-width:1100px;margin:0 auto;">
 
-    <!-- Support the mission (Buy Timothy a coffee) -->
-    <div class="reveal" style="margin-bottom:80px;">
-      <div style="text-align:center;margin-bottom:52px;">
-        <div class="section-label" style="color:var(--cyan);">&#x2615; fuel the mission</div>
-        <h2 class="section-title">Buy Timothy a <span>coffee</span></h2>
-        <p class="section-sub" style="max-width:580px;margin:0 auto;">
-          Running a cyber security startup while studying for your Security+ is<br/>fuelled by exactly one thing: <strong style="color:#fff;">strong coffee and the belief that Main Line businesses deserve better protection.</strong><br/><br/>
-          If you like what Lotus is building — or Timothy once helped you figure out why your WiFi password was <span style="color:var(--cyan);font-style:italic;">"password123"</span> — this one's for you.
-        </p>
+    <!-- Header -->
+    <div class="reveal" style="text-align:center;margin-bottom:72px;">
+      <div class="section-label" style="color:var(--purple);">The opportunity</div>
+      <h2 class="section-title" style="font-size:clamp(36px,5vw,58px);">Support the <span style="background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">vision</span></h2>
+      <p style="font-size:16px;color:rgba(180,210,240,0.75);line-height:1.85;max-width:620px;margin:0 auto;">
+        Small businesses on the Main Line — and across America — are getting hit by cyber attacks every day. The tools to stop them exist. What's missing is someone willing to show up, explain it in plain English, and actually protect them.
+      </p>
+    </div>
+
+    <!-- The story - why now, why Timothy -->
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:80px;">
+      <div>
+        <div style="font-family:var(--font-display);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;">Why Lotus, why now</div>
+        <h3 style="font-family:var(--font-display);font-size:clamp(22px,2.8vw,32px);color:#fff;font-weight:600;line-height:1.25;margin-bottom:20px;">The big firms don't want small businesses.<br/><span style="color:var(--cyan);">We were built for them.</span></h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:18px;">Enterprise security companies charge enterprise prices. Cheap software tools give small business owners a false sense of safety. There's a massive gap in the middle — and that's exactly where Lotus operates.</p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:18px;">Timothy brings something no certification can replicate: a career spent thinking like an attacker, protecting communities, and knowing when something doesn't look right. That instinct is now protecting Main Line businesses.</p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.9;">And with <strong style="color:var(--pink);">Blossom AI</strong> in development — an AI monitoring layer built specifically for small business, not a watered-down enterprise product — the platform is only getting stronger.</p>
       </div>
-
-      <!-- Coffee tiers - the fun part -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:40px;">
-        
-        <div class="reveal coffee-card" onclick="pickCoffee(this,'1')" style="cursor:pointer;">
-          <div class="coffee-emoji">&#x2615;</div>
-          <div class="coffee-name">Regular coffee</div>
-          <div class="coffee-price">$5</div>
-          <div class="coffee-desc">A basic drip. Gets the job done. Timothy will not complain.</div>
+      <!-- Stats / proof points -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="reveal" style="background:rgba(34,211,238,0.04);border:0.5px solid rgba(34,211,238,0.2);border-radius:20px;padding:30px 24px;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:36px;font-weight:600;color:var(--cyan);line-height:1;margin-bottom:8px;">43%</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.65;">of all cyber attacks target small businesses — most have no dedicated security</div>
         </div>
-
-        <div class="reveal coffee-card coffee-sel" onclick="pickCoffee(this,'2')" style="cursor:pointer;">
-          <div class="coffee-emoji">&#x2615;&#x2615;</div>
-          <div class="coffee-name">Double espresso</div>
-          <div class="coffee-price">$10</div>
-          <div class="coffee-desc">Now we're talking. This is a late-night-vulnerability-scan kind of coffee.</div>
-          <div style="position:absolute;top:12px;right:12px;background:var(--cyan);color:#000;font-size:9px;font-weight:800;padding:3px 9px;border-radius:99px;letter-spacing:0.06em;">POPULAR</div>
+        <div class="reveal" style="background:rgba(176,110,255,0.04);border:0.5px solid rgba(176,110,255,0.2);border-radius:20px;padding:30px 24px;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:36px;font-weight:600;color:var(--purple);line-height:1;margin-bottom:8px;">$4.5M</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.65;">average cost of a data breach for a small business in 2024</div>
         </div>
-
-        <div class="reveal coffee-card" onclick="pickCoffee(this,'3')" style="cursor:pointer;">
-          <div class="coffee-emoji">&#x2615;&#x2615;&#x2615;</div>
-          <div class="coffee-name">Triple shot oat latte</div>
-          <div class="coffee-price">$20</div>
-          <div class="coffee-desc">Fancy. Timothy will use this energy to find three more vulnerabilities in your network.</div>
+        <div class="reveal" style="background:rgba(255,144,200,0.04);border:0.5px solid rgba(255,144,200,0.2);border-radius:20px;padding:30px 24px;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:36px;font-weight:600;color:var(--pink);line-height:1;margin-bottom:8px;">60%</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.65;">of small businesses close within 6 months of a serious breach</div>
         </div>
-
-        <div class="reveal coffee-card" onclick="pickCoffee(this,'4')" style="cursor:pointer;">
-          <div class="coffee-emoji">&#x1F6B0;</div>
-          <div class="coffee-name">The whole coffee machine</div>
-          <div class="coffee-price">$50</div>
-          <div class="coffee-desc">You absolute legend. This funds an entire week of Blossom AI development. Timothy will name a firewall rule after you.</div>
+        <div class="reveal" style="background:rgba(34,211,238,0.04);border:0.5px solid rgba(34,211,238,0.15);border-radius:20px;padding:30px 24px;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:36px;font-weight:600;color:var(--cyan);line-height:1;margin-bottom:8px;">2026</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.65;">Lotus is early. Ground floor. The right time to get involved.</div>
         </div>
-
-        <div class="reveal coffee-card" onclick="pickCoffee(this,'custom')" style="cursor:pointer;">
-          <div class="coffee-emoji">&#x1F575;&#xFE0F;</div>
-          <div class="coffee-name">Custom amount</div>
-          <div class="coffee-price">Your call</div>
-          <div class="coffee-desc">You know what you're doing. We respect that energy.</div>
-        </div>
-
-      </div>
-
-      <!-- The actual form -->
-      <div class="reveal" style="background:rgba(8,19,42,0.8);border:0.5px solid rgba(34,211,238,0.2);border-radius:22px;padding:38px 36px;max-width:640px;margin:0 auto;">
-        <div id="coffee-selected-display" style="display:flex;align-items:center;gap:12px;margin-bottom:22px;padding:14px 16px;background:rgba(34,211,238,0.06);border:0.5px solid rgba(34,211,238,0.2);border-radius:12px;">
-          <div style="font-size:22px;" id="coffee-sel-emoji">&#x2615;&#x2615;</div>
-          <div>
-            <div style="font-weight:700;color:#fff;font-size:13px;" id="coffee-sel-name">Double espresso selected</div>
-            <div style="font-size:11px;color:var(--muted);" id="coffee-sel-note">Late-night-vulnerability-scan energy. Good choice.</div>
-          </div>
-          <div style="margin-left:auto;font-family:var(--font-display);font-size:20px;color:var(--cyan);font-weight:600;" id="coffee-sel-price">$10</div>
-        </div>
-        <div id="coffee-custom-wrap" style="display:none;margin-bottom:14px;">
-          <label class="cf-label">Your amount ($)</label>
-          <input class="cf-input" id="coffee-custom-amt" type="number" min="1" placeholder="How much?"/>
-        </div>
-        <div class="cf-grid" style="margin-bottom:12px;">
-          <div class="cf-field"><label class="cf-label">Your name</label><input class="cf-input" id="cof-name" type="text" placeholder="Jane Smith"/></div>
-          <div class="cf-field"><label class="cf-label">Email</label><input class="cf-input" id="cof-email" type="email" placeholder="jane@email.com"/></div>
-        </div>
-        <div class="cf-field" style="margin-bottom:18px;">
-          <label class="cf-label">Leave Timothy a note (optional)</label>
-          <input class="cf-input" id="cof-note" type="text" placeholder="e.g. &quot;Found your site at 2am after a ransomware scare. You saved us.&quot;"/>
-        </div>
-        <div id="cof-success" style="display:none;padding:13px 16px;background:rgba(34,211,238,0.08);border:0.5px solid rgba(34,211,238,0.3);border-radius:10px;margin-bottom:16px;font-size:12px;color:var(--cyan);">
-          &#x2615; Thank you! Timothy will follow up with secure payment details. Consider your contribution to the caffeine fund confirmed.
-        </div>
-        <button class="cf-submit" onclick="submitCoffee()" style="max-width:220px;">Send support &#x2615;</button>
-        <p style="font-size:10px;color:var(--muted);margin-top:14px;line-height:1.7;">
-          Contributions are voluntary tips to support Lotus Cybersecurity's operations and community mission. They are <strong>not charitable donations</strong> and are <strong>not tax-deductible</strong>. No card details are collected here &mdash; Timothy will follow up with secure payment instructions.
-        </p>
       </div>
     </div>
 
-    <!-- Partner / investor interest - no solicitation, just a conversation -->
-    <div class="reveal" style="background:linear-gradient(135deg,rgba(176,110,255,0.06),rgba(34,211,238,0.04));border:0.5px solid rgba(176,110,255,0.2);border-radius:28px;padding:56px 52px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+    <!-- What getting involved looks like -->
+    <div class="reveal" style="margin-bottom:72px;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <div class="section-label">How you can be part of this</div>
+        <h3 style="font-family:var(--font-display);font-size:clamp(20px,2.5vw,28px);color:#fff;font-weight:600;">There's no one way to support Lotus.<br/><span style="color:var(--cyan);">Here's what matters.</span></h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+
+        <div class="reveal stv-card">
+          <div class="stv-icon" style="background:rgba(34,211,238,0.1);color:var(--cyan);">&#x1F91D;</div>
+          <div class="stv-title">Strategic partners</div>
+          <div class="stv-desc">Technology providers, insurance brokers, IT resellers, or anyone who serves small businesses and wants a trusted cyber security partner to refer clients to.</div>
+        </div>
+
+        <div class="reveal stv-card">
+          <div class="stv-icon" style="background:rgba(176,110,255,0.1);color:var(--purple);">&#x1F4C8;</div>
+          <div class="stv-title">Investors &amp; advisors</div>
+          <div class="stv-desc">If you see the same opportunity Timothy does and want to help Lotus grow — whether that's capital, connections, or just good advice — he wants to hear from you.</div>
+        </div>
+
+        <div class="reveal stv-card">
+          <div class="stv-icon" style="background:rgba(255,144,200,0.1);color:var(--pink);">&#x2615;</div>
+          <div class="stv-title">Believers &amp; supporters</div>
+          <div class="stv-desc">No investment required. If you believe in what Lotus is building — buy Timothy a coffee, spread the word, or just send an encouraging note. Every bit counts when you're starting out.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA / contact form -->
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start;">
+
+      <!-- Left: the pitch summary -->
       <div>
-        <div class="section-label" style="color:var(--purple);">Interested in Lotus?</div>
-        <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">Let's have a <span style="background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">conversation</span></h2>
-        <p style="font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:24px;">Lotus is early-stage and growing. If you're an investor, advisor, or aligned partner who sees the opportunity in AI-powered cyber security for small business — Timothy would genuinely love to talk.</p>
-        <p style="font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:24px;">No decks required. No pressure. Just a conversation between people who give a damn about protecting small businesses.</p>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(180,210,240,0.85);">
-            <div style="width:6px;height:6px;border-radius:50%;background:var(--purple);flex-shrink:0;"></div>
-            Blossom AI is in active development
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(180,210,240,0.85);">
-            <div style="width:6px;height:6px;border-radius:50%;background:var(--purple);flex-shrink:0;"></div>
-            CompTIA Security+ expected May 2026
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(180,210,240,0.85);">
-            <div style="width:6px;height:6px;border-radius:50%;background:var(--purple);flex-shrink:0;"></div>
-            Serving Main Line, Pennsylvania and growing
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(180,210,240,0.85);">
-            <div style="width:6px;height:6px;border-radius:50%;background:var(--pink);flex-shrink:0;"></div>
-            Founded &amp; operated by a retired law enforcement professional
+        <div style="font-family:var(--font-display);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:16px;">The bottom line</div>
+        <h3 style="font-family:var(--font-display);font-size:clamp(20px,2.5vw,28px);color:#fff;font-weight:600;line-height:1.3;margin-bottom:20px;">If this resonates,<br/>let's talk.</h3>
+        <p style="font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:28px;">Timothy isn't looking for a room full of suits. He's looking for people who get it — who understand why accessible, honest cyber security matters, and who want to be part of building something that actually helps people.</p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:32px;">No decks required. No formality. Just a conversation.</p>
+
+        <!-- Coffee CTA - informal, fun -->
+        <div style="background:rgba(255,170,50,0.05);border:0.5px solid rgba(255,170,50,0.2);border-radius:16px;padding:22px 20px;display:flex;align-items:center;gap:16px;">
+          <div style="font-size:28px;flex-shrink:0;">&#x2615;</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;">Just want to show support?</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.65;">Buy Timothy a coffee. Seriously. Late nights hardening firewalls run on caffeine and belief. Even $5 helps and makes his day.</div>
+            <button onclick="showCoffeeForm()" style="margin-top:10px;padding:6px 16px;background:rgba(255,170,50,0.12);border:0.5px solid rgba(255,170,50,0.35);border-radius:99px;font-family:var(--font-body);font-size:11px;font-weight:700;color:#ffaa30;cursor:pointer;transition:background 0.2s;">Buy a coffee &#x2615;</button>
           </div>
         </div>
       </div>
+
+      <!-- Right: the form -->
       <div>
-        <div id="partner-ok" style="display:none;padding:13px 16px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:16px;font-size:12px;color:var(--purple);">Message sent. Timothy will be in touch.</div>
-        <div class="cf-field" style="margin-bottom:12px;"><label class="cf-label">Your name</label><input class="cf-input" id="par-name" type="text" placeholder="Your name"/></div>
-        <div class="cf-field" style="margin-bottom:12px;"><label class="cf-label">Email</label><input class="cf-input" id="par-email" type="email" placeholder="your@email.com"/></div>
-        <div class="cf-field" style="margin-bottom:12px;"><label class="cf-label">Who are you?</label>
-          <select class="cf-input" id="par-type" style="cursor:pointer;">
-            <option style="background:#08132a;">Investor / angel</option>
-            <option style="background:#08132a;">Strategic advisor</option>
-            <option style="background:#08132a;">Potential technology partner</option>
-            <option style="background:#08132a;">Just someone who wants to help</option>
-          </select>
+        <div style="background:rgba(8,19,42,0.8);border:0.5px solid rgba(176,110,255,0.2);border-radius:20px;padding:36px 32px;" id="partner-form-wrap">
+          <div style="font-family:var(--font-display);font-size:17px;color:#fff;margin-bottom:6px;">Reach out to Timothy</div>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:22px;">He reads every message personally.</p>
+          <div id="stv-ok" style="display:none;padding:12px 16px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:16px;font-size:12px;color:var(--purple);">Message sent. Timothy will be in touch soon.</div>
+          <div class="cf-field" style="margin-bottom:12px;"><label class="cf-label">Your name</label><input class="cf-input" id="stv-name" type="text" placeholder="Your name"/></div>
+          <div class="cf-field" style="margin-bottom:12px;"><label class="cf-label">Email</label><input class="cf-input" id="stv-email" type="email" placeholder="your@email.com"/></div>
+          <div class="cf-field" style="margin-bottom:12px;">
+            <label class="cf-label">I am a&hellip;</label>
+            <select class="cf-input" id="stv-type" style="cursor:pointer;">
+              <option style="background:#08132a;">Potential investor or advisor</option>
+              <option style="background:#08132a;">Strategic partner or referral source</option>
+              <option style="background:#08132a;">Technology or integration partner</option>
+              <option style="background:#08132a;">Someone who just wants to help</option>
+              <option style="background:#08132a;">Not sure yet — just reaching out</option>
+            </select>
+          </div>
+          <div class="cf-field" style="margin-bottom:18px;"><label class="cf-label">What's on your mind?</label><textarea class="cf-textarea" id="stv-msg" style="min-height:80px;" placeholder="No formalities needed. Just tell Timothy what you're thinking."></textarea></div>
+          <button class="cf-submit" onclick="submitSTV()" style="max-width:220px;background:linear-gradient(135deg,var(--purple),var(--pink));">Send message</button>
+          <p style="font-size:10px;color:var(--muted);margin-top:12px;line-height:1.6;">This is a personal message to Timothy, not a formal offer or solicitation of any kind.</p>
         </div>
-        <div class="cf-field" style="margin-bottom:18px;"><label class="cf-label">What's on your mind?</label><textarea class="cf-textarea" id="par-msg" style="min-height:80px;" placeholder="No formalities needed. Just tell Timothy what's on your mind."></textarea></div>
-        <button class="cf-submit" onclick="submitPartner()" style="max-width:200px;background:linear-gradient(135deg,var(--purple),var(--pink));">Start the conversation</button>
-        <p style="font-size:10px;color:var(--muted);margin-top:12px;line-height:1.6;">This form is for starting a private conversation only. It is not a securities offering or solicitation of any kind.</p>
+
+        <!-- Coffee form - hidden by default, shown on button click -->
+        <div id="coffee-form-wrap" style="display:none;background:rgba(8,19,42,0.8);border:0.5px solid rgba(255,170,50,0.25);border-radius:20px;padding:36px 32px;margin-top:16px;">
+          <div style="font-family:var(--font-display);font-size:17px;color:#fff;margin-bottom:4px;">&#x2615; Buy Timothy a coffee</div>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:20px;">Pick an amount. Any amount. He will be genuinely grateful.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;" id="cofTiers">
+            <button class="cof-tier" onclick="pickTier(this,'$5')"  >$5</button>
+            <button class="cof-tier cof-sel" onclick="pickTier(this,'$10')">$10</button>
+            <button class="cof-tier" onclick="pickTier(this,'$20')">$20</button>
+            <button class="cof-tier" onclick="pickTier(this,'$50')">$50 &#x1F6B0;</button>
+            <button class="cof-tier" onclick="pickTier(this,'custom')">Custom &#x1F575;&#xFE0F;</button>
+          </div>
+          <div id="cof-custom-wrap" style="display:none;margin-bottom:12px;"><label class="cf-label">Custom amount ($)</label><input class="cf-input" id="cof-custom" type="number" min="1" placeholder="Your call"/></div>
+          <div class="cf-grid" style="margin-bottom:12px;">
+            <div class="cf-field"><label class="cf-label">Name</label><input class="cf-input" id="cof-name" type="text" placeholder="Jane Smith"/></div>
+            <div class="cf-field"><label class="cf-label">Email</label><input class="cf-input" id="cof-email" type="email" placeholder="jane@email.com"/></div>
+          </div>
+          <div class="cf-field" style="margin-bottom:18px;"><label class="cf-label">Leave a note (optional)</label><input class="cf-input" id="cof-note" type="text" placeholder="e.g. &quot;Found you at 2am after a ransomware scare. You helped.&quot;"/></div>
+          <div id="cof-ok" style="display:none;padding:12px 16px;background:rgba(255,170,50,0.08);border:0.5px solid rgba(255,170,50,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:#ffaa30;">&#x2615; Thank you! Timothy will follow up with secure payment details.</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="cf-submit" onclick="submitCoffee()" style="max-width:190px;background:linear-gradient(135deg,#ffaa30,#ff8820);border-color:#ffaa30;">Send support &#x2615;</button>
+            <button onclick="hideCoffeeForm()" style="padding:10px 18px;background:transparent;border:0.5px solid var(--border);border-radius:10px;font-family:var(--font-body);font-size:12px;color:var(--muted);cursor:pointer;">Never mind</button>
+          </div>
+          <p style="font-size:10px;color:var(--muted);margin-top:12px;line-height:1.65;">Voluntary contributions to support Lotus Cybersecurity&rsquo;s operations. <strong>Not charitable donations and not tax-deductible.</strong> No card details collected here &mdash; Timothy follows up with secure payment instructions.</p>
+        </div>
       </div>
     </div>
 
@@ -1424,58 +1575,46 @@ function runBlossomDemo(){
 </section>
 
 <style>
-.coffee-card{background:rgba(8,19,42,0.7);border:0.5px solid rgba(34,211,238,0.15);border-radius:18px;padding:28px 22px;text-align:center;transition:all 0.25s;position:relative;overflow:hidden;}
-.coffee-card:hover{border-color:rgba(34,211,238,0.4);transform:translateY(-3px);background:rgba(8,19,42,0.9);}
-.coffee-card.coffee-sel{border-color:var(--cyan);background:rgba(34,211,238,0.06);transform:translateY(-3px);box-shadow:0 0 24px rgba(34,211,238,0.12);}
-.coffee-emoji{font-size:28px;margin-bottom:10px;}
-.coffee-name{font-family:var(--font-display);font-size:13px;font-weight:600;color:#fff;margin-bottom:4px;}
-.coffee-price{font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--cyan);margin-bottom:8px;}
-.coffee-desc{font-size:11px;color:var(--muted);line-height:1.65;}
-@media(max-width:900px){#support .partner-grid{grid-template-columns:1fr!important;}}
+.stv-card{background:rgba(255,255,255,0.02);border:0.5px solid var(--border);border-radius:20px;padding:32px 26px;transition:border-color 0.25s,transform 0.25s;}
+.stv-card:hover{border-color:rgba(34,211,238,0.25);transform:translateY(-3px);}
+.stv-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
+.stv-title{font-family:var(--font-display);font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;}
+.stv-desc{font-size:13px;color:var(--muted);line-height:1.75;}
+.cof-tier{padding:8px 16px;background:rgba(255,255,255,0.04);border:0.5px solid var(--border);border-radius:99px;font-family:var(--font-body);font-size:12px;font-weight:600;color:rgba(160,210,240,0.8);cursor:pointer;transition:all 0.18s;}
+.cof-tier:hover,.cof-tier.cof-sel{background:rgba(255,170,50,0.12);border-color:rgba(255,170,50,0.45);color:#ffaa30;}
+@media(max-width:900px){#support .reveal[style*="grid-template-columns:1fr 1.1fr"],#support .reveal[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important;gap:40px!important;}}
 </style>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var _coffeeData = {
-  '1':{emoji:'&#x2615;',name:'Regular coffee selected',note:'A basic drip. Gets the job done.',price:'$5'},
-  '2':{emoji:'&#x2615;&#x2615;',name:'Double espresso selected',note:'Late-night-vulnerability-scan energy. Good choice.',price:'$10'},
-  '3':{emoji:'&#x2615;&#x2615;&#x2615;',name:'Triple shot oat latte selected',note:'Timothy will use this to find three more vulnerabilities.',price:'$20'},
-  '4':{emoji:'&#x1F6B0;',name:'The whole coffee machine selected',note:'An absolute legend has entered the building.',price:'$50'},
-  'custom':{emoji:'&#x1F575;&#xFE0F;',name:'Custom amount',note:'We respect that energy.',price:'Your call'}
-};
-var _selectedCoffee = '2';
-
-function pickCoffee(el, tier){
-  document.querySelectorAll('.coffee-card').forEach(function(c){c.classList.remove('coffee-sel');});
-  el.classList.add('coffee-sel');
-  _selectedCoffee = tier;
-  var d = _coffeeData[tier];
-  document.getElementById('coffee-sel-emoji').innerHTML = d.emoji;
-  document.getElementById('coffee-sel-name').textContent = d.name;
-  document.getElementById('coffee-sel-note').textContent = d.note;
-  document.getElementById('coffee-sel-price').textContent = d.price;
-  document.getElementById('coffee-custom-wrap').style.display = tier === 'custom' ? 'block' : 'none';
+<script>
+var _cofTier = '$10';
+function pickTier(el, val){
+  document.querySelectorAll('.cof-tier').forEach(function(b){b.classList.remove('cof-sel');});
+  el.classList.add('cof-sel');
+  _cofTier = val;
+  document.getElementById('cof-custom-wrap').style.display = val==='custom' ? 'block' : 'none';
 }
-
+function showCoffeeForm(){
+  document.getElementById('coffee-form-wrap').style.display='block';
+  document.getElementById('coffee-form-wrap').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function hideCoffeeForm(){
+  document.getElementById('coffee-form-wrap').style.display='none';
+}
 function submitCoffee(){
-  var name = document.getElementById('cof-name').value.trim();
-  var email = document.getElementById('cof-email').value.trim();
-  if(!name || !email){ alert('Just need your name and email so Timothy can follow up!'); return; }
-  var ok = document.getElementById('cof-success');
-  if(ok){ ok.style.display='block'; setTimeout(function(){ok.style.display='none';},8000); }
-  ['cof-name','cof-email','cof-note','coffee-custom-amt'].forEach(function(id){
-    var e=document.getElementById(id); if(e) e.value='';
-  });
+  var n=document.getElementById('cof-name').value.trim();
+  var e=document.getElementById('cof-email').value.trim();
+  if(!n||!e){alert('Just need your name and email so Timothy can follow up!');return;}
+  var ok=document.getElementById('cof-ok');
+  if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},8000);}
+  ['cof-name','cof-email','cof-note','cof-custom'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
 }
-
-function submitPartner(){
-  var name = document.getElementById('par-name').value.trim();
-  var email = document.getElementById('par-email').value.trim();
-  if(!name || !email){ alert('Please include your name and email.'); return; }
-  var ok = document.getElementById('partner-ok');
-  if(ok){ ok.style.display='block'; setTimeout(function(){ok.style.display='none';},6000); }
-  ['par-name','par-email','par-msg'].forEach(function(id){
-    var e=document.getElementById(id); if(e) e.value='';
-  });
+function submitSTV(){
+  var n=document.getElementById('stv-name').value.trim();
+  var e=document.getElementById('stv-email').value.trim();
+  if(!n||!e){alert('Please include your name and email.');return;}
+  var ok=document.getElementById('stv-ok');
+  if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},6000);}
+  ['stv-name','stv-email','stv-msg'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
 }
 </script>
 
@@ -1490,7 +1629,7 @@ function submitPartner(){
     </div>
     <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#services">Security Assessment</a></li><li><a href="#services">System Hardening</a></li><li><a href="#services">Monitoring</a></li><li><a href="#services">Compliance</a></li><li><a href="#services">Incident Response</a></li></ul></div>
     <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="#about">About Tim</a></li><li><a href="#blossom">Blossom AI</a></li><li><a href="#threatmap">Threat Map</a></li><li><a href="#firstresponder">First Responders</a></li><li><a href="#referral">Referral Program</a></li></ul></div>
-    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="#contact">Book Assessment</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#insurance">Cyber Insurance</a></li><li><a href="https://www.linkedin.com/in/timadkins/" target="_blank">LinkedIn</a></li><li><a href="/cdn-cgi/l/email-protection#1a73747c755a76756e6f697963787f68347375"><span class="__cf_email__" data-cfemail="ea83848c85aa86859e9f998993888f98c48385">[email&#160;protected]</span></a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="#contact">Book Assessment</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#insurance">Cyber Insurance</a></li><li><a href="https://www.linkedin.com/in/timadkins/" target="_blank">LinkedIn</a></li><li><a href="mailto:info@lotuscyber.io">info@lotuscyber.io</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">&copy; 2026 Lotus Cybersecurity. Retired law enforcement owned. Founded 2026. Main Line, Pennsylvania.</span>
@@ -1498,7 +1637,7 @@ function submitPartner(){
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 (function(){
   const c=document.getElementById('particles-canvas'),ctx=c.getContext('2d');
   let W,H,pts=[];
@@ -1748,4 +1887,18 @@ function handleContact(e){e.preventDefault();const btn=document.getElementById('
 
   // Animate bandwidth counter
   setInterval(function(){
-    var el=document.getElementById('hvc-b
+    var el=document.getElementById('hvc-bandwidth');
+    if(el) el.textContent=(0.8+Math.random()*1.8).toFixed(1);
+    // Cycle Blossom status messages
+    var msgs=['Scanning traffic\u2026','0 threats found','Monitoring packets','AI analysis active','Network clean'];
+    var s=document.getElementById('hvc-blossom-status');
+    if(s) s.textContent=msgs[Math.floor(Math.random()*msgs.length)];
+  },2200);
+
+  draw();
+  setTimeout(function(){spawnThreat();spawnThreat();spawnThreat();},600);
+})();
+
+</script>
+</body>
+</html>
