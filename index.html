@@ -668,7 +668,7 @@ function runBlossomDemo(){
     {dot:'#b06eff',txt:'Blossom AI: matches lateral movement signature (94% confidence)'},
     {dot:'#ff5050',txt:'THREAT HIGH: Potential ransomware beacon detected'},
     {dot:'#ffaa30',txt:'Isolating endpoint 192.168.1.45 from network segment…'},
-    {dot:'#40dc90',txt:'Contained. Timothy Adkins notified. Remediation plan ready.'}
+    {dot:'#40dc90',txt:'Contained. Lotus Admin notified. Remediation plan ready.'}
   ];
   log.innerHTML='';
   var els=document.querySelectorAll('.bpstage');
@@ -995,8 +995,8 @@ function submitSTV(){var n=document.getElementById('stv-name').value.trim();var 
       <div style="font-family:var(--font-display);font-size:22px;font-weight:600;color:#fff;margin-bottom:6px;">Timothy H. Adkins</div>
       <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px;">Retired Police Sergeant and Cybersecurity graduate student at Drexel University&#39;s College of Engineering. Medal of Lifesaving recipient. Founded Lotus to bring real protection to Main Line businesses - the same commitment he brought to public service, now applied to the digital world.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--muted);">
-        <span>M.Eng. Cybersecurity - Drexel University</span><span style="color:rgba(34,211,238,0.3);">|</span>
-        <span>B.A. - Temple University</span><span style="color:rgba(34,211,238,0.3);">|</span>
+        <span>MS Cybersecurity - Drexel University</span><span style="color:rgba(34,211,238,0.3);">|</span>
+        <span>BA Temple University Criminal Justice</span><span style="color:rgba(34,211,238,0.3);">|</span>
         <span>Retired Police Sergeant - PA</span><span style="color:rgba(34,211,238,0.3);">|</span>
         <span>Methods of Instruction Certified</span><span style="color:rgba(34,211,238,0.3);">|</span>
         <span>CompTIA Security+ (May 2026)</span>
@@ -1029,7 +1029,7 @@ function submitSTV(){var n=document.getElementById('stv-name').value.trim();var 
     </div>
     <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#services">Security Assessment</a></li><li><a href="#services">System Hardening</a></li><li><a href="#services">Monitoring</a></li><li><a href="#services">Compliance</a></li><li><a href="#services">Incident Response</a></li></ul></div>
     <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="#blossom">Blossom AI</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#firstresponder">First Responders</a></li><li><a href="#referral">Referral Program</a></li><li><a href="#about">About Timothy</a></li></ul></div>
-    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="#contact">Book Assessment</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#insurance">Cyber Insurance</a></li><li><a href="https://www.linkedin.com/in/timadkins/" target="_blank">LinkedIn</a></li><li><a href="mailto:info@lotuscyber.io">info@lotuscyber.io</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="#contact">Book Assessment</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#insurance">Cyber Insurance</a></li><li><a href="https://www.linkedin.com/in/timadkins/" target="_blank">LinkedIn</a></li><li><a href="/cdn-cgi/l/email-protection#82ebece4edc2eeedf6f7f1e1fbe0e7f0acebed"><span class="__cf_email__" data-cfemail="8ee7e0e8e1cee2e1fafbfdedf7ecebfca0e7e1">[email&#160;protected]</span></a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">&copy; 2026 Lotus Cybersecurity. Retired law enforcement owned. Founded 2026. Devon, Pennsylvania.</span>
@@ -1037,7 +1037,7 @@ function submitSTV(){var n=document.getElementById('stv-name').value.trim();var 
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   const c=document.getElementById('particles-canvas'),ctx=c.getContext('2d');
   let W,H,pts=[];
@@ -1231,10 +1231,4 @@ function handleContact(e){e.preventDefault();const btn=document.getElementById('
   }
   var feedData=[['192.168.1.','Port scan blocked'],['10.0.0.','Brute force stopped'],['172.16.','Suspicious DNS'],['192.168.','Malware blocked'],['10.0.','SQL injection attempt'],['172.','C2 traffic blocked']];
   function addFeedItem(col){var el=document.getElementById('hvc-feed-list');if(!el)return;var d=feedData[Math.floor(Math.random()*feedData.length)];var ip=d[0]+Math.floor(Math.random()*254);var item=document.createElement('div');item.className='hvc-feed-item';item.innerHTML='<div class="hvc-feed-dot" style="background:'+col+';"></div><div class="hvc-feed-text">'+d[1]+'</div><div class="hvc-feed-time">'+ip+'</div>';el.insertBefore(item,el.firstChild);while(el.children.length>3)el.removeChild(el.lastChild);}
-  setInterval(function(){var el=document.getElementById('hvc-bandwidth');if(el)el.textContent=(0.8+Math.random()*1.8).toFixed(1);var msgs=['Scanning traffic…','0 threats found','Monitoring packets','AI analysis active','Network clean'];var s=document.getElementById('hvc-blossom-status');if(s)s.textContent=msgs[Math.floor(Math.random()*msgs.length)];},2200);
-  draw();
-  setTimeout(function(){spawnThreat();spawnThreat();spawnThreat();},600);
-})();
-</script>
-</body>
-</html>
+  setInterval(function(){var el=document.getElementById('hvc-bandwidth');if(el)el.textContent=(0.8+Math.random()*1.8).toFixed(1);var msgs=['Scanning traffic…','0 threats found','Monitoring packets','AI analysis active','Network clean'
