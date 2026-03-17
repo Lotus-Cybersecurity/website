@@ -415,7 +415,7 @@ footer p {
   object-fit: contain;
   border-radius: 10px;
 
-  animation: lotusCharge 1.4s ease-out;
+  animation: lotusCharge 1.4s ease-out forwards;
 }
 
 @keyframes lotusCharge {
