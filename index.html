@@ -10,77 +10,156 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root{
-      --bg:#020917;
-      --surface:#08132a;
-      --surface-2:#0d1f3c;
-      --cyan:#22d3ee;
-      --pink:#ff90c8;
-      --purple:#b06eff;
-      --text:rgba(220,235,255,0.92);
-      --muted:rgba(160,185,225,0.70);
-      --border:rgba(34,211,238,0.16);
-      --glow:0 0 30px rgba(34,211,238,0.15);
-      --display:'Cinzel', serif;
-      --body:'Nunito', sans-serif;
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
-    body{
-      background:
-        radial-gradient(circle at top right, rgba(34,211,238,0.10), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(176,110,255,0.10), transparent 30%),
-        var(--bg);
+    :root {
+      --bg: #020917;
+      --surface: #08132a;
+      --surface2: #0d1f3c;
+      --cyan: #22d3ee;
+      --pink: #ff90c8;
+      --purple: #b06eff;
+      --text: rgba(210, 230, 255, 0.88);
+      --muted: rgba(140, 170, 220, 0.68);
+      --border: rgba(34, 211, 238, 0.16);
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
       color: var(--text);
-      font-family: var(--body);
-      line-height: 1.65;
+      font-family: var(--font-body);
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container{
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    .section{
-      padding: 90px 0;
-      position: relative;
+    #particles-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
     }
 
-    .section-divider::before{
-      content:"";
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:1px;
-      background: linear-gradient(90deg, transparent, rgba(34,211,238,0.5), transparent);
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 48px;
+      background: rgba(2, 9, 23, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      transition: 0.25s ease;
     }
 
-    .eyebrow{
-      display:inline-block;
-      color:var(--cyan);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      margin-bottom:14px;
-    }
-
-    .title{
-      font-family: var(--display);
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.1;
-      margin-bottom: 16px;
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
       color: #fff;
+      white-space: nowrap;
     }
 
-    .title .accent{
+    .nav-brand span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .nav-cta,
+    .btn-cyan,
+    .btn-ghost,
+    .price-cta,
+    .cf-submit {
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-weight: 800;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-cta {
+      padding: 9px 18px;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      background: var(--cyan);
+      color: #02111f;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 100px 48px;
+    }
+
+    .z1 {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-title span {
       background: linear-gradient(135deg, var(--cyan), var(--purple));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -88,111 +167,2033 @@
       color: transparent;
     }
 
-    .sub{
+    .section-sub {
+      font-size: 15px;
       color: var(--muted);
-      font-size: 16px;
-      max-width: 720px;
+      max-width: 640px;
+      line-height: 1.8;
     }
 
-    /* NAV */
-    .nav{
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(16px);
-      background: rgba(2,9,23,0.82);
-      border-bottom: 1px solid var(--border);
-      transition: .25s ease;
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .nav-inner{
-      min-height: 74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .brand{
-      font-family: var(--display);
-      font-size: 20px;
-      font-weight: 600;
-      color:#fff;
+    .btn-cyan,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 28px;
+      font-size: 13px;
+    }
+
+    .btn-cyan {
+      background: var(--cyan);
+      color: #02111f;
+      border: none;
+    }
+
+    .btn-cyan:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: rgba(170, 220, 255, 0.9);
+      border: 1px solid rgba(34, 211, 238, 0.35);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(34, 211, 238, 0.08);
+      transform: translateY(-2px);
+    }
+
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 72% 48%, rgba(34, 211, 238, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 15% 70%, rgba(176, 110, 255, 0.08) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(34, 211, 238, 0.08);
+      border: 1px solid rgba(34, 211, 238, 0.28);
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.75); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5.6vw, 68px);
+      line-height: 1.04;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .hero-title .accent {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-tagline {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      line-height: 1.9;
+      color: rgba(180, 210, 240, 0.78);
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 38px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 26px;
+      color: var(--cyan);
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-shield-wrap {
+      position: relative;
+      width: 460px;
+      height: 460px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #heroCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .hero-core {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.16), transparent 35%),
+        radial-gradient(circle at center, rgba(34,211,238,0.18), rgba(2,9,23,0.95) 70%);
+      border: 2px solid rgba(34,211,238,0.45);
+      box-shadow:
+        0 0 30px rgba(34,211,238,0.25),
+        0 0 80px rgba(34,211,238,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      z-index: 2;
+    }
+
+    .hero-core-text {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .hero-core-text span {
+      color: var(--cyan);
+    }
+
+    .info-chip {
+      position: absolute;
+      background: rgba(7, 18, 38, 0.92);
+      border: 1px solid rgba(34,211,238,0.2);
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: 11px;
+      color: rgba(190,220,255,0.88);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      animation: floaty 5s ease-in-out infinite;
+      z-index: 3;
       white-space: nowrap;
     }
 
-    .brand span{ color: var(--cyan); }
+    .chip-a { top: 24px; right: -10px; }
+    .chip-b { bottom: 60px; left: -24px; animation-delay: .8s; }
+    .chip-c { bottom: 16px; right: 20px; animation-delay: 1.5s; }
+    .chip-d { top: 150px; left: -40px; animation-delay: .4s; }
 
-    .nav-links{
-      display:flex;
-      gap:22px;
-      list-style:none;
-      flex-wrap:wrap;
-      justify-content:center;
+    @keyframes floaty {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
-    .nav-links a{
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--muted);
-      transition:.2s ease;
+    .chip-title {
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
     }
 
-    .nav-links a:hover{ color: var(--cyan); }
-
-    .nav-cta,
-    .btn-primary,
-    .btn-secondary{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:999px;
-      font-weight:800;
-      letter-spacing:.04em;
-      transition:.2s ease;
-      cursor:pointer;
+    .chip-sub {
+      color: var(--muted);
+      font-size: 10px;
     }
 
-    .nav-cta{
-      padding:11px 18px;
-      border:1px solid rgba(34,211,238,0.45);
-      color:var(--cyan);
-      font-size:12px;
-      white-space:nowrap;
+    .services-header,
+    .pricing-header,
+    .process-header,
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 58px;
     }
 
-    .nav-cta:hover{
+    .services-header .section-sub,
+    .pricing-header .section-sub,
+    .process-header .section-sub,
+    .reviews-header .section-sub {
+      margin: 0 auto;
+    }
+
+    .services-grid,
+    .pricing-grid,
+    .reviews-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .reviews-grid {
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    }
+
+    .card,
+    .svc-card,
+    .price-card,
+    .review-card,
+    .dashboard-wrap,
+    .contact-form-wrap,
+    .about-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+    }
+
+    .svc-card {
+      padding: 34px 28px;
+      transition: 0.25s ease;
+    }
+
+    .svc-card:hover {
+      border-color: rgba(34,211,238,0.36);
+      transform: translateY(-4px);
+    }
+
+    .svc-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: rgba(34,211,238,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .svc-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .svc-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .svc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .svc-list li {
+      position: relative;
+      padding-left: 14px;
+      font-size: 12px;
+      color: rgba(170,210,240,0.85);
+    }
+
+    .svc-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
       background: var(--cyan);
-      color:#02111f;
-      transform: translateY(-1px);
     }
 
-    /* HERO */
-    .hero{
-      padding: 92px 0 70px;
-      min-height: calc(100vh - 74px);
-      display:flex;
-      align-items:center;
+    .dashboard-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: rgba(4,12,30,0.92);
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 46px;
-      align-items:center;
+    .dashboard-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      flex-wrap: wrap;
     }
 
-    .hero-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 16px;
-      border:1px solid rgba(34,211,238,0.26);
-      border-radius:999px;
-      background: rgba(34,211,238,0.08);
+    .dashboard-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--cyan);
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.12em
+    }
+
+    .dashboard-stats {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .dashboard-stats strong {
+      color: #fff;
+    }
+
+    #threatCanvas {
+      width: 100%;
+      height: 420px;
+      display: block;
+      background: transparent;
+    }
+
+    .dashboard-feed {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      padding: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .feed-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .feed-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .feed-item-title {
+      font-size: 12px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .feed-item-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .pricing-grid .price-card {
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.25s ease;
+    }
+
+    .price-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34,211,238,0.32);
+    }
+
+    .price-card.featured {
+      border-color: var(--cyan);
+      background: rgba(34,211,238,0.05);
+    }
+
+    .price-badge {
+      align-self: flex-start;
+      margin-bottom: 14px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #02111f;
+      background: var(--cyan);
+      padding: 5px 10px;
+      border-radius: 999px;
+    }
+
+    .price-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .price-tagline {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 38px;
+      color: var(--cyan);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .price-period {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .price-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+      flex: 1;
+    }
+
+    .price-features li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 12px;
+      color: rgba(175, 215, 245, 0.88);
+    }
+
+    .price-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    .price-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 13px 18px;
+      font-size: 12px;
+      border: 1px solid rgba(34,211,238,0.35);
+      color: var(--cyan);
+      background: transparent;
+    }
+
+    .price-cta:hover {
+      background: var(--cyan);
+      color: #02111f;
+    }
+
+    .process-row {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 26px 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+    }
+
+    .step-num {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--cyan);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    #about {
+      background: var(--surface);
+    }
+
+    .about-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .about-card {
+      padding: 28px;
+      text-align: center;
+    }
+
+    .about-avatar {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(135deg, rgba(34,211,238,0.14), rgba(176,110,255,0.08));
+      border: 1px solid rgba(34,211,238,0.24);
+      font-family: var(--font-display);
+      font-size: 56px;
+      color: var(--cyan);
+    }
+
+    .about-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .about-badge {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: rgba(190,220,255,0.9);
+    }
+
+    .about-content .about-name {
+      font-family: var(--font-display);
+      font-size: 30px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .about-role {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-bio {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .about-creds {
+      display: grid;
+      gap: 10px;
+      margin: 24px 0 30px;
+    }
+
+    .about-cred {
+      font-size: 13px;
+      color: rgba(180,210,240,0.9);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .about-cred::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    #reviews {
+      background: var(--surface);
+    }
+
+    .review-card {
+      padding: 28px 24px;
+    }
+
+    .review-stars {
+      color: var(--cyan);
+      margin-bottom: 14px;
+      letter-spacing: 2px;
+      font-size: 14px;
+    }
+
+    .review-quote {
+      font-size: 13px;
+      color: rgba(205,225,255,0.85);
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 18px;
+    }
+
+    .review-author {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .review-author strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    #contact {
+      padding-bottom: 110px;
+    }
+
+    .contact-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 24px;
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(34,211,238,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .contact-value {
+      font-size: 14px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .contact-form-wrap {
+      padding: 38px 32px;
+      background: rgba(8,19,42,0.82);
+    }
+
+    .cf-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .cf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .cf-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .cf-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .cf-input,
+    .cf-textarea,
+    .cf-select {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      padding: 12px 15px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    .cf-input:focus,
+    .cf-textarea:focus,
+    .cf-select:focus {
+      border-color: rgba(34,211,238,0.45);
+    }
+
+    .cf-textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .cf-submit {
+      width: 100%;
+      border: none;
+      background: var(--cyan);
+      color: #02111f;
+      padding: 15px 18px;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .cf-submit:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 44px 48px 32px;
+      border-top: 1px solid var(--border);
+      background: rgba(5, 14, 31, 0.82);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 1100px) {
+      nav {
+        padding: 14px 24px;
+      }
+
+      section {
+        padding: 80px 24px;
+      }
+
+      .hero-inner,
+      .about-wrap,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .hero-shield-wrap {
+        width: 360px;
+        height: 360px;
+        margin: 0 auto;
+      }
+
+      .info-chip {
+        display: none;
+      }
+
+      .process-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-shield-wrap {
+        width: 300px;
+        height: 300px;
+      }
+
+      .hero-core {
+        width: 150px;
+        height: 150px;
+      }
+
+      .cf-grid,
+      .process-row {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .pricing-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        padding: 36px 24px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+
+  <nav id="mainNav">
+    <a class="nav-brand" href="#hero">Lotus <span>Cybersecurity</span></a>
+
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a class="nav-cta" href="#contact">Book Assessment</a>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="grid-bg"></div>
+
+    <div class="hero-inner z1">
+      <div class="hero-content reveal visible">
+        <div class="hero-badge">
+          <div class="badge-dot"></div>
+          Retired Law Enforcement Owned · Founded 2026
+        </div>
+
+        <h1 class="hero-title">
+          Lotus<br />
+          <span class="accent">Cybersecurity</span>
+        </h1>
+
+        <p class="hero-tagline">
+          Security Assessments · System Hardening · AI Monitoring
+        </p>
+
+        <p class="hero-desc">
+          Founded by a retired law enforcement professional and Drexel cybersecurity graduate student, Lotus protects Main Line businesses with the same commitment once used to protect people in the physical world — now applied to your digital infrastructure.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn-cyan" href="#contact">Book Assessment</a>
+          <a class="btn-ghost" href="#services">Our Services</a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <span class="hero-stat-num">24/7</span>
+            <span class="hero-stat-label">Monitoring</span>
+          </div>
+          <div>
+            <span class="hero-stat-num">48hr</span>
+            <span class="hero-stat-label">Report turnaround</span>
+          </div>
+          <div>
+            <span class="hero-stat-num">PA</span>
+            <span class="hero-stat-label">Local focus</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal visible">
+        <div class="hero-shield-wrap">
+          <canvas id="heroCanvas" width="460" height="460"></canvas>
+
+          <div class="hero-core">
+            <div class="hero-core-text">
+              Lotus<br />
+              <span>Shield</span>
+            </div>
+          </div>
+
+          <div class="info-chip chip-a">
+            <div class="chip-title">Firewall active</div>
+            <div class="chip-sub">248 packets/sec</div>
+          </div>
+
+          <div class="info-chip chip-b">
+            <div class="chip-title"><span id="heroBlocked">0</span> blocked today</div>
+            <div class="chip-sub">Live threat count</div>
+          </div>
+
+          <div class="info-chip chip-c">
+            <div class="chip-title"><span id="heroBandwidth">1.2</span> MB/s encrypted</div>
+            <div class="chip-sub">Secure traffic</div>
+          </div>
+
+          <div class="info-chip chip-d">
+            <div class="chip-title">Blossom AI online</div>
+            <div class="chip-sub" id="heroStatus">Scanning traffic…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section-divider" style="background: var(--surface);">
+    <div class="services-header reveal">
+      <div class="section-label">What we do</div>
+      <h2 class="section-title">Security <span>services</span></h2>
+      <p class="section-sub">
+        Practical cyber protection for Main Line businesses — from initial assessment to hardening and ongoing monitoring.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon">🛡️</div>
+        <h3 class="svc-title">Security Assessment</h3>
+        <p class="svc-desc">Find vulnerabilities before attackers do.</p>
+        <ul class="svc-list">
+          <li>Network discovery</li>
+          <li>Device inventory</li>
+          <li>Vulnerability scanning</li>
+          <li>48-hour report</li>
+        </ul>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-icon">🔒</div>
+        <h3 class="svc-title">System Hardening</h3>
+        <p class="svc-desc">Lock down routers, workstations, firewalls, and cloud systems.</p>
+        <ul class="svc-list">
+          <li>Firewall configuration</li>
+          <li>Patch review</li>
+          <li>Access control cleanup</li>
+          <li>Endpoint security setup</li>
+        </ul>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-icon">📡</div>
+        <h3 class="svc-title">Continuous Monitoring</h3>
+        <p class="svc-desc">Stay ahead of suspicious activity before it becomes a breach.</p>
+        <ul class="svc-list">
+          <li>Live alerting</li>
+          <li>Threat visibility</li>
+          <li>Monthly reviews</li>
+          <li>Blossom AI layer</li>
+        </ul>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-icon">📋</div>
+        <h3 class="svc-title">Compliance & Reporting</h3>
+        <p class="svc-desc">Clear reporting and documentation you can actually use.</p>
+        <ul class="svc-list">
+          <li>Gap analysis</li>
+          <li>Policy review</li>
+          <li>Audit-friendly reporting</li>
+          <li>Practical next steps</li>
+        </ul>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-icon">🚨</div>
+        <h3 class="svc-title">Incident Response</h3>
+        <p class="svc-desc">Contain, respond, recover, and document what happened.</p>
+        <ul class="svc-list">
+          <li>Immediate containment</li>
+          <li>Breach guidance</li>
+          <li>Recovery planning</li>
+          <li>Post-incident documentation</li>
+        </ul>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-icon">🎓</div>
+        <h3 class="svc-title">Security Training</h3>
+        <p class="svc-desc">Train staff to spot phishing and bad habits before they cost you.</p>
+        <ul class="svc-list">
+          <li>Phishing awareness</li>
+          <li>Security workshops</li>
+          <li>Policy walkthroughs</li>
+          <li>Better user habits</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="dashboard" class="section-divider" style="background: var(--surface);">
+    <div class="services-header reveal">
+      <div class="section-label">Dashboard preview</div>
+      <h2 class="section-title">Your security <span>at a glance</span></h2>
+      <p class="section-sub">
+        A visual preview of the type of monitoring and alert visibility Lotus can provide.
+      </p>
+    </div>
+
+    <div class="dashboard-wrap reveal">
+      <div class="dashboard-topbar">
+        <div class="dashboard-title">Live dashboard preview</div>
+        <div class="dashboard-stats">
+          <div><strong id="blockedCount">0</strong> blocked today</div>
+          <div><strong id="systemCount">12</strong> systems online</div>
+          <div><strong>Demo</strong> mode</div>
+        </div>
+      </div>
+
+      <canvas id="threatCanvas"></canvas>
+
+      <div class="dashboard-feed" id="threatFeed"></div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section-divider">
+    <div class="pricing-header reveal">
+      <div class="section-label">Transparent pricing</div>
+      <h2 class="section-title">Simple, honest <span>pricing</span></h2>
+      <p class="section-sub">
+        Clear starting points for people, small businesses, and larger environments.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-name">Personal</div>
+        <div class="price-tagline">Home network protection</div>
+        <div class="price-amount">$39</div>
+        <div class="price-period">per month</div>
+        <ul class="price-features">
+          <li>Home monitoring</li>
+          <li>Real-time alerts</li>
+          <li>Quarterly review</li>
+          <li>Email support</li>
+        </ul>
+        <a class="price-cta" href="#contact">Get started</a>
+      </div>
+
+      <div class="price-card featured reveal">
+        <div class="price-badge">Most popular</div>
+        <div class="price-name">Small Business</div>
+        <div class="price-tagline">Up to 25 endpoints</div>
+        <div class="price-amount">$149</div>
+        <div class="price-period">per month</div>
+        <ul class="price-features">
+          <li>Network monitoring</li>
+          <li>Threat alerts</li>
+          <li>Patch oversight</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="price-cta" href="#contact">Get started</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="price-name">Medium Business</div>
+        <div class="price-tagline">Up to 100 endpoints</div>
+        <div class="price-amount">$399</div>
+        <div class="price-period">per month</div>
+        <ul class="price-features">
+          <li>Expanded monitoring</li>
+          <li>Advanced threat visibility</li>
+          <li>Security reporting</li>
+          <li>Direct support</li>
+        </ul>
+        <a class="price-cta" href="#contact">Get started</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="price-name">Assessment</div>
+        <div class="price-tagline">One-time engagement</div>
+        <div class="price-amount">$495+</div>
+        <div class="price-period">one time</div>
+        <ul class="price-features">
+          <li>Full discovery</li>
+          <li>Vulnerability scan</li>
+          <li>Risk summary</li>
+          <li>Written roadmap</li>
+        </ul>
+        <a class="price-cta" href="#contact">Book now</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="price-name">Hardening</div>
+        <div class="price-tagline">One-time engagement</div>
+        <div class="price-amount">$1500+</div>
+        <div class="price-period">one time</div>
+        <ul class="price-features">
+          <li>Firewall cleanup</li>
+          <li>Patch application</li>
+          <li>Access review</li>
+          <li>Endpoint setup</li>
+        </ul>
+        <a class="price-cta" href="#contact">Book now</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="price-name">Enterprise</div>
+        <div class="price-tagline">Custom solution</div>
+        <div class="price-amount">Custom</div>
+        <div class="price-period">tailored pricing</div>
+        <ul class="price-features">
+          <li>Unlimited endpoints</li>
+          <li>Dedicated monitoring</li>
+          <li>Compliance support</li>
+          <li>Priority response</li>
+        </ul>
+        <a class="price-cta" href="#contact">Talk to us</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="section-divider" style="background: var(--surface);">
+    <div class="process-header reveal">
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">From <span>discovery</span> to action</h2>
+      <p class="section-sub">
+        A simple process that gives you a clear picture of your current security posture.
+      </p>
+    </div>
+
+    <div class="process-row">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Discovery</div>
+        <div class="step-desc">Identify devices, systems, and exposed services across your environment.</div>
+      </div>
+
+      <div class="step-card reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">Scan</div>
+        <div class="step-desc">Detect outdated software, missing patches, and easy attack paths.</div>
+      </div>
+
+      <div class="step-card reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">Review</div>
+        <div class="step-desc">Analyze firewall rules, access controls, remote exposure, and risk areas.</div>
+      </div>
+
+      <div class="step-card reveal">
+        <div class="step-num">04</div>
+        <div class="step-title">Roadmap</div>
+        <div class="step-desc">Receive a plain-language action plan with priorities and recommended fixes.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section-divider">
+    <div class="about-wrap">
+      <div class="about-card reveal">
+        <div class="about-avatar">THA</div>
+
+        <div class="about-badges">
+          <div class="about-badge">🏅 Medal of Lifesaving</div>
+          <div class="about-badge">🎓 Drexel Cybersecurity</div>
+          <div class="about-badge">🛡️ Retired Police Sergeant</div>
+        </div>
+      </div>
+
+      <div class="about-content reveal">
+        <div class="section-label">Founder & CEO</div>
+        <div class="about-name">Timothy H. Adkins</div>
+        <div class="about-role">Founder, Lotus Cybersecurity · Devon, Pennsylvania</div>
+
+        <p class="about-bio">
+          Timothy is a retired Police Sergeant, Drexel cybersecurity graduate student, and Medal of Lifesaving recipient who built Lotus to protect small businesses with the same seriousness once used to protect people in the field.
+        </p>
+
+        <p class="about-bio">
+          His law enforcement background shaped the way he thinks: stay calm under pressure, think like an adversary, document clearly, and never cut corners when safety is on the line.
+        </p>
+
+        <div class="about-creds">
+          <div class="about-cred">M.Eng. Cybersecurity & Information Systems - Drexel University</div>
+          <div class="about-cred">B.A. - Temple University</div>
+          <div class="about-cred">Retired Police Sergeant</div>
+          <div class="about-cred">Methods of Instruction Certified - NJ</div>
+          <div class="about-cred">CompTIA Security+ expected May 2026</div>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn-cyan" href="#contact">Work with Timothy</a>
+          <a class="btn-ghost" href="https://www.linkedin.com/in/timadkins/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="section-divider" style="background: var(--surface);">
+    <div class="reviews-header reveal">
+      <div class="section-label">Client reviews</div>
+      <h2 class="section-title">Every review <span>matters</span></h2>
+      <p class="section-sub">
+        Early trust matters. These sample cards hold the section in place until real client reviews go live.
+      </p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-quote">“Lotus explained our risks in plain English and gave us a clear plan instead of scare tactics.”</div>
+        <div class="review-author">
+          <strong>Sample Client</strong>
+          Small business owner
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-quote">“The assessment was fast, organized, and actually useful. We knew exactly what to fix first.”</div>
+        <div class="review-author">
+          <strong>Sample Client</strong>
+          Office manager
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-quote">“You can tell this was built by someone who takes protection seriously and communicates clearly.”</div>
+        <div class="review-author">
+          <strong>Sample Client</strong>
+          Local business operator
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-divider">
+    <div class="contact-wrap">
+      <div class="reveal">
+        <div class="section-label">Get in touch</div>
+        <h2 class="section-title">Ready to <span>secure</span> your business?</h2>
+        <p class="section-sub">
+          Based on the Main Line and serving businesses across Pennsylvania.
+        </p>
+
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Main Line, Pennsylvania</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">🛡️</div>
+          <div>
+            <div class="contact-label">Discounts</div>
+            <div class="contact-value">First responder & veteran discounts available</div>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">⏱️</div>
+          <div>
+            <div class="contact-label">Response time</div>
+            <div class="contact-value">We aim to respond within 24 hours</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <div class="cf-title">Request a security assessment</div>
+
+        <form onsubmit="handleContact(event)">
+          <div class="cf-grid">
+            <div class="cf-field">
+              <label class="cf-label">Your name</label>
+              <input class="cf-input" type="text" placeholder="Jane Smith" required />
+            </div>
+
+            <div class="cf-field">
+              <label class="cf-label">Business name</label>
+              <input class="cf-input" type="text" placeholder="Acme Co." required />
+            </div>
+          </div>
+
+          <div class="cf-field">
+            <label class="cf-label">Email address</label>
+            <input class="cf-input" type="email" placeholder="jane@yourbusiness.com" required />
+          </div>
+
+          <div class="cf-field">
+            <label class="cf-label">Service needed</label>
+            <select class="cf-select">
+              <option>Security Assessment</option>
+              <option>System Hardening</option>
+              <option>Continuous Monitoring</option>
+              <option>Compliance & Reporting</option>
+              <option>Incident Response</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="cf-field">
+            <label class="cf-label">Tell us about your business</label>
+            <textarea class="cf-textarea" placeholder="Describe your network, your concerns, or what you want assessed..."></textarea>
+          </div>
+
+          <button class="cf-submit" id="cfBtn" type="submit">
+            Send request
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 Lotus Cybersecurity. Main Line, Pennsylvania.</div>
+      <div>Retired law enforcement owned · Founded 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    // particles background
+    (function () {
+      const c = document.getElementById('particles-canvas');
+      const ctx = c.getContext('2d');
+      let W = 0;
+      let H = 0;
+      const pts = [];
+
+      function resize() {
+        W = c.width = window.innerWidth;
+        H = c.height = window.innerHeight;
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+
+      for (let i = 0; i < 60; i++) {
+        pts.push({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          r: Math.random() * 1.8 + 0.4,
+          dx: (Math.random() - 0.5) * 0.35,
+          dy: (Math.random() - 0.5) * 0.35,
+          o: Math.random() * 0.3 + 0.05
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        pts.forEach((p) => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(34,211,238,${p.o})`;
+          ctx.fill();
+
+          p.x += p.dx;
+          p.y += p.dy;
+
+          if (p.x < 0 || p.x > W) p.dx *= -1;
+          if (p.y < 0 || p.y > H) p.dy *= -1;
+        });
+
+        for (let i = 0; i < pts.length; i++) {
+          for (let j = i + 1; j < pts.length; j++) {
+            const d = Math.hypot(pts[i].x - pts[j].x, pts[i].y - pts[j].y);
+            if (d < 120) {
+              ctx.beginPath();
+              ctx.moveTo(pts[i].x, pts[i].y);
+              ctx.lineTo(pts[j].x, pts[j].y);
+              ctx.strokeStyle = `rgba(34,211,238,${0.08 * (1 - d / 120)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    })();
+
+    // reveal on scroll
+    (function () {
+      const reveals = document.querySelectorAll('.reveal');
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach((el) => {
+        if (!el.classList.contains('visible')) {
+          io.observe(el);
+        }
+      });
+    })();
+
+    // nav shrink
+    window.addEventListener('scroll', () => {
+      const n = document.getElementById('mainNav');
+      if (window.scrollY > 40) {
+        n.style.padding = '10px 24px';
+      } else {
+        n.style.padding = window.innerWidth > 1100 ? '14px 48px' : '14px 24px';
+      }
+    });
+
+    // contact fake submit
+    function handleContact(e) {
+      e.preventDefault();
+      const btn = document.getElementById('cfBtn');
+      btn.textContent = "Request sent";
+      btn.disabled = true;
+      btn.style.background = 'linear-gradient(135deg,#22d3ee,#06b6d4)';
+    }
+
+    // dashboard canvas
+    (function () {
+      const canvas = document.getElementById('threatCanvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      let W = 0;
+      let H = 0;
+
+      const names = [
+        'Ransomware probe',
+        'SQL injection',
+        'Phishing beacon',
+        'Port scan',
+        'Brute force',
+        'Credential stuffing',
+        'Malware C2'
+      ];
+
+      const locs = [
+        'Wayne, PA',
+        'Ardmore',
+        'Bryn Mawr',
+        'Paoli',
+        'Malvern',
+        'Devon',
+        'Radnor',
+        'Villanova'
+      ];
+
+      let nodes = [];
+      let threats = [];
+      let pulses = [];
+      let blocked = 0;
+      let feed = [];
+
+      function resize() {
+        W = canvas.width = canvas.offsetWidth;
+        H = canvas.height = 420;
+      }
+
+      function initNodes() {
+        nodes = [];
+        nodes.push({ x: W * 0.5, y: H * 0.48, type: 'lotus', r: 14, label: 'Lotus HQ', pt: 0 });
+
+        [
+          [0.18, 0.24], [0.32, 0.16], [0.72, 0.18], [0.84, 0.30],
+          [0.78, 0.58], [0.63, 0.76], [0.38, 0.76], [0.16, 0.58],
+          [0.55, 0.22], [0.90, 0.50], [0.26, 0.64], [0.48, 0.88]
+        ].forEach((p, i) => {
+          nodes.push({
+            x: W * p[0],
+            y: H * p[1],
+            type: i % 4 === 0 ? 'blossom' : 'protected',
+            r: 7,
+            label: locs[i % locs.length],
+            pt: Math.random() * Math.PI * 2
+          });
+        });
+
+        document.getElementById('systemCount').textContent = nodes.length - 1;
+      }
+
+      function addFeed(t) {
+        blocked++;
+        document.getElementById('blockedCount').textContent = blocked;
+        document.getElementById('heroBlocked').textContent = blocked;
+
+        const now = new Date();
+        const ts =
+          now.getHours().toString().padStart(2, '0') + ':' +
+          now.getMinutes().toString().padStart(2, '0') + ':' +
+          now.getSeconds().toString().padStart(2, '0');
+
+        feed.unshift({
+          sev: t.sev,
+          name: t.name,
+          loc: t.loc,
+          time: ts
+        });
+
+        if (feed.length > 6) feed.pop();
+
+        const wrap = document.getElementById('threatFeed');
+        wrap.innerHTML = feed.map((f) => {
+          let c = '#40dc90';
+          if (f.sev === 'med') c = '#ffaa30';
+          if (f.sev === 'high') c = '#ff5050';
+
+          return `
+            <div class="feed-item">
+              <div class="feed-dot" style="background:${c}; box-shadow:0 0 8px ${c};"></div>
+              <div>
+                <div class="feed-item-title">${f.name}</div>
+                <div class="feed-item-sub">${f.loc} · ${f.time}</div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function spawnThreat() {
+        const edge = Math.floor(Math.random() * 4);
+        let x, y;
+
+        if (edge === 0) { x = Math.random() * W; y = 0; }
+        else if (edge === 1) { x = W; y = Math.random() * H; }
+        else if (edge === 2) { x = Math.random() * W; y = H; }
+        else { x = 0; y = Math.random() * H; }
+
+        const target = nodes[Math.floor(Math.random() * (nodes.length - 1)) + 1];
+        const sev = Math.random() < 0.2 ? 'high' : (Math.random() < 0.5 ? 'med' : 'low');
+        const col = sev === 'high' ? '#ff5050' : sev === 'med' ? '#ffaa30' : '#40dc90';
+
+        threats.push({
+          x,
+          y,
+          tx: target.x,
+          ty: target.y,
+          sev,
+          col,
+          progress: 0,
+          speed: 0.004 + Math.random() * 0.004,
+          name: names[Math.floor(Math.random() * names.length)],
+          loc: target.label,
+          blocked: false,
+          alpha: 1
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        ctx.strokeStyle = 'rgba(34,211,238,0.04)';
+        ctx.lineWidth = 1;
+
+        for (let x = 0; x < W; x += 60) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, H);
+          ctx.stroke();
+        }
+
+        for (let y = 0; y < H; y += 60) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(W, y);
+          ctx.stroke();
+        }
+
+        const hub = nodes[0];
+
+        nodes.slice(1).forEach((n) => {
+          ctx.beginPath();
+          ctx.moveTo(hub.x, hub.y);
+          ctx.lineTo(n.x, n.y);
+          ctx.strokeStyle = 'rgba(34,211,238,0.07)';
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        });
+
+        threats = threats.filter((t) => t.alpha > 0.02);
+
+        threats.forEach((t) => {
+          t.progress += t.speed;
+
+          const cx = t.x + (t.tx - t.x) * t.progress;
+          const cy = t.y + (t.ty - t.y) * t.progress;
+
+          if (t.progress >= 1 && !t.blocked) {
+            t.blocked = true;
+            pulses.push({ x: t.tx, y: t.ty, r: 0, col: t.col, alpha: 0.8 });
+            addFeed(t);
+          }
+
+          if (t.blocked) {
+            t.alpha -= 0.02;
+          } else {
+            ctx.beginPath();
+            ctx.arc(cx, cy, 4, 0, Math.PI * 2);
+            ctx.fillStyle = t.col;
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(cx, cy, 9, 0, Math.PI * 2);
+            ctx.fillStyle = t.col + '22';
+            ctx.fill();
+          }
+        });
+
+        pulses = pulses.filter((p) => p.alpha > 0.02);
+        pulses.forEach((p) => {
+          p.r += 2;
+          p.alpha *= 0.88;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.strokeStyle = p.col + Math.round(p.alpha * 255).toString(16).padStart(2, '0');
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+        });
+
+        nodes.forEach((n) => {
+          n.pt += 0.04;
+          const glow = Math.sin(n.pt) * 0.3 + 0.7;
+
+          if (n.type === 'lotus') {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r + 7, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(34,211,238,${0.08 * glow})`;
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(34,211,238,${0.9 * glow})`;
+            ctx.fill();
+
+            ctx.fillStyle = '#02111f';
+            ctx.font = 'bold 9px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('L', n.x, n.y);
+          } else if (n.type === 'blossom') {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r + 3, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(176,110,255,${0.14 * glow})`;
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(176,110,255,0.86)';
+            ctx.fill();
+          } else {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(64,220,144,${0.72 * glow})`;
+            ctx.fill();
+          }
+        });
+
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      initNodes();
+      window.addEventListener('resize', () => {
+        resize();
+        initNodes();
+      });
+
+      setInterval(() => {
+        if (Math.random() < 0.7) spawnThreat();
+      }, 1100);
+
+      draw();
+      setTimeout(() => {
+        spawnThreat();
+        spawnThreat();
+      }, 1000);
+    })();
+
+    // hero canvas
+    (function () {
+      const c = document.getElementById('heroCanvas');
+      if (!c) return;
+
+      const ctx = c.getContext('2d');
+      const W = c.width;
+      const H = c.height;
+      const CX = W / 2;
+      const CY = H / 2;
+
+      const rings = [
+        { r: 190, speed: 0.0018, dir: 1, n: 12, col: 'rgba(34,211,238,0.10)', angle: Math.random() * Math.PI * 2 },
+        { r: 150, speed: 0.0026, dir: -1, n: 9, col: 'rgba(176,110,255,0.10)', angle: Math.random() * Math.PI * 2 },
+        { r: 112, speed: 0.0048, dir: 1, n: 7, col: 'rgba(255,144,200,0.10)', angle: Math.random() * Math.PI * 2 }
+      ];
+
+      const threats = [];
+      const petals = [];
+      const flowPts = [];
+      let blocked = 0;
+      let spawnTimer = 0;
+      let petalTimer = 0;
+
+      for (let i = 0; i < 14; i++) {
+        flowPts.push({
+          ring: Math.floor(Math.random() * 3),
+          angle: Math.random() * Math.PI * 2,
+          speed: (0.02 + Math.random() * 0.025) * (Math.random() < 0.5 ? 1 : -1),
+          size: 1.5 + Math.random()
+        });
+      }
+
+      function spawnPetals() {
+        const count = 5 + Math.floor(Math.random() * 4);
+        for (let i = 0; i < count; i++) {
+          petals.push({
+            angle: (Math.PI * 2 / count) * i + Math.random() * 0.3,
+            r: 54 + Math.random() * 12,
+            speed: 0.5 + Math.random() * 0.4,
+            size: 7 + Math.random() * 9,
+            alpha: 0,
+            fadeIn: true,
+            hue: Math.random() < 0.5 ? '255,144,200' : '176,110,255'
+          });
+        }
+      }
+
+      function spawnThreat() {
+        const a = Math.random() * Math.PI * 2;
+        const d = 220 + Math.random() * 18;
+        threats.push({
+          x: CX + Math.cos(a) * d,
+          y: CY + Math.sin(a) * d,
+          size: 3 + Math.random() * 2,
+          speed: 0.55 + Math.random() * 0.4,
+          col: ['#ff5050', '#ff8820', '#ffcc30'][Math.floor(Math.random() * 3)],
+          blocked: false,
+          alpha: 1,
+          pulse: 0
+        });
+      }
+
+      spawnPetals();
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        const bg = ctx.createRadialGradient(CX, CY, 30, CX, CY, 220);
+        bg.addColorStop(0, 'rgba(255,100,200,0.04)');
+        bg.addColorStop(0.5, 'rgba(34,211,238,0.03)');
+        bg.addColorStop(1, 'transparent');
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, W, H);
+
+        rings.forEach((ring, ri) => {
+          ring.angle += ring.speed * ring.dir;
+
+          ctx.beginPath();
+          ctx.arc(CX, CY, ring.r, 0, Math.PI * 2);
+          ctx.strokeStyle = ring.col;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+
+          for (let j = 0; j < ring.n; j++) {
+            const a = ring.angle + (Math.PI * 2 / ring.n) * j;
+            const x = CX + Math.cos(a) * ring.r;
+            const y = CY + Math.sin(a) * ring.r;
+
+            ctx.beginPath();
+            ctx.arc(x, y, ri === 2 ? 1.8 : 1.4, 0, Math.PI * 2);
+            ctx.fillStyle = ri === 0 ? 'rgba(34,211,238,0.45)' : ri === 1 ? 'rgba(176,110,255,0.5)' : 'rgba(255,144,200,0.5)';
+            ctx.fill();
+          }
+        });
+
+        flowPts.forEach((p) => {
+          p.angle += p.speed;
+          const r = rings[p.ring].r;
+          const x = CX + Math.cos(p.angle) * r;
+          const y = CY + Math.sin(p.angle) * r;
+
+          ctx.beginPath();
+          ctx.arc(x, y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(34,211,238,0.75)';
+          ctx.fill();
+        });
+
+        petalTimer++;
+        if (petalTimer > 120) {
+          petalTimer = 0;
+          spawnPetals();
+        }
+
+        for (let i = petals.length - 1; i >= 0; i--) {
+          const p = petals[i];
+          p.r += p.speed;
+
+          if (p.fadeIn && p.alpha < 0.7) {
+            p.alpha += 0.05;
+          } else {
+            p.fadeIn = false;
+            p.alpha -= 0.012;
+          }
+
+          if (p.alpha <= 0) {
+            petals.splice(i, 1);
+            continue;
+          }
+
+          const px = CX + Math.cos(p.angle) * p.r;
+          const py = CY + Math.sin(p.angle) * p.r;
+
+          ctx.save();
+          ctx.translate(px, py);
+          ctx.rotate(p.angle + Math.PI / 2);
+          ctx.beginPath();
+          ctx.ellipse(0, 0, p.size * 0.38, p.size, 0, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${p.hue},${p.alpha})`;
+          ctx.fill();
+          ctx.restore();
+        }
+
+        spawnTimer++;
+        if (spawnTimer > 90 && Math.random() < 0.65) {
+          spawnTimer = 0;
+          spawnThreat();
+        }
+
+        for (let i = threats.length - 1; i >= 0; i--) {
+          const t = threats[i];
+          const dx = CX - t.x;
+          const dy = CY - t.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 92 && !t.blocked) {
+            t.blocked = true;
+            t.pulse = 0.1;
+            blocked++;
+          }
+
+          if (!t.blocked) {
+            t.x += (dx / dist) * t.speed;
+            t.y += (dy / dist) * t.speed;
+
+            ctx.beginPath();
+            ctx.arc(t.x, t.y, t.size + 4, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255,80,80,0.08)';
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(t.x, t.y, t.size, 0, Math.PI * 2);
+            ctx.fillStyle = t.col;
+            ctx.fill();
+          } else {
+            t.alpha -= 0.025;
+            t.pulse += 0.06;
+
+            ctx.beginPath();
+            ctx.arc(t.x, t.y, t.pulse * 22, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(64,220,144,${Math.max(0, 0.8 - t.pulse * 0.4)})`;
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            if (t.alpha <= 0) {
+              threats.splice(i, 1);
+            }
+          }
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      const statusMessages = [
+        'Scanning traffic…',
+        'Monitoring packets…',
+        'AI analysis active',
+        'Threat signatures loaded',
+        'Network clean'
+      ];
+
+      setInterval(() => {
+        const b = document.getElementById('heroBandwidth');
+        if (b) b.textContent = (0.8 + Math.random() * 1.8).toFixed(1);
+
+        const s = document.getElementById('heroStatus');
+        if (s) s.textContent = statusMessages[Math.floor(Math.random() * statusMessages.length)];
+
+        const h = document.getElementById('heroBlocked');
+        if (h) h.textContent = blocked;
+      }, 1800);
+
+      draw();
+    })();
+  </script>
+</body>
+</html>
