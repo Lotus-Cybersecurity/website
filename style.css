@@ -126,4 +126,8 @@
     width: 100%;
     text-align: center;
   }
+  /* Blossom chat line color fix */
+.blossom-line {
+  color: #f472b6;
+}
 }
