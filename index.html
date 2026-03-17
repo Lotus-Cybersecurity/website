@@ -386,6 +386,55 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
   <a class="nav-cta" href="#contact">Book Assessment</a>
 </nav>
 
+<!-- LAUNCH COUNTDOWN BANNER -->
+<div id="launchBanner" style="position:relative;z-index:100;background:linear-gradient(135deg,rgba(8,19,42,0.98),rgba(13,31,60,0.98));border-bottom:0.5px solid rgba(34,211,238,0.2);padding:18px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:53px;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:pulse 2s ease-in-out infinite;flex-shrink:0;"></div>
+    <div>
+      <div style="font-family:var(--font-display);font-size:13px;font-weight:600;color:#fff;letter-spacing:0.04em;">Lotus Cybersecurity goes live</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:1px;">Official launch &mdash; June 1, 2026 &mdash; founding client pricing available now</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <div class="cd-block"><div class="cd-num" id="cd-days">00</div><div class="cd-label">Days</div></div>
+    <div style="font-family:var(--font-display);font-size:22px;color:rgba(34,211,238,0.4);font-weight:300;padding-bottom:12px;">:</div>
+    <div class="cd-block"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Hours</div></div>
+    <div style="font-family:var(--font-display);font-size:22px;color:rgba(34,211,238,0.4);font-weight:300;padding-bottom:12px;">:</div>
+    <div class="cd-block"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Mins</div></div>
+    <div style="font-family:var(--font-display);font-size:22px;color:rgba(34,211,238,0.4);font-weight:300;padding-bottom:12px;">:</div>
+    <div class="cd-block"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Secs</div></div>
+    <a href="#contact" style="margin-left:14px;padding:9px 20px;background:var(--cyan);border-radius:99px;font-family:var(--font-body);font-size:11px;font-weight:700;color:#020917;text-decoration:none;white-space:nowrap;transition:opacity 0.2s;" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">Book early access &rarr;</a>
+  </div>
+</div>
+<style>
+.cd-block{text-align:center;min-width:44px;}
+.cd-num{font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--cyan);line-height:1;background:rgba(34,211,238,0.07);border:0.5px solid rgba(34,211,238,0.18);border-radius:8px;padding:6px 10px;min-width:44px;display:inline-block;letter-spacing:0.04em;}
+.cd-label{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+@media(max-width:700px){#launchBanner{padding:14px 20px;flex-direction:column;align-items:flex-start;}.cd-num{font-size:20px;padding:4px 8px;min-width:36px;}}
+</style>
+<script>
+(function(){
+  var target = new Date('June 1, 2026 00:00:00').getTime();
+  function tick(){
+    var now = Date.now(), diff = target - now;
+    if(diff <= 0){
+      document.getElementById('launchBanner').innerHTML = '<div style="font-family:var(--font-display);font-size:15px;color:var(--cyan);padding:4px 0;">&#x2756; Lotus Cybersecurity is live &mdash; <a href=\'#contact\' style=\'color:var(--cyan);\'>Book your assessment</a></div>';
+      return;
+    }
+    var d = Math.floor(diff/86400000);
+    var h = Math.floor((diff%86400000)/3600000);
+    var m = Math.floor((diff%3600000)/60000);
+    var s = Math.floor((diff%60000)/1000);
+    document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
+
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
