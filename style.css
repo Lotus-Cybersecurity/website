@@ -1,79 +1,140 @@
 body{
+
 margin:0;
 font-family:Arial;
 background:#020a17;
 color:white;
+
 }
+
 
 header{
+
 padding:20px;
 border-bottom:1px solid #0e203c;
+
 }
 
+
 .nav{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
 max-width:1200px;
 margin:auto;
+
 }
+
 
 .logo{
+
 width:50px;
+
 }
+
 
 nav a{
-margin-left:20px;
+
+margin-left:25px;
 color:#9bb3d8;
+text-decoration:none;
+
 }
+
 
 .hero{
+
 text-align:center;
 padding:120px 20px;
+
 }
+
 
 .hero h1{
+
 font-size:48px;
+
 }
+
+
+.hero-sub{
+
+font-size:20px;
+color:#4fc3ff;
+
+}
+
+
+.hero-text{
+
+max-width:700px;
+margin:auto;
+margin-top:20px;
+color:#b8c7e0;
+
+}
+
 
 .cta{
+
 display:inline-block;
-margin-top:20px;
-padding:12px 25px;
+margin-top:30px;
+padding:14px 30px;
 background:#0c8cff;
 border-radius:6px;
+
 }
 
-.services{
+
+.section{
+
 padding:80px 20px;
-max-width:1200px;
+max-width:1100px;
 margin:auto;
+
 }
+
 
 .cards{
+
 display:flex;
 gap:30px;
+margin-top:40px;
+
 }
+
 
 .card{
+
 background:#071326;
 padding:30px;
-border-radius:8px;
+border-radius:10px;
 flex:1;
+
 }
+
 
 .price{
+
 font-size:28px;
 color:#2ec4ff;
+
 }
 
-.pricing{
-padding:80px 20px;
-max-width:1200px;
-margin:auto;
+
+.process{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+margin-top:40px;
+
 }
 
-#contact{
-padding:80px;
+
+.contact{
+
 text-align:center;
+
 }
