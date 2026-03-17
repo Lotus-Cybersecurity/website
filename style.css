@@ -1,19 +1,37 @@
-/* ===== SHARED HEADER / NAV ===== */
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* ===== BASE ===== */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050b18;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* ===== SHARED HEADER / NAV ===== */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(7, 17, 38, 0.92);
+  background: rgba(7, 17, 38, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #142445;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .nav {
@@ -28,7 +46,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  text-decoration: none;
 }
 
 .brand-logo {
@@ -62,7 +79,6 @@
 }
 
 .nav-links a {
-  text-decoration: none;
   color: #ffffff;
   font-size: 14px;
   transition: 0.2s ease;
@@ -96,8 +112,222 @@
   cursor: pointer;
 }
 
-/* ===== MOBILE NAV ===== */
+/* ===== HERO ===== */
+.hero {
+  padding: 110px 0 90px;
+  background:
+    radial-gradient(circle at top center, rgba(125, 211, 252, 0.14), transparent 35%),
+    linear-gradient(180deg, #081325 0%, #050b18 100%);
+}
 
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.05;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.tagline {
+  font-size: 22px;
+  color: #7dd3fc;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+.hero-desc {
+  max-width: 700px;
+  font-size: 18px;
+  color: #c8d7ea;
+  margin-bottom: 30px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #7dd3fc;
+  color: #020617;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.hero-button:hover {
+  background: #38bdf8;
+}
+
+/* ===== SECTIONS ===== */
+.services,
+.blossom,
+.pricing,
+.contact {
+  padding: 80px 0;
+}
+
+.services h2,
+.blossom h2,
+.pricing h2,
+.contact h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* ===== SERVICE GRID ===== */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.service-card {
+  background: #0b162c;
+  border: 1px solid #162847;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.service-card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.service-card p {
+  color: #c8d7ea;
+  font-size: 16px;
+}
+
+/* ===== BLOSSOM ===== */
+.blossom {
+  background: #071121;
+}
+
+.blossom p {
+  max-width: 850px;
+  color: #c8d7ea;
+  font-size: 17px;
+  margin-bottom: 24px;
+}
+
+.chatbox {
+  background: #0b162c;
+  border: 1px solid #162847;
+  border-radius: 16px;
+  padding: 22px;
+  max-width: 700px;
+}
+
+.chat-line {
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+
+.user {
+  color: #7dd3fc;
+}
+
+.blossom-line {
+  color: #f472b6;
+}
+
+/* ===== PRICING ===== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.price-card {
+  background: #0b162c;
+  border: 1px solid #162847;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.price-card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #7dd3fc;
+  margin-bottom: 12px;
+}
+
+.price-card p:last-child {
+  color: #c8d7ea;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  background: #071121;
+}
+
+form {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #1b3156;
+  border-radius: 10px;
+  background: #0b162c;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8fa6c2;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+button {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #7dd3fc;
+  color: #020617;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #38bdf8;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 28px 0;
+  border-top: 1px solid #142445;
+  background: #071126;
+}
+
+footer p {
+  color: #c8d7ea;
+  font-size: 14px;
+}
+
+/* ===== MOBILE NAV ===== */
 @media (max-width: 860px) {
   .menu-toggle {
     display: block;
@@ -126,8 +356,56 @@
     width: 100%;
     text-align: center;
   }
-  /* Blossom chat line color fix */
-.blossom-line {
-  color: #f472b6;
 }
+
+/* ===== TABLET / MOBILE ===== */
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .tagline {
+    font-size: 19px;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+  }
+
+  .service-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    min-height: 72px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 80px 0 70px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .services,
+  .blossom,
+  .pricing,
+  .contact {
+    padding: 60px 0;
+  }
+
+  .services h2,
+  .blossom h2,
+  .pricing h2,
+  .contact h2 {
+    font-size: 30px;
+  }
 }
