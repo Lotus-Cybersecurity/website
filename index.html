@@ -1009,18 +1009,18 @@ function runBlossomDemo(){
     <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:60px;">
       <div class="stv-card"><div class="stv-icon" style="background:rgba(34,211,238,0.1);color:var(--cyan);">&#x1F91D;</div><div class="stv-title">Strategic partners</div><div class="stv-desc">Technology providers, insurance brokers, or IT resellers who serve small businesses and want a trusted cyber security partner.</div></div>
       <div class="stv-card"><div class="stv-icon" style="background:rgba(176,110,255,0.1);color:var(--purple);">&#x1F4C8;</div><div class="stv-title">Investors &amp; advisors</div><div class="stv-desc">If you see the same opportunity Timothy does and want to help Lotus grow - capital, connections, or good advice - he wants to hear from you.</div></div>
-      <div class="stv-card"><div class="stv-icon" style="background:rgba(255,170,50,0.1);color:#ffaa30;">&#x2615;</div><div class="stv-title">Buy Timothy a coffee</div><div class="stv-desc">Late nights hardening firewalls run on caffeine. Even $5 helps and makes his day. Contributions go toward keeping Lotus running and growing.</div></div>
+      <div class="stv-card"><div class="stv-icon" style="background:rgba(255,170,50,0.1);color:#ffaa30;">&#x2615;</div><div class="stv-title">Buy Timothy a coffee</div><div class="stv-desc">Late nights hardening firewalls run on caffeine. Even $5 helps and makes his day. Goes directly to Timothy and the business — no platform, no fees.</div></div>
     </div>
     <div class="reveal" style="display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start;">
       <div>
         <h3 style="font-family:var(--font-display);font-size:clamp(20px,2.5vw,28px);color:#fff;font-weight:600;line-height:1.3;margin-bottom:18px;">If this resonates,<br/>let&rsquo;s talk.</h3>
         <p style="font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:20px;">No decks required. No formality. Just a conversation between people who give a damn about protecting small businesses.</p>
-        <div style="background:rgba(255,170,50,0.05);border:0.5px solid rgba(255,170,50,0.2);border-radius:14px;padding:20px;display:flex;align-items:center;gap:14px;">
-          <div style="font-size:26px;flex-shrink:0;">&#x2615;</div>
+        <div style="background:rgba(255,170,50,0.05);border:0.5px solid rgba(255,170,50,0.2);border-radius:14px;padding:20px;display:flex;align-items:flex-start;gap:14px;">
+          <div style="font-size:26px;flex-shrink:0;margin-top:2px;">&#x2615;</div>
           <div>
-            <div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Buy a coffee - any amount</div>
-            <div style="font-size:12px;color:var(--muted);line-height:1.6;">$5&ndash;$50 - Timothy will follow up with payment details. Not a charitable donation and not tax-deductible.</div>
-            <button onclick="showCoffeeForm()" style="margin-top:10px;padding:6px 16px;background:rgba(255,170,50,0.12);border:0.5px solid rgba(255,170,50,0.35);border-radius:99px;font-family:var(--font-body);font-size:11px;font-weight:700;color:#ffaa30;cursor:pointer;">Buy a coffee &#x2615;</button>
+            <div style="font-family:var(--font-display);font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;">Buy Timothy a coffee</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:10px;">Late nights hardening firewalls run on caffeine. Even $5 helps and goes directly to Timothy and the business — no platform fees, no middlemen.</div>
+            <button onclick="showCoffeeForm()" style="padding:6px 16px;background:rgba(255,170,50,0.12);border:0.5px solid rgba(255,170,50,0.35);border-radius:99px;font-family:var(--font-body);font-size:11px;font-weight:700;color:#ffaa30;cursor:pointer;">Buy a coffee &#x2615;</button>
           </div>
         </div>
       </div>
@@ -1045,7 +1045,7 @@ function runBlossomDemo(){
             <button class="cf-submit" onclick="submitCoffee()" style="max-width:180px;background:linear-gradient(135deg,#ffaa30,#ff8820);border-color:#ffaa30;">Send support &#x2615;</button>
             <button onclick="hideCoffeeForm()" style="padding:10px 16px;background:transparent;border:0.5px solid var(--border);border-radius:10px;font-family:var(--font-body);font-size:12px;color:var(--muted);cursor:pointer;">Cancel</button>
           </div>
-          <p style="font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6;"><strong>Not charitable donations and not tax-deductible.</strong> No card details collected here.</p>
+          <p style="font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6;"><strong>Not a charitable donation and not tax-deductible.</strong> Goes directly to Timothy. No card details collected here - he'll follow up with payment info.</p>
         </div>
       </div>
     </div>
@@ -1209,13 +1209,13 @@ function handleContact(e){
 
 <section id="about" style="background:var(--bg);padding:80px 48px;" class="sec-div-cyan">
   <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;">
-    <div class="reveal" style="text-align:center;">
+    <div class="reveal visible" style="text-align:center;">
       <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,rgba(34,211,238,0.15),rgba(176,110,255,0.1));border:0.5px solid rgba(34,211,238,0.25);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
         <span style="font-family:var(--font-display);font-size:36px;font-weight:600;color:var(--cyan);">THA</span>
       </div>
       <a href="https://www.linkedin.com/in/timadkins/" target="_blank" rel="noopener" class="btn-ghost" style="font-size:11px;padding:8px 18px;">LinkedIn &#x2197;</a>
     </div>
-    <div class="reveal">
+    <div class="reveal visible">
       <div class="section-label">Founder &amp; CEO</div>
       <div style="font-family:var(--font-display);font-size:22px;font-weight:600;color:#fff;margin-bottom:6px;">Timothy H. Adkins</div>
       <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px;">Retired Police Sergeant and Cybersecurity graduate student at Drexel University&#39;s College of Engineering. Medal of Lifesaving recipient. Founded Lotus to bring real protection to Main Line businesses - the same commitment he brought to public service, now applied to the digital world.</p>
@@ -1231,7 +1231,7 @@ function handleContact(e){
 </section>
 
 <section id="trust" style="background:var(--surface);padding:80px 48px;" class="sec-div-purple">
-  <div style="max-width:800px;margin:0 auto;text-align:center;" class="reveal">
+  <div style="max-width:800px;margin:0 auto;text-align:center;" class="reveal visible">
     <div style="font-size:52px;color:rgba(176,110,255,0.2);font-family:Georgia,serif;line-height:1;margin-bottom:20px;">&ldquo;</div>
     <p style="font-family:var(--font-display);font-size:clamp(17px,2.2vw,24px);color:#fff;font-weight:400;line-height:1.7;margin-bottom:28px;">I spent years protecting people in the physical world. The threats have moved online but the mission is the same - keep people safe, earn their trust, and never cut corners when someone&#39;s livelihood is on the line.</p>
     <div style="display:flex;align-items:center;justify-content:center;gap:14px;">
@@ -1254,12 +1254,8 @@ function handleContact(e){
     </div>
     <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#services">Security Assessment</a></li><li><a href="#services">System Hardening</a></li><li><a href="#services">Monitoring</a></li><li><a href="#services">Compliance</a></li><li><a href="#services">Incident Response</a></li></ul></div>
     <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="#blossom">Blossom AI</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#firstresponder">First Responders</a></li><li><a href="#referral">Referral Program</a></li><li><a href="#about">About Timothy</a></li></ul></div>
-    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="#contact">Book Assessment</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#insurance">Cyber Insurance</a></li><li><a href="https://www.linkedin.com/in/timadkins/" target="_blank">LinkedIn</a></li><li><a href="mailto:info@lotuscyber.io">info@lotuscyber.io</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="#contact">Book Assessment</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#insurance">Cyber Insurance</a></li><li><a href="https://www.linkedin.com/in/timadkins/" target="_blank">LinkedIn</a></li><li><a href="/cdn-cgi/l/email-protection#fa93949c95ba96958e8f899983989f88d49395"><span class="__cf_email__" data-cfemail="7f161119103f13100b0a0c1c061d1a0d511610">[email&#160;protected]</span></a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">&copy; 2026 Lotus Cybersecurity. Retired law enforcement owned. Founded 2026. Devon, Pennsylvania.</span>
-    <div style="display:flex;gap:18px;"><a href="#" style="font-size:12px;color:var(--muted);text-decoration:none;">Privacy Policy</a><a href="#" style="font-size:12px;color:var(--muted);text-decoration:none;">Terms of Service</a></div>
-  </div>
-</footer>
-</body>
-</html>
+    <div style="display:flex;gap:18px;"><a href="#" style="font-size:12px;color:var(--muted);text-decoration:none;">Privacy Policy</a><a h
