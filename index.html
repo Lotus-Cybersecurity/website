@@ -1457,5 +1457,20 @@ function handleContact(e){e.preventDefault();const btn=document.getElementById('
   setInterval(function(){
     var el=document.getElementById('hvc-bandwidth');
     if(el) el.textContent=(0.8+Math.random()*1.8).toFixed(1);
-    var msgs=['Scanning traffic\u2026','0 threats found','Monitoring packets','AI analysis active','Network clean'];
-    var s=doc
+    var msgs=['Scanning traffic…','0 threats found','Monitoring packets','AI analysis active','Network clean'];
+    var s=document.getElementById('hvc-blossom-status');
+    if(s) s.textContent=msgs[Math.floor(Math.random()*msgs.length)];
+    if(Math.random()<0.35) spawnThreat();
+    if(Math.random()<0.25) addFeedItem('#40dc90');
+  },1800);
+
+  draw();
+  setTimeout(function(){
+    spawnThreat();
+    spawnThreat();
+    addFeedItem('#ff5050');
+  },900);
+})();
+</script>
+</body>
+</html>
