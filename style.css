@@ -409,3 +409,33 @@ footer p {
     font-size: 30px;
   }
 }
+.brand-logo {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 10px;
+
+  animation: lotusCharge 1.4s ease-out;
+}
+
+@keyframes lotusCharge {
+
+  0% {
+    filter: brightness(0.5) drop-shadow(0 0 0px #7dd3fc);
+    transform: scale(0.9);
+  }
+
+  40% {
+    filter: brightness(2) drop-shadow(0 0 12px #38bdf8);
+    transform: scale(1.05);
+  }
+
+  70% {
+    filter: brightness(1.6) drop-shadow(0 0 8px #7dd3fc);
+  }
+
+  100% {
+    filter: brightness(1) drop-shadow(0 0 0px transparent);
+    transform: scale(1);
+  }
+}
