@@ -1299,7 +1299,7 @@ function runBlossomDemo(){
     empty.style.display=hasReviews?'none':'block';
   }
   
-  window.submitReview=function(){var name=document.getElementById('rv-name').value.trim();var role=document.getElementById('rv-role').value.trim();var rating=parseInt(document.getElementById('rv-rating').value)||0;var text=document.getElementById('rv-text').value.trim();if(!name||!text){alert('Please add your name and a review.');return;}if(rating<1){alert('Please select a star rating.');return;}fetch('https://formspree.io/f/xjgajdzg',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New Lotus Review from '+name,name:name,role:role||'Lotus client',rating:rating+' stars',review:text})}).catch(function(){});var ok=document.getElementById('rv-success');if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},7000);}document.getElementById('rv-name').value='';document.getElementById('rv-role').value='';document.getElementById('rv-text').value='';window.setRating(0);};
+  window.submitReview=function(){var name=document.getElementById('rv-name').value.trim();var role=document.getElementById('rv-role').value.trim();var rating=parseInt(document.getElementById('rv-rating').value)||0;var text=document.getElementById('rv-text').value.trim();if(!name||!text){alert('Please add your name and a review.');return;}if(rating<1){alert('Please select a star rating.');return;}fetch('https://formspree.io/f/xjgajnpe',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New Lotus Review from '+name,name:name,role:role||'Lotus client',rating:rating+' stars',review:text})}).catch(function(){});var ok=document.getElementById('rv-success');if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},7000);}document.getElementById('rv-name').value='';document.getElementById('rv-role').value='';document.getElementById('rv-text').value='';window.setRating(0);};
   document.addEventListener('DOMContentLoaded',renderReviews);
 })();
 </script>
@@ -1370,7 +1370,7 @@ function runBlossomDemo(){
     <div class="reveal visible" style="text-align:center;margin-bottom:56px;">
       <div class="section-label" style="color:var(--purple);">Get involved</div>
       <h2 class="section-title">Back the <span style="background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">mission</span></h2>
-      <p style="font-size:15px;color:rgba(180,210,240,0.75);line-height:1.85;max-width:600px;margin:0 auto;">Lotus is early stage and growing. Whether you want to partner, invest, or just support a veteran-owned small business, there&rsquo;s a place for you here.</p>
+      <p style="font-size:15px;color:rgba(180,210,240,0.75);line-height:1.85;max-width:600px;margin:0 auto;">Lotus is early stage and growing. Whether you want to partner, invest, or just support a retired law enforcement owned small business, there&rsquo;s a place for you here.</p>
     </div>
 
     <!-- Three cards -->
@@ -1820,18 +1820,6 @@ async function handleContact(e){
     </div>
 
     <!-- Timothy quote — below internship card -->
-    <div style="max-width:800px;margin:48px auto 0;text-align:center;">
-      <div style="font-size:44px;color:rgba(34,211,238,0.15);font-family:Georgia,serif;line-height:1;margin-bottom:16px;">&ldquo;</div>
-      <p style="font-family:var(--font-display);font-size:clamp(15px,1.8vw,20px);color:#fff;font-weight:400;line-height:1.75;margin-bottom:18px;font-style:italic;">I grew up learning that service means showing up for people. I know what it means to start from the bottom and earn every stripe. Lotus is not just a business. It&rsquo;s a launching point. If I can open a door for one aspiring professional the way others opened doors for me, then we&rsquo;re building something that matters beyond the bottom line.</p>
-      <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(34,211,238,0.1);border:0.5px solid rgba(34,211,238,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:11px;font-weight:600;color:var(--cyan);">THA</div>
-        <div style="text-align:left;">
-          <div style="font-size:12px;font-weight:700;color:#fff;">Timothy Hunting Adkins</div>
-          <div style="font-size:10px;color:var(--muted);">On building the next generation</div>
-        </div>
-      </div>
-    </div>
-    <!-- Timothy quote - below internship card -->
     <div style="max-width:800px;margin:48px auto 0;text-align:center;">
       <div style="font-size:44px;color:rgba(34,211,238,0.15);font-family:Georgia,serif;line-height:1;margin-bottom:16px;">&ldquo;</div>
       <p style="font-family:var(--font-display);font-size:clamp(15px,1.8vw,20px);color:#fff;font-weight:400;line-height:1.75;margin-bottom:18px;font-style:italic;">I grew up learning that service means showing up for people. I know what it means to start from the bottom and earn every stripe. Lotus is not just a business. It&rsquo;s a launching point. If I can open a door for one aspiring professional the way others opened doors for me, then we&rsquo;re building something that matters beyond the bottom line.</p>
