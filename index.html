@@ -1851,49 +1851,66 @@ async function submitCareers(){
   var n=document.getElementById('careers-name').value.trim();
   var e=document.getElementById('careers-email').value.trim();
   var r=document.getElementById('careers-role').value.trim();
-  var resumeFile=document.getElementById('careers-resume').files[0];
+  var resumeInput=document.getElementById('careers-resume');
+  var resumeFile=resumeInput&&resumeInput.files[0]?resumeInput.files[0]:null;
   if(!n||!e){alert('Please include your name and email.');return;}
-  var btn=event.target;btn.textContent='Sending…';btn.disabled=true;
+  var btn=document.querySelector('[onclick="submitCareers()"]');
+  if(btn){btn.textContent='Sending\u2026';btn.disabled=true;}
   try{
     var fd=new FormData();
-    fd.append('name',n);fd.append('email',e);fd.append('role_interest',r);
+    fd.append('name',n);fd.append('email',e);fd.append('role_interest',r||'Not specified');
     fd.append('_subject','Careers Interest from '+n);
-    if(resumeFile) fd.append('resume',resumeFile);
+    if(resumeFile){fd.append('attachment',resumeFile);}
     var res=await fetch('https://formspree.io/f/xyknogyl',{method:'POST',headers:{'Accept':'application/json'},body:fd});
     if(res.ok){
       document.getElementById('careers-ok').style.display='block';
       ['careers-name','careers-email','careers-role'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
-      document.getElementById('careers-resume').value='';
-      document.getElementById('careers-resume-filename').textContent='Click to upload resume...';
-      document.getElementById('careers-resume-filename').style.color='var(--muted)';
-      btn.style.display='none';
-    } else{btn.textContent='Failed. Please email info@lotuscyber.io';btn.disabled=false;}
-  }catch(err){btn.textContent='Failed. Please email info@lotuscyber.io';btn.disabled=false;}
+      if(resumeInput){resumeInput.value='';}
+      var fn=document.getElementById('careers-resume-filename');
+      if(fn){fn.textContent='Click to upload resume...';fn.style.color='var(--muted)';}
+      if(btn){btn.style.display='none';}
+    } else{if(btn){btn.textContent='Failed. Please email your resume to info@lotuscyber.io';btn.disabled=false;}}
+  }catch(err){if(btn){btn.textContent='Failed. Please email your resume to info@lotuscyber.io';btn.disabled=false;}}
 }
 async function submitIntern(){
   var n=document.getElementById('intern-name').value.trim();
   var e=document.getElementById('intern-email').value.trim();
   var s=document.getElementById('intern-school').value.trim();
   var m=document.getElementById('intern-msg').value.trim();
-  var resumeFile=document.getElementById('intern-resume').files[0];
+  var resumeInput=document.getElementById('intern-resume');
+  var resumeFile=resumeInput&&resumeInput.files[0]?resumeInput.files[0]:null;
   if(!n||!e){alert('Please include your name and email.');return;}
-  var btn=event.target;btn.textContent='Sending…';btn.disabled=true;
+  var btn=document.querySelector('[onclick="submitIntern()"]');
+  if(btn){btn.textContent='Sending\u2026';btn.disabled=true;}
   try{
     var fd=new FormData();
-    fd.append('name',n);fd.append('email',e);
-    fd.append('university',s);fd.append('message',m);
+    fd.append('name',n);
+    fd.append('email',e);
+    fd.append('university',s||'Not specified');
+    fd.append('message',m||'No message provided');
     fd.append('_subject','Internship Interest from '+n);
-    if(resumeFile) fd.append('resume',resumeFile);
-    var res=await fetch('https://formspree.io/f/xgondwej',{method:'POST',headers:{'Accept':'application/json'},body:fd});
+    if(resumeFile){fd.append('attachment',resumeFile);}
+    var res=await fetch('https://formspree.io/f/xgondwej',{
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:fd
+    });
     if(res.ok){
       document.getElementById('intern-ok').style.display='block';
-      ['intern-name','intern-email','intern-school','intern-msg'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
-      document.getElementById('intern-resume').value='';
-      document.getElementById('resume-filename').textContent='Click to upload resume...';
-      document.getElementById('resume-filename').style.color='var(--muted)';
-      btn.style.display='none';
-    } else{btn.textContent='Failed. Please email info@lotuscyber.io';btn.disabled=false;}
-  }catch(err){btn.textContent='Failed. Please email info@lotuscyber.io';btn.disabled=false;}
+      ['intern-name','intern-email','intern-school','intern-msg'].forEach(function(id){
+        var el=document.getElementById(id);if(el)el.value='';
+      });
+      if(resumeInput){resumeInput.value='';}
+      var fn=document.getElementById('resume-filename');
+      if(fn){fn.textContent='Click to upload resume...';fn.style.color='var(--muted)';}
+      if(btn){btn.style.display='none';}
+    } else {
+      var errData=await res.json().catch(function(){return{};});
+      if(btn){btn.textContent='Failed. Please email your resume to info@lotuscyber.io';btn.disabled=false;}
+    }
+  }catch(err){
+    if(btn){btn.textContent='Failed. Please email your resume to info@lotuscyber.io';btn.disabled=false;}
+  }
 }
 </script>
 
