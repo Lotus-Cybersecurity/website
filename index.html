@@ -1288,7 +1288,7 @@ function runBlossomDemo(){
   function loadReviews(){try{return JSON.parse(localStorage.getItem('lotus_reviews')||'[]');}catch(e){return[];}}
   function saveReviews(arr){try{localStorage.setItem('lotus_reviews',JSON.stringify(arr));}catch(e){}}
   function renderReviews(){var reviews=loadReviews();var grid=document.getElementById('reviewGrid');var empty=document.getElementById('reviewEmpty');if(!grid)return;grid.querySelectorAll('.review-card').forEach(function(el){el.remove();});if(reviews.length===0){if(empty)empty.style.display='block';return;}if(empty)empty.style.display='none';var cols=['rgba(34,211,238,0.12)','rgba(176,110,255,0.12)','rgba(255,144,200,0.12)','rgba(255,170,50,0.12)'];var tcs=['var(--cyan)','var(--purple)','var(--pink)','#ffaa30'];reviews.forEach(function(r){var stars='';for(var i=1;i<=5;i++){stars+='<span style="color:'+(i<=r.rating?'rgba(255,200,50,0.9)':'rgba(255,200,50,0.18)')+'">&#9733;</span>';}var initials=(r.name||'?').split(' ').map(function(w){return(w[0]||'').toUpperCase();}).join('').slice(0,2);var ci=Math.abs((r.name.charCodeAt(0)||0))%4;var card=document.createElement('div');card.className='review-card';card.innerHTML='<div style="display:flex;gap:2px;margin-bottom:12px;font-size:15px;">'+stars+'</div><p style="font-size:13px;line-height:1.8;color:rgba(200,220,255,0.82);font-style:italic;flex:1;margin-bottom:16px;">“'+r.text+'”</p><div style="display:flex;align-items:center;gap:10px;border-top:0.5px solid var(--border);padding-top:13px;"><div style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:12px;font-weight:600;flex-shrink:0;background:'+cols[ci]+';color:'+tcs[ci]+';">'+initials+'</div><div><div style="font-size:12px;font-weight:700;color:#fff;">'+r.name+'</div><div style="font-size:10px;color:var(--muted);">'+(r.role||'Lotus client')+(r.date?' &middot; '+r.date:'')+'</div></div></div>';grid.appendChild(card);});}
-  window.submitReview=function(){var name=document.getElementById('rv-name').value.trim();var role=document.getElementById('rv-role').value.trim();var rating=parseInt(document.getElementById('rv-rating').value)||0;var text=document.getElementById('rv-text').value.trim();if(!name||!text){alert('Please add your name and a review.');return;}if(rating<1){alert('Please select a star rating.');return;}var reviews=loadReviews();var rev={name:name,role:role,rating:rating,text:text,date:new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'})}; reviews.unshift(rev);saveReviews(reviews);renderReviews(); fetch('https://formspree.io/f/xjgajdzg',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New Lotus Review from '+name,name:name,role:role||'Lotus client',rating:rating+' stars',review:text})}).catch(function(){});var ok=document.getElementById('rv-success');if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},7000);}document.getElementById('rv-name').value='';document.getElementById('rv-role').value='';document.getElementById('rv-text').value='';window.setRating(0);};
+  window.submitReview=function(){var name=document.getElementById('rv-name').value.trim();var role=document.getElementById('rv-role').value.trim();var rating=parseInt(document.getElementById('rv-rating').value)||0;var text=document.getElementById('rv-text').value.trim();if(!name||!text){alert('Please add your name and a review.');return;}if(rating<1){alert('Please select a star rating.');return;}var reviews=loadReviews();var rev={name:name,role:role,rating:rating,text:text,date:new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'})}; reviews.unshift(rev);saveReviews(reviews);renderReviews(); fetch('https://formspree.io/f/xjgajnpe',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New Lotus Review from '+name,name:name,role:role||'Lotus client',rating:rating+' stars',review:text})}).catch(function(){});var ok=document.getElementById('rv-success');if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},7000);}document.getElementById('rv-name').value='';document.getElementById('rv-role').value='';document.getElementById('rv-text').value='';window.setRating(0);};
   document.addEventListener('DOMContentLoaded',renderReviews);
 })();
 </script>
@@ -1816,15 +1816,22 @@ async function handleContact(e){
           </div>
           <div style="background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);border-radius:99px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);white-space:nowrap;">Open</div>
         </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.8;">If there is enough interest, Lotus will open internship positions for students pursuing cybersecurity, IT, or business degrees. Positions would be unpaid to start, with the goal of transitioning high performers into paid roles as the business grows.</p>
-        <p style="font-size:13px;color:var(--muted);line-height:1.8;">Timothy is looking to partner with local universities, including Drexel, Villanova, Temple, and other Main Line institutions, to create real-world learning opportunities for the next generation of security professionals.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px;">
+          <span style="padding:4px 11px;background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);border-radius:99px;font-size:10px;font-weight:700;color:var(--purple);">Software Dev</span>
+          <span style="padding:4px 11px;background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);border-radius:99px;font-size:10px;font-weight:700;color:var(--purple);">AI &amp; LLM</span>
+          <span style="padding:4px 11px;background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);border-radius:99px;font-size:10px;font-weight:700;color:var(--purple);">Data Engineering</span>
+          <span style="padding:4px 11px;background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);border-radius:99px;font-size:10px;font-weight:700;color:var(--purple);">Cybersecurity</span>
+          <span style="padding:4px 11px;background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);border-radius:99px;font-size:10px;font-weight:700;color:var(--purple);">Coding</span>
+        </div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;">Lotus is looking to bring in driven students and early-career professionals across several disciplines — software development, coding, AI and LLM engineering, data engineering, and aspiring cybersecurity professionals. If you are building skills in any of these areas and want real-world experience, this is the place.</p>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;">Positions would be unpaid to start, with a clear goal of transitioning strong performers into paid roles as Lotus grows. Timothy is actively looking to partner with Drexel, Villanova, Temple, and other Main Line universities to build a pipeline for the next generation of tech and security professionals.</p>
         <div style="margin-top:auto;">
           <div id="intern-ok" style="display:none;padding:12px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--purple);">Thanks, your interest has been noted. Timothy will be in touch if an internship opens.</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <input class="cf-input" id="intern-name" type="text" placeholder="Your name" style="margin:0;"/>
             <input class="cf-input" id="intern-email" type="email" placeholder="your@email.com" style="margin:0;"/>
-            <input class="cf-input" id="intern-school" type="text" placeholder="University / program" style="margin:0;"/>
-            <textarea class="cf-textarea" id="intern-msg" placeholder="Tell Timothy a little about yourself and what you are looking to learn..." style="min-height:70px;margin:0;resize:vertical;"></textarea>
+            <input class="cf-input" id="intern-school" type="text" placeholder="University / program / field of study" style="margin:0;"/>
+            <textarea class="cf-textarea" id="intern-msg" placeholder="Tell Timothy about yourself — your field (software dev, AI, data engineering, cybersecurity, etc.), where you are in your studies, and what you hope to get out of this..." style="min-height:70px;margin:0;resize:vertical;"></textarea>
 
             <button onclick="submitIntern()" style="padding:12px;background:linear-gradient(135deg,var(--purple),var(--pink));border:none;border-radius:99px;font-family:var(--font-body);font-size:13px;font-weight:700;color:#fff;cursor:pointer;">Express interest</button>
           </div>
@@ -1845,10 +1852,11 @@ async function submitCareers(){
   var btn=document.querySelector('[onclick="submitCareers()"]');
   if(btn){btn.textContent='Sending…';btn.disabled=true;}
   try{
-    var fd=new FormData();
-    fd.append('name',n);fd.append('email',e);fd.append('role_interest',r||'Not specified');
-    fd.append('_subject','Careers Interest from '+n);
-    var res=await fetch('https://formspree.io/f/xyknogyl',{method:'POST',headers:{'Accept':'application/json'},body:fd});
+    var res=await fetch('https://formspree.io/f/xyknogyl',{
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body:JSON.stringify({name:n,email:e,role_interest:r||'Not specified',_subject:'Careers Interest from '+n})
+    });
     if(res.ok){
       document.getElementById('careers-ok').style.display='block';
       ['careers-name','careers-email','careers-role'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
@@ -1888,7 +1896,7 @@ async function submitIntern(){
     </div>
     <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="#services">Security Assessment</a></li><li><a href="#services">System Hardening</a></li><li><a href="#pricing">Monitoring Plans</a></li><li><a href="#insurance">Compliance &amp; Insurance</a></li><li><a href="#contact">Incident Response</a></li></ul></div>
     <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="#blossom">Blossom AI</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#firstresponder">First Responders</a></li><li><a href="#referral">Referral Program</a></li><li><a href="#about">About Timothy</a></li></ul></div>
-    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="#contact">Book Assessment</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#insurance">Cyber Insurance</a></li><li><a href="mailto:info@lotuscyber.io" style="color:var(--muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'"><span class="email-text">info@lotuscyber.io</span></a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="#contact">Book Assessment</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#insurance">Cyber Insurance</a></li><li><a href="/cdn-cgi/l/email-protection#b1d8dfd7def1dddec5c4c2d2c8d3d4c39fd8de" style="color:var(--muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'"><span class="email-text"><span class="__cf_email__" data-cfemail="f69f989099b69a99828385958f949384d89f99">[email&#160;protected]</span></span></a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">&copy; 2026 Lotus Cybersecurity. Retired law enforcement owned. Founded 2026. Devon, Pennsylvania.</span>
@@ -1921,4 +1929,4 @@ async function submitIntern(){
 <!-- TERMS OF SERVICE MODAL -->
 <div id="modal-terms" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(2,9,23,0.92);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:24px;" onclick="if(event.target===this)this.style.display='none'">
   <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:22px;padding:44px 48px;max-width:680px;width:100%;max-height:80vh;overflow-y:auto;position:relative;">
-    <button onclick="document.getElementById('modal-terms').style.display='none'" style="position:absolute;top:18px;right:22px;background:transparent;border:none;color:var(--muted);font-s
+    <button onclick="document.getElementById('modal-te
