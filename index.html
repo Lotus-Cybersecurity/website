@@ -555,27 +555,202 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
     <div class="tmap-header reveal">
       <div class="section-label">The Lotus dashboard</div>
       <h2 class="section-title">Your security <span>at a glance</span></h2>
-      <p class="section-sub">Every Lotus client gets a personalised security dashboard - a customisable view of your network status, recent alerts, and protection activity. Here&rsquo;s a preview of what it looks like.</p>
+      <p class="section-sub">Here&rsquo;s a look at where we&rsquo;re headed. The Lotus dashboard will give every client a live, personalised view of their network health, recent alerts, and protection activity. Currently in development.</p>
     </div>
-    <div class="tmap-canvas-wrap reveal">
+    <div class="tmap-canvas-wrap reveal" style="background:rgba(4,12,30,0.97);">
+      <!-- Dashboard Top Bar -->
       <div class="tmap-topbar">
-        <div class="tmap-title-bar"><div class="badge-dot"></div>Dashboard preview - your personalised view</div>
+        <div class="tmap-title-bar"><div class="badge-dot"></div>Main Street Retail Co. &mdash; Live Security Dashboard</div>
         <div class="tmap-stats-bar">
-          <div class="tmap-stat"><strong id="blockedCount">0</strong>&nbsp;blocked today</div>
-          <div class="tmap-stat"><strong id="systemCount">0</strong>&nbsp;systems online</div>
-          <div class="tmap-stat" style="color:#40dc90;"><strong>DEMO</strong></div>
+          <div class="tmap-stat"><span style="width:7px;height:7px;border-radius:50%;background:#40dc90;display:inline-block;margin-right:4px;box-shadow:0 0 6px #40dc90;"></span><strong>All Systems Online</strong></div>
+          <div class="tmap-stat" id="dash-time" style="color:var(--cyan);font-weight:700;"></div>
+          <div class="tmap-stat" style="color:#40dc90;"><strong>PROTOTYPE</strong></div>
         </div>
       </div>
-      <canvas id="threatCanvas"></canvas>
-      <div class="tmap-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#ff5050;box-shadow:0 0 5px rgba(255,80,80,0.7);"></div>High severity</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#ffaa30;"></div>Medium threat</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#40dc90;"></div>Protected node</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#22d3ee;"></div>Lotus hub</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#b06eff;"></div>Blossom AI node</div>
+
+      <!-- Dashboard Body -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1px;border-bottom:0.5px solid var(--border);">
+        <!-- Stat: Network Health -->
+        <div style="padding:18px 22px;border-right:0.5px solid var(--border);">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:6px;">Network Health</div>
+          <div style="font-family:var(--font-display);font-size:28px;font-weight:600;color:#40dc90;">98<span style="font-size:14px;">%</span></div>
+          <div style="font-size:11px;color:rgba(64,220,144,0.7);margin-top:2px;">&#x25B2; Good</div>
+        </div>
+        <!-- Stat: Live Devices -->
+        <div style="padding:18px 22px;border-right:0.5px solid var(--border);">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:6px;">Devices Online</div>
+          <div style="font-family:var(--font-display);font-size:28px;font-weight:600;color:var(--cyan);"><span id="dash-devices">14</span></div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">of 14 registered</div>
+        </div>
+        <!-- Stat: Threats Blocked -->
+        <div style="padding:18px 22px;border-right:0.5px solid var(--border);">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:6px;">Threats Blocked Today</div>
+          <div style="font-family:var(--font-display);font-size:28px;font-weight:600;color:#ff5050;"><span id="dash-blocked">7</span></div>
+          <div style="font-size:11px;color:rgba(255,80,80,0.7);margin-top:2px;">0 reached network</div>
+        </div>
+        <!-- Stat: Last Scan -->
+        <div style="padding:18px 22px;">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:6px;">Last Full Scan</div>
+          <div style="font-family:var(--font-display);font-size:28px;font-weight:600;color:var(--purple);">Clean</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;" id="dash-scan-time">Today, 6:00 AM</div>
+        </div>
+      </div>
+
+      <!-- Main Dashboard Content: Traffic + Alerts -->
+      <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:0;min-height:280px;">
+
+        <!-- Network Traffic Chart -->
+        <div style="padding:20px 24px;border-right:0.5px solid var(--border);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <div style="font-size:11px;font-weight:700;color:#fff;letter-spacing:0.06em;">Network Traffic &mdash; Last 24h</div>
+            <div style="font-size:10px;color:var(--muted);">Inbound &amp; Outbound (MB/s)</div>
+          </div>
+          <canvas id="trafficChart" style="width:100%;height:160px;display:block;"></canvas>
+          <div style="display:flex;gap:18px;margin-top:10px;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted);"><span style="width:10px;height:2px;background:var(--cyan);display:inline-block;border-radius:2px;"></span>Inbound</div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted);"><span style="width:10px;height:2px;background:var(--purple);display:inline-block;border-radius:2px;"></span>Outbound</div>
+            <div style="margin-left:auto;font-size:10px;color:var(--muted);">Live: <span id="dash-live-mb" style="color:var(--cyan);font-weight:700;">1.4</span> MB/s</div>
+          </div>
+        </div>
+
+        <!-- Live Alerts Feed -->
+        <div style="padding:20px 22px;">
+          <div style="font-size:11px;font-weight:700;color:#fff;letter-spacing:0.06em;margin-bottom:14px;">Live Alert Feed</div>
+          <div id="dash-alerts" style="display:flex;flex-direction:column;gap:8px;"></div>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Devices + Scan Status -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:0.5px solid var(--border);">
+
+        <!-- Device Status -->
+        <div style="padding:18px 24px;border-right:0.5px solid var(--border);">
+          <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:0.06em;">Device Status</div>
+          <div id="dash-devices-list" style="display:flex;flex-direction:column;gap:7px;"></div>
+        </div>
+
+        <!-- Security Scan Status -->
+        <div style="padding:18px 24px;">
+          <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:0.06em;">Security Scan Status</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px;"><span>Firewall Rules</span><span style="color:#40dc90;">Active &mdash; 42 rules</span></div>
+              <div style="height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;"><div style="width:100%;height:100%;background:#40dc90;border-radius:4px;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px;"><span>Malware Scan</span><span style="color:#40dc90;">Clean</span></div>
+              <div style="height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;"><div style="width:100%;height:100%;background:#40dc90;border-radius:4px;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px;"><span>Patch Status</span><span style="color:#ffaa30;">2 pending</span></div>
+              <div style="height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;"><div style="width:86%;height:100%;background:#ffaa30;border-radius:4px;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px;"><span>Vulnerability Scan</span><span style="color:#40dc90;">No issues found</span></div>
+              <div style="height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;"><div style="width:100%;height:100%;background:#40dc90;border-radius:4px;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px;"><span>DNS Filtering</span><span style="color:#40dc90;">Enabled</span></div>
+              <div style="height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;"><div style="width:100%;height:100%;background:#40dc90;border-radius:4px;"></div></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="tmap-feed reveal" id="threatFeed"></div>
+
+    <script>
+    // Clock
+    function updateClock(){var n=new Date();document.getElementById('dash-time').textContent=n.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}
+    updateClock();setInterval(updateClock,1000);
+
+    // Traffic Chart
+    (function(){
+      var canvas=document.getElementById('trafficChart');if(!canvas)return;
+      var ctx=canvas.getContext('2d');
+      function resize(){canvas.width=canvas.offsetWidth*2;canvas.height=160*2;canvas.style.width='100%';canvas.style.height='160px';ctx.scale(2,2);}
+      resize();
+      var W=canvas.offsetWidth/2,H=80;
+      var inbound=[1.2,1.8,2.4,1.6,0.9,1.1,2.8,3.2,2.1,1.7,2.3,1.9,1.4,1.6,2.0,1.3,1.8,2.5,1.9,1.5,1.7,2.2,1.4,1.6];
+      var outbound=[0.8,1.1,1.6,1.0,0.6,0.8,1.9,2.1,1.4,1.1,1.5,1.2,0.9,1.0,1.3,0.8,1.1,1.6,1.2,0.9,1.1,1.4,0.9,1.0];
+      function drawChart(){
+        ctx.clearRect(0,0,W,H+20);
+        var max=3.5,pts=24,step=W/pts;
+        // Grid
+        for(var i=0;i<=4;i++){var y=H-(H/4*i);ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.strokeStyle='rgba(34,211,238,0.06)';ctx.lineWidth=0.5;ctx.stroke();}
+        function drawLine(data,color,fill){
+          ctx.beginPath();
+          data.forEach(function(v,i){var x=i*step,y=H-(v/max*H);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});
+          ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.stroke();
+          if(fill){ctx.lineTo(W,H);ctx.lineTo(0,H);ctx.closePath();ctx.fillStyle=fill;ctx.fill();}
+        }
+        drawLine(inbound,'rgba(34,211,238,0.9)','rgba(34,211,238,0.07)');
+        drawLine(outbound,'rgba(176,110,255,0.9)','rgba(176,110,255,0.05)');
+        // Animate last point
+        var last=inbound[inbound.length-1];
+        ctx.beginPath();ctx.arc((pts-1)*step,H-(last/max*H),3,0,Math.PI*2);ctx.fillStyle='#22d3ee';ctx.fill();
+      }
+      drawChart();
+      setInterval(function(){
+        inbound.shift();outbound.shift();
+        inbound.push(parseFloat((0.8+Math.random()*2.4).toFixed(1)));
+        outbound.push(parseFloat((0.5+Math.random()*1.6).toFixed(1)));
+        drawChart();
+        document.getElementById('dash-live-mb').textContent=inbound[inbound.length-1];
+      },2500);
+    })();
+
+    // Live Alerts
+    (function(){
+      var alerts=[
+        {sev:'low',msg:'Port scan probe',src:'External IP 185.220.x.x',time:''},
+        {sev:'med',msg:'Failed login attempt',src:'POS Terminal 3',time:''},
+        {sev:'low',msg:'Unusual DNS query',src:'Staff Laptop 2',time:''},
+        {sev:'high',msg:'Brute force blocked',src:'External IP 91.108.x.x',time:''},
+        {sev:'low',msg:'Outbound scan detected',src:'Printer - Floor 1',time:''},
+        {sev:'med',msg:'Suspicious traffic spike',src:'POS Terminal 1',time:''},
+        {sev:'low',msg:'Certificate warning',src:'Router - Main',time:''},
+      ];
+      var idx=0;
+      var colors={high:'#ff5050',med:'#ffaa30',low:'#40dc90'};
+      var el=document.getElementById('dash-alerts');
+      function addAlert(){
+        var a=alerts[idx%alerts.length];idx++;
+        var now=new Date();a.time=now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+        var div=document.createElement('div');
+        div.style.cssText='display:flex;align-items:flex-start;gap:8px;padding:7px 10px;background:rgba(255,255,255,0.025);border-radius:8px;border:0.5px solid rgba(255,255,255,0.06);animation:feedSlide 0.3s ease;';
+        div.innerHTML='<div style="width:7px;height:7px;border-radius:50%;background:'+colors[a.sev]+';margin-top:3px;flex-shrink:0;box-shadow:0 0 5px '+colors[a.sev]+'88;"></div>'
+          +'<div style="flex:1;"><div style="font-size:11px;font-weight:700;color:#fff;line-height:1.3;">'+a.msg+'</div><div style="font-size:10px;color:var(--muted);">'+a.src+'</div></div>'
+          +'<div style="font-size:9px;color:rgba(100,150,190,0.5);white-space:nowrap;">'+a.time+'</div>';
+        el.insertBefore(div,el.firstChild);
+        while(el.children.length>4)el.removeChild(el.lastChild);
+        var b=document.getElementById('dash-blocked');if(b&&a.sev!=='low')b.textContent=parseInt(b.textContent)+1;
+      }
+      addAlert();addAlert();addAlert();
+      setInterval(addAlert,3800);
+    })();
+
+    // Device list
+    (function(){
+      var devices=[
+        {name:'POS Terminal 1',ip:'192.168.1.11',status:'online'},
+        {name:'POS Terminal 2',ip:'192.168.1.12',status:'online'},
+        {name:'POS Terminal 3',ip:'192.168.1.13',status:'online'},
+        {name:'Manager Laptop',ip:'192.168.1.20',status:'online'},
+        {name:'Staff Laptop 1',ip:'192.168.1.21',status:'online'},
+        {name:'Staff Laptop 2',ip:'192.168.1.22',status:'online'},
+        {name:'Router - Main',ip:'192.168.1.1',status:'online'},
+        {name:'Printer - Floor 1',ip:'192.168.1.30',status:'online'},
+      ];
+      var el=document.getElementById('dash-devices-list');if(!el)return;
+      el.innerHTML=devices.map(function(d){
+        return '<div style="display:flex;align-items:center;gap:8px;">'
+          +'<span style="width:6px;height:6px;border-radius:50%;background:#40dc90;flex-shrink:0;"></span>'
+          +'<span style="font-size:11px;color:rgba(180,220,255,0.85);flex:1;">'+d.name+'</span>'
+          +'<span style="font-size:10px;color:var(--muted);font-family:monospace;">'+d.ip+'</span>'
+          +'</div>';
+      }).join('');
+    })();
+    </script>
   </div>
 </section>
 
@@ -751,12 +926,18 @@ function runBlossomDemo(){
 <!-- PRICING -->
 <section id="pricing" class="sec-div-purple">
   <div class="pricing-header reveal"><div class="section-label">Transparent pricing</div><h2 class="section-title">Simple, honest <span>pricing</span></h2><p class="section-sub">No surprises. First responder &amp; veteran discounts available on all plans - mention your service when you book.</p></div>
+  <!-- One-time services -->
+  <div style="text-align:center;margin-bottom:20px;"><span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--cyan);">One-time services</span></div>
+  <div class="pricing-grid" style="max-width:700px;margin:0 auto 56px;">
+    <div class="price-card featured reveal"><div class="price-badge">Start here</div><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3" stroke="#22d3ee" stroke-width="1.1"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Assessment</div><div class="price-tagline">One-time engagement</div><div class="price-amount">$495<span style="font-size:17px;">+</span></div><div class="price-period">one-time</div><ul class="price-features"><li>Full network discovery</li><li>Device inventory</li><li>Vulnerability scan</li><li>Written security report</li><li>Remediation roadmap</li></ul><a class="price-cta solid" href="#contact">Book now</a></div>
+    <div class="price-card featured reveal"><div class="price-badge">One-time or upgrade</div><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="14" rx="2" stroke="#22d3ee" stroke-width="1.1"/><path d="M2 8h16M6 12h3M12 12h2" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Hardening</div><div class="price-tagline">One-time or add-on service</div><div class="price-amount">$1,500<span style="font-size:17px;">+</span></div><div class="price-period">one-time</div><ul class="price-features"><li>Firewall configuration</li><li>Patch updates applied</li><li>Access control review</li><li>Endpoint security setup</li><li>Documentation provided</li></ul><a class="price-cta solid" href="#contact">Book now</a></div>
+  </div>
+  <!-- Ongoing monitoring -->
+  <div style="text-align:center;margin-bottom:20px;"><span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Ongoing monitoring</span></div>
   <div class="pricing-grid">
     <div class="price-card reveal"><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6" r="4" stroke="#22d3ee" stroke-width="1.1"/><path d="M2 18c0-3.5 3.5-6 8-6s8 2.5 8 6" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Personal</div><div class="price-tagline">Home network protection</div><div class="price-amount">$39</div><div class="price-period">per month</div><ul class="price-features"><li>Home network monitoring</li><li>Real-time threat alerts</li><li>Quarterly security review</li><li>Email support</li><li class="blossom-li">Blossom AI (coming soon)</li></ul><a class="price-cta" href="#contact">Get started</a></div>
-    <div class="price-card featured reveal"><div class="price-badge">Most popular</div><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="7" width="16" height="11" rx="2" stroke="#22d3ee" stroke-width="1.1"/><path d="M6 7V5a4 4 0 018 0v2" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Small Business</div><div class="price-tagline">Up to 25 endpoints</div><div class="price-amount">$149</div><div class="price-period">per month</div><ul class="price-features"><li>Network monitoring</li><li>Real-time threat alerts</li><li>Patch oversight</li><li>Monthly security review</li><li>Priority support</li><li class="blossom-li">Blossom AI (coming soon)</li></ul><a class="price-cta solid" href="#contact">Get started</a></div>
+    <div class="price-card featured reveal"><div class="price-badge">Great offer</div><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="7" width="16" height="11" rx="2" stroke="#22d3ee" stroke-width="1.1"/><path d="M6 7V5a4 4 0 018 0v2" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Small Business</div><div class="price-tagline">Up to 25 endpoints</div><div class="price-amount">$149</div><div class="price-period">per month</div><ul class="price-features"><li>Network monitoring</li><li>Real-time threat alerts</li><li>Patch oversight</li><li>Monthly security review</li><li>Priority support</li><li class="blossom-li">Blossom AI (coming soon)</li></ul><a class="price-cta solid" href="#contact">Get started</a></div>
     <div class="price-card reveal"><div class="price-icon pi-purple"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L19 6.5v6C19 17 15 19.5 10 20 5 19.5 1 17 1 12.5v-6L10 2z" stroke="#b06eff" stroke-width="1.1"/></svg></div><div class="price-name">Medium Business</div><div class="price-tagline">Up to 100 endpoints</div><div class="price-amount purple">$399</div><div class="price-period">per month</div><ul class="price-features"><li>Expanded monitoring</li><li>Advanced threat detection</li><li>Security reporting</li><li>Compliance assistance</li><li>Direct access to Timothy</li><li class="blossom-li">Blossom AI (coming soon)</li></ul><a class="price-cta" href="#contact">Get started</a></div>
-    <div class="price-card reveal"><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3" stroke="#22d3ee" stroke-width="1.1"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Assessment</div><div class="price-tagline">One-time engagement</div><div class="price-amount">$495<span style="font-size:17px;">+</span></div><div class="price-period">one-time</div><ul class="price-features"><li>Full network discovery</li><li>Device inventory</li><li>Vulnerability scan</li><li>Written security report</li><li>Remediation roadmap</li></ul><a class="price-cta" href="#contact">Book now</a></div>
-    <div class="price-card reveal"><div class="price-icon pi-cyan"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="14" rx="2" stroke="#22d3ee" stroke-width="1.1"/><path d="M2 8h16M6 12h3M12 12h2" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name">Hardening</div><div class="price-tagline">One-time engagement</div><div class="price-amount">$1,500<span style="font-size:17px;">+</span></div><div class="price-period">one-time</div><ul class="price-features"><li>Firewall configuration</li><li>Patch updates applied</li><li>Access control review</li><li>Endpoint security setup</li><li>Documentation provided</li></ul><a class="price-cta" href="#contact">Book now</a></div>
     <div class="price-card reveal" style="border-color:rgba(176,110,255,0.25);background:rgba(176,110,255,0.03);"><div class="price-icon pi-purple"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L18 6v5c0 5-4 8-8 9-4-1-8-4-8-9V6L10 2z" stroke="#b06eff" stroke-width="1.1"/><path d="M7 10l2 2 4-4" stroke="#b06eff" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="price-name" style="color:var(--purple);">Enterprise</div><div class="price-tagline">Custom solution</div><div class="price-amount purple">Custom</div><div class="price-period">tailored pricing</div><ul class="price-features"><li>Unlimited endpoints</li><li>24/7 dedicated monitoring</li><li>Full compliance suite</li><li>On-site support available</li><li>Priority response SLA</li><li class="blossom-li">Blossom AI full access</li></ul><a class="price-cta" style="border-color:rgba(176,110,255,0.4);color:var(--purple);" href="#contact">Talk to us</a></div>
   </div>
   <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:28px;">&#x2605; First responder, military &amp; veteran discounts available on all plans. <a href="#firstresponder" style="color:var(--cyan);text-decoration:none;">Learn more &rarr;</a></p>
