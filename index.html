@@ -1310,7 +1310,7 @@ function runBlossomDemo(){
           var val = parseInt(document.getElementById('captcha-answer').value);
           var msg = document.getElementById('captcha-msg');
           if(val === window._captchaAnswer){
-            msg.innerHTML = '<span style="color:#40dc90;font-weight:700;">&#10003; Confirmed — you're human!</span>';
+            msg.innerHTML = '<span style="color:#40dc90;font-weight:700;">&#10003; Confirmed \u2014 you\'re human!</span>';
             document.getElementById('captcha-answer').disabled = true;
             window._captchaPassed = true;
           } else {
