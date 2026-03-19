@@ -394,7 +394,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
     <div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:pulse 2s ease-in-out infinite;flex-shrink:0;"></div>
     <div>
       <div style="font-family:var(--font-display);font-size:13px;font-weight:600;color:#fff;letter-spacing:0.04em;">Lotus Cybersecurity goes live</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:1px;">Official launch &mdash; June 1, 2026 &mdash; founding client pricing available now</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:1px;">Official launch  |  June 1, 2026  |  founding client pricing available now</div>
     </div>
   </div>
   <div style="display:flex;gap:10px;align-items:center;">
@@ -420,7 +420,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
   function tick(){
     var now = Date.now(), diff = target - now;
     if(diff <= 0){
-      document.getElementById('launchBanner').innerHTML = '<div style="font-family:var(--font-display);font-size:15px;color:var(--cyan);padding:4px 0;">&#x2756; Lotus Cybersecurity is live &mdash; <a href=\'#contact\' style=\'color:var(--cyan);\'>Book your assessment</a></div>';
+      document.getElementById('launchBanner').innerHTML = '<div style="font-family:var(--font-display);font-size:15px;color:var(--cyan);padding:4px 0;">&#x2756; Lotus Cybersecurity is live  |  <a href=\'#contact\' style=\'color:var(--cyan);\'>Book your assessment</a></div>';
       return;
     }
     var d = Math.floor(diff/86400000);
@@ -561,7 +561,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
     <div class="tmap-canvas-wrap reveal" style="background:rgba(4,12,30,0.97);">
       <!-- Dashboard Top Bar -->
       <div class="tmap-topbar">
-        <div class="tmap-title-bar"><div class="badge-dot"></div>Main Street Retail Co. &mdash; Live Security Dashboard</div>
+        <div class="tmap-title-bar"><div class="badge-dot"></div>Main Street Retail Co.  |  Live Security Dashboard</div>
         <div class="tmap-stats-bar">
           <div class="tmap-stat"><span style="width:7px;height:7px;border-radius:50%;background:#40dc90;display:inline-block;margin-right:4px;box-shadow:0 0 6px #40dc90;"></span><strong>All Systems Online</strong></div>
           <div class="tmap-stat" id="dash-time" style="color:var(--cyan);font-weight:700;"></div>
@@ -603,7 +603,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
         <!-- Network Traffic Chart -->
         <div style="padding:20px 24px;border-right:0.5px solid var(--border);">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-            <div style="font-size:11px;font-weight:700;color:#fff;letter-spacing:0.06em;">Network Traffic &mdash; Last 24h</div>
+            <div style="font-size:11px;font-weight:700;color:#fff;letter-spacing:0.06em;">Network Traffic  |  Last 24h</div>
             <div style="font-size:10px;color:var(--muted);">Inbound &amp; Outbound (MB/s)</div>
           </div>
           <canvas id="trafficChart" style="width:100%;height:160px;display:block;"></canvas>
@@ -635,7 +635,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
           <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:0.06em;">Security Scan Status</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <div>
-              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px;"><span>Firewall Rules</span><span style="color:#40dc90;">Active &mdash; 42 rules</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px;"><span>Firewall Rules</span><span style="color:#40dc90;">Active  |  42 rules</span></div>
               <div style="height:4px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;"><div style="width:100%;height:100%;background:#40dc90;border-radius:4px;"></div></div>
             </div>
             <div>
@@ -846,7 +846,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
     <div class="reveal" style="text-align:center;margin-bottom:56px;">
       <div class="section-label pink">Under the hood</div>
       <h2 class="section-title">How <span class="pink">Blossom</span> actually works</h2>
-      <p class="section-sub" style="margin:0 auto;max-width:580px;">Five steps from anomaly to containment — all automated by AI while Timothy stays in command.</p>
+      <p class="section-sub" style="margin:0 auto;max-width:580px;">Five steps from anomaly to containment  |  all automated by AI while Timothy stays in command.</p>
     </div>
     <div class="reveal" style="background:rgba(4,12,30,0.8);border:0.5px solid rgba(34,211,238,0.15);border-radius:24px;overflow:hidden;">
       <!-- Pipeline stages -->
@@ -890,7 +890,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
 function runBlossomDemo(){
   var log=document.getElementById('blossomDemoLog');
   var stages=[
-    {dot:'#ff9900',txt:'Anomaly: unusual outbound traffic from 192.168.1.45 — 2.4 GB/hr'},
+    {dot:'#ff9900',txt:'Anomaly: unusual outbound traffic from 192.168.1.45  |  2.4 GB/hr'},
     {dot:'#b06eff',txt:'Blossom AI: matches lateral movement signature (94% confidence)'},
     {dot:'#ff5050',txt:'THREAT HIGH: Potential ransomware beacon detected'},
     {dot:'#ffaa30',txt:'Isolating endpoint 192.168.1.45 from network segment…'},
@@ -939,7 +939,7 @@ function runBlossomDemo(){
       <div style="width:44px;height:44px;border-radius:50%;background:rgba(34,211,238,0.1);border:0.5px solid rgba(34,211,238,0.4);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--cyan);flex-shrink:0;">1</div>
       <div>
         <div style="font-family:var(--font-display);font-size:17px;font-weight:600;color:#fff;">Assess your network</div>
-        <div style="font-size:13px;color:var(--muted);margin-top:2px;">We start by understanding exactly where you stand &mdash; no guesswork, no assumptions.</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:2px;">We start by understanding exactly where you stand  |  no guesswork, no assumptions.</div>
       </div>
       <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(34,211,238,0.2),transparent);margin-left:12px;"></div>
     </div>
@@ -969,7 +969,7 @@ function runBlossomDemo(){
       <div style="width:44px;height:44px;border-radius:50%;background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.4);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--purple);flex-shrink:0;">2</div>
       <div>
         <div style="font-family:var(--font-display);font-size:17px;font-weight:600;color:#fff;">Harden your systems</div>
-        <div style="font-size:13px;color:var(--muted);margin-top:2px;">We fix what the assessment finds &mdash; done once, or revisited as your business grows.</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:2px;">We fix what the assessment finds  |  done once, or revisited as your business grows.</div>
       </div>
       <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(176,110,255,0.2),transparent);margin-left:12px;"></div>
     </div>
@@ -1171,7 +1171,7 @@ function runBlossomDemo(){
       <p class="section-sub" style="max-width:560px;margin:0 auto;">Lotus is new. Honest reviews from real clients help other Main Line businesses find the protection they deserve. If Timothy has helped you in any way - we would genuinely love to hear about it.</p>
     </div>
     <!-- ═══════════════════════════════════════════════════════════════
-         APPROVED REVIEWS — add new ones by copying the block below
+         APPROVED REVIEWS  |  add new ones by copying the block below
          To add a review, copy one <div class="review-card-approved">
          block and paste it before the closing </div> of #approvedReviews.
 
@@ -1189,7 +1189,7 @@ function runBlossomDemo(){
          </div>
          ═══════════════════════════════════════════════════════════════ -->
     <div id="approvedReviews" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:52px;">
-      <!-- NO REVIEWS YET — this message shows until you add your first approved review -->
+      <!-- NO REVIEWS YET  |  this message shows until you add your first approved review -->
       <div id="reviewEmpty" style="grid-column:1/-1;text-align:center;padding:64px 24px;">
         <div style="width:64px;height:64px;border-radius:50%;background:rgba(34,211,238,0.08);border:0.5px solid rgba(34,211,238,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:26px;">&#x2756;</div>
         <div style="font-family:var(--font-display);font-size:17px;color:#fff;margin-bottom:10px;">No reviews yet - be the first</div>
@@ -1236,7 +1236,7 @@ function runBlossomDemo(){
   function loadReviews(){try{return JSON.parse(localStorage.getItem('lotus_reviews')||'[]');}catch(e){return[];}}
   function saveReviews(arr){try{localStorage.setItem('lotus_reviews',JSON.stringify(arr));}catch(e){}}
   function renderReviews(){var reviews=loadReviews();var grid=document.getElementById('reviewGrid');var empty=document.getElementById('reviewEmpty');if(!grid)return;grid.querySelectorAll('.review-card').forEach(function(el){el.remove();});if(reviews.length===0){if(empty)empty.style.display='block';return;}if(empty)empty.style.display='none';var cols=['rgba(34,211,238,0.12)','rgba(176,110,255,0.12)','rgba(255,144,200,0.12)','rgba(255,170,50,0.12)'];var tcs=['var(--cyan)','var(--purple)','var(--pink)','#ffaa30'];reviews.forEach(function(r){var stars='';for(var i=1;i<=5;i++){stars+='<span style="color:'+(i<=r.rating?'rgba(255,200,50,0.9)':'rgba(255,200,50,0.18)')+'">&#9733;</span>';}var initials=(r.name||'?').split(' ').map(function(w){return(w[0]||'').toUpperCase();}).join('').slice(0,2);var ci=Math.abs((r.name.charCodeAt(0)||0))%4;var card=document.createElement('div');card.className='review-card';card.innerHTML='<div style="display:flex;gap:2px;margin-bottom:12px;font-size:15px;">'+stars+'</div><p style="font-size:13px;line-height:1.8;color:rgba(200,220,255,0.82);font-style:italic;flex:1;margin-bottom:16px;">“'+r.text+'”</p><div style="display:flex;align-items:center;gap:10px;border-top:0.5px solid var(--border);padding-top:13px;"><div style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:12px;font-weight:600;flex-shrink:0;background:'+cols[ci]+';color:'+tcs[ci]+';">'+initials+'</div><div><div style="font-size:12px;font-weight:700;color:#fff;">'+r.name+'</div><div style="font-size:10px;color:var(--muted);">'+(r.role||'Lotus client')+(r.date?' &middot; '+r.date:'')+'</div></div></div>';grid.appendChild(card);});}
-  window.submitReview=function(){var name=document.getElementById('rv-name').value.trim();var role=document.getElementById('rv-role').value.trim();var rating=parseInt(document.getElementById('rv-rating').value)||0;var text=document.getElementById('rv-text').value.trim();if(!name||!text){alert('Please add your name and a review.');return;}if(rating<1){alert('Please select a star rating.');return;}var reviews=loadReviews();var rev={name:name,role:role,rating:rating,text:text,date:new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'})}; reviews.unshift(rev);saveReviews(reviews);renderReviews(); fetch('https://formspree.io/f/xjgajdzg',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New Lotus Review — '+name,name:name,role:role||'Lotus client',rating:rating+' stars',review:text})}).catch(function(){});var ok=document.getElementById('rv-success');if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},7000);}document.getElementById('rv-name').value='';document.getElementById('rv-role').value='';document.getElementById('rv-text').value='';window.setRating(0);};
+  window.submitReview=function(){var name=document.getElementById('rv-name').value.trim();var role=document.getElementById('rv-role').value.trim();var rating=parseInt(document.getElementById('rv-rating').value)||0;var text=document.getElementById('rv-text').value.trim();if(!name||!text){alert('Please add your name and a review.');return;}if(rating<1){alert('Please select a star rating.');return;}var reviews=loadReviews();var rev={name:name,role:role,rating:rating,text:text,date:new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'})}; reviews.unshift(rev);saveReviews(reviews);renderReviews(); fetch('https://formspree.io/f/xjgajdzg',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New Lotus Review  |  '+name,name:name,role:role||'Lotus client',rating:rating+' stars',review:text})}).catch(function(){});var ok=document.getElementById('rv-success');if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},7000);}document.getElementById('rv-name').value='';document.getElementById('rv-role').value='';document.getElementById('rv-text').value='';window.setRating(0);};
   document.addEventListener('DOMContentLoaded',renderReviews);
 })();
 </script>
@@ -1384,7 +1384,7 @@ function runBlossomDemo(){
     <div class="reveal visible" style="text-align:center;margin-bottom:56px;">
       <div class="section-label" style="color:var(--purple);">Get involved</div>
       <h2 class="section-title">Back the <span style="background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">mission</span></h2>
-      <p style="font-size:15px;color:rgba(180,210,240,0.75);line-height:1.85;max-width:600px;margin:0 auto;">Lotus is early stage and growing. Whether you want to partner, invest, or just support a veteran-owned small business — there&rsquo;s a place for you here.</p>
+      <p style="font-size:15px;color:rgba(180,210,240,0.75);line-height:1.85;max-width:600px;margin:0 auto;">Lotus is early stage and growing. Whether you want to partner, invest, or just support a veteran-owned small business  |  there&rsquo;s a place for you here.</p>
     </div>
 
     <!-- Three cards -->
@@ -1397,7 +1397,7 @@ function runBlossomDemo(){
       <div class="stv-card">
         <div class="stv-icon" style="background:rgba(176,110,255,0.1);color:var(--purple);">&#x1F4C8;</div>
         <div class="stv-title">Investors &amp; advisors</div>
-        <div class="stv-desc">Early-stage capital, connections, or guidance. If you see what Timothy sees in this market, he wants to hear from you — scroll down to the Invest section.</div>
+        <div class="stv-desc">Early-stage capital, connections, or guidance. If you see what Timothy sees in this market, he wants to hear from you  |  scroll down to the Invest section.</div>
       </div>
       <div class="stv-card">
         <div class="stv-icon" style="background:rgba(255,170,50,0.1);color:#ffaa30;">🦴</div>
@@ -1410,7 +1410,7 @@ function runBlossomDemo(){
     <div class="reveal visible" style="display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start;">
       <div>
         <h3 style="font-family:var(--font-display);font-size:clamp(20px,2.5vw,26px);color:#fff;font-weight:600;line-height:1.3;margin-bottom:14px;">Want to get involved?</h3>
-        <p style="font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:24px;">Send Timothy a message directly. No formality needed — just tell him who you are and how you&rsquo;d like to help.</p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:24px;">Send Timothy a message directly. No formality needed  |  just tell him who you are and how you&rsquo;d like to help.</p>
         <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
           <a href="https://www.linkedin.com/in/timadkins/" target="_blank" rel="noopener" class="btn-ghost" style="text-align:center;">Connect on LinkedIn &nearr;</a>
           <a href="mailto:info@lotuscyber.io?subject=I%27d%20like%20to%20get%20involved" class="btn-ghost" style="text-align:center;">Email Timothy directly</a>
@@ -1434,7 +1434,7 @@ function runBlossomDemo(){
           <div class="cf-field" style="margin-bottom:12px;"><label class="cf-label">I am a&hellip;</label><select class="cf-input" id="stv-type" style="cursor:pointer;"><option style="background:#08132a;">Potential investor or advisor</option><option style="background:#08132a;">Strategic partner</option><option style="background:#08132a;">Someone who wants to help</option><option style="background:#08132a;">Not sure yet</option></select></div>
           <div class="cf-field" style="margin-bottom:18px;"><label class="cf-label">What&rsquo;s on your mind?</label><textarea class="cf-textarea" id="stv-msg" style="min-height:75px;" placeholder="Tell Timothy who you are and how you&rsquo;d like to help."></textarea></div>
           <button class="cf-submit" onclick="submitSTV()" style="max-width:200px;background:linear-gradient(135deg,var(--purple),var(--pink));">Send message</button>
-          <p style="font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6;">This is a personal message to Timothy — not a formal offer or solicitation.</p>
+          <p style="font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6;">This is a personal message to Timothy  |  not a formal offer or solicitation.</p>
         </div>
       </div>
     </div>
@@ -1473,10 +1473,10 @@ async function submitSTV(){
       ['stv-name','stv-email','stv-msg'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
       if(btn){btn.textContent='Send message';btn.disabled=false;}
     } else {
-      if(btn){btn.textContent='Failed — try emailing info@lotuscyber.io';btn.disabled=false;}
+      if(btn){btn.textContent='Failed  |  try emailing info@lotuscyber.io';btn.disabled=false;}
     }
   } catch(err){
-    if(btn){btn.textContent='Failed — try emailing info@lotuscyber.io';btn.disabled=false;}
+    if(btn){btn.textContent='Failed  |  try emailing info@lotuscyber.io';btn.disabled=false;}
   }
 }
 </script>
@@ -1524,11 +1524,11 @@ async function handleContact(e){
       btn.style.background='linear-gradient(135deg,#22d3ee,#06b6d4)';
       form.reset();window._captchaPassed=false;
     } else {
-      btn.textContent='Something went wrong — please email info@lotuscyber.io';
+      btn.textContent='Something went wrong  |  please email info@lotuscyber.io';
       btn.style.background='rgba(255,80,80,0.3)';btn.disabled=false;
     }
   }catch(err){
-    btn.textContent='Something went wrong — please email info@lotuscyber.io';
+    btn.textContent='Something went wrong  |  please email info@lotuscyber.io';
     btn.style.background='rgba(255,80,80,0.3)';btn.disabled=false;
   }
 }
@@ -1648,12 +1648,29 @@ async function handleContact(e){
       <div class="section-label">Founder &amp; CEO</div>
       <div style="font-family:var(--font-display);font-size:22px;font-weight:600;color:#fff;margin-bottom:6px;">Timothy H. Adkins</div>
       <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px;">Retired Police Sergeant and Cybersecurity graduate student at Drexel University&#39;s College of Engineering. Medal of Lifesaving recipient. Founded Lotus to bring real protection to Main Line businesses - the same commitment he brought to public service, now applied to the digital world.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--muted);">
+      <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--muted);margin-bottom:22px;">
         <span>MS Cybersecurity - Drexel University</span><span style="color:rgba(34,211,238,0.3);">|</span>
         <span>BA Temple University Criminal Justice</span><span style="color:rgba(34,211,238,0.3);">|</span>
         <span>Retired Police Sergeant - PA</span><span style="color:rgba(34,211,238,0.3);">|</span>
         <span>Methods of Instruction Certified</span><span style="color:rgba(34,211,238,0.3);">|</span>
         <span>CompTIA Security+ (May 2026)</span>
+      </div>
+      <!-- News links -->
+      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:24px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:2px;">In the news</div>
+        <a href="https://drexel.edu/engineering/news-events/news/archive/2025/November/timothy-adkins-grad-student-profile/" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:rgba(180,220,255,0.8);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='rgba(180,220,255,0.8)'">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0;margin-top:2px;"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Drexel Engineering | Graduate Student Profile | November 2025
+        </a>
+        <a href="https://drexel.edu/news/archive/2025/March/public-safety-and-u-march-2025-students" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:rgba(180,220,255,0.8);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='rgba(180,220,255,0.8)'">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0;margin-top:2px;"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Drexel News | Public Safety and U | March 2025
+        </a>
+      </div>
+      <!-- Careers quote -->
+      <div style="background:rgba(34,211,238,0.04);border:0.5px solid rgba(34,211,238,0.15);border-radius:14px;padding:18px 20px;">
+        <p style="font-size:13px;color:rgba(180,220,255,0.85);line-height:1.8;font-style:italic;margin-bottom:8px;">"I grew up learning that service means showing up for people. I know what it means to start from the bottom and earn every stripe. Lotus isn't just a business | it's a launching point. If I can open a door for one aspiring professional the way others opened doors for me, then we're building something that matters beyond the bottom line."</p>
+        <div style="font-size:11px;font-weight:700;color:var(--cyan);">Timothy H. Adkins | On building the next generation</div>
       </div>
     </div>
   </div>
@@ -1693,7 +1710,7 @@ async function handleContact(e){
       </div>
       <div class="reveal visible" style="background:rgba(255,144,200,0.04);border:0.5px solid rgba(255,144,200,0.18);border-radius:18px;padding:28px 24px;text-align:center;">
         <div style="font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--pink);margin-bottom:6px;">SMB</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.6;">Focus. 99% of Main Line businesses are small &mdash; and massively underprotected.</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6;">Focus. 99% of Main Line businesses are small  |  and massively underprotected.</div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
@@ -1703,7 +1720,7 @@ async function handleContact(e){
         <div>
           <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;">Option 1</div>
           <div style="font-family:var(--font-display);font-size:20px;color:#fff;margin-bottom:10px;">Support &amp; Donate</div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.8;">Believe in the mission but not looking for equity? A donation goes directly to building Lotus — infrastructure, tools, and keeping the lights on. Every dollar makes a difference at this stage.</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.8;">Believe in the mission but not looking for equity? A donation goes directly to building Lotus  |  infrastructure, tools, and keeping the lights on. Every dollar makes a difference at this stage.</p>
         </div>
         <a class="btn-cyan" href="https://donate.stripe.com/4gMcN50f3eQR08R7437Vm00" target="_blank" rel="noopener" style="text-align:center;">Donate via Stripe &rarr;</a>
       </div>
@@ -1713,14 +1730,14 @@ async function handleContact(e){
         <div>
           <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:10px;">Option 2</div>
           <div style="font-family:var(--font-display);font-size:20px;color:#fff;margin-bottom:10px;">SAFE Loan</div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:12px;">A <strong style="color:#fff;">Simple Agreement for Future Equity (SAFE)</strong> is a straightforward investment instrument — you provide capital today in exchange for the right to convert into equity when Lotus raises a priced funding round.</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:12px;">A <strong style="color:#fff;">Simple Agreement for Future Equity (SAFE)</strong> is a straightforward investment instrument  |  you provide capital today in exchange for the right to convert into equity when Lotus raises a priced funding round.</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:12px;">Unlike a traditional loan, there are no monthly repayments and no fixed interest. Your investment is documented with a <strong style="color:#fff;">promissory note</strong> and SAFE agreement, giving you legal protection and defined conversion rights.</p>
           <p style="font-size:13px;color:var(--muted);line-height:1.8;">Ideal for angel investors who believe in the mission and want meaningful upside without the complexity of negotiating a valuation today. Send a request and Timothy will follow up with full terms and documentation.</p>
         </div>
         <a class="btn-ghost" href="#invest-safe" onclick="document.getElementById('invest-safe-form').style.display='block';this.style.display='none';return false;" style="text-align:center;border-color:rgba(176,110,255,0.4);color:var(--purple);">Request SAFE loan information &rarr;</a>
         <!-- SAFE inquiry form -->
         <div id="invest-safe-form" style="display:none;">
-          <div id="safe-ok" style="display:none;padding:12px 16px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--purple);">Thanks — Timothy will be in touch to discuss next steps.</div>
+          <div id="safe-ok" style="display:none;padding:12px 16px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--purple);">Thanks  |  Timothy will be in touch to discuss next steps.</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <input class="cf-input" id="safe-name" type="text" placeholder="Your name" style="margin:0;"/>
             <input class="cf-input" id="safe-email" type="email" placeholder="your@email.com" style="margin:0;"/>
@@ -1745,17 +1762,17 @@ async function handleContact(e){
         var res=await fetch('https://formspree.io/f/xlgpakvl',{
           method:'POST',
           headers:{'Accept':'application/json','Content-Type':'application/json'},
-          body:JSON.stringify({name:n,email:e,amount:a,message:m,_subject:'SAFE Loan Inquiry — '+n})
+          body:JSON.stringify({name:n,email:e,amount:a,message:m,_subject:'SAFE Loan Inquiry  |  '+n})
         });
         if(res.ok){
           document.getElementById('safe-ok').style.display='block';
           ['safe-name','safe-email','safe-amount','safe-msg'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
           btn.style.display='none';
         } else {
-          btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;
+          btn.textContent='Failed  |  email info@lotuscyber.io';btn.disabled=false;
         }
       } catch(err){
-        btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;
+        btn.textContent='Failed  |  email info@lotuscyber.io';btn.disabled=false;
       }
     }
     </script>
@@ -1769,7 +1786,7 @@ async function handleContact(e){
     <div style="text-align:center;margin-bottom:56px;">
       <div class="section-label">Join the team</div>
       <h2 class="section-title">Careers at <span>Lotus</span></h2>
-      <p class="section-sub" style="margin:0 auto;">Lotus is early stage and growing. We are building something real — and we want people who care about protecting small businesses to be part of it.</p>
+      <p class="section-sub" style="margin:0 auto;">Lotus is early stage and growing. We are building something real  |  and we want people who care about protecting small businesses to be part of it.</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:48px;">
 
@@ -1785,15 +1802,15 @@ async function handleContact(e){
           </div>
           <div style="background:rgba(34,211,238,0.08);border:0.5px solid rgba(34,211,238,0.25);border-radius:99px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);white-space:nowrap;">Coming soon</div>
         </div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.8;">As Lotus grows, we will be hiring for roles in cybersecurity, sales, and operations. No open positions yet — but we are building the foundation. Submit your details and resume below and Timothy will compile a list. When a position becomes available, everyone on the list will be notified.</p>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;">As Lotus grows, we will be hiring for roles in cybersecurity, sales, and operations. No open positions yet  |  but we are building the foundation. Submit your details and resume below and Timothy will compile a list. When a position becomes available, everyone on the list will be notified.</p>
         <div style="margin-top:auto;">
-          <div id="careers-ok" style="display:none;padding:12px;background:rgba(34,211,238,0.07);border:0.5px solid rgba(34,211,238,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--cyan);">Thanks — we have your details and will be in touch when a role opens up.</div>
+          <div id="careers-ok" style="display:none;padding:12px;background:rgba(34,211,238,0.07);border:0.5px solid rgba(34,211,238,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--cyan);">Thanks  |  we have your details and will be in touch when a role opens up.</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <input class="cf-input" id="careers-name" type="text" placeholder="Your name" style="margin:0;"/>
             <input class="cf-input" id="careers-email" type="email" placeholder="your@email.com" style="margin:0;"/>
             <input class="cf-input" id="careers-role" type="text" placeholder="What kind of role interests you?" style="margin:0;"/>
             <div style="display:flex;flex-direction:column;gap:6px;">
-              <label style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Resume <span style="color:var(--muted);font-weight:400;">(PDF or Word, max 5MB — optional)</span></label>
+              <label style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Resume <span style="color:var(--muted);font-weight:400;">(PDF or Word, max 5MB  |  optional)</span></label>
               <label id="careers-resume-label" style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:0.5px solid rgba(34,211,238,0.25);border-radius:11px;padding:12px 16px;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(34,211,238,0.5)'" onmouseout="this.style.borderColor='rgba(34,211,238,0.25)'">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M9 2H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6L9 2z" stroke="#22d3ee" stroke-width="1.1" stroke-linejoin="round"/><path d="M9 2v4h4" stroke="#22d3ee" stroke-width="1.1" stroke-linejoin="round"/><path d="M8 9v3M6.5 10.5L8 9l1.5 1.5" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 <span id="careers-resume-filename" style="font-size:13px;color:var(--muted);">Click to upload resume...</span>
@@ -1819,9 +1836,9 @@ async function handleContact(e){
           <div style="background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);border-radius:99px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);white-space:nowrap;">Open</div>
         </div>
         <p style="font-size:13px;color:var(--muted);line-height:1.8;">If there is enough interest, Lotus will open internship positions for students pursuing cybersecurity, IT, or business degrees. Positions would be unpaid to start, with the goal of transitioning high performers into paid roles as the business grows.</p>
-        <p style="font-size:13px;color:var(--muted);line-height:1.8;">Timothy is looking to partner with local universities — including Drexel, Villanova, Temple, and other Main Line institutions — to create real-world learning opportunities for the next generation of security professionals.</p>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;">Timothy is looking to partner with local universities  |  including Drexel, Villanova, Temple, and other Main Line institutions  |  to create real-world learning opportunities for the next generation of security professionals.</p>
         <div style="margin-top:auto;">
-          <div id="intern-ok" style="display:none;padding:12px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--purple);">Thanks — your interest has been noted. Timothy will be in touch if an internship opens.</div>
+          <div id="intern-ok" style="display:none;padding:12px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--purple);">Thanks  |  your interest has been noted. Timothy will be in touch if an internship opens.</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <input class="cf-input" id="intern-name" type="text" placeholder="Your name" style="margin:0;"/>
             <input class="cf-input" id="intern-email" type="email" placeholder="your@email.com" style="margin:0;"/>
@@ -1856,7 +1873,7 @@ async function submitCareers(){
   try{
     var fd=new FormData();
     fd.append('name',n);fd.append('email',e);fd.append('role_interest',r);
-    fd.append('_subject','Careers Interest — '+n);
+    fd.append('_subject','Careers Interest  |  '+n);
     if(resumeFile) fd.append('resume',resumeFile);
     var res=await fetch('https://formspree.io/f/xyknogyl',{method:'POST',headers:{'Accept':'application/json'},body:fd});
     if(res.ok){
@@ -1866,8 +1883,8 @@ async function submitCareers(){
       document.getElementById('careers-resume-filename').textContent='Click to upload resume...';
       document.getElementById('careers-resume-filename').style.color='var(--muted)';
       btn.style.display='none';
-    } else{btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
-  }catch(err){btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
+    } else{btn.textContent='Failed  |  email info@lotuscyber.io';btn.disabled=false;}
+  }catch(err){btn.textContent='Failed  |  email info@lotuscyber.io';btn.disabled=false;}
 }
 async function submitIntern(){
   var n=document.getElementById('intern-name').value.trim();
@@ -1881,7 +1898,7 @@ async function submitIntern(){
     var fd=new FormData();
     fd.append('name',n);fd.append('email',e);
     fd.append('university',s);fd.append('message',m);
-    fd.append('_subject','Internship Interest — '+n);
+    fd.append('_subject','Internship Interest  |  '+n);
     if(resumeFile) fd.append('resume',resumeFile);
     var res=await fetch('https://formspree.io/f/xgondwej',{method:'POST',headers:{'Accept':'application/json'},body:fd});
     if(res.ok){
@@ -1891,8 +1908,8 @@ async function submitIntern(){
       document.getElementById('resume-filename').textContent='Click to upload resume...';
       document.getElementById('resume-filename').style.color='var(--muted)';
       btn.style.display='none';
-    } else{btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
-  }catch(err){btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
+    } else{btn.textContent='Failed  |  email info@lotuscyber.io';btn.disabled=false;}
+  }catch(err){btn.textContent='Failed  |  email info@lotuscyber.io';btn.disabled=false;}
 }
 </script>
 
@@ -1925,12 +1942,12 @@ async function submitIntern(){
     <div style="font-size:13px;color:var(--muted);line-height:1.9;display:flex;flex-direction:column;gap:18px;">
       <p><strong style="color:#fff;">Effective date: June 1, 2026</strong></p>
       <p>Lotus Cybersecurity (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;us&rdquo;) is committed to protecting your personal information. This policy explains what data we collect, how we use it, and your rights.</p>
-      <p><strong style="color:#fff;">Information we collect</strong><br/>When you submit our contact form, we collect your name, business name, email address, and any message content you provide. We do not collect payment information directly — payments are processed by third-party providers.</p>
+      <p><strong style="color:#fff;">Information we collect</strong><br/>When you submit our contact form, we collect your name, business name, email address, and any message content you provide. We do not collect payment information directly  |  payments are processed by third-party providers.</p>
       <p><strong style="color:#fff;">How we use your information</strong><br/>We use your information solely to respond to your inquiry, provide the services you request, and send relevant service communications. We do not sell or share your data with third parties for marketing purposes.</p>
       <p><strong style="color:#fff;">Data storage</strong><br/>Form submissions are processed via Formspree and stored securely. We retain client data only as long as necessary to provide services or as required by law.</p>
       <p><strong style="color:#fff;">Cookies</strong><br/>This website does not use tracking cookies or third-party advertising cookies.</p>
       <p><strong style="color:#fff;">Your rights</strong><br/>You may request access to, correction of, or deletion of your personal data at any time by emailing <a href="mailto:info@lotuscyber.io" style="color:var(--cyan);">info@lotuscyber.io</a>.</p>
-      <p><strong style="color:#fff;">Contact</strong><br/>Lotus Cybersecurity &mdash; Devon, Pennsylvania &mdash; <a href="mailto:info@lotuscyber.io" style="color:var(--cyan);">info@lotuscyber.io</a></p>
+      <p><strong style="color:#fff;">Contact</strong><br/>Lotus Cybersecurity  |  Devon, Pennsylvania  |  <a href="mailto:info@lotuscyber.io" style="color:var(--cyan);">info@lotuscyber.io</a></p>
     </div>
   </div>
 </div>
