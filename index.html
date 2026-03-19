@@ -383,6 +383,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
     <li><a href="#invest">Invest</a></li>
     <li><a href="https://donate.stripe.com/4gMcN50f3eQR08R7437Vm00" target="_blank" style="color:var(--pink);">Donate ☕</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#careers">Careers</a></li>
   </ul>
   <a class="nav-cta" href="#contact">Book Assessment</a>
 </nav>
@@ -448,7 +449,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
       <div class="hero-badge"><div class="badge-dot"></div>Retired Law Enforcement Owned &middot; Founded 2026</div>
       <h1 class="hero-title">Lotus<br/><span class="accent">Cybersecurity</span></h1>
       <p class="hero-tagline">Security Assessments &middot; System Hardening &middot; AI Monitoring</p>
-      <p class="hero-desc">Founded by a retired law enforcement professional and Cybersecurity graduate student at Drexel University's College of Engineering - Lotus protects Main Line businesses with the same dedication to public safety, now applied to your digital infrastructure.</p>
+      <p class="hero-desc">Founded by a retired law enforcement professional and cybersecurity graduate student at Drexel University's College of Engineering. Lotus protects Main Line businesses with the same dedication to public safety, now applied to your digital infrastructure.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
         <a class="btn-cyan" href="#contact">Book Assessment</a>
         <a class="btn-ghost" href="#services">Our Services</a>
@@ -1125,7 +1126,7 @@ function runBlossomDemo(){
           <div class="ref-reward"><div class="ref-reward-val" style="color:var(--pink);">30<span style="font-size:16px;">days</span></div><div class="ref-reward-label">Free trial for your referral on any monitoring plan</div></div>
           <div class="ref-reward"><div class="ref-reward-val" style="color:var(--purple);">10%</div><div class="ref-reward-label">Ongoing discount for referred businesses who sign up</div></div>
           <div class="ref-reward"><div class="ref-reward-val" style="color:var(--cyan);">1 mo</div><div class="ref-reward-label">Free month credit added to your account per referral</div></div>
-          <div class="ref-reward"><div class="ref-reward-val" style="color:#ffaa30;">&#x221E;</div><div class="ref-reward-label">No limit - refer as many businesses as you like</div></div>
+          <div class="ref-reward" style="display:flex;flex-direction:column;align-items:center;justify-content:center;border-color:rgba(255,144,200,0.3);"><div style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;">Ready to refer a business or want to know more?</div><a class="btn-pink" href="#contact" style="font-size:12px;padding:10px 22px;">Ask us how it works</a></div>
         </div>
       </div>
     </div>
@@ -1254,8 +1255,6 @@ function runBlossomDemo(){
     <div class="contact-form-wrap reveal">
       <div class="cf-title">Request a security assessment</div>
       <form id="assessmentForm" action="https://formspree.io/f/xjgajdzg" method="POST" onsubmit="handleContact(event)">
-        <!-- Honeypot: hidden from humans, bots fill this in -->
-        <input type="text" name="_honeypot" id="_honeypot" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" aria-hidden="true"/>
         <div class="cf-grid">
           <div class="cf-field"><label class="cf-label">Your name</label><input class="cf-input" type="text" name="name" placeholder="Jane Smith" required/></div>
           <div class="cf-field"><label class="cf-label">Business name</label><input class="cf-input" type="text" name="business" placeholder="Acme Co." required/></div>
@@ -1286,7 +1285,92 @@ function runBlossomDemo(){
           </select>
         </div>
         <div class="cf-field"><label class="cf-label">Tell us about your business</label><textarea class="cf-textarea" name="message" placeholder="Describe your network, what you&rsquo;re worried about, or what you&rsquo;d like assessed&hellip;"></textarea></div>
+        <!-- CAPTCHA -->
+        <div id="captcha-wrap" style="margin-bottom:18px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Security check</div>
+          <div style="background:rgba(4,12,30,0.8);border:0.5px solid rgba(34,211,238,0.2);border-radius:14px;padding:18px 20px;">
+            <div id="captcha-prompt" style="font-size:13px;color:#fff;margin-bottom:14px;font-weight:600;"></div>
+            <div id="captcha-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+              <div id="captcha-msg" style="font-size:12px;min-height:18px;"></div>
+              <button type="button" onclick="refreshCaptcha()" style="font-size:10px;color:var(--muted);background:transparent;border:none;cursor:pointer;padding:0;text-decoration:underline;">New challenge</button>
+            </div>
+          </div>
+        </div>
 
+        <!-- CYBER CAPTCHA -->
+        <div id="captcha-wrap" style="margin-bottom:18px;background:rgba(4,12,30,0.7);border:0.5px solid rgba(34,211,238,0.2);border-radius:14px;padding:18px 20px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;display:flex;align-items:center;gap:7px;">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L11 3.5v3C11 9.5 8.8 11.2 6 12 3.2 11.2 1 9.5 1 6.5v-3L6 1z" stroke="#22d3ee" stroke-width="1" fill="none"/></svg>
+            Security check - select all the <span style="color:#ff5050;">THREATS</span>
+          </div>
+          <div id="captcha-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;"></div>
+          <div id="captcha-msg" style="font-size:11px;min-height:16px;"></div>
+        </div>
+        <style>
+        .cap-tile{background:rgba(255,255,255,0.03);border:1px solid rgba(34,211,238,0.15);border-radius:10px;padding:12px 8px;text-align:center;cursor:pointer;transition:all 0.15s;user-select:none;}
+        .cap-tile:hover{border-color:rgba(34,211,238,0.4);background:rgba(34,211,238,0.06);}
+        .cap-tile.selected-threat{border-color:#ff5050;background:rgba(255,80,80,0.12);}
+        .cap-tile.selected-safe{border-color:#40dc90;background:rgba(64,220,144,0.08);}
+        .cap-tile.correct{border-color:#40dc90;background:rgba(64,220,144,0.15);}
+        .cap-tile.wrong{border-color:#ff5050;background:rgba(255,80,80,0.2);}
+        .cap-tile-icon{font-size:22px;display:block;margin-bottom:5px;}
+        .cap-tile-label{font-size:10px;color:var(--muted);}
+        </style>
+        <script>
+        (function(){
+          window._captchaPassed = false;
+          var items = [
+            {icon:'🦠',label:'Malware',threat:true},
+            {icon:'🔒',label:'Strong Password',threat:false},
+            {icon:'🎣',label:'Phishing Email',threat:true},
+            {icon:'🛡️',label:'Firewall',threat:false},
+            {icon:'💉',label:'SQL Injection',threat:true},
+            {icon:'🔑',label:'2-Factor Auth',threat:false},
+            {icon:'👁️',label:'Spyware',threat:true},
+            {icon:'📋',label:'Security Audit',threat:false},
+            {icon:'🤖',label:'Botnet',threat:true}
+          ];
+          // Shuffle
+          items.sort(()=>Math.random()-0.5);
+          var selected = new Set();
+          var grid = document.getElementById('captcha-grid');
+          var msg = document.getElementById('captcha-msg');
+          items.forEach(function(item, idx){
+            var tile = document.createElement('div');
+            tile.className = 'cap-tile';
+            tile.innerHTML = '<span class="cap-tile-icon">'+item.icon+'</span><span class="cap-tile-label">'+item.label+'</span>';
+            tile.onclick = function(){
+              if(window._captchaPassed) return;
+              if(selected.has(idx)){selected.delete(idx);tile.classList.remove('selected-threat','selected-safe');}
+              else{selected.add(idx);tile.classList.add(item.threat?'selected-threat':'selected-safe');}
+            };
+            grid.appendChild(tile);
+          });
+          // Verify button
+          var verifyBtn = document.createElement('button');
+          verifyBtn.type = 'button';
+          verifyBtn.textContent = 'Verify';
+          verifyBtn.style = 'padding:7px 20px;background:rgba(34,211,238,0.1);border:0.5px solid rgba(34,211,238,0.35);border-radius:99px;font-family:var(--font-body);font-size:11px;font-weight:700;color:var(--cyan);cursor:pointer;margin-top:4px;';
+          verifyBtn.onclick = function(){
+            var threats = items.reduce(function(acc,item,idx){if(item.threat)acc.push(idx);return acc;},[]);
+            var correct = threats.every(function(idx){return selected.has(idx);}) && selected.size === threats.length;
+            var tiles = grid.querySelectorAll('.cap-tile');
+            if(correct){
+              tiles.forEach(function(t,idx){t.classList.remove('selected-threat','selected-safe');t.classList.add(items[idx].threat?'correct':'correct');});
+              msg.innerHTML = '<span style="color:#40dc90;font-weight:700;">&#10003; Security check passed - you\'re human!</span>';
+              verifyBtn.style.display='none';
+              window._captchaPassed = true;
+            } else {
+              msg.innerHTML = '<span style="color:#ff5050;">Not quite - identify all the threats and try again.</span>';
+              tiles.forEach(function(t,idx){if(selected.has(idx)&&!items[idx].threat){t.classList.add('wrong');setTimeout(function(){t.classList.remove('wrong','selected-safe');},600);}});
+              // Reset only wrong ones
+              selected.forEach(function(idx){if(!items[idx].threat)selected.delete(idx);});
+            }
+          };
+          document.getElementById('captcha-wrap').appendChild(verifyBtn);
+        })();
+        </script>
         <button class="cf-submit" type="submit" id="cfBtn">Send request - we&rsquo;ll respond within 24 hours &#x2756;</button>
       </form>
     </div>
@@ -1425,8 +1509,7 @@ reveals.forEach(el=>{
 window.addEventListener('scroll',()=>{const n=document.getElementById('mainNav');n.style.padding=window.scrollY>50?'10px 48px':'14px 48px';});
 async function handleContact(e){
   e.preventDefault();
-  // Honeypot check — bots fill in the hidden field, humans don't
-  if(document.getElementById('_honeypot').value !== ''){return;}
+  if(!window._captchaPassed){alert('Please complete the security check first.');return;}
   const form=e.target;
   const btn=document.getElementById('cfBtn');
   btn.textContent='Sending…';btn.disabled=true;
@@ -1439,7 +1522,7 @@ async function handleContact(e){
     if(res.ok){
       btn.textContent="Request received! Timothy will review and send your payment link within 24 hours";
       btn.style.background='linear-gradient(135deg,#22d3ee,#06b6d4)';
-      form.reset();
+      form.reset();window._captchaPassed=false;
     } else {
       btn.textContent='Something went wrong — please email info@lotuscyber.io';
       btn.style.background='rgba(255,80,80,0.3)';btn.disabled=false;
@@ -1510,318 +1593,44 @@ async function handleContact(e){
   draw();setTimeout(()=>{spawnThreat();spawnThreat();},1000);
 })();
 
-// ── HERO CANVAS — Unprotected business → Lotus arrives → shields & protects
+// ── HERO CANVAS - Lotus branded
 (function(){
   var c=document.getElementById('heroCanvas');if(!c)return;
-  var ctx=c.getContext('2d'),W=480,H=480,CX=240,CY=240,frame=0;
-
-  // ── Scene state ──────────────────────────────────────────────────────────
-  // SCENE 1 (0-180f):  Vulnerable business, threats swarm in freely
-  // SCENE 2 (180-280f): Lotus logo fades in from above, descending
-  // SCENE 3 (280-380f): Shield pulse explodes outward, deflects all threats
-  // SCENE 4 (380+):    Protected steady state — loops with occasional new threats blocked
-  var SCENE1_END=180, SCENE2_END=280, SCENE3_END=380;
-  var logoAlpha=0, shieldAlpha=0, shieldRadius=0, shieldPulses=[];
-  var sparks=[], blocked=0;
-
-  // Business node — simple building icon at center
-  var BIZ={x:CX,y:CY,r:28};
-
-  // Threats
-  var threats=[];
-  function spawnThreat(fast){
-    var a=Math.random()*Math.PI*2;
-    var d=235+Math.random()*20;
-    var spd = fast ? 0.8+Math.random()*0.6 : 0.35+Math.random()*0.35;
-    threats.push({
-      x:CX+Math.cos(a)*d, y:CY+Math.sin(a)*d,
-      speed:spd,
-      col:['#ff3030','#ff6020','#ff0060','#cc0033'][Math.floor(Math.random()*4)],
-      alpha:1, blocked:false, pulse:0, size:3.5+Math.random()*2.5,
-      label:['SQL','BOT','RAT','C2','DDOS','PHISH'][Math.floor(Math.random()*6)]
-    });
-  }
-
-  function spawnSparks(x,y,col){
-    for(var i=0;i<10;i++){
-      var a=Math.random()*Math.PI*2,spd=2+Math.random()*3;
-      sparks.push({x:x,y:y,vx:Math.cos(a)*spd,vy:Math.sin(a)*spd,alpha:1,size:1.5+Math.random()*2,col:col});
-    }
-  }
-
-  // Draw the lotus logo petals using canvas paths (simplified)
-  function drawLotus(x,y,size,alpha){
-    ctx.save();ctx.globalAlpha=alpha;ctx.translate(x,y);
-    var petalColors=['rgba(34,211,238,','rgba(176,110,255,','rgba(255,144,200,'];
-    var petalAngles=[0,40,80,120,160,200,240,280,320];
-    petalAngles.forEach(function(deg,i){
-      ctx.save();ctx.rotate(deg*Math.PI/180);
-      ctx.beginPath();
-      ctx.ellipse(0,-size*0.45,size*0.18,size*0.42,0,0,Math.PI*2);
-      ctx.fillStyle=petalColors[i%3]+'0.7)';
-      ctx.fill();
-      ctx.restore();
-    });
-    // Center circle
-    ctx.beginPath();ctx.arc(0,0,size*0.22,0,Math.PI*2);
-    ctx.fillStyle='rgba(8,19,42,0.95)';ctx.fill();
-    ctx.strokeStyle='rgba(34,211,238,0.6)';ctx.lineWidth=1.5;ctx.stroke();
-    ctx.restore();
-  }
-
-  // Draw business building
-  function drawBusiness(alpha,hacked){
-    ctx.save();ctx.globalAlpha=alpha;ctx.translate(CX,CY);
-    var col = hacked ? 'rgba(255,60,60,0.9)' : 'rgba(64,220,144,0.9)';
-    var fill = hacked ? 'rgba(255,40,40,0.12)' : 'rgba(64,220,144,0.1)';
-    // Building body
-    ctx.beginPath();ctx.roundRect(-18,-14,36,28,3);
-    ctx.fillStyle=fill;ctx.fill();
-    ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.stroke();
-    // Roof
-    ctx.beginPath();ctx.moveTo(-20,-14);ctx.lineTo(0,-26);ctx.lineTo(20,-14);
-    ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.stroke();
-    // Door
-    ctx.beginPath();ctx.roundRect(-5,4,10,10,1);
-    ctx.strokeStyle=col;ctx.lineWidth=1;ctx.stroke();
-    // Windows
-    [[-10,-4],[6,-4]].forEach(function(p){
-      ctx.beginPath();ctx.rect(p[0],p[1],7,6);
-      ctx.strokeStyle=col;ctx.lineWidth=0.8;ctx.stroke();
-    });
-    ctx.restore();
-  }
-
-  // Grid background
-  function drawGrid(){
-    ctx.strokeStyle='rgba(34,211,238,0.04)';ctx.lineWidth=1;
-    for(var x=0;x<W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
-    for(var y=0;y<H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-  }
-
-  // Danger aura around unprotected business
-  function drawDangerAura(intensity){
-    var g=ctx.createRadialGradient(CX,CY,20,CX,CY,90);
-    g.addColorStop(0,'rgba(255,40,40,'+0.15*intensity+')');
-    g.addColorStop(1,'rgba(255,40,40,0)');
-    ctx.fillStyle=g;ctx.beginPath();ctx.arc(CX,CY,90,0,Math.PI*2);ctx.fill();
-    // Pulsing ring
-    var pr=(frame%60)/60;
-    ctx.beginPath();ctx.arc(CX,CY,50+pr*40,0,Math.PI*2);
-    ctx.strokeStyle='rgba(255,60,60,'+0.4*(1-pr)*intensity+')';
-    ctx.lineWidth=2;ctx.stroke();
-  }
-
-  // Safe aura around protected business
-  function drawSafeAura(alpha){
-    var g=ctx.createRadialGradient(CX,CY,20,CX,CY,90);
-    g.addColorStop(0,'rgba(64,220,144,'+0.15*alpha+')');
-    g.addColorStop(1,'rgba(64,220,144,0)');
-    ctx.fillStyle=g;ctx.beginPath();ctx.arc(CX,CY,90,0,Math.PI*2);ctx.fill();
-  }
-
-  var logoY = CY - 120; // starts above center, descends to center
-  var logoDescend = 0;
-
-  function easeOut(t){return 1-Math.pow(1-t,3);}
-
+  var ctx=c.getContext('2d'),W=480,H=480,CX=240,CY=240,blocked=0,frame=0,spawnTimer=0,petalTimer=0;
+  var rings=[{r:215,speed:0.0018,dir:1,n:12,col:'rgba(34,211,238,0.10)'},{r:170,speed:0.003,dir:-1,n:9,col:'rgba(176,110,255,0.10)'},{r:128,speed:0.005,dir:1,n:7,col:'rgba(255,144,200,0.12)'}];
+  rings.forEach(function(r){r.angle=Math.random()*Math.PI*2;});
+  var petals=[],PETAL_COLORS=['rgba(255,144,200,','rgba(176,110,255,','rgba(255,100,180,','rgba(200,100,255,'];
+  function spawnPetalBurst(){var count=5+Math.floor(Math.random()*4);for(var i=0;i<count;i++){petals.push({angle:(Math.PI*2/count)*i+Math.random()*0.3,r:60+Math.random()*20,speed:0.6+Math.random()*0.5,size:8+Math.random()*10,alpha:0,fadeIn:true,col:PETAL_COLORS[Math.floor(Math.random()*PETAL_COLORS.length)],tilt:Math.random()*0.6-0.3});}}
+  spawnPetalBurst();
+  var icons=[{angle:0,r:192,speed:0.008,type:'shield',col:'rgba(34,211,238,0.9)',bg:'rgba(34,211,238,0.12)',size:18},{angle:Math.PI*2/3,r:192,speed:0.008,type:'lock',col:'rgba(176,110,255,0.9)',bg:'rgba(176,110,255,0.12)',size:18},{angle:Math.PI*4/3,r:192,speed:0.008,type:'eye',col:'rgba(255,144,200,0.9)',bg:'rgba(255,144,200,0.12)',size:18}];
+  var threats=[],sparks=[],flowPts=[];
+  for(var i=0;i<14;i++){flowPts.push({ring:Math.floor(Math.random()*3),angle:Math.random()*Math.PI*2,speed:(0.018+Math.random()*0.025)*(Math.random()<0.5?1:-1),size:1.5+Math.random()*0.8});}
+  function spawnThreat(){var a=Math.random()*Math.PI*2,d=235+Math.random()*30;threats.push({x:CX+Math.cos(a)*d,y:CY+Math.sin(a)*d,speed:0.25+Math.random()*0.25,col:['#ff5050','#ff8820','#ffcc30'][Math.floor(Math.random()*3)],alpha:1,blocked:false,pulse:0,size:3+Math.random()*2});}
+  function spawnSparks(x,y,col){for(var i=0;i<8;i++){var a=Math.random()*Math.PI*2,spd=1.5+Math.random()*2.5;sparks.push({x:x,y:y,vx:Math.cos(a)*spd,vy:Math.sin(a)*spd,alpha:1,size:1.5+Math.random()*1.5});}}
+  function drawShield(x,y,s,col,bg){ctx.save();ctx.translate(x,y);ctx.beginPath();ctx.arc(0,0,s,0,Math.PI*2);ctx.fillStyle=bg;ctx.fill();ctx.strokeStyle=col;ctx.lineWidth=1;ctx.stroke();ctx.beginPath();ctx.moveTo(0,-s*.55);ctx.lineTo(s*.42,-s*.25);ctx.lineTo(s*.42,s*.1);ctx.quadraticCurveTo(s*.42,s*.55,0,s*.65);ctx.quadraticCurveTo(-s*.42,s*.55,-s*.42,s*.1);ctx.lineTo(-s*.42,-s*.25);ctx.closePath();ctx.lineWidth=1.2;ctx.stroke();ctx.beginPath();ctx.moveTo(-s*.18,s*.08);ctx.lineTo(-s*.02,s*.22);ctx.lineTo(s*.22,-s*.08);ctx.lineWidth=1.4;ctx.lineCap='round';ctx.stroke();ctx.restore();}
+  function drawLock(x,y,s,col,bg){ctx.save();ctx.translate(x,y);ctx.beginPath();ctx.arc(0,0,s,0,Math.PI*2);ctx.fillStyle=bg;ctx.fill();ctx.strokeStyle=col;ctx.lineWidth=1;ctx.stroke();ctx.beginPath();ctx.arc(0,-s*.12,s*.28,Math.PI,0);ctx.lineWidth=1.3;ctx.stroke();ctx.beginPath();ctx.roundRect(-s*.275,-s*.05,s*.55,s*.42,3);ctx.lineWidth=1.2;ctx.stroke();ctx.beginPath();ctx.arc(0,s*.16,s*.1,0,Math.PI*2);ctx.lineWidth=1;ctx.stroke();ctx.restore();}
+  function drawEye(x,y,s,col,bg){ctx.save();ctx.translate(x,y);ctx.beginPath();ctx.arc(0,0,s,0,Math.PI*2);ctx.fillStyle=bg;ctx.fill();ctx.strokeStyle=col;ctx.lineWidth=1;ctx.stroke();ctx.beginPath();ctx.moveTo(-s*.5,0);ctx.quadraticCurveTo(0,-s*.35,s*.5,0);ctx.quadraticCurveTo(0,s*.35,-s*.5,0);ctx.lineWidth=1.2;ctx.stroke();ctx.beginPath();ctx.arc(0,0,s*.18,0,Math.PI*2);ctx.lineWidth=1.1;ctx.stroke();ctx.beginPath();ctx.arc(0,0,s*.07,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();ctx.restore();}
   function draw(){
-    frame++;
-    ctx.clearRect(0,0,W,H);
-    drawGrid();
-
-    // ── SCENE 1: Vulnerable — threats swarm freely ───────────────────────
-    if(frame <= SCENE1_END){
-      var danger = Math.min(1, frame/60);
-      drawDangerAura(danger);
-      drawBusiness(1, true);
-
-      // Spawn threats aggressively
-      if(frame%18===0) spawnThreat(false);
-
-      // Threats move straight into business and hit it
-      threats.forEach(function(t){
-        if(t.blocked) return;
-        var dx=CX-t.x, dy=CY-t.y, dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist < 32){
-          t.blocked=true; t.alpha=0; // they hit the building
-          spawnSparks(t.x,t.y,'#ff3030');
-        } else {
-          t.x+=dx/dist*t.speed; t.y+=dy/dist*t.speed;
-        }
-        if(!t.blocked){
-          // Threat dot
-          ctx.beginPath();ctx.arc(t.x,t.y,t.size,0,Math.PI*2);
-          ctx.fillStyle=t.col;ctx.fill();
-          // Glow
-          ctx.beginPath();ctx.arc(t.x,t.y,t.size*2.5,0,Math.PI*2);
-          ctx.fillStyle=t.col+'33';ctx.fill();
-          // Label
-          ctx.fillStyle='rgba(255,120,120,0.8)';
-          ctx.font='bold 8px sans-serif';ctx.textAlign='center';
-          ctx.fillText(t.label,t.x,t.y-t.size-4);
-        }
-      });
-      threats=threats.filter(function(t){return !t.blocked;});
-    }
-
-    // ── SCENE 2: Lotus logo descends from above ──────────────────────────
-    if(frame > SCENE1_END && frame <= SCENE2_END){
-      var t2=easeOut((frame-SCENE1_END)/(SCENE2_END-SCENE1_END));
-      logoAlpha = t2;
-      logoDescend = t2;
-      var lx=CX, ly=CY-90+(90*logoDescend); // descends from above to center
-
-      drawDangerAura(1-t2*0.5);
-      drawBusiness(1,true);
-
-      // Existing threats still move
-      threats.forEach(function(t){
-        if(t.blocked) return;
-        var dx=CX-t.x,dy=CY-t.y,dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist>35){t.x+=dx/dist*t.speed;t.y+=dy/dist*t.speed;}
-        ctx.beginPath();ctx.arc(t.x,t.y,t.size,0,Math.PI*2);
-        ctx.fillStyle=t.col+'99';ctx.fill();
-      });
-
-      // Lotus arriving — glowing trail
-      var trailG=ctx.createRadialGradient(lx,ly-20,5,lx,ly-20,50);
-      trailG.addColorStop(0,'rgba(34,211,238,'+0.3*logoAlpha+')');
-      trailG.addColorStop(1,'rgba(34,211,238,0)');
-      ctx.fillStyle=trailG;ctx.fillRect(0,0,W,H);
-
-      drawLotus(lx,ly,36,logoAlpha);
-    }
-
-    // ── SCENE 3: Shield pulse explodes out, deflects all threats ────────
-    if(frame > SCENE2_END && frame <= SCENE3_END){
-      var t3=easeOut((frame-SCENE2_END)/(SCENE3_END-SCENE2_END));
-      shieldAlpha=Math.min(1,t3*2);
-      shieldRadius=t3*220;
-
-      drawBusiness(1,false); // switches to green
-      drawSafeAura(t3);
-      drawLotus(CX,CY,36,1);
-
-      // Shield pulse ring expanding
-      ctx.beginPath();ctx.arc(CX,CY,shieldRadius,0,Math.PI*2);
-      ctx.strokeStyle='rgba(34,211,238,'+Math.max(0,0.9-t3*0.8)+')';
-      ctx.lineWidth=3;ctx.stroke();
-
-      // Secondary pulse slightly behind
-      if(t3>0.15){
-        ctx.beginPath();ctx.arc(CX,CY,shieldRadius*0.75,0,Math.PI*2);
-        ctx.strokeStyle='rgba(176,110,255,'+Math.max(0,0.6-t3*0.6)+')';
-        ctx.lineWidth=2;ctx.stroke();
-      }
-
-      // Deflect all threats
-      threats.forEach(function(t){
-        if(t.blocked) return;
-        var dx=CX-t.x, dy=CY-t.y, dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist < shieldRadius+10 && !t.blocked){
-          t.blocked=true;
-          blocked++;
-          var el=document.getElementById('hvc-blocked-count');
-          if(el) el.textContent=blocked;
-          spawnSparks(t.x,t.y,'#40dc90');
-          addFeedItem('#40dc90');
-        }
-        if(!t.blocked){
-          ctx.beginPath();ctx.arc(t.x,t.y,t.size,0,Math.PI*2);
-          ctx.fillStyle=t.col+'66';ctx.fill();
-        }
-      });
-      threats=threats.filter(function(t){return !t.blocked;});
-    }
-
-    // ── SCENE 4: Protected steady state — loops ──────────────────────────
-    if(frame > SCENE3_END){
-      drawSafeAura(1);
-      drawBusiness(1,false);
-      drawLotus(CX,CY,36,1);
-
-      // Rotating shield ring
-      ctx.save();ctx.translate(CX,CY);
-      ctx.rotate(frame*0.008);
-      ctx.beginPath();ctx.arc(0,0,75,0,Math.PI*2);
-      ctx.strokeStyle='rgba(34,211,238,0.15)';ctx.lineWidth=1;ctx.stroke();
-      // 4 shield dots on ring
-      for(var i=0;i<4;i++){
-        var a=i*Math.PI/2;
-        ctx.beginPath();ctx.arc(Math.cos(a)*75,Math.sin(a)*75,3,0,Math.PI*2);
-        ctx.fillStyle='rgba(34,211,238,0.7)';ctx.fill();
-      }
-      ctx.restore();
-
-      // Occasional new threat that gets blocked at shield perimeter
-      if(frame%120===0) spawnThreat(true);
-
-      threats.forEach(function(t){
-        if(t.blocked){
-          t.alpha-=0.03;
-          if(t.pulse<2){t.pulse+=0.07;
-            ctx.beginPath();ctx.arc(t.x,t.y,t.pulse*18,0,Math.PI*2);
-            ctx.strokeStyle='rgba(64,220,144,'+Math.max(0,0.7-t.pulse*0.35)+')';
-            ctx.lineWidth=2;ctx.stroke();
-          }
-          return;
-        }
-        var dx=CX-t.x, dy=CY-t.y, dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist < 82){
-          t.blocked=true;t.pulse=0.01;
-          blocked++;
-          var el=document.getElementById('hvc-blocked-count');
-          if(el) el.textContent=blocked;
-          spawnSparks(t.x,t.y,'#40dc90');
-          addFeedItem('#40dc90');
-        } else {
-          t.x+=dx/dist*t.speed; t.y+=dy/dist*t.speed;
-          ctx.beginPath();ctx.arc(t.x,t.y,t.size,0,Math.PI*2);
-          ctx.fillStyle=t.col;ctx.fill();
-          ctx.beginPath();ctx.arc(t.x,t.y,t.size*2.2,0,Math.PI*2);
-          ctx.fillStyle=t.col+'33';ctx.fill();
-          ctx.fillStyle='rgba(255,120,120,0.7)';
-          ctx.font='bold 8px sans-serif';ctx.textAlign='center';
-          ctx.fillText(t.label,t.x,t.y-t.size-4);
-        }
-      });
-      threats=threats.filter(function(t){return t.alpha>0.01;});
-    }
-
-    // ── Sparks always render ─────────────────────────────────────────────
+    frame++;spawnTimer++;petalTimer++;ctx.clearRect(0,0,W,H);
+    var bg=ctx.createRadialGradient(CX,CY,40,CX,CY,230);bg.addColorStop(0,'rgba(255,100,200,0.04)');bg.addColorStop(0.5,'rgba(34,211,238,0.03)');bg.addColorStop(1,'transparent');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+    rings.forEach(function(ring,ri){ring.angle+=ring.speed*ring.dir;ctx.beginPath();ctx.arc(CX,CY,ring.r,0,Math.PI*2);ctx.strokeStyle=ring.col;ctx.lineWidth=0.7;ctx.stroke();for(var j=0;j<ring.n;j++){var a=ring.angle+(Math.PI*2/ring.n)*j;ctx.beginPath();ctx.arc(CX+Math.cos(a)*ring.r,CY+Math.sin(a)*ring.r,ri===2?1.8:1.4,0,Math.PI*2);ctx.fillStyle=ri===1?'rgba(176,110,255,0.5)':ri===2?'rgba(255,144,200,0.5)':'rgba(34,211,238,0.45)';ctx.fill();}});
+    flowPts.forEach(function(p){p.angle+=p.speed;var r=rings[p.ring].r;ctx.beginPath();ctx.arc(CX+Math.cos(p.angle)*r,CY+Math.sin(p.angle)*r,p.size,0,Math.PI*2);ctx.fillStyle='rgba(34,211,238,0.75)';ctx.fill();});
+    if(petalTimer>120){petalTimer=0;spawnPetalBurst();}
+    petals=petals.filter(function(p){return p.alpha>0.01;});
+    petals.forEach(function(p){p.r+=p.speed;if(p.fadeIn&&p.alpha<0.7)p.alpha+=0.06;else{p.fadeIn=false;p.alpha-=0.012;}ctx.save();ctx.translate(CX+Math.cos(p.angle)*p.r,CY+Math.sin(p.angle)*p.r);ctx.rotate(p.angle+Math.PI/2+p.tilt);ctx.beginPath();ctx.ellipse(0,0,p.size*0.38,p.size,0,0,Math.PI*2);ctx.fillStyle=p.col+p.alpha.toFixed(2)+')';ctx.fill();ctx.restore();});
+    var sg=ctx.createRadialGradient(CX,CY,20,CX,CY,100);sg.addColorStop(0,'rgba(255,120,200,0.14)');sg.addColorStop(0.5,'rgba(34,211,238,0.06)');sg.addColorStop(1,'rgba(34,211,238,0)');ctx.fillStyle=sg;ctx.beginPath();ctx.arc(CX,CY,100,0,Math.PI*2);ctx.fill();
+    icons.forEach(function(ic){ic.angle+=ic.speed;var ix=CX+Math.cos(ic.angle)*ic.r,iy=CY+Math.sin(ic.angle)*ic.r;if(ic.type==='shield')drawShield(ix,iy,ic.size,ic.col,ic.bg);else if(ic.type==='lock')drawLock(ix,iy,ic.size,ic.col,ic.bg);else drawEye(ix,iy,ic.size,ic.col,ic.bg);});
     sparks=sparks.filter(function(s){return s.alpha>0.05;});
-    sparks.forEach(function(s){
-      s.x+=s.vx;s.y+=s.vy;s.vx*=0.88;s.vy*=0.88;s.alpha-=0.035;
-      ctx.beginPath();ctx.arc(s.x,s.y,s.size,0,Math.PI*2);
-      ctx.fillStyle=s.col ? s.col.replace(')',','+s.alpha+')').replace('rgb','rgba') : 'rgba(64,220,144,'+s.alpha+')';
-      ctx.fill();
-    });
-
+    sparks.forEach(function(s){s.x+=s.vx;s.y+=s.vy;s.vx*=0.88;s.vy*=0.88;s.alpha-=0.04;ctx.beginPath();ctx.arc(s.x,s.y,s.size,0,Math.PI*2);ctx.fillStyle='rgba(64,220,144,'+s.alpha+')';ctx.fill();});
+    if(spawnTimer>90&&Math.random()<0.65){spawnThreat();spawnTimer=0;}
+    threats=threats.filter(function(t){return t.alpha>0.02;});
+    threats.forEach(function(t){var dx=CX-t.x,dy=CY-t.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<95&&!t.blocked){t.blocked=true;t.pulse=0.1;blocked++;var el=document.getElementById('hvc-blocked-count');if(el)el.textContent=blocked;spawnSparks(t.x,t.y,t.col);addFeedItem(t.col);}if(!t.blocked){t.x+=dx/dist*t.speed;t.y+=dy/dist*t.speed;ctx.beginPath();ctx.arc(t.x,t.y,t.size,0,Math.PI*2);ctx.fillStyle=t.col;ctx.fill();}else{t.alpha-=0.022;if(t.pulse>0){t.pulse+=0.06;ctx.beginPath();ctx.arc(t.x,t.y,t.pulse*22,0,Math.PI*2);ctx.strokeStyle='rgba(64,220,144,'+Math.max(0,0.8-t.pulse*0.4)+')';ctx.lineWidth=2;ctx.stroke();if(t.pulse>2)t.pulse=0;}}});
     requestAnimationFrame(draw);
   }
-
   var feedData=[['192.168.1.','Port scan blocked'],['10.0.0.','Brute force stopped'],['172.16.','Suspicious DNS'],['192.168.','Malware blocked'],['10.0.','SQL injection attempt'],['172.','C2 traffic blocked']];
-  function addFeedItem(col){
-    var el=document.getElementById('hvc-feed-list');if(!el)return;
-    var d=feedData[Math.floor(Math.random()*feedData.length)];
-    var ip=d[0]+Math.floor(Math.random()*254);
-    var item=document.createElement('div');item.className='hvc-feed-item';
-    item.innerHTML='<div class="hvc-feed-dot" style="background:'+col+';"></div><div class="hvc-feed-text">'+d[1]+'</div><div class="hvc-feed-time">'+ip+'</div>';
-    el.insertBefore(item,el.firstChild);
-    while(el.children.length>3)el.removeChild(el.lastChild);
-  }
-  setInterval(function(){
-    var el=document.getElementById('hvc-bandwidth');
-    if(el)el.textContent=(0.8+Math.random()*1.8).toFixed(1);
-    var msgs=['Scanning traffic…','0 threats found','Monitoring packets','AI analysis active','Network clean'];
-    var s=document.getElementById('hvc-blossom-status');
-    if(s)s.textContent=msgs[Math.floor(Math.random()*msgs.length)];
-  },2200);
-
-  // Pre-populate some threats for scene 1
-  for(var i=0;i<6;i++) spawnThreat(false);
-  draw();
+  function addFeedItem(col){var el=document.getElementById('hvc-feed-list');if(!el)return;var d=feedData[Math.floor(Math.random()*feedData.length)];var ip=d[0]+Math.floor(Math.random()*254);var item=document.createElement('div');item.className='hvc-feed-item';item.innerHTML='<div class="hvc-feed-dot" style="background:'+col+';"></div><div class="hvc-feed-text">'+d[1]+'</div><div class="hvc-feed-time">'+ip+'</div>';el.insertBefore(item,el.firstChild);while(el.children.length>3)el.removeChild(el.lastChild);}
+  setInterval(function(){var el=document.getElementById('hvc-bandwidth');if(el)el.textContent=(0.8+Math.random()*1.8).toFixed(1);var msgs=['Scanning traffic…','0 threats found','Monitoring packets','AI analysis active','Network clean'];var s=document.getElementById('hvc-blossom-status');if(s)s.textContent=msgs[Math.floor(Math.random()*msgs.length)];},2200);
+  draw();setTimeout(function(){spawnThreat();spawnThreat();spawnThreat();},600);
 })();
 </script>
 
@@ -1952,6 +1761,116 @@ async function handleContact(e){
     </script>
   </div>
 </section>
+
+
+<!-- CAREERS -->
+<section id="careers" class="sec-div-cyan" style="background:var(--surface);padding:110px 48px;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:56px;">
+      <div class="section-label">Join the team</div>
+      <h2 class="section-title">Careers at <span>Lotus</span></h2>
+      <p class="section-sub" style="margin:0 auto;">Lotus is early stage and growing. We are building something real — and we want people who care about protecting small businesses to be part of it.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:48px;">
+
+      <!-- Full-time roles -->
+      <div class="reveal" style="background:rgba(8,19,42,0.8);border:0.5px solid rgba(34,211,238,0.2);border-radius:20px;padding:36px 38px;display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <div style="width:42px;height:42px;border-radius:11px;background:rgba(34,211,238,0.1);display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="11" rx="2" stroke="#22d3ee" stroke-width="1.2"/><path d="M6 6V5a4 4 0 018 0v1" stroke="#22d3ee" stroke-width="1.2" stroke-linecap="round"/><path d="M2 11h16" stroke="#22d3ee" stroke-width="1.2"/></svg>
+          </div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:17px;color:#fff;font-weight:600;">Full-time roles</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px;">Coming soon</div>
+          </div>
+          <div style="margin-left:auto;background:rgba(34,211,238,0.08);border:0.5px solid rgba(34,211,238,0.25);border-radius:99px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);">Coming soon</div>
+        </div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;">As Lotus grows, we will be hiring for roles in cybersecurity, sales, and operations. No open positions yet — but we are building the foundation. Submit your details and we will reach out when the right role opens.</p>
+        <div style="margin-top:auto;">
+          <div id="careers-ok" style="display:none;padding:12px;background:rgba(34,211,238,0.07);border:0.5px solid rgba(34,211,238,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--cyan);">Thanks — we have your details and will be in touch when a role opens up.</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <input class="cf-input" id="careers-name" type="text" placeholder="Your name" style="margin:0;"/>
+            <input class="cf-input" id="careers-email" type="email" placeholder="your@email.com" style="margin:0;"/>
+            <input class="cf-input" id="careers-role" type="text" placeholder="What kind of role interests you?" style="margin:0;"/>
+            <button onclick="submitCareers()" style="padding:12px;background:var(--cyan);border:none;border-radius:99px;font-family:var(--font-body);font-size:13px;font-weight:700;color:#020917;cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Register interest</button>
+          </div>
+          <p style="font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6;">No open positions yet. We will only reach out when something relevant opens up.</p>
+        </div>
+      </div>
+
+      <!-- Internships -->
+      <div class="reveal" style="background:rgba(8,19,42,0.8);border:0.5px solid rgba(176,110,255,0.25);border-radius:20px;padding:36px 38px;display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <div style="width:42px;height:42px;border-radius:11px;background:rgba(176,110,255,0.1);display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="#b06eff" stroke-width="1.2"/><path d="M3 18c0-3.5 3.1-6 7-6s7 2.5 7 6" stroke="#b06eff" stroke-width="1.2" stroke-linecap="round"/><path d="M13 3l1.5 1.5M15 6h2" stroke="#b06eff" stroke-width="1.1" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div style="font-family:var(--font-display);font-size:17px;color:#fff;font-weight:600;">Internships</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:2px;">Expression of interest open</div>
+          </div>
+          <div style="margin-left:auto;background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);border-radius:99px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);">Open</div>
+        </div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;">If there is enough interest, Lotus will open internship positions for students pursuing cybersecurity, IT, or business degrees. Positions would be unpaid to start, with the goal of transitioning high performers into paid roles as the business grows.</p>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;">Timothy is looking to partner with local universities — including Drexel, Villanova, Temple, and other Main Line institutions — to create real-world learning opportunities for the next generation of security professionals.</p>
+        <div style="margin-top:auto;">
+          <div id="intern-ok" style="display:none;padding:12px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--purple);">Thanks — your interest has been noted. Timothy will be in touch if an internship opens up.</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <input class="cf-input" id="intern-name" type="text" placeholder="Your name" style="margin:0;"/>
+            <input class="cf-input" id="intern-email" type="email" placeholder="your@email.com" style="margin:0;"/>
+            <input class="cf-input" id="intern-school" type="text" placeholder="University / program" style="margin:0;"/>
+            <textarea class="cf-textarea" id="intern-msg" placeholder="Tell Timothy a little about yourself and what you are looking to learn..." style="min-height:70px;margin:0;resize:vertical;"></textarea>
+            <button onclick="submitIntern()" style="padding:12px;background:linear-gradient(135deg,var(--purple),var(--pink));border:none;border-radius:99px;font-family:var(--font-body);font-size:13px;font-weight:700;color:#fff;cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Express interest</button>
+          </div>
+          <p style="font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6;">No commitment on either side. Submitting this form is an expression of interest only.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+async function submitCareers(){
+  var n=document.getElementById('careers-name').value.trim();
+  var e=document.getElementById('careers-email').value.trim();
+  var r=document.getElementById('careers-role').value.trim();
+  if(!n||!e){alert('Please include your name and email.');return;}
+  var btn=event.target;btn.textContent='Sending…';btn.disabled=true;
+  try{
+    var res=await fetch('https://formspree.io/f/xyknogyl',{
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body:JSON.stringify({name:n,email:e,role_interest:r,_subject:'Careers Interest — '+n})
+    });
+    if(res.ok){
+      document.getElementById('careers-ok').style.display='block';
+      ['careers-name','careers-email','careers-role'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+      btn.style.display='none';
+    } else {btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
+  }catch(err){btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
+}
+async function submitIntern(){
+  var n=document.getElementById('intern-name').value.trim();
+  var e=document.getElementById('intern-email').value.trim();
+  var s=document.getElementById('intern-school').value.trim();
+  var m=document.getElementById('intern-msg').value.trim();
+  if(!n||!e){alert('Please include your name and email.');return;}
+  var btn=event.target;btn.textContent='Sending…';btn.disabled=true;
+  try{
+    var res=await fetch('https://formspree.io/f/xgondwej',{
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body:JSON.stringify({name:n,email:e,university:s,message:m,_subject:'Internship Interest — '+n})
+    });
+    if(res.ok){
+      document.getElementById('intern-ok').style.display='block';
+      ['intern-name','intern-email','intern-school','intern-msg'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+      btn.style.display='none';
+    } else {btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
+  }catch(err){btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
+}
+</script>
 
 
 <footer>
