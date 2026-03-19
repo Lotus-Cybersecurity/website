@@ -501,7 +501,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
       <div class="hero-badge"><div class="badge-dot"></div>Retired Law Enforcement Owned &middot; Founded 2026</div>
       <h1 class="hero-title">Lotus<br/><span class="accent">Cybersecurity</span></h1>
       <p class="hero-tagline">Security Assessments &middot; System Hardening &middot; AI Monitoring</p>
-      <p class="hero-desc">Founded by a retired law enforcement professional and Drexel University College of Engineering Master's graduate in Cybersecurity. Lotus protects Main Line businesses with the same dedication to public safety, now applied to your digital infrastructure.</p>
+      <p class="hero-desc">Founded by a retired law enforcement professional, Drexel University College of Engineering Master's graduate in Cybersecurity, and a Main Line native who grew up right here. Timothy knows this community personally — and that's exactly why he built Lotus to protect it.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
         <a class="btn-cyan" href="#contact">Book Assessment</a>
         <a class="btn-ghost" href="#services">Our Services</a>
@@ -1763,19 +1763,8 @@ async function handleContact(e){
       <h2 class="section-title">Internships at <span>Lotus</span></h2>
       <p class="section-sub" style="margin:0 auto;">Lotus is actively looking for driven students and early-career professionals to grow alongside the business. Check out the open areas below and express your interest.</p>
     </div>
-    <!-- Timothy quote -->
-    <div style="max-width:800px;margin:0 auto 52px;text-align:center;">
-      <div style="font-size:44px;color:rgba(34,211,238,0.15);font-family:Georgia,serif;line-height:1;margin-bottom:16px;">&ldquo;</div>
-      <p style="font-family:var(--font-display);font-size:clamp(15px,1.8vw,20px);color:#fff;font-weight:400;line-height:1.75;margin-bottom:18px;font-style:italic;">I grew up learning that service means showing up for people. I know what it means to start from the bottom and earn every stripe. Lotus is not just a business. It&rsquo;s a launching point. If I can open a door for one aspiring professional the way others opened doors for me, then we&rsquo;re building something that matters beyond the bottom line.</p>
-      <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
-        <div style="width:36px;height:36px;border-radius:50%;background:rgba(34,211,238,0.1);border:0.5px solid rgba(34,211,238,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:11px;font-weight:600;color:var(--cyan);">THA</div>
-        <div style="text-align:left;">
-          <div style="font-size:12px;font-weight:700;color:#fff;">Timothy Hunting Adkins</div>
-          <div style="font-size:10px;color:var(--muted);">On building the next generation</div>
-        </div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:48px;">
+    <!-- Internship card — centered -->
+    <div style="max-width:580px;margin:0 auto 56px;">
 
       <!-- Internships -->
       <style>@keyframes internGlow{0%,100%{box-shadow:0 0 18px rgba(176,110,255,0.28),0 0 40px rgba(176,110,255,0.1),inset 0 0 20px rgba(176,110,255,0.03);border-color:rgba(176,110,255,0.4);}50%{box-shadow:0 0 30px rgba(176,110,255,0.5),0 0 65px rgba(176,110,255,0.2),inset 0 0 28px rgba(176,110,255,0.07);border-color:rgba(176,110,255,0.75);}}</style>
@@ -1805,15 +1794,27 @@ async function handleContact(e){
             <input class="cf-input" id="intern-name" type="text" placeholder="Your name" style="margin:0;"/>
             <input class="cf-input" id="intern-email" type="email" placeholder="your@email.com" style="margin:0;"/>
             <input class="cf-input" id="intern-school" type="text" placeholder="University / program / field of study" style="margin:0;"/>
-            <textarea class="cf-textarea" id="intern-msg" placeholder="Tell Timothy about yourself — your field (software dev, AI, data engineering, cybersecurity, etc.), where you are in your studies, and what you hope to get out of this..." style="min-height:70px;margin:0;resize:vertical;"></textarea>
-
+            <textarea class="cf-textarea" id="intern-msg" placeholder="Tell Timothy about yourself — your field (software dev, AI, data engineering, cybersecurity, etc.), where you are in your studies, and what you hope to get out of this..." style="min-height:90px;margin:0;resize:none;"></textarea>
             <button onclick="submitIntern()" style="padding:12px;background:linear-gradient(135deg,var(--purple),var(--pink));border:none;border-radius:99px;font-family:var(--font-body);font-size:13px;font-weight:700;color:#fff;cursor:pointer;">Express interest</button>
           </div>
           <p style="font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6;">No commitment on either side. This is an expression of interest only.</p>
         </div>
       </div>
-
     </div>
+
+    <!-- Timothy quote — below the card -->
+    <div style="max-width:800px;margin:0 auto;text-align:center;">
+      <div style="font-size:44px;color:rgba(34,211,238,0.15);font-family:Georgia,serif;line-height:1;margin-bottom:16px;">&ldquo;</div>
+      <p style="font-family:var(--font-display);font-size:clamp(15px,1.8vw,20px);color:#fff;font-weight:400;line-height:1.75;margin-bottom:18px;font-style:italic;">I grew up learning that service means showing up for people. I know what it means to start from the bottom and earn every stripe. Lotus is not just a business. It&rsquo;s a launching point. If I can open a door for one aspiring professional the way others opened doors for me, then we&rsquo;re building something that matters beyond the bottom line.</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(34,211,238,0.1);border:0.5px solid rgba(34,211,238,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:11px;font-weight:600;color:var(--cyan);">THA</div>
+        <div style="text-align:left;">
+          <div style="font-size:12px;font-weight:700;color:#fff;">Timothy Hunting Adkins</div>
+          <div style="font-size:10px;color:var(--muted);">On building the next generation</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1903,4 +1904,22 @@ async function submitIntern(){
 <!-- TERMS OF SERVICE MODAL -->
 <div id="modal-terms" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(2,9,23,0.92);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:24px;" onclick="if(event.target===this)this.style.display='none'">
   <div style="background:var(--surface);border:0.5px solid var(--border);border-radius:22px;padding:44px 48px;max-width:680px;width:100%;max-height:80vh;overflow-y:auto;position:relative;">
-    <button onclick="document.getElementById('modal-te
+    <button onclick="document.getElementById('modal-terms').style.display='none'" style="position:absolute;top:18px;right:22px;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer;line-height:1;">&times;</button>
+    <div class="section-label" style="margin-bottom:10px;">Legal</div>
+    <h2 style="font-family:var(--font-display);font-size:22px;color:#fff;margin-bottom:22px;">Terms of Service</h2>
+    <div style="font-size:13px;color:var(--muted);line-height:1.9;display:flex;flex-direction:column;gap:18px;">
+      <p><strong style="color:#fff;">Effective date: June 1, 2026</strong></p>
+      <p>By accessing or using the Lotus Cybersecurity website (lotuscyber.io) or any services provided by Lotus Cybersecurity, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
+      <p><strong style="color:#fff;">Services</strong><br/>Lotus Cybersecurity provides cybersecurity assessments, system hardening, monitoring, compliance assistance, and related services to businesses and individuals. All services are subject to a separate written agreement between Lotus Cybersecurity and the client prior to work beginning.</p>
+      <p><strong style="color:#fff;">No guarantee of results</strong><br/>While Lotus Cybersecurity uses industry best practices and professional expertise, no cybersecurity service can guarantee complete protection against all threats. Lotus Cybersecurity is not liable for damages resulting from security incidents that occur despite reasonable professional efforts.</p>
+      <p><strong style="color:#fff;">Website use</strong><br/>This website is provided for informational purposes. You agree not to misuse the site, attempt to access systems without authorisation, or use any content for unlawful purposes.</p>
+      <p><strong style="color:#fff;">Intellectual property</strong><br/>All content on this website including text, graphics, logos, and design is the property of Lotus Cybersecurity and may not be reproduced without written permission.</p>
+      <p><strong style="color:#fff;">Third-party services</strong><br/>Lotus Cybersecurity uses third-party tools including Formspree for form submissions and Stripe for payment processing. Use of these services is subject to their respective terms and privacy policies.</p>
+      <p><strong style="color:#fff;">Limitation of liability</strong><br/>Lotus Cybersecurity shall not be liable for indirect, incidental, or consequential damages arising from the use of our website or services beyond the fees paid for the specific service in question.</p>
+      <p><strong style="color:#fff;">Changes to these terms</strong><br/>Lotus Cybersecurity reserves the right to update these Terms of Service at any time. Continued use of the website or services after changes constitutes acceptance of the revised terms.</p>
+      <p><strong style="color:#fff;">Contact</strong><br/>Questions about these terms? Email <a href="mailto:info@lotuscyber.io" style="color:var(--cyan);"><span class="email-text">info@lotuscyber.io</span></a></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
