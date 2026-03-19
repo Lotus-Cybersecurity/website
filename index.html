@@ -381,7 +381,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#invest">Invest</a></li>
-    <li><a href="https://donate.stripe.com/4gMcN50f3eQR08R7437Vm00" target="_blank" style="color:var(--pink);">Donate ☕</a></li>
+    <li><a href="https://donate.stripe.com/4gMcN50f3eQR08R7437Vm00" target="_blank">Donate</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#careers">Careers</a></li>
   </ul>
@@ -1126,7 +1126,7 @@ function runBlossomDemo(){
           <div class="ref-reward"><div class="ref-reward-val" style="color:var(--pink);">30<span style="font-size:16px;">days</span></div><div class="ref-reward-label">Free trial for your referral on any monitoring plan</div></div>
           <div class="ref-reward"><div class="ref-reward-val" style="color:var(--purple);">10%</div><div class="ref-reward-label">Ongoing discount for referred businesses who sign up</div></div>
           <div class="ref-reward"><div class="ref-reward-val" style="color:var(--cyan);">1 mo</div><div class="ref-reward-label">Free month credit added to your account per referral</div></div>
-          <div class="ref-reward" style="display:flex;flex-direction:column;align-items:center;justify-content:center;border-color:rgba(255,144,200,0.3);"><div style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;">Ready to refer a business or want to know more?</div><a class="btn-pink" href="#contact" style="font-size:12px;padding:10px 22px;">Ask us how it works</a></div>
+          <div class="ref-reward" style="display:flex;flex-direction:column;align-items:center;justify-content:center;border-color:rgba(255,144,200,0.3);"><div style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;">Ready to refer or want to know more?</div><a class="btn-pink" href="#contact" style="font-size:12px;padding:10px 22px;">Ask us how it works</a></div>
         </div>
       </div>
     </div>
@@ -1605,7 +1605,7 @@ async function handleContact(e){
   var icons=[{angle:0,r:192,speed:0.008,type:'shield',col:'rgba(34,211,238,0.9)',bg:'rgba(34,211,238,0.12)',size:18},{angle:Math.PI*2/3,r:192,speed:0.008,type:'lock',col:'rgba(176,110,255,0.9)',bg:'rgba(176,110,255,0.12)',size:18},{angle:Math.PI*4/3,r:192,speed:0.008,type:'eye',col:'rgba(255,144,200,0.9)',bg:'rgba(255,144,200,0.12)',size:18}];
   var threats=[],sparks=[],flowPts=[];
   for(var i=0;i<14;i++){flowPts.push({ring:Math.floor(Math.random()*3),angle:Math.random()*Math.PI*2,speed:(0.018+Math.random()*0.025)*(Math.random()<0.5?1:-1),size:1.5+Math.random()*0.8});}
-  function spawnThreat(){var a=Math.random()*Math.PI*2,d=235+Math.random()*30;threats.push({x:CX+Math.cos(a)*d,y:CY+Math.sin(a)*d,speed:0.25+Math.random()*0.25,col:['#ff5050','#ff8820','#ffcc30'][Math.floor(Math.random()*3)],alpha:1,blocked:false,pulse:0,size:3+Math.random()*2});}
+  function spawnThreat(){var a=Math.random()*Math.PI*2,d=235+Math.random()*30;threats.push({x:CX+Math.cos(a)*d,y:CY+Math.sin(a)*d,speed:0.5+Math.random()*0.5,col:['#ff5050','#ff8820','#ffcc30'][Math.floor(Math.random()*3)],alpha:1,blocked:false,pulse:0,size:3+Math.random()*2});}
   function spawnSparks(x,y,col){for(var i=0;i<8;i++){var a=Math.random()*Math.PI*2,spd=1.5+Math.random()*2.5;sparks.push({x:x,y:y,vx:Math.cos(a)*spd,vy:Math.sin(a)*spd,alpha:1,size:1.5+Math.random()*1.5});}}
   function drawShield(x,y,s,col,bg){ctx.save();ctx.translate(x,y);ctx.beginPath();ctx.arc(0,0,s,0,Math.PI*2);ctx.fillStyle=bg;ctx.fill();ctx.strokeStyle=col;ctx.lineWidth=1;ctx.stroke();ctx.beginPath();ctx.moveTo(0,-s*.55);ctx.lineTo(s*.42,-s*.25);ctx.lineTo(s*.42,s*.1);ctx.quadraticCurveTo(s*.42,s*.55,0,s*.65);ctx.quadraticCurveTo(-s*.42,s*.55,-s*.42,s*.1);ctx.lineTo(-s*.42,-s*.25);ctx.closePath();ctx.lineWidth=1.2;ctx.stroke();ctx.beginPath();ctx.moveTo(-s*.18,s*.08);ctx.lineTo(-s*.02,s*.22);ctx.lineTo(s*.22,-s*.08);ctx.lineWidth=1.4;ctx.lineCap='round';ctx.stroke();ctx.restore();}
   function drawLock(x,y,s,col,bg){ctx.save();ctx.translate(x,y);ctx.beginPath();ctx.arc(0,0,s,0,Math.PI*2);ctx.fillStyle=bg;ctx.fill();ctx.strokeStyle=col;ctx.lineWidth=1;ctx.stroke();ctx.beginPath();ctx.arc(0,-s*.12,s*.28,Math.PI,0);ctx.lineWidth=1.3;ctx.stroke();ctx.beginPath();ctx.roundRect(-s*.275,-s*.05,s*.55,s*.42,3);ctx.lineWidth=1.2;ctx.stroke();ctx.beginPath();ctx.arc(0,s*.16,s*.1,0,Math.PI*2);ctx.lineWidth=1;ctx.stroke();ctx.restore();}
@@ -1766,25 +1766,24 @@ async function handleContact(e){
 <!-- CAREERS -->
 <section id="careers" class="sec-div-cyan" style="background:var(--surface);padding:110px 48px;">
   <div style="max-width:1000px;margin:0 auto;">
-    <div class="reveal" style="text-align:center;margin-bottom:56px;">
+    <div style="text-align:center;margin-bottom:56px;">
       <div class="section-label">Join the team</div>
       <h2 class="section-title">Careers at <span>Lotus</span></h2>
       <p class="section-sub" style="margin:0 auto;">Lotus is early stage and growing. We are building something real — and we want people who care about protecting small businesses to be part of it.</p>
     </div>
-
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:48px;">
 
       <!-- Full-time roles -->
-      <div class="reveal" style="background:rgba(8,19,42,0.8);border:0.5px solid rgba(34,211,238,0.2);border-radius:20px;padding:36px 38px;display:flex;flex-direction:column;gap:16px;">
+      <div style="background:rgba(8,19,42,0.8);border:0.5px solid rgba(34,211,238,0.2);border-radius:20px;padding:36px 38px;display:flex;flex-direction:column;gap:16px;">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
-          <div style="width:42px;height:42px;border-radius:11px;background:rgba(34,211,238,0.1);display:flex;align-items:center;justify-content:center;">
+          <div style="width:42px;height:42px;border-radius:11px;background:rgba(34,211,238,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="11" rx="2" stroke="#22d3ee" stroke-width="1.2"/><path d="M6 6V5a4 4 0 018 0v1" stroke="#22d3ee" stroke-width="1.2" stroke-linecap="round"/><path d="M2 11h16" stroke="#22d3ee" stroke-width="1.2"/></svg>
           </div>
-          <div>
+          <div style="flex:1;">
             <div style="font-family:var(--font-display);font-size:17px;color:#fff;font-weight:600;">Full-time roles</div>
             <div style="font-size:11px;color:var(--muted);margin-top:2px;">Coming soon</div>
           </div>
-          <div style="margin-left:auto;background:rgba(34,211,238,0.08);border:0.5px solid rgba(34,211,238,0.25);border-radius:99px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);">Coming soon</div>
+          <div style="background:rgba(34,211,238,0.08);border:0.5px solid rgba(34,211,238,0.25);border-radius:99px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);white-space:nowrap;">Coming soon</div>
         </div>
         <p style="font-size:13px;color:var(--muted);line-height:1.8;">As Lotus grows, we will be hiring for roles in cybersecurity, sales, and operations. No open positions yet — but we are building the foundation. Submit your details and we will reach out when the right role opens.</p>
         <div style="margin-top:auto;">
@@ -1793,36 +1792,36 @@ async function handleContact(e){
             <input class="cf-input" id="careers-name" type="text" placeholder="Your name" style="margin:0;"/>
             <input class="cf-input" id="careers-email" type="email" placeholder="your@email.com" style="margin:0;"/>
             <input class="cf-input" id="careers-role" type="text" placeholder="What kind of role interests you?" style="margin:0;"/>
-            <button onclick="submitCareers()" style="padding:12px;background:var(--cyan);border:none;border-radius:99px;font-family:var(--font-body);font-size:13px;font-weight:700;color:#020917;cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Register interest</button>
+            <button onclick="submitCareers()" style="padding:12px;background:var(--cyan);border:none;border-radius:99px;font-family:var(--font-body);font-size:13px;font-weight:700;color:#020917;cursor:pointer;">Register interest</button>
           </div>
           <p style="font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6;">No open positions yet. We will only reach out when something relevant opens up.</p>
         </div>
       </div>
 
       <!-- Internships -->
-      <div class="reveal" style="background:rgba(8,19,42,0.8);border:0.5px solid rgba(176,110,255,0.25);border-radius:20px;padding:36px 38px;display:flex;flex-direction:column;gap:16px;">
+      <div style="background:rgba(8,19,42,0.8);border:0.5px solid rgba(176,110,255,0.25);border-radius:20px;padding:36px 38px;display:flex;flex-direction:column;gap:16px;">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
-          <div style="width:42px;height:42px;border-radius:11px;background:rgba(176,110,255,0.1);display:flex;align-items:center;justify-content:center;">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="#b06eff" stroke-width="1.2"/><path d="M3 18c0-3.5 3.1-6 7-6s7 2.5 7 6" stroke="#b06eff" stroke-width="1.2" stroke-linecap="round"/><path d="M13 3l1.5 1.5M15 6h2" stroke="#b06eff" stroke-width="1.1" stroke-linecap="round"/></svg>
+          <div style="width:42px;height:42px;border-radius:11px;background:rgba(176,110,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="#b06eff" stroke-width="1.2"/><path d="M3 18c0-3.5 3.1-6 7-6s7 2.5 7 6" stroke="#b06eff" stroke-width="1.2" stroke-linecap="round"/></svg>
           </div>
-          <div>
+          <div style="flex:1;">
             <div style="font-family:var(--font-display);font-size:17px;color:#fff;font-weight:600;">Internships</div>
             <div style="font-size:11px;color:var(--muted);margin-top:2px;">Expression of interest open</div>
           </div>
-          <div style="margin-left:auto;background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);border-radius:99px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);">Open</div>
+          <div style="background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);border-radius:99px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);white-space:nowrap;">Open</div>
         </div>
         <p style="font-size:13px;color:var(--muted);line-height:1.8;">If there is enough interest, Lotus will open internship positions for students pursuing cybersecurity, IT, or business degrees. Positions would be unpaid to start, with the goal of transitioning high performers into paid roles as the business grows.</p>
         <p style="font-size:13px;color:var(--muted);line-height:1.8;">Timothy is looking to partner with local universities — including Drexel, Villanova, Temple, and other Main Line institutions — to create real-world learning opportunities for the next generation of security professionals.</p>
         <div style="margin-top:auto;">
-          <div id="intern-ok" style="display:none;padding:12px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--purple);">Thanks — your interest has been noted. Timothy will be in touch if an internship opens up.</div>
+          <div id="intern-ok" style="display:none;padding:12px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--purple);">Thanks — your interest has been noted. Timothy will be in touch if an internship opens.</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <input class="cf-input" id="intern-name" type="text" placeholder="Your name" style="margin:0;"/>
             <input class="cf-input" id="intern-email" type="email" placeholder="your@email.com" style="margin:0;"/>
             <input class="cf-input" id="intern-school" type="text" placeholder="University / program" style="margin:0;"/>
             <textarea class="cf-textarea" id="intern-msg" placeholder="Tell Timothy a little about yourself and what you are looking to learn..." style="min-height:70px;margin:0;resize:vertical;"></textarea>
-            <button onclick="submitIntern()" style="padding:12px;background:linear-gradient(135deg,var(--purple),var(--pink));border:none;border-radius:99px;font-family:var(--font-body);font-size:13px;font-weight:700;color:#fff;cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Express interest</button>
+            <button onclick="submitIntern()" style="padding:12px;background:linear-gradient(135deg,var(--purple),var(--pink));border:none;border-radius:99px;font-family:var(--font-body);font-size:13px;font-weight:700;color:#fff;cursor:pointer;">Express interest</button>
           </div>
-          <p style="font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6;">No commitment on either side. Submitting this form is an expression of interest only.</p>
+          <p style="font-size:10px;color:var(--muted);margin-top:10px;line-height:1.6;">No commitment on either side. This is an expression of interest only.</p>
         </div>
       </div>
 
@@ -1838,16 +1837,9 @@ async function submitCareers(){
   if(!n||!e){alert('Please include your name and email.');return;}
   var btn=event.target;btn.textContent='Sending…';btn.disabled=true;
   try{
-    var res=await fetch('https://formspree.io/f/xyknogyl',{
-      method:'POST',
-      headers:{'Accept':'application/json','Content-Type':'application/json'},
-      body:JSON.stringify({name:n,email:e,role_interest:r,_subject:'Careers Interest — '+n})
-    });
-    if(res.ok){
-      document.getElementById('careers-ok').style.display='block';
-      ['careers-name','careers-email','careers-role'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
-      btn.style.display='none';
-    } else {btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
+    var res=await fetch('https://formspree.io/f/xyknogyl',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:n,email:e,role_interest:r,_subject:'Careers Interest — '+n})});
+    if(res.ok){document.getElementById('careers-ok').style.display='block';['careers-name','careers-email','careers-role'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});btn.style.display='none';}
+    else{btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
   }catch(err){btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
 }
 async function submitIntern(){
@@ -1858,16 +1850,9 @@ async function submitIntern(){
   if(!n||!e){alert('Please include your name and email.');return;}
   var btn=event.target;btn.textContent='Sending…';btn.disabled=true;
   try{
-    var res=await fetch('https://formspree.io/f/xgondwej',{
-      method:'POST',
-      headers:{'Accept':'application/json','Content-Type':'application/json'},
-      body:JSON.stringify({name:n,email:e,university:s,message:m,_subject:'Internship Interest — '+n})
-    });
-    if(res.ok){
-      document.getElementById('intern-ok').style.display='block';
-      ['intern-name','intern-email','intern-school','intern-msg'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
-      btn.style.display='none';
-    } else {btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
+    var res=await fetch('https://formspree.io/f/xgondwej',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:n,email:e,university:s,message:m,_subject:'Internship Interest — '+n})});
+    if(res.ok){document.getElementById('intern-ok').style.display='block';['intern-name','intern-email','intern-school','intern-msg'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});btn.style.display='none';}
+    else{btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
   }catch(err){btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;}
 }
 </script>
