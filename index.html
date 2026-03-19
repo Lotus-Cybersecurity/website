@@ -1668,16 +1668,67 @@ async function handleContact(e){
         <div style="font-size:12px;color:var(--muted);line-height:1.6;">Focus. 99% of Main Line businesses are small &mdash; and massively underprotected.</div>
       </div>
     </div>
-    <div class="reveal" style="background:rgba(8,19,42,0.8);border:0.5px solid var(--border);border-radius:20px;padding:38px 44px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;">
-      <div>
-        <div style="font-family:var(--font-display);font-size:18px;color:#fff;margin-bottom:10px;">Interested in investing or partnering?</div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:0;">We welcome conversations with angel investors, strategic partners, and community supporters. Reach out directly to Timothy to start a conversation.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+
+      <!-- Option 1: Donate -->
+      <div class="reveal" style="background:rgba(8,19,42,0.8);border:0.5px solid rgba(34,211,238,0.2);border-radius:20px;padding:36px 38px;display:flex;flex-direction:column;gap:18px;">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;">Option 1</div>
+          <div style="font-family:var(--font-display);font-size:20px;color:#fff;margin-bottom:10px;">Support &amp; Donate</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.8;">Believe in the mission but not looking for equity? A donation goes directly to building Lotus — infrastructure, tools, and keeping the lights on. Every dollar makes a difference at this stage.</p>
+        </div>
+        <a class="btn-cyan" href="https://donate.stripe.com/4gMcN50f3eQR08R7437Vm00" target="_blank" rel="noopener" style="text-align:center;">Donate via Stripe &rarr;</a>
       </div>
-      <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0;">
-        <a class="btn-cyan" href="/cdn-cgi/l/email-protection#70191e161f301c1f04050313091215025e191f4f0305121a1513044d391e061503041d151e04554240391e01051902095542405535425548405549445542403c1f04050355424033091215020315130502190409">Email Timothy &rarr;</a>
-        <a class="btn-ghost" href="https://www.linkedin.com/in/timadkins/" target="_blank" rel="noopener">LinkedIn &nearr;</a>
+
+      <!-- Option 2: SAFE Loan -->
+      <div class="reveal" style="background:rgba(8,19,42,0.8);border:0.5px solid rgba(176,110,255,0.25);border-radius:20px;padding:36px 38px;display:flex;flex-direction:column;gap:18px;">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:10px;">Option 2</div>
+          <div style="font-family:var(--font-display);font-size:20px;color:#fff;margin-bottom:10px;">SAFE Loan</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.8;">A Simple Agreement for Future Equity. Invest now and convert to equity when Lotus raises its next round. Ideal for angel investors who want upside without negotiating a valuation today.</p>
+        </div>
+        <a class="btn-ghost" href="#invest-safe" onclick="document.getElementById('invest-safe-form').style.display='block';this.style.display='none';return false;" style="text-align:center;border-color:rgba(176,110,255,0.4);color:var(--purple);">Express interest &rarr;</a>
+        <!-- SAFE inquiry form -->
+        <div id="invest-safe-form" style="display:none;">
+          <div id="safe-ok" style="display:none;padding:12px 16px;background:rgba(176,110,255,0.08);border:0.5px solid rgba(176,110,255,0.3);border-radius:10px;margin-bottom:14px;font-size:12px;color:var(--purple);">Thanks — Timothy will be in touch to discuss next steps.</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <input class="cf-input" id="safe-name" type="text" placeholder="Your name" style="margin:0;"/>
+            <input class="cf-input" id="safe-email" type="email" placeholder="your@email.com" style="margin:0;"/>
+            <input class="cf-input" id="safe-amount" type="text" placeholder="Approx. investment amount (e.g. $5,000)" style="margin:0;"/>
+            <textarea class="cf-textarea" id="safe-msg" placeholder="Anything you'd like Timothy to know before he reaches out…" style="min-height:70px;margin:0;"></textarea>
+            <button onclick="submitSAFE()" style="padding:12px;background:linear-gradient(135deg,var(--purple),var(--pink));border:none;border-radius:99px;font-family:var(--font-body);font-size:13px;font-weight:700;color:#fff;cursor:pointer;">Send inquiry</button>
+          </div>
+        </div>
       </div>
+
     </div>
+
+    <script>
+    async function submitSAFE(){
+      var n=document.getElementById('safe-name').value.trim();
+      var e=document.getElementById('safe-email').value.trim();
+      var a=document.getElementById('safe-amount').value.trim();
+      var m=document.getElementById('safe-msg').value.trim();
+      if(!n||!e){alert('Please include your name and email.');return;}
+      var btn=event.target;btn.textContent='Sending…';btn.disabled=true;
+      try{
+        var res=await fetch('https://formspree.io/f/xlgpakvl',{
+          method:'POST',
+          headers:{'Accept':'application/json','Content-Type':'application/json'},
+          body:JSON.stringify({name:n,email:e,amount:a,message:m,_subject:'SAFE Loan Inquiry — '+n})
+        });
+        if(res.ok){
+          document.getElementById('safe-ok').style.display='block';
+          ['safe-name','safe-email','safe-amount','safe-msg'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+          btn.style.display='none';
+        } else {
+          btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;
+        }
+      } catch(err){
+        btn.textContent='Failed — email info@lotuscyber.io';btn.disabled=false;
+      }
+    }
+    </script>
   </div>
 </section>
 
