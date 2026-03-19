@@ -380,7 +380,8 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
     <li><a href="#firstresponder">First Responders</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#support">Support</a></li>
+    <li><a href="#invest">Invest</a></li>
+    <li><a href="https://donate.stripe.com/4gMcN50f3eQR08R7437Vm00" target="_blank" style="color:var(--pink);">Donate ☕</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <a class="nav-cta" href="#contact">Book Assessment</a>
@@ -905,7 +906,7 @@ function runBlossomDemo(){
   function loadReviews(){try{return JSON.parse(localStorage.getItem('lotus_reviews')||'[]');}catch(e){return[];}}
   function saveReviews(arr){try{localStorage.setItem('lotus_reviews',JSON.stringify(arr));}catch(e){}}
   function renderReviews(){var reviews=loadReviews();var grid=document.getElementById('reviewGrid');var empty=document.getElementById('reviewEmpty');if(!grid)return;grid.querySelectorAll('.review-card').forEach(function(el){el.remove();});if(reviews.length===0){if(empty)empty.style.display='block';return;}if(empty)empty.style.display='none';var cols=['rgba(34,211,238,0.12)','rgba(176,110,255,0.12)','rgba(255,144,200,0.12)','rgba(255,170,50,0.12)'];var tcs=['var(--cyan)','var(--purple)','var(--pink)','#ffaa30'];reviews.forEach(function(r){var stars='';for(var i=1;i<=5;i++){stars+='<span style="color:'+(i<=r.rating?'rgba(255,200,50,0.9)':'rgba(255,200,50,0.18)')+'">&#9733;</span>';}var initials=(r.name||'?').split(' ').map(function(w){return(w[0]||'').toUpperCase();}).join('').slice(0,2);var ci=Math.abs((r.name.charCodeAt(0)||0))%4;var card=document.createElement('div');card.className='review-card';card.innerHTML='<div style="display:flex;gap:2px;margin-bottom:12px;font-size:15px;">'+stars+'</div><p style="font-size:13px;line-height:1.8;color:rgba(200,220,255,0.82);font-style:italic;flex:1;margin-bottom:16px;">“'+r.text+'”</p><div style="display:flex;align-items:center;gap:10px;border-top:0.5px solid var(--border);padding-top:13px;"><div style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:12px;font-weight:600;flex-shrink:0;background:'+cols[ci]+';color:'+tcs[ci]+';">'+initials+'</div><div><div style="font-size:12px;font-weight:700;color:#fff;">'+r.name+'</div><div style="font-size:10px;color:var(--muted);">'+(r.role||'Lotus client')+(r.date?' &middot; '+r.date:'')+'</div></div></div>';grid.appendChild(card);});}
-  window.submitReview=function(){var name=document.getElementById('rv-name').value.trim();var role=document.getElementById('rv-role').value.trim();var rating=parseInt(document.getElementById('rv-rating').value)||0;var text=document.getElementById('rv-text').value.trim();if(!name||!text){alert('Please add your name and a review.');return;}if(rating<1){alert('Please select a star rating.');return;}var reviews=loadReviews();reviews.unshift({name:name,role:role,rating:rating,text:text,date:new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'})});saveReviews(reviews);renderReviews();var ok=document.getElementById('rv-success');if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},7000);}document.getElementById('rv-name').value='';document.getElementById('rv-role').value='';document.getElementById('rv-text').value='';window.setRating(0);};
+  window.submitReview=function(){var name=document.getElementById('rv-name').value.trim();var role=document.getElementById('rv-role').value.trim();var rating=parseInt(document.getElementById('rv-rating').value)||0;var text=document.getElementById('rv-text').value.trim();if(!name||!text){alert('Please add your name and a review.');return;}if(rating<1){alert('Please select a star rating.');return;}var reviews=loadReviews();var rev={name:name,role:role,rating:rating,text:text,date:new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'})}; reviews.unshift(rev);saveReviews(reviews);renderReviews(); fetch('https://formspree.io/f/xjgajdzg',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New Lotus Review — '+name,name:name,role:role||'Lotus client',rating:rating+' stars',review:text})}).catch(function(){});var ok=document.getElementById('rv-success');if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},7000);}document.getElementById('rv-name').value='';document.getElementById('rv-role').value='';document.getElementById('rv-text').value='';window.setRating(0);};
   document.addEventListener('DOMContentLoaded',renderReviews);
 })();
 </script>
@@ -923,7 +924,7 @@ function runBlossomDemo(){
     </div>
     <div class="contact-form-wrap reveal">
       <div class="cf-title">Request a security assessment</div>
-      <form onsubmit="handleContact(event)">
+      <form id="assessmentForm" onsubmit="handleContact(event)">
         <div class="cf-grid">
           <div class="cf-field"><label class="cf-label">Your name</label><input class="cf-input" type="text" placeholder="Jane Smith" required/></div>
           <div class="cf-field"><label class="cf-label">Business name</label><input class="cf-input" type="text" placeholder="Acme Co." required/></div>
