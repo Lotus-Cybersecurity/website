@@ -439,66 +439,43 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
         <div><span class="hero-stat-num">&#x2756;</span><span class="hero-stat-label">Referrals rewarded</span></div>
       </div>
     </div>
-    <!-- HERO VISUAL — Mini Security Dashboard -->
+    <!-- HERO VISUAL — Cinematic Attack/Save -->
     <div class="hero-visual">
-      <div style="width:480px;flex-shrink:0;">
-        <div style="background:rgba(4,12,30,0.95);border:0.5px solid rgba(34,211,238,0.2);border-radius:18px;overflow:hidden;box-shadow:0 0 40px rgba(34,211,238,0.08);">
-          <!-- Top bar -->
-          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:0.5px solid rgba(34,211,238,0.1);background:rgba(255,255,255,0.02);">
+      <div style="width:490px;flex-shrink:0;position:relative;">
+        <div id="cin-phase-lbl" style="text-align:center;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#ff5050;margin-bottom:10px;min-height:16px;transition:color 0.8s;"></div>
+        <div id="cinematic-wrap" style="background:rgba(4,12,30,0.97);border:0.5px solid rgba(255,80,80,0.4);border-radius:18px;overflow:hidden;box-shadow:0 0 50px rgba(255,80,80,0.18);transition:border-color 1.2s,box-shadow 1.2s;">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-bottom:0.5px solid rgba(255,80,80,0.2);background:rgba(255,255,255,0.02);transition:border-color 1.2s;">
             <div style="display:flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);">
               <div class="badge-dot"></div>Live Security Dashboard
             </div>
             <div style="display:flex;align-items:center;gap:6px;">
-              <span style="width:7px;height:7px;border-radius:50%;background:#40dc90;box-shadow:0 0 5px #40dc90;"></span>
-              <span style="font-size:10px;color:#40dc90;font-weight:700;">All Systems Online</span>
+              <span id="cin-dot" style="width:7px;height:7px;border-radius:50%;background:#ff5050;box-shadow:0 0 8px #ff5050;animation:pulse 0.5s ease-in-out infinite;display:inline-block;"></span>
+              <span id="cin-status-txt" style="font-size:10px;color:#ff5050;font-weight:700;transition:color 1.2s;">UNDER ATTACK</span>
             </div>
           </div>
-          <!-- Stat row -->
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(34,211,238,0.06);border-bottom:0.5px solid rgba(34,211,238,0.1);">
-            <div style="background:rgba(4,12,30,0.97);padding:14px 16px;">
-              <div style="font-size:9px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:5px;">Network Health</div>
-              <div style="font-family:var(--font-display);font-size:24px;font-weight:600;color:#40dc90;">98<span style="font-size:12px;">%</span></div>
-            </div>
-            <div style="background:rgba(4,12,30,0.97);padding:14px 16px;">
-              <div style="font-size:9px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:5px;">Threats Blocked</div>
-              <div style="font-family:var(--font-display);font-size:24px;font-weight:600;color:#ff5050;"><span id="hero-blocked">7</span></div>
-            </div>
-            <div style="background:rgba(4,12,30,0.97);padding:14px 16px;">
-              <div style="font-size:9px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:5px;">Last Scan</div>
-              <div style="font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--purple);">Clean</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,80,80,0.12);border-bottom:0.5px solid rgba(255,80,80,0.15);transition:background 1.2s;" id="cin-stat-bg">
+            <div style="background:rgba(4,12,30,0.97);padding:13px 15px;"><div style="font-size:9px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:4px;">Network Health</div><div id="cin-health" style="font-family:var(--font-display);font-size:22px;font-weight:600;color:#ff5050;transition:color 1.2s;">12%</div></div>
+            <div style="background:rgba(4,12,30,0.97);padding:13px 15px;"><div style="font-size:9px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:4px;">Threats Blocked</div><div id="cin-blocked" style="font-family:var(--font-display);font-size:22px;font-weight:600;color:#ff5050;transition:color 1.2s;">0</div></div>
+            <div style="background:rgba(4,12,30,0.97);padding:13px 15px;"><div style="font-size:9px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:4px;">Last Scan</div><div id="cin-scan" style="font-family:var(--font-display);font-size:22px;font-weight:600;color:#ff5050;transition:color 1.2s;">BREACH</div></div>
+          </div>
+          <div style="position:relative;">
+            <canvas id="cinCanvas" style="width:100%;height:150px;display:block;"></canvas>
+            <div id="cin-overlay" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:0.06em;color:#ff5050;text-shadow:0 0 20px #ff5050aa;pointer-events:none;opacity:1;transition:opacity 0.8s;">&#x26A0; NETWORK COMPROMISED — 847 FILES AT RISK</div>
+          </div>
+          <div style="padding:12px 18px;border-top:0.5px solid rgba(255,80,80,0.12);border-bottom:0.5px solid rgba(34,211,238,0.06);">
+            <div id="cin-feed-lbl" style="font-size:10px;font-weight:700;letter-spacing:0.06em;margin-bottom:7px;color:#ff5050;transition:color 1.2s;">&#x26A0; Active Threats</div>
+            <div id="cin-alerts" style="display:flex;flex-direction:column;gap:5px;"></div>
+          </div>
+          <div style="padding:12px 18px;">
+            <div style="font-size:10px;font-weight:700;color:#fff;letter-spacing:0.06em;margin-bottom:8px;">Security Status</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px;"><span>Firewall</span><span id="b-fw-lbl" style="color:#ff5050;transition:color 1.2s;">BYPASSED</span></div><div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;"><div id="b-fw" style="width:6%;height:100%;background:#ff5050;border-radius:3px;transition:width 1.8s,background 1.8s;"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px;"><span>Malware</span><span id="b-mal-lbl" style="color:#ff5050;transition:color 1.2s;">INFECTED</span></div><div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;"><div id="b-mal" style="width:100%;height:100%;background:#ff5050;border-radius:3px;transition:width 1.8s,background 1.8s;"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px;"><span>Patches</span><span id="b-pt-lbl" style="color:#ffaa30;transition:color 1.2s;">CRITICAL</span></div><div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;"><div id="b-pt" style="width:12%;height:100%;background:#ffaa30;border-radius:3px;transition:width 1.8s,background 1.8s;"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px;"><span>DNS</span><span id="b-dns-lbl" style="color:#ff5050;transition:color 1.2s;">HIJACKED</span></div><div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;"><div id="b-dns" style="width:4%;height:100%;background:#ff5050;border-radius:3px;transition:width 1.8s,background 1.8s;"></div></div></div>
             </div>
           </div>
-          <!-- Traffic chart -->
-          <div style="padding:14px 18px;border-bottom:0.5px solid rgba(34,211,238,0.08);">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-              <div style="font-size:10px;font-weight:700;color:#fff;letter-spacing:0.06em;">Network Traffic</div>
-              <div style="font-size:10px;color:var(--muted);">Live: <span id="hero-live-mb" style="color:var(--cyan);font-weight:700;">1.4</span> MB/s</div>
-            </div>
-            <canvas id="heroTrafficChart" style="width:100%;height:80px;display:block;"></canvas>
-            <div style="display:flex;gap:14px;margin-top:7px;">
-              <div style="display:flex;align-items:center;gap:5px;font-size:9px;color:var(--muted);"><span style="width:8px;height:2px;background:var(--cyan);display:inline-block;border-radius:2px;"></span>Inbound</div>
-              <div style="display:flex;align-items:center;gap:5px;font-size:9px;color:var(--muted);"><span style="width:8px;height:2px;background:var(--purple);display:inline-block;border-radius:2px;"></span>Outbound</div>
-            </div>
-          </div>
-          <!-- Live alert feed -->
-          <div style="padding:14px 18px;border-bottom:0.5px solid rgba(34,211,238,0.08);">
-            <div style="font-size:10px;font-weight:700;color:#fff;letter-spacing:0.06em;margin-bottom:8px;">Live Alert Feed</div>
-            <div id="hero-alerts" style="display:flex;flex-direction:column;gap:5px;"></div>
-          </div>
-          <!-- Scan status bars -->
-          <div style="padding:14px 18px;">
-            <div style="font-size:10px;font-weight:700;color:#fff;letter-spacing:0.06em;margin-bottom:9px;">Security Status</div>
-            <div style="display:flex;flex-direction:column;gap:7px;">
-              <div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px;"><span>Firewall Rules</span><span style="color:#40dc90;">Active &mdash; 42 rules</span></div><div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;"><div style="width:100%;height:100%;background:#40dc90;border-radius:3px;"></div></div></div>
-              <div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px;"><span>Malware Scan</span><span style="color:#40dc90;">Clean</span></div><div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;"><div style="width:100%;height:100%;background:#40dc90;border-radius:3px;"></div></div></div>
-              <div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px;"><span>Patch Status</span><span style="color:#ffaa30;">2 pending</span></div><div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;"><div style="width:86%;height:100%;background:#ffaa30;border-radius:3px;"></div></div></div>
-              <div><div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px;"><span>DNS Filtering</span><span style="color:#40dc90;">Enabled</span></div><div style="height:3px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;"><div style="width:100%;height:100%;background:#40dc90;border-radius:3px;"></div></div></div>
-            </div>
-          </div>
-          <!-- Bottom label -->
-          <div style="padding:8px 18px;background:rgba(34,211,238,0.03);border-top:0.5px solid rgba(34,211,238,0.08);text-align:center;">
-            <span style="font-size:10px;color:var(--muted);">Prototype &mdash; </span><span style="font-size:10px;color:var(--cyan);font-weight:700;">Blossom AI Dashboard launching Q3/Q4 2026</span>
-          </div>
+          <div style="padding:8px 18px;background:rgba(255,80,80,0.04);border-top:0.5px solid rgba(255,80,80,0.12);text-align:center;transition:background 1.2s;" id="cin-bottom"><span id="cin-bottom-txt" style="font-size:10px;color:#ff5050;font-weight:700;transition:color 1.2s;">&#x26A0; Network compromise in progress</span></div>
         </div>
       </div>
     </div>
@@ -506,52 +483,84 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
 </section>
 
 <script>
-// Hero dashboard — traffic chart
 (function(){
-  var canvas=document.getElementById('heroTrafficChart');if(!canvas)return;
-  var ctx=canvas.getContext('2d');
-  function resize(){canvas.width=canvas.offsetWidth*2;canvas.height=80*2;canvas.style.width='100%';canvas.style.height='80px';ctx.scale(2,2);}
+  var c=document.getElementById('cinCanvas');if(!c)return;
+  var ctx=c.getContext('2d'),W,H,phase=0,phaseStart=Date.now(),frame=0,blocked=0,threats=[],sparks=[],shield={alpha:0,r:0};
+  var PHASES=[2200,2000,2000];
+  function resize(){c.width=c.offsetWidth*2;c.height=150*2;c.style.width='100%';c.style.height='150px';ctx.scale(2,2);W=c.offsetWidth;H=75;}
   resize();
-  var W=canvas.offsetWidth/2,H=40;
-  var inbound=[1.2,1.8,2.4,1.6,0.9,1.1,2.8,3.2,2.1,1.7,2.3,1.9,1.4,1.6,2.0,1.3,1.8,2.5,1.9,1.5,1.7,2.2,1.4,1.6];
-  var outbound=[0.8,1.1,1.6,1.0,0.6,0.8,1.9,2.1,1.4,1.1,1.5,1.2,0.9,1.0,1.3,0.8,1.1,1.6,1.2,0.9,1.1,1.4,0.9,1.0];
-  function drawChart(){
-    ctx.clearRect(0,0,W,H+10);
-    var max=3.5,pts=24,step=W/pts;
-    function drawLine(data,color,fill){ctx.beginPath();data.forEach(function(v,i){var x=i*step,y=H-(v/max*H);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.stroke();if(fill){ctx.lineTo(W,H);ctx.lineTo(0,H);ctx.closePath();ctx.fillStyle=fill;ctx.fill();}}
-    drawLine(inbound,'rgba(34,211,238,0.9)','rgba(34,211,238,0.07)');
-    drawLine(outbound,'rgba(176,110,255,0.9)','rgba(176,110,255,0.05)');
-    var last=inbound[inbound.length-1];ctx.beginPath();ctx.arc((pts-1)*step,H-(last/max*H),3,0,Math.PI*2);ctx.fillStyle='#22d3ee';ctx.fill();
+  var nodes=[{x:.5,y:.5,r:6,col:'#22d3ee'},{x:.18,y:.28,r:3.5,col:'#22d3ee'},{x:.82,y:.28,r:3.5,col:'#22d3ee'},{x:.18,y:.72,r:3.5,col:'#22d3ee'},{x:.82,y:.72,r:3.5,col:'#22d3ee'},{x:.5,y:.12,r:5,col:'#22d3ee'}];
+  function spawnThreat(){var e=Math.floor(Math.random()*4),x,y;if(e===0){x=Math.random()*W;y=-8;}else if(e===1){x=W+8;y=Math.random()*H;}else if(e===2){x=Math.random()*W;y=H+8;}else{x=-8;y=Math.random()*H;}var t=nodes[Math.floor(Math.random()*nodes.length)];threats.push({x:x,y:y,tx:t.x*W,ty:t.y*H,spd:.9+Math.random()*1.1,alpha:1,blocked:false,sz:2.5+Math.random()*2});}
+  function spark(x,y,col){for(var i=0;i<7;i++){var a=Math.random()*Math.PI*2,s=1.2+Math.random()*2.8;sparks.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,alpha:1,col:col,sz:1.2+Math.random()});}}
+  // DOM
+  var els={phase:document.getElementById('cin-phase-lbl'),wrap:document.getElementById('cinematic-wrap'),dot:document.getElementById('cin-dot'),stxt:document.getElementById('cin-status-txt'),health:document.getElementById('cin-health'),blk:document.getElementById('cin-blocked'),scan:document.getElementById('cin-scan'),statbg:document.getElementById('cin-stat-bg'),feedlbl:document.getElementById('cin-feed-lbl'),alerts:document.getElementById('cin-alerts'),overlay:document.getElementById('cin-overlay'),bottom:document.getElementById('cin-bottom'),bottomtxt:document.getElementById('cin-bottom-txt')};
+  var bars={fw:{l:document.getElementById('b-fw-lbl'),f:document.getElementById('b-fw')},mal:{l:document.getElementById('b-mal-lbl'),f:document.getElementById('b-mal')},pt:{l:document.getElementById('b-pt-lbl'),f:document.getElementById('b-pt')},dns:{l:document.getElementById('b-dns-lbl'),f:document.getElementById('b-dns')}};
+  function addAlert(col,msg,src){var d=document.createElement('div');d.style.cssText='display:flex;align-items:center;gap:7px;padding:5px 8px;background:rgba(255,255,255,0.025);border-radius:7px;border:0.5px solid rgba(255,255,255,0.05);';d.innerHTML='<div style="width:6px;height:6px;border-radius:50%;background:'+col+';flex-shrink:0;box-shadow:0 0 4px '+col+'88;"></div><div style="flex:1;font-size:10px;font-weight:700;color:#fff;">'+msg+'</div><div style="font-size:9px;color:rgba(140,170,220,0.5);white-space:nowrap;">'+src+'</div>';els.alerts.insertBefore(d,els.alerts.firstChild);while(els.alerts.children.length>3)els.alerts.removeChild(els.alerts.lastChild);}
+  // Seed attack alerts
+  [['#ff5050','Ransomware beacon','185.220.x.x'],['#ff5050','Credential dump','Admin PC'],['#ffaa30','Lateral movement','POS Terminal 2']].forEach(function(a){addAlert(a[0],a[1],a[2]);});
+  function goGreen(){
+    els.wrap.style.borderColor='rgba(34,211,238,0.35)';els.wrap.style.boxShadow='0 0 50px rgba(34,211,238,0.2)';
+    els.dot.style.background='#40dc90';els.dot.style.boxShadow='0 0 8px #40dc90';els.dot.style.animation='pulse 2s ease-in-out infinite';
+    els.stxt.textContent='Network Secured';els.stxt.style.color='#40dc90';
+    els.health.textContent='98%';els.health.style.color='#40dc90';
+    els.blk.textContent=blocked;els.blk.style.color='#40dc90';
+    els.scan.textContent='Clean';els.scan.style.color='#40dc90';
+    els.statbg.style.background='rgba(34,211,238,0.06)';
+    els.feedlbl.textContent='✦ Lotus Secured';els.feedlbl.style.color='var(--cyan)';
+    els.overlay.style.opacity='0';
+    els.bottom.style.background='rgba(34,211,238,0.03)';
+    els.bottomtxt.textContent='Prototype — Blossom AI launching Q3/Q4 2026';els.bottomtxt.style.color='var(--cyan)';
+    bars.fw.l.textContent='Active — 42 rules';bars.fw.l.style.color='#40dc90';bars.fw.f.style.width='100%';bars.fw.f.style.background='#40dc90';
+    bars.mal.l.textContent='Clean';bars.mal.l.style.color='#40dc90';bars.mal.f.style.width='100%';bars.mal.f.style.background='#40dc90';
+    bars.pt.l.textContent='2 pending';bars.pt.l.style.color='#ffaa30';bars.pt.f.style.width='86%';bars.pt.f.style.background='#ffaa30';
+    bars.dns.l.textContent='Enabled';bars.dns.l.style.color='#40dc90';bars.dns.f.style.width='100%';bars.dns.f.style.background='#40dc90';
+    els.alerts.innerHTML='';
+    [['#40dc90','Ransomware neutralised','Lotus intercepted'],['#40dc90','Firewall restored','42 rules active'],['#40dc90','Network secured','All systems clean']].forEach(function(a){addAlert(a[0],a[1],a[2]);});
   }
-  drawChart();
-  setInterval(function(){
-    inbound.shift();outbound.shift();
-    inbound.push(parseFloat((0.8+Math.random()*2.4).toFixed(1)));
-    outbound.push(parseFloat((0.5+Math.random()*1.6).toFixed(1)));
-    drawChart();
-    var mb=document.getElementById('hero-live-mb');if(mb)mb.textContent=inbound[inbound.length-1];
-  },2500);
-})();
-
-// Hero dashboard — live alerts
-(function(){
-  var alerts=[{sev:'low',msg:'Port scan probe',src:'185.220.x.x'},{sev:'med',msg:'Failed login attempt',src:'POS Terminal 2'},{sev:'low',msg:'Unusual DNS query',src:'Staff Laptop 1'},{sev:'high',msg:'Brute force blocked',src:'91.108.x.x'},{sev:'low',msg:'Outbound scan',src:'Printer — Floor 1'},{sev:'med',msg:'Traffic spike',src:'POS Terminal 1'}];
-  var idx=0,colors={high:'#ff5050',med:'#ffaa30',low:'#40dc90'};
-  var el=document.getElementById('hero-alerts');
-  function addAlert(){
-    var a=alerts[idx%alerts.length];idx++;
-    var now=new Date();
-    var div=document.createElement('div');
-    div.style.cssText='display:flex;align-items:center;gap:7px;padding:5px 8px;background:rgba(255,255,255,0.025);border-radius:7px;border:0.5px solid rgba(255,255,255,0.05);';
-    div.innerHTML='<div style="width:6px;height:6px;border-radius:50%;background:'+colors[a.sev]+';flex-shrink:0;box-shadow:0 0 4px '+colors[a.sev]+'88;"></div>'
-      +'<div style="flex:1;font-size:10px;font-weight:700;color:#fff;">'+a.msg+'</div>'
-      +'<div style="font-size:9px;color:var(--muted);white-space:nowrap;">'+a.src+'</div>';
-    el.insertBefore(div,el.firstChild);
-    while(el.children.length>3)el.removeChild(el.lastChild);
-    var b=document.getElementById('hero-blocked');if(b&&a.sev!=='low')b.textContent=parseInt(b.textContent)+1;
+  var steadyAlerts=[['#40dc90','Port scan blocked','185.220.x.x'],['#ffaa30','Failed login','POS Terminal'],['#40dc90','DNS probe blocked','Staff laptop'],['#ff5050','Brute force stopped','91.108.x.x']],si=0;
+  function draw(){
+    frame++;
+    var now=Date.now(),elapsed=now-phaseStart;
+    ctx.clearRect(0,0,W,H);
+    if(phase===0){
+      els.phase.textContent='▼ NETWORK BREACH DETECTED';
+      if(frame%7===0){var h=Math.max(5,parseInt(els.health.textContent)-2);els.health.textContent=h+'%';}
+      if(frame%18===0){var b=parseInt(els.blk.textContent)+Math.floor(Math.random()*2);els.blk.textContent=b;}
+      if(frame%5===0)spawnThreat();
+      if(elapsed>1400&&frame%90===0){var aa=[['#ff5050','Data exfiltration','Main Server'],['#ffaa30','DNS hijack attempt','Router'],['#ff5050','Ransomware spreading','All devices']];addAlert(aa[frame%3][0],aa[frame%3][1],aa[frame%3][2]);}
+      if(elapsed>PHASES[0]){phase=1;phaseStart=now;}
+    } else if(phase===1){
+      els.phase.textContent='✦ LOTUS CYBERSECURITY — INTERCEPTING...';els.phase.style.color='var(--cyan)';
+      els.overlay.textContent='✦ LOTUS CYBERSECURITY — NETWORK SECURED';els.overlay.style.color='var(--cyan)';els.overlay.style.textShadow='0 0 30px rgba(34,211,238,0.8)';els.overlay.style.opacity='1';
+      shield.alpha=Math.min(1,elapsed/PHASES[1]*2.5);
+      shield.r=Math.min(W*.65,elapsed/PHASES[1]*W*.7);
+      threats.forEach(function(t){if(!t.blocked){t.blocked=true;spark(t.x,t.y,'#40dc90');blocked++;}});threats=[];
+      if(elapsed>PHASES[1]){phase=2;phaseStart=now;goGreen();shield.alpha=0;}
+    } else if(phase===2){
+      if(elapsed>PHASES[2]){phase=3;phaseStart=now;els.phase.textContent='';}
+    } else {
+      if(frame%220===0){addAlert(steadyAlerts[si%steadyAlerts.length][0],steadyAlerts[si%steadyAlerts.length][1],steadyAlerts[si%steadyAlerts.length][2]);si++;}
+      if(frame%300===0){var b=parseInt(els.blk.textContent)+1;els.blk.textContent=b;}
+    }
+    // Grid
+    ctx.strokeStyle='rgba(34,211,238,0.04)';ctx.lineWidth=.5;
+    for(var x=0;x<W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(var y=0;y<H;y+=20){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    // Connections
+    nodes.slice(1).forEach(function(n){ctx.beginPath();ctx.moveTo(nodes[0].x*W,nodes[0].y*H);ctx.lineTo(n.x*W,n.y*H);ctx.strokeStyle=phase<1?'rgba(255,80,80,0.18)':'rgba(34,211,238,0.1)';ctx.lineWidth=.8;ctx.stroke();});
+    // Nodes
+    nodes.forEach(function(n){var col=phase>=2?'#40dc90':phase>=1?'#22d3ee':'#ff5050';ctx.beginPath();ctx.arc(n.x*W,n.y*H,n.r+3,0,Math.PI*2);ctx.fillStyle=col+'22';ctx.fill();ctx.beginPath();ctx.arc(n.x*W,n.y*H,n.r,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();});
+    // Threats
+    threats=threats.filter(function(t){return !t.blocked;});
+    threats.forEach(function(t){var dx=t.tx-t.x,dy=t.ty-t.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<8){t.blocked=true;spark(t.x,t.y,'#ff5050');blocked++;return;}t.x+=dx/dist*t.spd;t.y+=dy/dist*t.spd;ctx.beginPath();ctx.arc(t.x,t.y,t.sz+3,0,Math.PI*2);ctx.fillStyle='rgba(255,80,80,0.1)';ctx.fill();ctx.beginPath();ctx.arc(t.x,t.y,t.sz,0,Math.PI*2);ctx.fillStyle='#ff5050';ctx.fill();});
+    // Shield pulse
+    if(phase===1&&shield.alpha>0){var g=ctx.createRadialGradient(W*.5,H*.5,0,W*.5,H*.5,shield.r);g.addColorStop(0,'rgba(34,211,238,0)');g.addColorStop(.8,'rgba(34,211,238,'+shield.alpha*.08+')');g.addColorStop(.97,'rgba(34,211,238,'+shield.alpha*.5+')');g.addColorStop(1,'rgba(34,211,238,0)');ctx.beginPath();ctx.arc(W*.5,H*.5,shield.r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();ctx.strokeStyle='rgba(34,211,238,'+shield.alpha*.9+')';ctx.lineWidth=2;ctx.stroke();}
+    // Sparks
+    sparks=sparks.filter(function(s){return s.alpha>.04;});
+    sparks.forEach(function(s){s.x+=s.vx;s.y+=s.vy;s.vx*=.88;s.vy*=.88;s.alpha-=.032;ctx.beginPath();ctx.arc(s.x,s.y,s.sz,0,Math.PI*2);ctx.fillStyle=s.col+Math.round(s.alpha*255).toString(16).padStart(2,'0');ctx.fill();});
+    requestAnimationFrame(draw);
   }
-  addAlert();addAlert();addAlert();
-  setInterval(addAlert,4200);
+  draw();
 })();
 </script>
 
@@ -979,7 +988,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </section>
 
 <!-- BLOSSOM -->
-<section id="blossom" class="sec-div-pink">
+<section id="blossom" class="sec-div-pink blossom-hover-zone">
   <div class="blossom-inner z1">
     <div class="blossom-top">
       <div class="reveal">
@@ -989,15 +998,15 @@ document.addEventListener('DOMContentLoaded', function(){
         <!-- UPDATED: Blossom copy tightened to match business plan exactly -->
         <p class="section-sub">Blossom is Lotus&rsquo;s proprietary intelligent monitoring platform &mdash; currently in development. She analyses network telemetry across protected environments, identifies patterns associated with emerging threats, and learns from every system Lotus monitors. The more businesses Lotus protects, the smarter and stronger Blossom becomes.</p>
         <div class="blossom-feat-row">
-          <div class="blossom-feat">
+          <div class="blossom-feat blossom-feat-tease">
             <div class="bf-icon" style="background:rgba(255,144,200,0.12);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L18 6v5C18 15 14.5 18 10 19 5.5 18 2 15 2 11V6L10 2z" stroke="#ff90c8" stroke-width="1.2" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" stroke="#ff90c8" stroke-width="1.2" stroke-linecap="round"/></svg></div>
             <div><div class="bf-title">Real-time threat intelligence</div><div class="bf-desc">Blossom monitors your network continuously and surfaces threats before they escalate &mdash; correlating patterns across environments for smarter detection.</div></div>
           </div>
-          <div class="blossom-feat">
+          <div class="blossom-feat blossom-feat-tease">
             <div class="bf-icon" style="background:rgba(176,110,255,0.12);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 4h12v10H4z" stroke="#b06eff" stroke-width="1.2" stroke-linejoin="round"/><path d="M4 8h12M8 8v6" stroke="#b06eff" stroke-width="1.2"/></svg></div>
             <div><div class="bf-title">AI-assisted analysis</div><div class="bf-desc">Blossom converts raw scan data into structured intelligence &mdash; identifying risks automatically and helping Timothy generate client-ready reports faster.</div></div>
           </div>
-          <div class="blossom-feat">
+          <div class="blossom-feat blossom-feat-tease">
             <div class="bf-icon" style="background:rgba(34,211,238,0.1);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#22d3ee" stroke-width="1.2"/><path d="M10 6v4l3 2" stroke="#22d3ee" stroke-width="1.2" stroke-linecap="round"/></svg></div>
             <div><div class="bf-title">Predictive risk insights</div><div class="bf-desc">Blossom learns your environment and predicts vulnerabilities before attackers exploit them &mdash; flagging risks based on patterns seen across the full Lotus client network.</div></div>
           </div>
@@ -1034,25 +1043,25 @@ document.addEventListener('DOMContentLoaded', function(){
         <p class="section-sub" style="margin:0 auto;max-width:580px;">Every business Lotus protects feeds anonymised, non-identifiable threat intelligence into Blossom&rsquo;s AI model. More systems means smarter detection and stronger defence for every client &mdash; without ever sharing your specific data.</p>
       </div>
       <div class="growth-stages">
-        <div class="growth-stage reveal">
+        <div class="growth-stage growth-stage-tease reveal">
           <div class="growth-lotus"><svg viewBox="0 0 110 110" width="110" height="110" fill="none"><ellipse cx="55" cy="40" rx="7" ry="16" fill="rgba(255,100,200,0.25)" transform="rotate(0 55 55)"/><ellipse cx="55" cy="40" rx="7" ry="16" fill="rgba(200,80,255,0.2)" transform="rotate(90 55 55)"/><ellipse cx="55" cy="40" rx="7" ry="16" fill="rgba(255,100,200,0.25)" transform="rotate(180 55 55)"/><ellipse cx="55" cy="40" rx="7" ry="16" fill="rgba(200,80,255,0.2)" transform="rotate(270 55 55)"/><circle cx="55" cy="55" r="10" fill="rgba(255,140,210,0.3)" stroke="rgba(255,140,210,0.4)" stroke-width="0.5"/><circle cx="55" cy="55" r="4" fill="rgba(255,180,230,0.6)"/></svg></div>
           <div class="growth-label" style="color:rgba(255,144,200,0.5);">Seed</div>
           <div class="growth-num" style="color:rgba(255,144,200,0.7);">1&ndash;10 systems</div>
           <div class="growth-desc">Blossom begins learning your local threat landscape. Basic anomaly detection activates.</div>
         </div>
-        <div class="growth-stage reveal">
+        <div class="growth-stage growth-stage-tease reveal">
           <div class="growth-lotus"><svg viewBox="0 0 110 110" width="110" height="110" fill="none"><ellipse cx="55" cy="38" rx="9" ry="20" fill="rgba(255,100,200,0.4)" transform="rotate(0 55 55)"/><ellipse cx="55" cy="38" rx="9" ry="20" fill="rgba(200,80,255,0.35)" transform="rotate(60 55 55)"/><ellipse cx="55" cy="38" rx="9" ry="20" fill="rgba(255,100,200,0.4)" transform="rotate(120 55 55)"/><ellipse cx="55" cy="38" rx="9" ry="20" fill="rgba(200,80,255,0.35)" transform="rotate(180 55 55)"/><ellipse cx="55" cy="38" rx="9" ry="20" fill="rgba(255,100,200,0.4)" transform="rotate(240 55 55)"/><ellipse cx="55" cy="38" rx="9" ry="20" fill="rgba(200,80,255,0.35)" transform="rotate(300 55 55)"/><circle cx="55" cy="55" r="13" fill="rgba(35,8,55,0.8)" stroke="rgba(255,140,210,0.45)" stroke-width="0.5"/><circle cx="55" cy="55" r="6" fill="rgba(255,160,220,0.7)"/><circle cx="55" cy="55" r="2.5" fill="white"/></svg></div>
           <div class="growth-label" style="color:rgba(255,144,200,0.65);">Sprouting</div>
           <div class="growth-num" style="color:rgba(255,144,200,0.85);">11&ndash;50 systems</div>
           <div class="growth-desc">Pattern recognition improves. Blossom correlates threats across environments for smarter, faster alerts.</div>
         </div>
-        <div class="growth-stage reveal">
+        <div class="growth-stage growth-stage-tease reveal">
           <div class="growth-lotus"><svg viewBox="0 0 110 110" width="110" height="110" fill="none"><ellipse cx="55" cy="37" rx="10" ry="22" fill="rgba(255,100,200,0.55)" transform="rotate(0 55 55)"/><ellipse cx="55" cy="37" rx="10" ry="22" fill="rgba(200,80,255,0.5)" transform="rotate(45 55 55)"/><ellipse cx="55" cy="37" rx="10" ry="22" fill="rgba(255,100,200,0.55)" transform="rotate(90 55 55)"/><ellipse cx="55" cy="37" rx="10" ry="22" fill="rgba(200,80,255,0.5)" transform="rotate(135 55 55)"/><ellipse cx="55" cy="37" rx="10" ry="22" fill="rgba(255,100,200,0.55)" transform="rotate(180 55 55)"/><ellipse cx="55" cy="37" rx="10" ry="22" fill="rgba(200,80,255,0.5)" transform="rotate(225 55 55)"/><ellipse cx="55" cy="37" rx="10" ry="22" fill="rgba(255,100,200,0.55)" transform="rotate(270 55 55)"/><ellipse cx="55" cy="37" rx="10" ry="22" fill="rgba(200,80,255,0.5)" transform="rotate(315 55 55)"/><circle cx="55" cy="55" r="15" fill="rgba(35,8,55,0.85)" stroke="rgba(255,140,210,0.5)" stroke-width="0.8"/><circle cx="55" cy="55" r="8" fill="rgba(255,160,220,0.85)"/><circle cx="55" cy="55" r="3.5" fill="white"/></svg></div>
           <div class="growth-label" style="color:var(--pink);">Blooming</div>
           <div class="growth-num" style="color:var(--pink);">51&ndash;200 systems</div>
           <div class="growth-desc">Predictive threat intelligence activates. Blossom identifies attack patterns before they reach your systems.</div>
         </div>
-        <div class="growth-stage reveal">
+        <div class="growth-stage growth-stage-tease reveal">
           <div class="growth-lotus" style="filter:drop-shadow(0 0 16px rgba(255,100,200,0.6));"><svg viewBox="0 0 110 110" width="110" height="110" fill="none"><ellipse cx="55" cy="36" rx="11" ry="24" fill="rgba(255,100,200,0.7)" transform="rotate(0 55 55)"/><ellipse cx="55" cy="36" rx="11" ry="24" fill="rgba(200,80,255,0.65)" transform="rotate(36 55 55)"/><ellipse cx="55" cy="36" rx="11" ry="24" fill="rgba(255,100,200,0.7)" transform="rotate(72 55 55)"/><ellipse cx="55" cy="36" rx="11" ry="24" fill="rgba(200,80,255,0.65)" transform="rotate(108 55 55)"/><ellipse cx="55" cy="36" rx="11" ry="24" fill="rgba(255,100,200,0.7)" transform="rotate(144 55 55)"/><ellipse cx="55" cy="36" rx="11" ry="24" fill="rgba(200,80,255,0.65)" transform="rotate(180 55 55)"/><ellipse cx="55" cy="36" rx="11" ry="24" fill="rgba(255,100,200,0.7)" transform="rotate(216 55 55)"/><ellipse cx="55" cy="36" rx="11" ry="24" fill="rgba(200,80,255,0.65)" transform="rotate(252 55 55)"/><ellipse cx="55" cy="36" rx="11" ry="24" fill="rgba(255,100,200,0.7)" transform="rotate(288 55 55)"/><ellipse cx="55" cy="36" rx="11" ry="24" fill="rgba(200,80,255,0.65)" transform="rotate(324 55 55)"/><circle cx="55" cy="55" r="16" fill="rgba(35,8,55,0.9)" stroke="rgba(255,140,210,0.7)" stroke-width="1"/><circle cx="55" cy="55" r="9" fill="rgba(255,160,220,0.95)"/><circle cx="55" cy="55" r="4" fill="white"/></svg></div>
           <div class="growth-label" style="color:var(--pink);">Full Bloom</div>
           <div class="growth-num" style="color:var(--pink);">200+ systems</div>
@@ -1069,39 +1078,38 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="reveal" style="text-align:center;margin-bottom:56px;">
       <div class="section-label pink">Under the hood</div>
       <h2 class="section-title">How <span class="pink">Blossom</span> actually works</h2>
-      <p class="section-sub" style="margin:0 auto;max-width:580px;">Five steps from anomaly to containment, automated by AI while Timothy stays in command of every engagement.</p>
+      <p class="section-sub" style="margin:0 auto;max-width:560px;">Blossom&rsquo;s detection architecture is proprietary technology. Full technical access granted to monitoring clients at launch.</p>
     </div>
-    <div class="reveal" style="background:rgba(4,12,30,0.8);border:0.5px solid rgba(34,211,238,0.15);border-radius:24px;overflow:hidden;">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:36px 40px 32px;gap:0;">
-        <div class="bpstage" id="bps0"><div class="bpicon" style="background:rgba(34,211,238,0.1);border-color:rgba(34,211,238,0.3);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="11" rx="2" stroke="#22d3ee" stroke-width="1.1"/><path d="M2 9h16M6 13h2M11 13h3" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="bplabel">Network sensor</div><div class="bpdesc">Every device emits live telemetry to Blossom</div></div>
-        <div class="bparrow"></div>
-        <div class="bpstage" id="bps1"><div class="bpicon" style="background:rgba(176,110,255,0.1);border-color:rgba(176,110,255,0.3);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3.5" fill="rgba(176,110,255,0.7)"/><path d="M10 1v3M10 16v3M1 10h3M16 10h3" stroke="#b06eff" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="bplabel">AI analysis</div><div class="bpdesc">Pattern matched against known &amp; emerging signatures</div></div>
-        <div class="bparrow"></div>
-        <div class="bpstage" id="bps2"><div class="bpicon" style="background:rgba(255,170,50,0.1);border-color:rgba(255,170,50,0.3);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L18 6v5c0 5-3.5 7-8 8.5C4.5 18 1 16 1 11V6L10 2z" stroke="#ffaa30" stroke-width="1.1" fill="none"/><path d="M6.5 10l2.5 2.5L15 7" stroke="#ffaa30" stroke-width="1.1" stroke-linecap="round"/></svg></div><div class="bplabel">Threat scored</div><div class="bpdesc">Severity, confidence &amp; business impact rated instantly</div></div>
-        <div class="bparrow"></div>
-        <div class="bpstage" id="bps3"><div class="bpicon" style="background:rgba(255,80,80,0.1);border-color:rgba(255,80,80,0.3);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#ff5050" stroke-width="1.1"/><path d="M10 6v4.5M10 14v.5" stroke="#ff5050" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="bplabel">Alert triggered</div><div class="bpdesc">Timothy &amp; client notified instantly with full context</div></div>
-        <div class="bparrow"></div>
-        <div class="bpstage" id="bps4"><div class="bpicon" style="background:rgba(64,220,144,0.1);border-color:rgba(64,220,144,0.3);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10l5 5 9-9" stroke="#40dc90" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="bplabel">Contained</div><div class="bpdesc">Threat isolated &amp; remediation plan auto-generated</div></div>
+    <div class="reveal blossom-hover-zone" style="position:relative;border-radius:24px;overflow:hidden;">
+      <!-- Blurred ghost of the pipeline -->
+      <div style="filter:blur(7px);opacity:0.3;pointer-events:none;background:rgba(4,12,30,0.9);border:0.5px solid rgba(34,211,238,0.1);border-radius:24px;padding:36px 40px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:0;">
+          <div style="flex:1;text-align:center;"><div style="width:52px;height:52px;border-radius:14px;background:rgba(34,211,238,0.1);border:0.5px solid rgba(34,211,238,0.3);margin:0 auto 12px;"></div><div style="height:10px;background:rgba(255,255,255,0.15);border-radius:4px;margin-bottom:6px;"></div><div style="height:8px;background:rgba(255,255,255,0.08);border-radius:4px;width:80%;margin:0 auto;"></div></div>
+          <div style="width:28px;padding-top:26px;text-align:center;color:rgba(34,211,238,0.3);font-size:16px;">&rarr;</div>
+          <div style="flex:1;text-align:center;"><div style="width:52px;height:52px;border-radius:14px;background:rgba(176,110,255,0.1);border:0.5px solid rgba(176,110,255,0.3);margin:0 auto 12px;"></div><div style="height:10px;background:rgba(255,255,255,0.15);border-radius:4px;margin-bottom:6px;"></div><div style="height:8px;background:rgba(255,255,255,0.08);border-radius:4px;width:80%;margin:0 auto;"></div></div>
+          <div style="width:28px;padding-top:26px;text-align:center;color:rgba(34,211,238,0.3);font-size:16px;">&rarr;</div>
+          <div style="flex:1;text-align:center;"><div style="width:52px;height:52px;border-radius:14px;background:rgba(255,170,50,0.1);border:0.5px solid rgba(255,170,50,0.3);margin:0 auto 12px;"></div><div style="height:10px;background:rgba(255,255,255,0.15);border-radius:4px;margin-bottom:6px;"></div><div style="height:8px;background:rgba(255,255,255,0.08);border-radius:4px;width:80%;margin:0 auto;"></div></div>
+          <div style="width:28px;padding-top:26px;text-align:center;color:rgba(34,211,238,0.3);font-size:16px;">&rarr;</div>
+          <div style="flex:1;text-align:center;"><div style="width:52px;height:52px;border-radius:14px;background:rgba(255,80,80,0.1);border:0.5px solid rgba(255,80,80,0.3);margin:0 auto 12px;"></div><div style="height:10px;background:rgba(255,255,255,0.15);border-radius:4px;margin-bottom:6px;"></div><div style="height:8px;background:rgba(255,255,255,0.08);border-radius:4px;width:80%;margin:0 auto;"></div></div>
+          <div style="width:28px;padding-top:26px;text-align:center;color:rgba(34,211,238,0.3);font-size:16px;">&rarr;</div>
+          <div style="flex:1;text-align:center;"><div style="width:52px;height:52px;border-radius:14px;background:rgba(64,220,144,0.1);border:0.5px solid rgba(64,220,144,0.3);margin:0 auto 12px;"></div><div style="height:10px;background:rgba(255,255,255,0.15);border-radius:4px;margin-bottom:6px;"></div><div style="height:8px;background:rgba(255,255,255,0.08);border-radius:4px;width:80%;margin:0 auto;"></div></div>
+        </div>
       </div>
-      <div style="border-top:0.5px solid rgba(34,211,238,0.1);padding:18px 40px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
-        <div style="display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);"><div class="badge-dot"></div>Interactive demo</div>
-        <button onclick="runBlossomDemo()" style="padding:7px 20px;background:rgba(34,211,238,0.1);border:0.5px solid rgba(34,211,238,0.35);border-radius:99px;font-family:var(--font-body);font-size:11px;font-weight:700;color:var(--cyan);cursor:pointer;">Simulate threat &#x21E8;</button>
+      <!-- Classified overlay -->
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(2,6,18,0.78);backdrop-filter:blur(3px);gap:18px;">
+        <div style="border:3px solid rgba(255,80,80,0.65);border-radius:6px;padding:7px 22px;transform:rotate(-3deg);">
+          <div style="font-family:var(--font-display);font-size:20px;font-weight:600;color:rgba(255,80,80,0.8);letter-spacing:0.2em;text-transform:uppercase;">CLASSIFIED</div>
+        </div>
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" style="opacity:0.55;"><rect x="7" y="20" width="30" height="20" rx="3.5" stroke="rgba(255,144,200,0.65)" stroke-width="1.4"/><path d="M13 20V14.5a9 9 0 0118 0V20" stroke="rgba(255,144,200,0.65)" stroke-width="1.4" stroke-linecap="round"/><circle cx="22" cy="30" r="2.5" fill="rgba(255,144,200,0.65)"/></svg>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-display);font-size:15px;color:#fff;margin-bottom:7px;">Blossom Architecture — Restricted</div>
+          <div style="font-size:12px;color:rgba(255,144,200,0.65);line-height:1.75;max-width:360px;">Proprietary detection pipeline.<br/>Full technical access unlocked for monitoring clients at launch.</div>
+        </div>
+        <a href="#contact" class="btn-pink" style="font-size:12px;padding:10px 22px;">Join the waitlist &rarr;</a>
       </div>
-      <div id="blossomDemoLog" style="padding:0 40px 20px;min-height:32px;display:flex;flex-direction:column;gap:5px;"></div>
     </div>
   </div>
 </section>
-<script>
-function runBlossomDemo(){
-  var log=document.getElementById('blossomDemoLog');
-  var stages=[{dot:'#ff9900',txt:'Anomaly: unusual outbound traffic from 192.168.1.45, 2.4 GB/hr'},{dot:'#b06eff',txt:'Blossom AI: matches lateral movement signature (94% confidence)'},{dot:'#ff5050',txt:'THREAT HIGH: Potential ransomware beacon detected'},{dot:'#ffaa30',txt:'Isolating endpoint 192.168.1.45 from network segment\u2026'},{dot:'#40dc90',txt:'Contained. Lotus Admin notified. Remediation plan ready.'}];
-  log.innerHTML='';
-  var els=document.querySelectorAll('.bpstage');els.forEach(function(e){e.classList.remove('bp-lit');});
-  var i=0;
-  function step(){if(i>=stages.length)return;if(els[i])els[i].classList.add('bp-lit');var d=document.createElement('div');d.className='bp-log';d.innerHTML='<div class="bp-dot" style="background:'+stages[i].dot+';box-shadow:0 0 5px '+stages[i].dot+'80;"></div><span>'+stages[i].txt+'</span>';log.appendChild(d);i++;if(i<stages.length)setTimeout(step,900);}
-  step();
-}
-</script>
 
 <!-- PROCESS -->
 <section id="process" class="sec-div-purple" style="background:var(--surface);">
@@ -1847,5 +1855,55 @@ async function handleContact(e){
     else{btn.textContent='Something went wrong. Please email info@lotuscyber.io';btn.style.background='rgba(255,80,80,0.3)';btn.disabled=false;}
   }catch(err){btn.textContent='Something went wrong. Please email info@lotuscyber.io';btn.style.background='rgba(255,80,80,0.3)';btn.disabled=false;}
 }
+
+<style>
+#blossom-petal-canvas{position:fixed;inset:0;pointer-events:none;z-index:9998;}
+.blossom-hover-zone{position:relative;}
+.blossom-feat-tease:hover .bf-desc{filter:blur(2.5px);transition:filter 0.3s;}
+.blossom-feat-tease{position:relative;}
+.blossom-feat-tease::after{content:'✦ In Development';position:absolute;top:12px;right:14px;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--pink);opacity:0;transition:opacity 0.25s;}
+.blossom-feat-tease:hover::after{opacity:1;}
+.growth-stage-tease:hover .growth-desc{filter:blur(2px);transition:filter 0.3s;}
+</style>
+<canvas id="blossom-petal-canvas"></canvas>
+<script>
+(function(){
+  var canvas=document.getElementById('blossom-petal-canvas');
+  var ctx=canvas.getContext('2d');
+  var petals=[],W,H;
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  var COLS=['rgba(255,144,200,','rgba(200,100,255,','rgba(255,110,180,','rgba(215,120,255,'];
+  function spawnPetals(x,y,n){
+    n=n||10;
+    for(var i=0;i<n;i++){
+      var a=Math.random()*Math.PI*2,spd=0.4+Math.random()*1.4;
+      petals.push({x:x,y:y,vx:Math.cos(a)*spd*0.6,vy:-(0.6+Math.random()*1.8),rot:Math.random()*Math.PI*2,rs:(Math.random()-.5)*0.07,w:5+Math.random()*9,h:3.5+Math.random()*5.5,alpha:0,fadeIn:true,col:COLS[Math.floor(Math.random()*COLS.length)]});
+    }
+  }
+  function attachListeners(){
+    document.querySelectorAll('#blossom,#how-blossom-works,.blossom-feat,.blossom-hover-zone,.growth-stage,.blossom-coming,.b-orb,.blossom-growth,.bf-icon,.blossom-lotus-center').forEach(function(el){
+      el.addEventListener('mouseenter',function(e){var r=el.getBoundingClientRect();spawnPetals(r.left+r.width/2,r.top+r.height/3,12);});
+      el.addEventListener('mousemove',function(e){if(Math.random()<0.07)spawnPetals(e.clientX,e.clientY,4);});
+    });
+  }
+  document.addEventListener('DOMContentLoaded',function(){setTimeout(attachListeners,600);});
+  function animate(){
+    ctx.clearRect(0,0,W,H);
+    petals=petals.filter(function(p){return p.alpha>0.01&&p.y<H+50;});
+    petals.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;p.vy+=0.032;p.vx+=(Math.random()-.5)*0.035;p.rot+=p.rs;
+      if(p.fadeIn&&p.alpha<0.75)p.alpha+=0.055;else{p.fadeIn=false;p.alpha-=0.007;}
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);
+      ctx.beginPath();ctx.ellipse(0,0,p.w*.38,p.h,0,0,Math.PI*2);
+      ctx.fillStyle=p.col+p.alpha.toFixed(2)+')';ctx.fill();ctx.restore();
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+  window.spawnBlossomPetals=spawnPetals;
+})();
+</script>
+
 </body>
 </html>
