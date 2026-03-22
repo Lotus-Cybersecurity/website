@@ -465,7 +465,7 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
         </div>
         <div class="hvc hvc-c">
           <div class="hvc-icon" style="background:rgba(176,110,255,0.15);"><svg width="13" height="13" viewBox="0 0 13 13"><circle cx="6.5" cy="6.5" r="2.5" fill="rgba(176,110,255,0.8)"/><circle cx="6.5" cy="6.5" r="5.5" stroke="rgba(176,110,255,0.5)" stroke-width="0.8" fill="none"/></svg></div>
-          <div class="hvc-text"><div class="hvc-title">Blossom AI online</div><div class="hvc-sub" id="hvc-blossom-status">Scanning traffic&hellip;</div></div>
+          <div class="hvc-text"><div class="hvc-title">Blossom AI &mdash; Q3/Q4 2026</div><div class="hvc-sub">In development</div></div>
           <div class="hvc-pulse" style="background:var(--purple);"></div>
         </div>
         <div class="hvc hvc-d">
@@ -1369,7 +1369,16 @@ function runBlossomDemo(){
   window.setRating=function(n){_rating=n;document.getElementById('rv-rating').value=n;document.querySelectorAll('.rv-star').forEach(function(s){s.classList.toggle('lit',parseInt(s.getAttribute('data-v'))<=n);});var l=document.getElementById('rv-star-label');if(l)l.textContent=starLabels[n]||'';};
   function loadReviews(){try{return JSON.parse(localStorage.getItem('lotus_reviews')||'[]');}catch(e){return[];}}
   function saveReviews(arr){try{localStorage.setItem('lotus_reviews',JSON.stringify(arr));}catch(e){}}
-  function renderReviews(){var reviews=loadReviews();var grid=document.getElementById('approvedReviews');var empty=document.getElementById('reviewEmpty');if(!grid)return;grid.querySelectorAll('.review-card-approved').forEach(function(el){el.remove();});if(reviews.length===0){if(empty)empty.style.display='block';return;}if(empty)empty.style.display='none';var cols=['rgba(34,211,238,0.12)','rgba(176,110,255,0.12)','rgba(255,144,200,0.12)','rgba(255,170,50,0.12)'];var tcs=['var(--cyan)','var(--purple)','var(--pink)','#ffaa30'];reviews.forEach(function(r){var stars='';for(var i=1;i<=5;i++){stars+='<span style="color:'+(i<=r.rating?'rgba(255,200,50,0.9)':'rgba(255,200,50,0.18)')+'">&#9733;</span>';}var initials=(r.name||'?').split(' ').map(function(w){return(w[0]||'').toUpperCase();}).join('').slice(0,2);var ci=Math.abs((r.name.charCodeAt(0)||0))%4;var card=document.createElement('div');card.className='review-card-approved';card.innerHTML='<div class="rca-stars">'+stars+'</div><p class="rca-text">"'+r.text+'"</p><div class="rca-author"><div class="rca-avatar" style="background:'+cols[ci]+';color:'+tcs[ci]+';">'+initials+'</div><div><div class="rca-name">'+r.name+'</div><div class="rca-role">'+(r.role||'Lotus client')+(r.date?' &middot; '+r.date:'')+'</div></div></div>';grid.appendChild(card);});}
+  function renderReviews(){
+    // Only approved reviews appear here - submitted reviews go to Timothy via email only
+    var grid=document.getElementById('approvedReviews');
+    var empty=document.getElementById('reviewEmpty');
+    if(!grid)return;
+    // Remove any stale localStorage reviews from display
+    grid.querySelectorAll('.review-card-approved').forEach(function(el){el.remove();});
+    // Show empty state until Timothy manually adds approved reviews to the HTML
+    if(empty)empty.style.display='block';
+  }
   window.submitReview=function(){var name=document.getElementById('rv-name').value.trim();var role=document.getElementById('rv-role').value.trim();var rating=parseInt(document.getElementById('rv-rating').value)||0;var text=document.getElementById('rv-text').value.trim();if(!name||!text){alert('Please add your name and a review.');return;}if(rating<1){alert('Please select a star rating.');return;}var reviews=loadReviews();var rev={name:name,role:role,rating:rating,text:text,date:new Date().toLocaleDateString('en-US',{month:'short',year:'numeric'})};reviews.unshift(rev);saveReviews(reviews);renderReviews();fetch('https://formspree.io/f/xjgajnpe',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New Lotus Review from '+name,name:name,role:role||'Lotus client',rating:rating+' stars',review:text})}).catch(function(){});var ok=document.getElementById('rv-success');if(ok){ok.style.display='block';setTimeout(function(){ok.style.display='none';},7000);}document.getElementById('rv-name').value='';document.getElementById('rv-role').value='';document.getElementById('rv-text').value='';window.setRating(0);};
   document.addEventListener('DOMContentLoaded',renderReviews);
 })();
@@ -1800,4 +1809,11 @@ async function handleContact(e){
     threats.forEach(function(t){var dx=CX-t.x,dy=CY-t.y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<95&&!t.blocked){t.blocked=true;t.pulse=0.1;blocked++;var el=document.getElementById('hvc-blocked-count');if(el)el.textContent=blocked;spawnSparks(t.x,t.y);addFeedItem(t.col);}if(!t.blocked){t.x+=dx/dist*t.speed;t.y+=dy/dist*t.speed;ctx.beginPath();ctx.arc(t.x,t.y,t.size,0,Math.PI*2);ctx.fillStyle=t.col;ctx.fill();}else{t.alpha-=0.022;if(t.pulse>0){t.pulse+=0.06;ctx.beginPath();ctx.arc(t.x,t.y,t.pulse*22,0,Math.PI*2);ctx.strokeStyle='rgba(64,220,144,'+Math.max(0,0.8-t.pulse*0.4)+')';ctx.lineWidth=2;ctx.stroke();if(t.pulse>2)t.pulse=0;}}});
     requestAnimationFrame(draw);
   }
-  var feedData=[['192.168.1.','Port scan blocked'],['1
+  var feedData=[['192.168.1.','Port scan blocked'],['10.0.0.','Brute force stopped'],['172.16.','Suspicious DNS'],['192.168.','Malware blocked'],['10.0.','SQL injection attempt'],['172.','C2 traffic blocked']];
+  function addFeedItem(col){var el=document.getElementById('hvc-feed-list');if(!el)return;var d=feedData[Math.floor(Math.random()*feedData.length)];var ip=d[0]+Math.floor(Math.random()*254);var item=document.createElement('div');item.className='hvc-feed-item';item.innerHTML='<div class="hvc-feed-dot" style="background:'+col+';"></div><div class="hvc-feed-text">'+d[1]+'</div><div class="hvc-feed-time">'+ip+'</div>';el.insertBefore(item,el.firstChild);while(el.children.length>3)el.removeChild(el.lastChild);}
+  setInterval(function(){var el=document.getElementById('hvc-bandwidth');if(el)el.textContent=(0.8+Math.random()*1.8).toFixed(1);var msgs=['Scanning traffic\u2026','0 threats found','Monitoring packets','AI analysis active','Network clean'];var s=document.getElementById('hvc-blossom-status');if(s)s.textContent=msgs[Math.floor(Math.random()*msgs.length)];},2200);
+  draw();
+  setTimeout(function(){spawnThreat();spawnThreat();spawnThreat();},600);
+})();
+</script></body>
+</html>
