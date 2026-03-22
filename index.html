@@ -322,37 +322,56 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
 .cd-num{font-family:var(--font-display);font-size:26px;font-weight:600;color:var(--cyan);line-height:1;background:rgba(34,211,238,0.07);border:0.5px solid rgba(34,211,238,0.18);border-radius:8px;padding:6px 10px;min-width:44px;display:inline-block;letter-spacing:0.04em;}
 .cd-label{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
 /* RESPONSIVE */
+/* ── Tablet ── */
 @media(max-width:1000px){
   nav{padding:12px 24px;}
   .nav-links{display:none;}
-  section{padding:80px 24px;}
+  section{padding:72px 24px;}
   .blossom-top,.insurance-inner,.contact-inner{grid-template-columns:1fr;}
-  .hero-inner{grid-template-columns:1fr 1fr;gap:24px;}
-  .steps-row{grid-template-columns:1fr 1fr;gap:40px;}
+  .hero-inner{grid-template-columns:1fr;gap:32px;}
+  .steps-row{grid-template-columns:1fr 1fr;gap:32px;}
   .steps-row::before{display:none;}
-  .footer-top{grid-template-columns:1fr 1fr;gap:36px;}
-  .fr-hero{grid-template-columns:1fr;gap:36px;padding:36px 28px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:28px;}
+  .fr-hero{grid-template-columns:1fr;gap:28px;padding:28px 20px;}
   .referral-grid{grid-template-columns:1fr;}
-  .growth-stages{grid-template-columns:1fr 1fr;gap:32px;}
+  .growth-stages{grid-template-columns:1fr 1fr;gap:24px;}
   .growth-stages::before{display:none;}
   .cf-grid{grid-template-columns:1fr;}
   .ref-rewards{grid-template-columns:1fr 1fr;}
   .blossom-visual{display:none;}
+  .hero-title{font-size:52px;}
+  #testi-root{display:none !important;}
 }
+/* ── Mobile ── */
 @media(max-width:600px){
   nav{padding:10px 16px;}
-  section{padding:60px 16px;}
-  .hero-title{font-size:38px;}
+  section{padding:52px 16px;}
+  .hero-title{font-size:36px;line-height:1.1;}
   .section-title{font-size:22px;}
+  .hero-desc{font-size:14px;}
+  .hero-tagline{font-size:11px;}
+  .hero-badge{font-size:10px;padding:6px 14px;}
   .pricing-grid,.steps-row,.footer-top,.ref-rewards{grid-template-columns:1fr;}
-  .fr-hero,.referral-hero{padding:28px 20px;}
-  .contact-form-wrap{padding:24px 18px;}
+  .fr-hero,.referral-hero{padding:24px 16px;}
+  .contact-form-wrap{padding:20px 16px;}
   .growth-stages{grid-template-columns:1fr;}
-  .nav-cta{font-size:10px;padding:6px 14px;}
-  .cd-num{font-size:20px;padding:4px 8px;min-width:36px;}
+  .nav-cta{font-size:10px;padding:6px 12px;}
+  .cd-num{font-size:18px;padding:4px 6px;min-width:32px;}
+  .countdown-wrap{gap:6px;}
+  .cd-label{font-size:8px;}
+  .btn-cyan,.btn-ghost{padding:12px 20px;font-size:13px;}
+  .svc-card{padding:24px 20px;}
+  .section-sub{font-size:13px;}
+  #testi-root{display:none !important;}
+}
+@media(max-width:700px){.steps-side-by-side{grid-template-columns:1fr !important;}}
+/* ── Small mobile ── */
+@media(max-width:400px){
+  .hero-title{font-size:30px;}
+  section{padding:44px 14px;}
+  .cd-num{font-size:16px;min-width:28px;}
 }
 @media(max-width:1100px){.hero-shield-wrap{width:360px;height:360px;}.hvc{display:none;}.hvc-feed-box{display:none;}}
-@media(max-width:760px){#testi-root{display:none !important;}}
 
 /* ── Rotating testimonial cards ── */
 .tcard{
@@ -936,7 +955,7 @@ document.addEventListener('DOMContentLoaded', function(){
     <div class="reveal" style="text-align:center;margin-bottom:32px;">
       <p style="font-size:14px;color:var(--muted);">Start with an assessment, then harden what we find &mdash; or do both together.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
+    <div class="steps-side-by-side" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
       <div>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
           <div style="width:36px;height:36px;border-radius:50%;background:rgba(34,211,238,0.1);border:0.5px solid rgba(34,211,238,0.4);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--cyan);flex-shrink:0;">1</div>
