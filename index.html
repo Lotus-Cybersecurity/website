@@ -435,41 +435,49 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
 
     </div>
     <!-- HERO VISUAL — Propaganda Board -->
-    <div class="hero-visual">
-      <div class="prop-board" id="propBoard">
-        <!-- Questions injected by JS -->
+  </div>
+</section>
+
+<!-- PROPAGANDA BOARD SECTION -->
+<section id="prop-section" style="background:var(--bg);padding:0 48px 80px;position:relative;z-index:1;overflow:hidden;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,80,80,0.08);border:0.5px solid rgba(255,80,80,0.3);border-radius:99px;padding:6px 16px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#ff6060;margin-bottom:16px;">
+        <div style="width:6px;height:6px;border-radius:50%;background:#ff5050;animation:pulse 1.2s ease-in-out infinite;"></div>
+        Questions every Main Line business owner should be asking
       </div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(22px,3vw,34px);color:#fff;font-weight:600;line-height:1.2;margin-bottom:0;">Is your business actually <span style="background:linear-gradient(135deg,#ff5050,#ff90c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">protected?</span></h2>
     </div>
+    <div class="prop-board" id="propBoard"></div>
   </div>
 </section>
 
 <style>
 .prop-board{
-  position:relative;
-  width:520px;
-  height:480px;
-  flex-shrink:0;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:16px;
 }
 .prop-q{
-  position:absolute;
+  position:relative;
   background:rgba(4,12,30,0.92);
-  border-radius:12px;
-  padding:12px 18px;
+  border-radius:14px;
+  padding:18px 20px;
   font-size:13px;
   font-weight:600;
   color:#fff;
-  line-height:1.45;
+  line-height:1.5;
   backdrop-filter:blur(12px);
   cursor:default;
   user-select:none;
-  transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;
+  transition:transform 0.25s,box-shadow 0.25s;
   animation:propFloat ease-in-out infinite, propFadeIn 0.6s ease forwards;
   opacity:0;
-  max-width:260px;
+  animation-fill-mode:forwards;
 }
 .prop-q:hover{
-  transform:scale(1.06) translateY(-4px) !important;
-  z-index:20 !important;
+  transform:translateY(-5px) rotate(var(--rot,0deg)) scale(1.03);
+  z-index:20;
 }
 .prop-q .prop-icon{
   font-size:16px;
@@ -577,7 +585,21 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
       text:'Is your business being scanned by attackers right now?',
       color:'prop-amber',
       icon:'&#x1F6A8;',
-      x:'46%', y:'80%', rot:'-1deg', dy:'-5px', dur:'5.0s', delay:'0.9s'
+      rot:'-1deg', dy:'-5px', dur:'5.0s', delay:'0.9s'
+    },
+    {
+      tag:'After a breach',
+      text:'Would your business survive a $120,000 recovery bill?',
+      color:'prop-red',
+      icon:'&#x1F4B8;',
+      rot:'1deg', dy:'-6px', dur:'4.3s', delay:'1.2s', pulse:true
+    },
+    {
+      tag:'Your reputation',
+      text:'One breach. Every client you've ever had — notified.',
+      color:'prop-red',
+      icon:'&#x1F4E2;',
+      rot:'-0.5deg', dy:'-7px', dur:'4.8s', delay:'0.3s', pulse:true
     },
   ];
 
@@ -587,13 +609,10 @@ footer{padding:52px 48px 36px;border-top:0.5px solid var(--border);position:rela
   questions.forEach(function(q, i){
     var el = document.createElement('div');
     el.className = 'prop-q ' + q.color;
-    el.style.left = q.x;
-    el.style.top = q.y;
     el.style.setProperty('--rot', q.rot);
     el.style.setProperty('--dy', q.dy);
     el.style.animationDuration = q.dur + ', 0.6s';
     el.style.animationDelay = q.delay + ', ' + q.delay;
-    el.style.zIndex = 10 - i;
     el.innerHTML = (q.pulse ? '<span class="prop-pulse"></span>' : '')
       + '<span class="prop-tag">' + (q.icon ? q.icon + ' ' : '') + q.tag + '</span>'
       + q.text;
