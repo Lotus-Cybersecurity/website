@@ -5,7 +5,7 @@
 <script>
 // Redirect desktop users to full site
 if(!/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-  window.location.replace('./lotus-final.html');
+  window.location.replace('/main.html');
 }
 </script>
 
@@ -343,14 +343,14 @@ footer{background:var(--ink3);padding:32px 24px;text-align:center;border-top:1px
   <div class="footer-brand">LOTUS <em>CYBERSECURITY</em></div>
   <div class="footer-copy">
     Devon, Pennsylvania · Main Line PA<br/>
-    <a class="footer-email" href="mailto:info@lotuscyber.io">info@lotuscyber.io</a><br/>
+    <a class="footer-email" href="/cdn-cgi/l/email-protection#e38a8d858ca38f8c979690809a818691cd8a8c"><span class="__cf_email__" data-cfemail="5e373038311e32312a2b2d3d273c3b2c703731">[email&#160;protected]</span></a><br/>
     <br/>
     © 2026 Lotus Cybersecurity LLC · Retired law enforcement owned<br/>
-    <a href="./lotus-final.html" style="color:var(--cyan);font-size:13px;font-weight:600;text-decoration:none;">View full website →</a>
+    <a href="/main.html" style="color:var(--cyan);font-size:13px;font-weight:600;text-decoration:none;">View full website →</a>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.getElementById('mobile-form').addEventListener('submit', function(e){
   e.preventDefault();
   var form = this;
@@ -364,17 +364,6 @@ document.getElementById('mobile-form').addEventListener('submit', function(e){
   }).then(function(r){
     if(r.ok){
       form.style.display='none';
-      document.getElementById('success-msg').classList.add('show');
-    } else {
-      btn.textContent = 'Try again';
-      btn.disabled = false;
-    }
-  }).catch(function(){
-    btn.textContent = 'Try again';
-    btn.disabled = false;
-  });
-});
-</script>
-
+      document.getElementById('s
 </body>
 </html>
