@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2295,6 +2294,100 @@ async function handleForm(e){
     setTimeout(function(){ok.style.display='none';},6000);
   };
 })();
+
+/* ── TOUCH / TAP INTERACTIONS ─────────────────────── */
+
+// Detect touch device
+var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+// ── Service flip cards ──────────────────────────────
+// On touch: tap card to flip, tap again to flip back
+if(isTouch){
+  document.querySelectorAll('.flip').forEach(function(card){
+    card.addEventListener('touchend', function(e){
+      e.preventDefault();
+      var inner = card.querySelector('.flip-in');
+      if(!inner) return;
+      var flipped = card.getAttribute('data-flipped') === '1';
+      if(flipped){
+        inner.style.transform = 'rotateY(0deg)';
+        card.setAttribute('data-flipped','0');
+      } else {
+        inner.style.transform = 'rotateY(180deg)';
+        card.setAttribute('data-flipped','1');
+      }
+    }, {passive:false});
+    // Add tap hint
+    var hint = card.querySelector('.flip-hint');
+    if(hint) hint.textContent = '↓ Tap for technical detail';
+  });
+
+  // ── Compliance flip cards ─────────────────────────
+  document.querySelectorAll('.comp-flip').forEach(function(card){
+    card.addEventListener('touchend', function(e){
+      e.preventDefault();
+      var inner = card.querySelector('.cf-in');
+      if(!inner) return;
+      var flipped = card.getAttribute('data-flipped') === '1';
+      inner.style.transform = flipped ? 'rotateY(0deg)' : 'rotateY(180deg)';
+      card.setAttribute('data-flipped', flipped ? '0' : '1');
+    }, {passive:false});
+  });
+
+  // ── Monitoring graphic ────────────────────────────
+  var monCompare = document.getElementById('mon-compare');
+  if(monCompare){
+    // Remove the hidden state on mobile — show both stacked
+    var infected = document.getElementById('mon-infected');
+    var protected_ = document.getElementById('mon-protected');
+    if(infected && protected_){
+      // Show infected by default, tap to toggle
+      infected.style.position = 'relative';
+      infected.style.opacity = '1';
+      protected_.style.position = 'relative';
+      protected_.style.opacity = '0';
+      protected_.style.height = '0';
+      protected_.style.overflow = 'hidden';
+      protected_.style.transition = 'opacity .4s, height .4s';
+      
+      var monShowing = 'infected';
+      monCompare.style.height = 'auto';
+      monCompare.style.cursor = 'pointer';
+
+      // Add tap button
+      var tapBtn = document.createElement('div');
+      tapBtn.style.cssText = 'text-align:center;padding:12px;background:rgba(45,212,232,.1);border-top:1px solid rgba(45,212,232,.2);font-size:13px;font-weight:600;color:var(--cyan);letter-spacing:.06em;cursor:pointer;';
+      tapBtn.textContent = 'TAP TO SEE WITH LOTUS →';
+      monCompare.appendChild(tapBtn);
+
+      tapBtn.addEventListener('touchend', function(e){
+        e.preventDefault();
+        if(monShowing === 'infected'){
+          infected.style.opacity = '0';
+          infected.style.height = '0';
+          infected.style.overflow = 'hidden';
+          protected_.style.opacity = '1';
+          protected_.style.height = 'auto';
+          tapBtn.textContent = '← TAP TO SEE WITHOUT LOTUS';
+          monShowing = 'protected';
+        } else {
+          protected_.style.opacity = '0';
+          protected_.style.height = '0';
+          infected.style.opacity = '1';
+          infected.style.height = 'auto';
+          tapBtn.textContent = 'TAP TO SEE WITH LOTUS →';
+          monShowing = 'infected';
+        }
+      }, {passive:false});
+    }
+  }
+
+  // ── Add "tap" label to all hover hints ────────────
+  document.querySelectorAll('[style*="Hover"]').forEach(function(el){
+    el.textContent = el.textContent.replace('Hover','Tap');
+  });
+}
+
 </script>
 
 <div class="modal" id="mc" onclick="if(event.target===this)this.classList.remove('open')">
